@@ -32,21 +32,79 @@
 
   <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
 
-    <!-- Promo Reel (Crucial for Talent Buyers) -->
+    <!-- Featured Media: Band/Late Shift reel by default, ZembAcoustics on demand -->
     <section class="space-y-6">
       <div class="border-l-4 border-amber-500 pl-4">
         <h2 class="text-2xl font-bold tracking-tight uppercase">Featured Media</h2>
-        <p class="text-zinc-400 text-sm">Watch Chris Zemba & the band live in action.</p>
+        <p class="text-zinc-400 text-sm">Watch Chris Zemba live in action — full band energy or intimate acoustic sets.</p>
       </div>
-      <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
-        <iframe
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/zj-MAE5dVNo"
-          title="Chris Zemba Promo Reel"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+
+      <!-- Media Format Tabs -->
+      <div class="flex flex-wrap gap-2" role="tablist" aria-label="Featured media format">
+        <button type="button" id="media-tab-band" role="tab" aria-selected="true" aria-controls="media-panel-band"
+          onclick="setMediaTab('band')"
+          class="px-4 py-2 rounded-lg text-sm font-semibold border transition bg-amber-500 text-zinc-950 border-amber-500 shadow-lg shadow-amber-500/20">
+          The Chris Zemba Band / Late Shift
+        </button>
+        <button type="button" id="media-tab-acoustic" role="tab" aria-selected="false" aria-controls="media-panel-acoustic"
+          onclick="setMediaTab('acoustic')"
+          class="px-4 py-2 rounded-lg text-sm font-semibold border transition bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-amber-500/50 hover:text-zinc-300">
+          ZembAcoustics (Solo / Duo)
+        </button>
+      </div>
+
+      <!-- Panel: The Chris Zemba Band / Late Shift (default) -->
+      <div id="media-panel-band" role="tabpanel" aria-labelledby="media-tab-band">
+        <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/zj-MAE5dVNo"
+            title="Chris Zemba Promo Reel"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Panel: ZembAcoustics (Solo / Duo) — hidden until selected or deep-linked via ?act=solo|duo -->
+      <div id="media-panel-acoustic" role="tabpanel" aria-labelledby="media-tab-acoustic" class="hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3">
+            <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
+              <!-- Placeholder — swap in the real Thames River residency video ID -->
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO_ID_RESIDENCY_HIGHLIGHTS"
+                title="Live Residency Highlights – Southeastern CT (Thames River)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div>
+              <p class="font-bold text-zinc-100 text-sm">Live Residency Highlights — Southeastern CT (Thames River)</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Raw, real-time footage from an ongoing riverside residency — an authentic look at the room and the live atmosphere built over dozens of returning dates.</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
+              <!-- Placeholder — swap in the real Union Station podcast/interview video ID -->
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/VIDEO_ID_UNION_STATION_PODCAST"
+                title="Live at Union Station – Podcast Feature & Interview"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div>
+              <p class="font-bold text-zinc-100 text-sm">Live at Union Station — Podcast Feature &amp; Interview</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">An in-depth sit-down paired with genuine, unpolished acoustic playing — the story behind the music alongside the real-time performance.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -399,6 +457,35 @@
     <p>&copy; 2026 Zemba Music. All rights reserved.</p>
     <p class="mt-1">Designed for quick loading, high engagement, and seamless booking outreach.</p>
   </footer>
+
+  <!-- Featured Media tab switcher (Band/Late Shift ⇄ ZembAcoustics) -->
+  <script>
+    (function () {
+      var ACTIVE = ['bg-amber-500', 'text-zinc-950', 'border-amber-500', 'shadow-lg', 'shadow-amber-500/20'];
+      var INACTIVE = ['bg-zinc-900', 'text-zinc-400', 'border-zinc-800', 'hover:border-amber-500/50', 'hover:text-zinc-300'];
+
+      function styleTabBtn(btn, active) {
+        (active ? INACTIVE : ACTIVE).forEach(function (c) { btn.classList.remove(c); });
+        (active ? ACTIVE : INACTIVE).forEach(function (c) { btn.classList.add(c); });
+        btn.setAttribute('aria-selected', String(active));
+      }
+
+      function setMediaTab(tab) {
+        var showAcoustic = tab === 'acoustic';
+        document.getElementById('media-panel-band').classList.toggle('hidden', showAcoustic);
+        document.getElementById('media-panel-acoustic').classList.toggle('hidden', !showAcoustic);
+        styleTabBtn(document.getElementById('media-tab-band'), !showAcoustic);
+        styleTabBtn(document.getElementById('media-tab-acoustic'), showAcoustic);
+      }
+      window.setMediaTab = setMediaTab;
+
+      // Deep-link support: a pitch tagged ?act=solo or ?act=duo (e.g. from the
+      // CRM's per-venue EPK tracking links) opens straight to ZembAcoustics so a
+      // solo/duo booking lead lands on the right reel, not the full-band promo.
+      var act = new URLSearchParams(window.location.search).get('act');
+      if (act === 'solo' || act === 'duo') setMediaTab('acoustic');
+    })();
+  </script>
 
 </body>
 </html>
