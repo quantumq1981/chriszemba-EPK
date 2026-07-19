@@ -33,11 +33,11 @@
 
   <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
 
-    <!-- Featured Media: Band/Late Shift reel by default, ZembAcoustics on demand -->
+    <!-- Featured Media: three Zemba Music Co acts, each its own tab + brand mark -->
     <section class="space-y-6">
       <div class="border-l-4 border-amber-500 pl-4">
         <h2 class="text-2xl font-bold tracking-tight uppercase">Featured Media</h2>
-        <p class="text-zinc-400 text-sm">Watch Chris Zemba live in action — full band energy or intimate acoustic sets.</p>
+        <p class="text-zinc-400 text-sm">Three acts, one brand — high-energy full band, late-night soul, and intimate acoustic sets.</p>
       </div>
 
       <!-- Media Format Tabs -->
@@ -45,31 +45,74 @@
         <button type="button" id="media-tab-band" role="tab" aria-selected="true" aria-controls="media-panel-band"
           onclick="setMediaTab('band')"
           class="px-4 py-2 rounded-lg text-sm font-semibold border transition bg-amber-500 text-zinc-950 border-amber-500 shadow-lg shadow-amber-500/20">
-          The Chris Zemba Band / Late Shift
+          The Chris Zemba Band
+        </button>
+        <button type="button" id="media-tab-lateshift" role="tab" aria-selected="false" aria-controls="media-panel-lateshift"
+          onclick="setMediaTab('lateshift')"
+          class="px-4 py-2 rounded-lg text-sm font-semibold border transition bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-amber-500/50 hover:text-zinc-300">
+          Chris Zemba &amp; The Late Shift Band
         </button>
         <button type="button" id="media-tab-acoustic" role="tab" aria-selected="false" aria-controls="media-panel-acoustic"
           onclick="setMediaTab('acoustic')"
           class="px-4 py-2 rounded-lg text-sm font-semibold border transition bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-amber-500/50 hover:text-zinc-300">
-          ZembAcoustics (Solo / Duo)
+          ZembAcoustics: Solo &amp; Duo Showcases
         </button>
       </div>
 
-      <!-- Panel: The Chris Zemba Band / Late Shift (default) -->
+      <!-- Panel: The Chris Zemba Band (default) -->
       <div id="media-panel-band" role="tabpanel" aria-labelledby="media-tab-band">
-        <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
-          <iframe
-            class="w-full h-full"
-            src="https://www.youtube.com/embed/zj-MAE5dVNo"
-            title="Chris Zemba Promo Reel"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+        <img src="assets/logo-chris-zemba-band.webp" alt="The Chris Zemba Band" class="h-20 md:h-28 w-auto mx-auto mb-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3">
+            <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/zj-MAE5dVNo"
+                title="Chris Zemba Promo Reel"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div>
+              <p class="font-bold text-zinc-100 text-sm">Full Band Promo Reel</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">High-energy Blues Rock, R&amp;B, and Soul — the full-band showcase built for casino lounges, festivals, and big rooms.</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/ugXHelhrRcI"
+                title="Chris Zemba Live | FOX5 Gibson Showroom Performance (Las Vegas)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div>
+              <p class="font-bold text-zinc-100 text-sm">FOX5 Gibson Showroom Performance — TV Spot</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Broadcast feature from the Gibson Showroom in Las Vegas — real television coverage of a real live show.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Panel: ZembAcoustics (Solo / Duo) — hidden until selected or deep-linked via ?act=solo|duo -->
+      <!-- Panel: Chris Zemba & The Late Shift Band — hidden until selected or deep-linked via ?act=late_shift -->
+      <div id="media-panel-lateshift" role="tabpanel" aria-labelledby="media-tab-lateshift" class="hidden">
+        <img src="assets/logo-late-shift-band.webp" alt="Chris Zemba & The Late Shift Band" class="h-20 md:h-28 w-auto mx-auto mb-5">
+        <div class="aspect-video w-full max-w-2xl mx-auto rounded-xl border border-dashed border-zinc-700 bg-zinc-950/50 flex flex-col items-center justify-center text-center p-6">
+          <i class="fa-solid fa-clapperboard text-3xl text-amber-500/60 mb-3"></i>
+          <p class="text-sm font-semibold text-zinc-300">Late Shift Band footage coming soon</p>
+          <p class="text-xs text-zinc-500 mt-1 max-w-sm">Dedicated video from Chris Zemba &amp; The Late Shift Band's full showcase / soul set will be featured here.</p>
+        </div>
+      </div>
+
+      <!-- Panel: ZembAcoustics — hidden until selected or deep-linked via ?act=solo|duo -->
       <div id="media-panel-acoustic" role="tabpanel" aria-labelledby="media-tab-acoustic" class="hidden">
+        <div class="max-w-xs mx-auto mb-5 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl">
+          <img src="assets/logo-zembacoustics.webp" alt="ZembAcoustics: Solo & Duo Showcases" class="w-full h-auto">
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
             <!-- Hosted on YouTube (Shorts — vertical format), so the frame is a portrait
@@ -314,9 +357,11 @@
     <p class="mt-1">Designed for quick loading, high engagement, and seamless booking outreach.</p>
   </footer>
 
-  <!-- Featured Media tab switcher (Band/Late Shift ⇄ ZembAcoustics) -->
+  <!-- Featured Media tab switcher (The Chris Zemba Band ⇄ Chris Zemba & The Late
+       Shift Band ⇄ ZembAcoustics) — three Zemba Music Co acts, one tab each. -->
   <script>
     (function () {
+      var TABS = ['band', 'lateshift', 'acoustic'];
       var ACTIVE = ['bg-amber-500', 'text-zinc-950', 'border-amber-500', 'shadow-lg', 'shadow-amber-500/20'];
       var INACTIVE = ['bg-zinc-900', 'text-zinc-400', 'border-zinc-800', 'hover:border-amber-500/50', 'hover:text-zinc-300'];
 
@@ -327,19 +372,20 @@
       }
 
       function setMediaTab(tab) {
-        var showAcoustic = tab === 'acoustic';
-        document.getElementById('media-panel-band').classList.toggle('hidden', showAcoustic);
-        document.getElementById('media-panel-acoustic').classList.toggle('hidden', !showAcoustic);
-        styleTabBtn(document.getElementById('media-tab-band'), !showAcoustic);
-        styleTabBtn(document.getElementById('media-tab-acoustic'), showAcoustic);
+        TABS.forEach(function (t) {
+          var active = t === tab;
+          document.getElementById('media-panel-' + t).classList.toggle('hidden', !active);
+          styleTabBtn(document.getElementById('media-tab-' + t), active);
+        });
       }
       window.setMediaTab = setMediaTab;
 
-      // Deep-link support: a pitch tagged ?act=solo or ?act=duo (e.g. from the
-      // CRM's per-venue EPK tracking links) opens straight to ZembAcoustics so a
-      // solo/duo booking lead lands on the right reel, not the full-band promo.
+      // Deep-link support: a pitch tagged with the CRM's per-venue EPK tracking
+      // link (?act=<format>) opens straight to the matching act's tab, so a
+      // booking lead lands on the right reel instead of the full-band default.
       var act = new URLSearchParams(window.location.search).get('act');
       if (act === 'solo' || act === 'duo') setMediaTab('acoustic');
+      else if (act === 'late_shift') setMediaTab('lateshift');
     })();
   </script>
 
