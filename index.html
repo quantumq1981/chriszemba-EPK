@@ -13,6 +13,7 @@
   <header class="relative bg-zinc-900 border-b border-zinc-800 py-16 px-6 text-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none"></div>
     <div class="max-w-4xl mx-auto relative z-10">
+      <img src="assets/zemba-logo.webp" alt="Zemba Music Co — Ignite Your Soul" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-5 rounded-full object-cover border-2 border-amber-500/40 shadow-lg shadow-amber-500/20">
       <span class="text-amber-500 font-mono tracking-widest text-xs uppercase font-bold px-3 py-1 bg-amber-500/10 rounded-full">Official Electronic Press Kit</span>
       <h1 class="text-5xl md:text-6xl font-black mt-4 tracking-tight">CHRIS ZEMBA</h1>
       <p class="text-lg md:text-xl text-zinc-400 mt-2 font-light">Guitarist • Vocalist • Bandleader</p>
@@ -71,16 +72,12 @@
       <div id="media-panel-acoustic" role="tabpanel" aria-labelledby="media-tab-acoustic" class="hidden">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
-            <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
-              <!-- Sourced from Google Drive (video/mp4, ~537MB, publicly viewable). Embedded via
-                   Drive's own /preview surface rather than a raw <video src> pointed at the
-                   uc?export=download endpoint: for files this size, that download endpoint serves
-                   an HTML "can't scan for viruses" interstitial instead of the video bytes, which
-                   breaks a native <video> element. /preview is Drive's supported streaming embed
-                   and works reliably for public "anyone with the link" files of any size. -->
+            <!-- Hosted on YouTube (Shorts — vertical format), so the frame is a portrait
+                 card rather than the 16:9 box used for the main promo reel. -->
+            <div class="aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
               <iframe
                 class="w-full h-full"
-                src="https://drive.google.com/file/d/18dPfO_4ZgY1lxSRL_0UrrMst92DQvM9C/preview"
+                src="https://www.youtube.com/embed/7Zr64EOXZHI"
                 title="Live Residency Highlights – Southeastern CT (Thames River)"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -93,22 +90,20 @@
             </div>
           </div>
           <div class="space-y-3">
-            <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
-              <!-- Sourced from Google Drive (video/mp4, ~636MB, publicly viewable) — see the
-                   note on the residency embed above for why this uses Drive's /preview surface
-                   instead of a raw <video src>. -->
+            <!-- Hosted on YouTube (Shorts — vertical format). -->
+            <div class="aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
               <iframe
                 class="w-full h-full"
-                src="https://drive.google.com/file/d/1jdxJ8_yXuEQ2To2ip5FH_T2q3XiJFA7C/preview"
-                title="Live at Union Station – New Haven Podcast"
+                src="https://www.youtube.com/embed/f6zFKqcqB8g"
+                title="Live at Union Station – New Haven, CT Street Performance"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
             </div>
             <div>
-              <p class="font-bold text-zinc-100 text-sm">Live at Union Station — New Haven Podcast</p>
-              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">An in-depth sit-down in New Haven paired with genuine, unpolished acoustic playing — the story behind the music alongside the real-time, in-the-wild performance.</p>
+              <p class="font-bold text-zinc-100 text-sm">Live at Union Station — New Haven, CT</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Unfiltered street-performance footage from Union Station in New Haven — genuine, in-the-wild playing captured live, no studio polish required.</p>
             </div>
           </div>
         </div>
@@ -277,165 +272,19 @@
       </div>
     </section>
 
-    <!-- NEW SECTION: Visual Stage Plot & Input Guide -->
+    <!-- Stage Plots & Technical Requirements -->
     <section class="space-y-6">
       <div class="border-l-4 border-amber-500 pl-4">
-        <h2 class="text-2xl font-bold tracking-tight uppercase">Full Band Stage Plot (Standard 4-Piece)</h2>
-        <p class="text-zinc-400 text-sm">Quick reference for production managers and sound crews.</p>
+        <h2 class="text-2xl font-bold tracking-tight uppercase">Stage Plots &amp; Technical Requirements</h2>
+        <p class="text-zinc-400 text-sm">Quick reference for production managers and sound crews — full band, solo, and duo/trio configurations.</p>
       </div>
-      <div class="bg-zinc-900 p-6 md:p-8 rounded-xl border border-zinc-800 space-y-8">
-
-        <!-- Stage Diagram Layout -->
-        <div class="border border-dashed border-zinc-700 rounded-lg p-4 md:p-6 pt-10 pb-16 bg-zinc-950/50 relative text-xs font-mono text-center">
-          <div class="absolute top-2 left-1/2 -translate-x-1/2 text-zinc-600 uppercase tracking-widest text-[10px]">Back of Stage (Upstage)</div>
-
-          <!-- Upstage Row: Keys (Left) + Drums (Center/Right) -->
-          <div class="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
-            <div class="border border-zinc-800 bg-zinc-900 p-3 rounded space-y-1">
-              <p class="text-amber-500 font-bold">VOCAL 2 (KEYS)</p>
-              <p class="text-zinc-500 text-[10px]">Boom Stand Vocal Mic</p>
-              <p class="text-zinc-500 text-[10px]">Keyboard Amp / DI Box</p>
-              <p class="text-zinc-600 text-[10px]"><i class="fa-solid fa-plug-circle-bolt"></i> 120V Outlet</p>
-            </div>
-            <div class="col-span-2 border border-zinc-800 bg-zinc-900 p-3 rounded space-y-1">
-              <p class="text-amber-500 font-bold">DRUM KIT</p>
-              <p class="text-zinc-500 text-[10px]">Kick, Snare, Toms, Cymbals, Hardware</p>
-              <p class="text-zinc-500 text-[10px]">Drum Rug (6' x 8')</p>
-              <p class="text-zinc-600 text-[10px]"><i class="fa-solid fa-headphones-simple"></i> Monitor Mix 1</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-3 my-6 max-w-2xl mx-auto">
-            <div class="flex-1 border-t border-dashed border-zinc-800"></div>
-            <span class="text-zinc-700 text-[10px] uppercase tracking-widest">Center Stage</span>
-            <div class="flex-1 border-t border-dashed border-zinc-800"></div>
-          </div>
-
-          <!-- Downstage Row: Bass (Left) + Vocal 1 / Chris (Right) -->
-          <div class="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
-            <div class="border border-zinc-800 bg-zinc-900 p-3 rounded space-y-1">
-              <p class="text-amber-500 font-bold">VOCAL 3 (BASSIST)</p>
-              <p class="text-zinc-500 text-[10px]">Boom Stand Vocal Mic</p>
-              <p class="text-zinc-500 text-[10px]">Bass Amp (Facing Upstage) • XLR DI Out</p>
-              <p class="text-zinc-600 text-[10px]"><i class="fa-solid fa-plug-circle-bolt"></i> 120V Outlet</p>
-            </div>
-            <div class="hidden md:flex items-center justify-center text-zinc-700 text-[10px] uppercase tracking-widest">Walkway</div>
-            <div class="border border-zinc-800 bg-zinc-900 p-3 rounded space-y-1">
-              <p class="text-amber-500 font-bold">VOCAL 1 (CHRIS ZEMBA)</p>
-              <p class="text-zinc-500 text-[10px]">Boom Stand Vocal Mic</p>
-              <p class="text-zinc-500 text-[10px]">Guitar Amp (Facing Upstage) • Mic'd w/ SM57</p>
-              <p class="text-zinc-600 text-[10px]"><i class="fa-solid fa-plug-circle-bolt"></i> 120V Outlet</p>
-            </div>
-          </div>
-
-          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-zinc-600 uppercase tracking-widest text-[10px]">Front of Stage / Audience</div>
-        </div>
-
-        <!-- Front Edge Monitor Wedges -->
-        <div class="grid grid-cols-4 gap-2 md:gap-3 max-w-2xl mx-auto text-center">
-          <div class="bg-zinc-800/60 border border-zinc-700 rounded-lg py-2 px-1">
-            <i class="fa-solid fa-volume-high text-amber-500 text-sm"></i>
-            <p class="text-[10px] text-zinc-300 font-semibold mt-1">Mix 1</p>
-          </div>
-          <div class="bg-zinc-800/60 border border-zinc-700 rounded-lg py-2 px-1">
-            <i class="fa-solid fa-volume-high text-amber-500 text-sm"></i>
-            <p class="text-[10px] text-zinc-300 font-semibold mt-1">Mix 2</p>
-          </div>
-          <div class="bg-zinc-800/60 border border-zinc-700 rounded-lg py-2 px-1">
-            <i class="fa-solid fa-volume-high text-amber-500 text-sm"></i>
-            <p class="text-[10px] text-zinc-300 font-semibold mt-1">Mix 3</p>
-          </div>
-          <div class="bg-zinc-800/60 border border-zinc-700 rounded-lg py-2 px-1">
-            <i class="fa-solid fa-volume-high text-amber-500 text-sm"></i>
-            <p class="text-[10px] text-zinc-300 font-semibold mt-1">Mix 4</p>
-          </div>
-        </div>
-
-        <!-- Alternative Layout Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-zinc-950/50 border border-zinc-800 rounded-lg p-4 space-y-2">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-guitar text-amber-500"></i>
-              <p class="font-bold text-zinc-100 text-sm">Chris Zemba (Solo Acoustic)</p>
-            </div>
-            <p class="text-xs text-zinc-400 leading-relaxed">Vocal + Acoustic Guitar (shared or dual-purpose input), 1 DI Box, 1 Monitor Mix, single 120V outlet. Minimal footprint — ideal for lounges and intimate rooms.</p>
-          </div>
-          <div class="bg-zinc-950/50 border border-zinc-800 rounded-lg p-4 space-y-2">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-people-group text-amber-500"></i>
-              <p class="font-bold text-zinc-100 text-sm">Zemba Music Duo / Trio</p>
-            </div>
-            <p class="text-xs text-zinc-400 leading-relaxed">Flexible configuration utilizing shared instrument and vocal inputs. Typically 4-6 channels, 1-2 monitor mixes, scalable to venue stage size and power availability.</p>
-          </div>
-        </div>
-
-        <!-- 10-Channel Input List Table -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-bold text-zinc-100 uppercase tracking-wide">10-Channel Input List (Full Band)</h3>
-          <div class="overflow-x-auto text-sm">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="border-b border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider">
-                  <th class="pb-2 pr-4">Ch</th>
-                  <th class="pb-2 pr-4">Input Source</th>
-                  <th class="pb-2">Connector</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-zinc-800/50 text-xs text-zinc-300">
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">1</td>
-                  <td class="pr-4">Drums - Kick</td>
-                  <td>XLR</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">2</td>
-                  <td class="pr-4">Drums - Snare</td>
-                  <td>XLR</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">3</td>
-                  <td class="pr-4">Drums - Overhead L</td>
-                  <td>XLR</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">4</td>
-                  <td class="pr-4">Drums - Overhead R</td>
-                  <td>XLR</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">5</td>
-                  <td class="pr-4">Bass - DI / Amp Out</td>
-                  <td>XLR or 1/4"</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">6</td>
-                  <td class="pr-4">Keys - Left / Mono</td>
-                  <td>DI or 1/4"</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">7</td>
-                  <td class="pr-4">Keys - Right</td>
-                  <td>DI or 1/4"</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">8</td>
-                  <td class="pr-4">Vocal 1 (Guitarist / Chris)</td>
-                  <td>XLR</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">9</td>
-                  <td class="pr-4">Vocal 2 (Keyboardist)</td>
-                  <td>XLR</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-4 font-bold text-amber-500">10</td>
-                  <td class="pr-4">Vocal 3 (Bassist)</td>
-                  <td>XLR</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="bg-zinc-900 p-3 md:p-4 rounded-xl border border-zinc-800 shadow-2xl">
+        <img
+          src="assets/stage-plots.webp"
+          alt="Chris Zemba Music professional stage plots. I: The Chris Zemba Band 4-piece standard stage plot showing vocal, instrument, and monitor-mix placement (drums upstage center, keys upstage left, bass and guitar/lead vocal downstage). II: Chris Zemba solo acoustic setup — vocal/acoustic guitar into a DI box and one monitor mix. III: Zemba Music duo/trio flexible configuration with shared guitar, keys, bass, and drum inputs. IV: Power and monitor requirements for the 4-piece band (one outlet and monitor mix per position). V: A 10-channel input list and patch guide with mic/DI preferences for drums, bass, keys, and the three vocal positions."
+          class="w-full h-auto rounded-lg"
+          loading="lazy"
+        >
       </div>
     </section>
 
