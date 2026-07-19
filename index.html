@@ -72,10 +72,15 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
             <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
-              <!-- Placeholder — swap in the real Thames River residency video ID -->
+              <!-- Sourced from Google Drive (video/mp4, ~537MB, publicly viewable). Embedded via
+                   Drive's own /preview surface rather than a raw <video src> pointed at the
+                   uc?export=download endpoint: for files this size, that download endpoint serves
+                   an HTML "can't scan for viruses" interstitial instead of the video bytes, which
+                   breaks a native <video> element. /preview is Drive's supported streaming embed
+                   and works reliably for public "anyone with the link" files of any size. -->
               <iframe
                 class="w-full h-full"
-                src="https://www.youtube.com/embed/VIDEO_ID_RESIDENCY_HIGHLIGHTS"
+                src="https://drive.google.com/file/d/18dPfO_4ZgY1lxSRL_0UrrMst92DQvM9C/preview"
                 title="Live Residency Highlights – Southeastern CT (Thames River)"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -84,24 +89,26 @@
             </div>
             <div>
               <p class="font-bold text-zinc-100 text-sm">Live Residency Highlights — Southeastern CT (Thames River)</p>
-              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Raw, real-time footage from an ongoing riverside residency — an authentic look at the room and the live atmosphere built over dozens of returning dates.</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Raw, real-time footage from an ongoing riverside residency — an authentic, in-the-wild look at the room and the live atmosphere built over dozens of returning dates.</p>
             </div>
           </div>
           <div class="space-y-3">
             <div class="aspect-video w-full rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl relative">
-              <!-- Placeholder — swap in the real Union Station podcast/interview video ID -->
+              <!-- Sourced from Google Drive (video/mp4, ~636MB, publicly viewable) — see the
+                   note on the residency embed above for why this uses Drive's /preview surface
+                   instead of a raw <video src>. -->
               <iframe
                 class="w-full h-full"
-                src="https://www.youtube.com/embed/VIDEO_ID_UNION_STATION_PODCAST"
-                title="Live at Union Station – Podcast Feature & Interview"
+                src="https://drive.google.com/file/d/1jdxJ8_yXuEQ2To2ip5FH_T2q3XiJFA7C/preview"
+                title="Live at Union Station – New Haven Podcast"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
             </div>
             <div>
-              <p class="font-bold text-zinc-100 text-sm">Live at Union Station — Podcast Feature &amp; Interview</p>
-              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">An in-depth sit-down paired with genuine, unpolished acoustic playing — the story behind the music alongside the real-time performance.</p>
+              <p class="font-bold text-zinc-100 text-sm">Live at Union Station — New Haven Podcast</p>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">An in-depth sit-down in New Haven paired with genuine, unpolished acoustic playing — the story behind the music alongside the real-time, in-the-wild performance.</p>
             </div>
           </div>
         </div>
