@@ -67,7 +67,33 @@ Branch restarted from merged `main` (PR #20). Executed as one coordinated single
 
 **Scope discipline:** §4.4 nav-glass and §5.3 button sweep were *not* pulled in (not in the Phase 2 brief) — only the §5.3 CTA copy fix ("Check Availability → Check your date") was applied as pure conversion copy. Motion/focus/keyboard-nav (§5.1/5.2/5.5) remain Phase 3 per the plan.
 
-## Phase 3 — Shortlisting & shelf life — NOT STARTED (content-bound, coordinate with Chris)
+## Phase 3 — Shortlisting & shelf life — ✅ COMPLETE (one content gap flagged)
+
+Branch restarted from merged `main` (PR #21). Same single-file coordinated stream.
+
+| Item | Audit ref | What shipped | Status |
+|---|---|---|---|
+| Bio refresh | — | About long-bio replaced with User's updated copy (adds DSJ / formerly Down South Jukers; corrected "Station Casinos", "Rowdy McCaren"). | ✅ |
+| Paste-ready short bio | P1.3 | ~80-word third-person block with a working copy-to-clipboard button. | ✅ |
+| Dates section | P1.1 | New `#dates` section + nav link. Populated with the **real recurring residencies** from the on-property flyers (Indigo Lounge/Bally's, EXTRA Lounge/Planet Hollywood, Roxy's/Sam's Town) — no fabricated one-off dates. Template comment + "ask for current calendar" CTA. | ✅ |
+| How Booking Works | P2 | New `#how` 3-step section (Inquiry → Hold & contract → Advance & downbeat) before the form, to de-risk first-time corporate buyers. | ✅ |
+| Structured data | P2 | JSON-LD `Person` + `MusicGroup` + `WebSite` graph in `<head>` (validated: parses clean). | ✅ |
+| Analytics | P2 | Plausible file-downloads + outbound-links script (auto-tracks rider/repertoire PDF downloads); custom `Booking Inquiry` event on the form submit. | ✅ |
+| One-sheet PDF | P1.2 | `assets/downloads/chris-zemba-one-sheet.pdf` (270KB, Letter): photo, short bio, 3 quotes, formats, compliance chips, contact. Linked from the Specs card. Source: `assets/downloads/one-sheet-src.html` (rendered via Chromium with downsized images). | ✅ |
+| Print stylesheet | §5.8 | `@media print` — hides nav/marquee/video facades, white background, prints link URLs, fits to page. | ✅ |
+| Focus states | §5.1 | Visible `:focus-visible` outline on all interactive elements. | ✅ |
+| Reduced motion | §5.2 | Guarded smooth-scroll; gallery scales + card lifts disabled under `prefers-reduced-motion`. | ✅ |
+| Tab keyboard nav | §5.5 | Roving-tabindex + arrow/Home/End key nav on the media tablist; panels `tabindex="0"`. | ✅ |
+| Dynamic year + Updated | §7 | `© <span id="yr">` set by JS; visible "Updated July 2026" line. | ✅ |
+
+**Verification:** `tw.css` rebuilt; 464 classes resolve (only clamp/shadow/opacity escaping artifacts flagged); desktop render **0 page errors**; JSON-LD parses valid; dynamic year renders. Dates + How-Booking-Works + short bio + one-sheet visually confirmed.
+
+### ⚠️ The one item I will NOT fabricate — needs Chris
+- **Third named testimonial.** The reviews section still has the two genuine ones (RJ + the real wedding-client quote). The audit wants a third *named* testimonial (title + property, e.g. "Banquet Manager, Green Valley Ranch"). I will not invent a quote or attribution — that would be fabricated social proof published as real. **Send one real testimonial (quote + name + title + property) and I'll drop it in.**
+- **Specific upcoming one-off dates** (beyond the residencies) can be added anytime using the template comment in `#dates`.
+
+### Go-live checklist (unchanged, User-owned)
+1. Formspree form ID. 2. `booking@`/`admin@` mailboxes. 3. 702 number (User adding later per instruction). 4. Plausible: add `zembamusicco.com` in a Plausible account for the analytics to record.
 
 ---
 

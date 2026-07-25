@@ -18,6 +18,55 @@
   <meta name="twitter:image" content="https://zembamusicco.com/assets/photos/brand-banner.webp">
   <link rel="canonical" href="https://zembamusicco.com/">
 
+  <!-- Structured data: helps search + AI discovery understand who/what this is -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://zembamusicco.com/#chris",
+        "name": "Chris Zemba",
+        "jobTitle": "Guitarist, Vocalist, Bandleader",
+        "url": "https://zembamusicco.com/",
+        "image": "https://zembamusicco.com/assets/photos/portrait-chris.webp",
+        "description": "Las Vegas-based guitarist, vocalist, and bandleader with more than 25 years performing Blues Rock, R&B, and Soul.",
+        "sameAs": [
+          "https://www.facebook.com/ChrisZembaMusic",
+          "https://www.instagram.com/chriszembamusic/",
+          "https://youtube.com/@czembamusic",
+          "https://m.soundcloud.com/chris-zemba",
+          "https://linktr.ee/chriszemba"
+        ]
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://zembamusicco.com/#band",
+        "name": "The Chris Zemba Band",
+        "alternateName": ["Chris Zemba & The Late Shift Band", "ZembAcoustics"],
+        "url": "https://zembamusicco.com/",
+        "image": "https://zembamusicco.com/assets/photos/brand-banner.webp",
+        "genre": ["Blues Rock", "R&B", "Soul", "Classic Rock", "Funk", "Top 40"],
+        "member": { "@id": "https://zembamusicco.com/#chris" },
+        "areaServed": "Las Vegas, NV",
+        "sameAs": [
+          "https://www.facebook.com/ChrisZembaMusic",
+          "https://www.instagram.com/chriszembamusic/",
+          "https://youtube.com/@czembamusic",
+          "https://linktr.ee/chriszemba"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://zembamusicco.com/#website",
+        "url": "https://zembamusicco.com/",
+        "name": "Chris Zemba | Las Vegas Live Music EPK",
+        "about": { "@id": "https://zembamusicco.com/#chris" }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="assets/photos/favicon.png">
 
   <!-- Hero LCP: let the preload scanner fetch the largest-paint image early, sized per viewport -->
@@ -31,10 +80,40 @@
   <!-- Purged, static Tailwind build (no CDN JIT in production). Regenerate with: npm run build:css -->
   <link rel="stylesheet" href="assets/tw.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Privacy-friendly analytics. Auto-tracks file downloads (tech rider, repertoire PDF) + outbound
+       clicks. Requires the domain to be added in a Plausible account; harmless no-op until then. -->
+  <script defer data-domain="zembamusicco.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>
+  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
   <style>
-    html { scroll-behavior: smooth; }
+    /* Smooth scroll only when the visitor hasn't asked for reduced motion (§2.2) */
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
     body { -webkit-font-smoothing: antialiased; }
     ::selection { background: #ee5a20; color: #04060d; }
+
+    /* §5.1 — visible keyboard focus (browser default is near-invisible on #04060d) */
+    :where(a, button, [tabindex], summary, input, select, textarea):focus-visible {
+      outline: 2px solid #ff9d5f; outline-offset: 3px; border-radius: 8px;
+    }
+    :where(a, button):focus:not(:focus-visible) { outline: none; }
+
+    /* §5.2 — respect reduced motion on the gallery scales and card lifts */
+    @media (prefers-reduced-motion: reduce) {
+      .card-hover, .card-hover:hover { transform: none; }
+      .group:hover img { transform: none !important; }
+    }
+
+    /* §5.8 — print stylesheet: planners print EPKs for committee meetings */
+    @media print {
+      nav, .marquee-mask, iframe, video, .fixed, .yt, .sc { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      .text-forge, .text-fire-grad {
+        -webkit-text-fill-color: #cf470f !important; color: #cf470f !important; background: none !important;
+      }
+      section { break-inside: avoid; padding: 0.75rem 0 !important; border: 0 !important; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+      img { max-height: 2.5in; }
+    }
 
     /* Fire-to-steel text gradient pulled straight from the Zemba Music Co logo */
     .text-forge {
@@ -104,6 +183,7 @@
         <a href="#events" class="hover:text-fire-400 transition">Events</a>
         <a href="#acts" class="hover:text-fire-400 transition">The Acts</a>
         <a href="#stage" class="hover:text-fire-400 transition">On Stage</a>
+        <a href="#dates" class="hover:text-fire-400 transition">Dates</a>
         <a href="#about" class="hover:text-fire-400 transition">About</a>
         <a href="#songs" class="hover:text-fire-400 transition">Repertoire</a>
       </div>
@@ -313,7 +393,7 @@
       </div>
 
       <!-- Panel: The Chris Zemba Band -->
-      <div id="media-panel-band" role="tabpanel" aria-labelledby="media-tab-band">
+      <div id="media-panel-band" role="tabpanel" aria-labelledby="media-tab-band" tabindex="0">
         <img src="assets/logo-chris-zemba-band.webp" alt="The Chris Zemba Band" class="h-20 md:h-24 w-auto mb-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
@@ -365,7 +445,7 @@
       </div>
 
       <!-- Panel: Chris Zemba & The Late Shift Band -->
-      <div id="media-panel-lateshift" role="tabpanel" aria-labelledby="media-tab-lateshift" class="hidden">
+      <div id="media-panel-lateshift" role="tabpanel" aria-labelledby="media-tab-lateshift" tabindex="0" class="hidden">
         <div class="max-w-2xl mx-auto mb-6 rounded-xl overflow-hidden border border-white/10">
           <img src="assets/photos/late-shift-key-art.webp" alt="Chris Zemba & The Late Shift Band official key art" class="w-full h-auto" loading="lazy">
         </div>
@@ -400,7 +480,7 @@
       </div>
 
       <!-- Panel: ZembAcoustics -->
-      <div id="media-panel-acoustic" role="tabpanel" aria-labelledby="media-tab-acoustic" class="hidden">
+      <div id="media-panel-acoustic" role="tabpanel" aria-labelledby="media-tab-acoustic" tabindex="0" class="hidden">
         <div class="max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-white/10">
           <img src="assets/logo-zembacoustics.webp" alt="ZembAcoustics: Solo & Duo Showcases" class="w-full h-auto">
         </div>
@@ -488,6 +568,59 @@
           <figcaption class="absolute bottom-0 p-3 text-[11px] text-slate-200">Gibson Showroom &middot; FOX5 Las Vegas TV spot</figcaption>
         </figure>
       </div>
+    </section>
+
+    <!-- ============ LIVE DATES & RESIDENCIES (P1.1) ============ -->
+    <section id="dates" class="scroll-mt-24 py-20 md:py-28 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Come see it live</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Live dates &amp; <span class="text-fire-grad">residencies</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">The strongest way to book with confidence is to come watch. Catch a public set at one of these Las Vegas rooms, or ask for the current calendar of private and special-event dates.</p>
+      </div>
+
+      <div class="rounded-2xl card-surface divide-y divide-white/[0.06] overflow-hidden">
+        <!-- Recurring residencies drawn from current on-property billing. To add a specific one-off date,
+             copy a row and set the badge to the month/day, e.g. AUG / 15. -->
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-14 text-center">
+            <p class="font-display font-600 uppercase text-[11px] tracking-[0.18em] text-fire-400">Fri</p>
+            <p class="font-heavy text-lg leading-none text-white uppercase">Live</p>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Indigo Lounge &middot; Bally's Las Vegas</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">Chris Zemba &amp; The Late Shift Band &middot; Friday-night residency &middot; No cover</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
+        </div>
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-14 text-center">
+            <p class="font-display font-600 uppercase text-[11px] tracking-[0.18em] text-fire-400">Wkly</p>
+            <p class="font-heavy text-lg leading-none text-white uppercase">Live</p>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">EXTRA Lounge &middot; Planet Hollywood</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">Chris Zemba &amp; The Late Shift Band &middot; Weekly lounge dates</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
+        </div>
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-14 text-center">
+            <p class="font-display font-600 uppercase text-[11px] tracking-[0.18em] text-fire-400">Res</p>
+            <p class="font-heavy text-lg leading-none text-white uppercase">Live</p>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Roxy's Lounge &middot; Sam's Town (Boyd Gaming)</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">Chris Zemba &amp; The Late Shift Band &middot; Ongoing residency</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
+        </div>
+      </div>
+      <p class="text-[13px] text-slate-400 mt-4 text-center">
+        Specific upcoming dates are updated regularly. <a href="#book" class="text-fire-300 link-underline">Ask for the current calendar</a>,
+        or see <a href="https://linktr.ee/chriszemba" target="_blank" rel="noopener" class="text-fire-300 link-underline">all live links</a>.
+      </p>
     </section>
 
     <!-- ============ MARQUEE BILLING (on-property flyers) ============ -->
@@ -612,11 +745,26 @@
           <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">The bandleader</p>
           <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">About <span class="text-fire-grad">Chris Zemba</span></h2>
           <p class="text-slate-200 leading-relaxed text-lg mt-6">
-            Chris Zemba is a seasoned Las Vegas-based guitarist, vocalist, and bandleader delivering a no-nonsense brand of high-energy Blues Rock, R&amp;B, and Soul. He commands the stage with a fusion of contemporary Top 40 rock, pop, R&amp;B, and country, tailored to the audience in front of him.
+            Chris Zemba is a dynamic Las Vegas&ndash;based guitarist, vocalist, and bandleader known for high-energy performances spanning Blues Rock, R&amp;B, and Soul. Blending contemporary Top 40, rock, pop, and country, he tailors every show to connect directly with his audience.
           </p>
-          <p class="text-slate-400 leading-relaxed mt-4">
-            With over 25 years of professional performance experience, Chris has held residencies at Caesars Entertainment, Stations Casinos, and Boyd Gaming properties across Southern Nevada, and at Mohegan Sun's Wolf Den. Hired as lead guitar player and musical director for The Rowdy Band (Rowdy McAren), he helped lead the band to win the 2012 KWNR Vegas Country Battle of the Bands and a National Finals Rodeo appearance at the Thomas &amp; Mack Center. Since 2011 he has owned and directed Zemba Entertainment, managing multiple acts and partnering with talent agencies to deliver custom entertainment for casino, corporate, and private clients.
+          <p class="text-slate-300 text-[15px] leading-[1.7] mt-4">
+            With more than 25 years of professional experience, Chris has performed at premier venues across Southern Nevada&mdash;including Caesars Entertainment, Station Casinos, and Boyd Gaming properties&mdash;as well as Mohegan Sun's iconic Wolf Den. As lead guitarist and musical director for The Rowdy Band (Rowdy McCaren), he played a central role in their 2012 KWNR Vegas Country Battle of the Bands victory and their showcase at the National Finals Rodeo at the Thomas &amp; Mack Center. Recently, Chris joined DSJ (formerly Down South Jukers) as lead guitarist and musical director, where his seasoned stage presence helped elevate the 7-piece horn band into one of Las Vegas's premier acts, delivering a signature, horn-driven mix of classic rock, soul, and R&amp;B.
           </p>
+          <p class="text-slate-300 text-[15px] leading-[1.7] mt-4">
+            Since 2011, Chris has owned and operated Zemba Entertainment, managing multiple acts and partnering with top talent agencies to craft unforgettable entertainment for casino, corporate, and private events.
+          </p>
+
+          <!-- Paste-ready short bio (P1.3) — venues writing their own listings will copy something; make it his words -->
+          <div class="mt-6 rounded-2xl card-surface p-6">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <p class="font-display font-600 uppercase tracking-wide text-slate-300 text-[13px]">Short bio &middot; ~80 words &middot; third person</p>
+              <button type="button" data-copy-target="short-bio"
+                      class="copy-btn shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] px-3 py-1.5 rounded-lg transition">
+                <i class="fa-regular fa-copy mr-1"></i><span class="copy-label">Copy</span>
+              </button>
+            </div>
+            <p id="short-bio" class="text-[15px] text-slate-300 leading-[1.7]">Chris Zemba is a Las Vegas&ndash;based guitarist, vocalist, and bandleader with more than 25 years on stage, delivering high-energy Blues Rock, R&amp;B, and Soul alongside contemporary Top 40, rock, pop, and country. He has performed at Caesars Entertainment, Station Casinos, and Boyd Gaming properties, and Mohegan Sun's Wolf Den, and currently plays lead guitar and directs the seven-piece horn band DSJ. From solo acoustic to full band, every set is tailored to the room.</p>
+          </div>
 
           <!-- Proof of the Rowdy Band Battle of the Bands win -->
           <figure class="mt-6 rounded-2xl overflow-hidden border border-white/10 bg-midnight-900">
@@ -759,6 +907,7 @@
           <div class="mt-auto pt-5 grid grid-cols-2 gap-3">
             <a href="assets/downloads/zemba-music-press-photos.zip" download class="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-100 font-display font-600 uppercase tracking-wide text-[11px] px-3 py-2.5 rounded-lg transition"><i class="fa-solid fa-image text-fire-400"></i> Press Photos</a>
             <a href="assets/downloads/zemba-music-tech-rider.pdf" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-100 font-display font-600 uppercase tracking-wide text-[11px] px-3 py-2.5 rounded-lg transition"><i class="fa-solid fa-file-pdf text-fire-400"></i> Tech Rider</a>
+            <a href="assets/downloads/chris-zemba-one-sheet.pdf" target="_blank" rel="noopener" class="col-span-2 flex items-center justify-center gap-2 bg-fire-500/10 hover:bg-fire-500/20 border border-fire-500/25 text-fire-300 font-display font-600 uppercase tracking-wide text-[11px] px-3 py-2.5 rounded-lg transition"><i class="fa-solid fa-file-arrow-down text-fire-400"></i> One-Sheet PDF (forward to your committee)</a>
           </div>
         </div>
 
@@ -895,6 +1044,44 @@
       </div>
     </section>
 
+    <!-- ============ HOW BOOKING WORKS (3-step, de-risks first-time corporate buyers) ============ -->
+    <section id="how" class="scroll-mt-24 py-14 md:py-20 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Simple and low-risk</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">How booking <span class="text-fire-grad">works</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">Three steps from first email to downbeat. No surprises, and no chasing paperwork.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 md:gap-5">
+        <div class="group rounded-2xl card-surface p-6 md:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="grid place-items-center w-10 h-10 rounded-lg bg-fire-500/15 text-fire-300 font-heavy text-lg">1</span>
+            <i class="fa-solid fa-paper-plane text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i>
+          </div>
+          <h3 class="font-display font-600 uppercase tracking-wide text-slate-100 text-lg">Inquiry</h3>
+          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">Send your date, room, and vibe through the form. You get a fast, professional reply within one business day, usually with a quote and a format recommendation.</p>
+        </div>
+        <div class="group rounded-2xl card-surface p-6 md:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="grid place-items-center w-10 h-10 rounded-lg bg-fire-500/15 text-fire-300 font-heavy text-lg">2</span>
+            <i class="fa-solid fa-file-signature text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i>
+          </div>
+          <h3 class="font-display font-600 uppercase tracking-wide text-slate-100 text-lg">Hold &amp; contract</h3>
+          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">We place a courtesy hold on your date and send a simple contract. W&#8209;9 and certificate of insurance come up front, so your venue's paperwork is handled before you ask.</p>
+        </div>
+        <div class="group rounded-2xl card-surface p-6 md:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="grid place-items-center w-10 h-10 rounded-lg bg-fire-500/15 text-fire-300 font-heavy text-lg">3</span>
+            <i class="fa-solid fa-calendar-check text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i>
+          </div>
+          <h3 class="font-display font-600 uppercase tracking-wide text-slate-100 text-lg">Advance &amp; downbeat</h3>
+          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">A week out, we advance the details: stage plot, input list, run-of-show, and timing. On the day, we load in on time and deliver the show you booked.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ BOOKING CTA ============ -->
     <section id="book" class="scroll-mt-24 py-24 md:py-36 lg:py-44 border-t border-white/5">
       <div class="relative rounded-3xl overflow-hidden border border-white/10">
@@ -976,7 +1163,7 @@
                         class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition"></textarea>
             </label>
             <button type="submit"
-                    class="sm:col-span-2 group relative overflow-hidden rounded-xl bg-gradient-to-b from-fire-400 to-fire-600 text-midnight-950 font-display font-700 uppercase tracking-wider py-4 shadow-[0_10px_30px_-10px_rgba(238,90,32,.65),inset_0_1px_0_0_rgba(255,255,255,.35)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5">
+                    class="plausible-event-name=Booking+Inquiry sm:col-span-2 group relative overflow-hidden rounded-xl bg-gradient-to-b from-fire-400 to-fire-600 text-midnight-950 font-display font-700 uppercase tracking-wider py-4 shadow-[0_10px_30px_-10px_rgba(238,90,32,.65),inset_0_1px_0_0_rgba(255,255,255,.35)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5">
               <i class="fa-solid fa-calendar-check"></i> Send booking inquiry
             </button>
             <p class="sm:col-span-2 text-[13px] text-slate-400 text-center">
@@ -999,7 +1186,8 @@
   <footer class="border-t border-white/5 bg-midnight-950 py-10 text-center">
     <img src="assets/zemba-logo.webp" alt="Zemba Music Co" class="w-14 h-14 rounded-full object-cover mx-auto mb-4 ring-1 ring-white/10">
     <p class="font-display font-600 uppercase tracking-widest text-slate-300 text-sm">Zemba Music Co &middot; Ignite Your Soul</p>
-    <p class="text-slate-400 text-xs mt-2">&copy; 2026 Zemba Music. All rights reserved.</p>
+    <p class="text-slate-400 text-xs mt-2">&copy; <span id="yr">2026</span> Zemba Music. All rights reserved.</p>
+    <p class="text-slate-500 text-[11px] mt-1 uppercase tracking-[0.16em] font-display">Updated July 2026</p>
     <p class="text-slate-400 text-xs mt-2"><a href="https://venmo.com/zembamusicco" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Venmo @zembamusicco</a></p>
   </footer>
 
@@ -1070,6 +1258,48 @@
       }
       wire('.yt', mountYT);
       wire('.sc', mountSC);
+    })();
+  </script>
+
+  <!-- Tab roving-tabindex + arrow-key nav (§5.5), copy-to-clipboard, and dynamic year (§7) -->
+  <script>
+    (function () {
+      // §5.5 — WAI-ARIA arrow-key navigation for the media tablist
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      tabs.forEach(function (tab, i) {
+        tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+        tab.addEventListener('keydown', function (e) {
+          var map = { ArrowRight: 1, ArrowLeft: -1, Home: 'first', End: 'last' };
+          if (!(e.key in map)) return;
+          e.preventDefault();
+          var next = map[e.key] === 'first' ? 0
+                   : map[e.key] === 'last' ? tabs.length - 1
+                   : (i + map[e.key] + tabs.length) % tabs.length;
+          tabs[next].click();
+          tabs.forEach(function (t) { t.tabIndex = -1; });
+          tabs[next].tabIndex = 0;
+          tabs[next].focus();
+        });
+      });
+
+      // Copy-to-clipboard buttons (paste-ready short bio)
+      document.querySelectorAll('.copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = document.getElementById(btn.dataset.copyTarget);
+          if (!target) return;
+          navigator.clipboard.writeText(target.innerText.trim()).then(function () {
+            var label = btn.querySelector('.copy-label');
+            if (!label) return;
+            var prev = label.textContent;
+            label.textContent = 'Copied';
+            setTimeout(function () { label.textContent = prev; }, 1600);
+          });
+        });
+      });
+
+      // §7 — keep the year current so the page never reads abandoned
+      var yr = document.getElementById('yr');
+      if (yr) yr.textContent = new Date().getFullYear();
     })();
   </script>
 
