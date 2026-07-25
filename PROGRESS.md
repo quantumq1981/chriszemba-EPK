@@ -51,7 +51,21 @@ These three are owned by Chris/User (accounts + provisioning). The page markup t
 
 ---
 
-## Phase 2 — Visual hierarchy & perceived rate — NOT STARTED (gated behind Phase 1)
+## Phase 2 — Visual hierarchy & perceived rate — ✅ COMPLETE
+
+Branch restarted from merged `main` (PR #20). Executed as one coordinated single-file stream (same rationale as Phase 1). Markup edited first; `tw.css` rebuilt last against final markup.
+
+| Bucket | Audit ref | What shipped | Status |
+|---|---|---|---|
+| Contrast floor | §4.1 | Marquee `slate-500→slate-300/90`; readable `slate-500→slate-400` (RJ caption, artists heading, table header, input-list note, form helper); deleted `slate-600` (footer ©, Venmo → slate-400; ext-link icons → slate-500 decoration). Remaining slate-500 are pure decoration/placeholders. | ✅ |
+| Accent budget | §4.2 | Glows cut **14 → 3** deliberate moments (hero CTA, brand banner, wedding anchor). Event-tile icons demoted to `slate-400` with `group-hover:text-fire-400` ignite (audit's exemplar cluster) + format-ribbon icon. Specs wayfinding icons deliberately kept (functional scannability, not inflation). | ✅ |
+| Spacing & rhythm | §2 | Three-tier vertical scale (hero/#book tier-1, events/acts/stage/about tier-2, rest tier-3); `scroll-mt-24` on all sections (fixes sticky-nav anchor bug §2.2); 7 section headers split to 12-col grid (§2.3); `neon-rule` cut from 10 headers, single closing rule kept at #book; bento gaps `gap-4→md:gap-5`. | ✅ |
+| Typography | §3 | Fluid `clamp()` on H1/all H2s/#book heading (§3.1); eyebrow tracking `.32em→.20em` (§3.6); card sales-copy promoted to `text-[15px] slate-300` (§3.3); proof stats rebuilt as editorial `gap-px` hairline dividers with clamp'd numerals (§3.5). | ✅ |
+| Surfaces | §4.3 | Top inset highlight baked into shared `.card-hover` (covers all hover-cards in one rule) + hover lift shadow; `.card-surface` gradient-glass on format ribbon, both repertoire cards, specs list; all ambient blurs `hidden md:block` (skip mobile compositing). | ✅ |
+
+**Verification:** `tw.css` rebuilt (28KB); 446/446 class tokens resolve; headless Chromium desktop + mobile render clean, **0 page errors**. Split headers, fluid type, quieted icons, readable marquee, edge-lit surfaces confirmed visually.
+
+**Scope discipline:** §4.4 nav-glass and §5.3 button sweep were *not* pulled in (not in the Phase 2 brief) — only the §5.3 CTA copy fix ("Check Availability → Check your date") was applied as pure conversion copy. Motion/focus/keyboard-nav (§5.1/5.2/5.5) remain Phase 3 per the plan.
 
 ## Phase 3 — Shortlisting & shelf life — NOT STARTED (content-bound, coordinate with Chris)
 

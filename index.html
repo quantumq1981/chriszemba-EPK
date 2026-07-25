@@ -64,8 +64,18 @@
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Section eyebrow tick */
-    .eyebrow { letter-spacing:.32em; }
+    /* Section eyebrow tick (§3.6 — .32em fragmented the word at 11px) */
+    .eyebrow { letter-spacing:.20em; }
+
+    /* §4.3 — premium dark surfaces: gradient glass fill + inset top highlight.
+       Replaces flat bg-midnight-850/900 "paint" with edge-lit glass. */
+    .card-surface {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.055), rgba(255,255,255,0.012));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.07);
+    }
+    /* Top inset highlight for cards that keep their own fill/border */
+    .inset-hi { box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.07); }
 
     /* Venue marquee (auto-scrolling credibility strip) */
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -73,8 +83,10 @@
     .marquee-mask { -webkit-mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
     @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
-    .card-hover { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-    .card-hover:hover { transform: translateY(-4px); }
+    /* §4.3a — every hover-card carries a top inset highlight (edge light); the hover state
+       deepens it and adds a lift shadow. Single rule so the treatment stays consistent. */
+    .card-hover { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; box-shadow: inset 0 1px 0 0 rgba(255,255,255,.07); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: inset 0 1px 0 0 rgba(255,255,255,.12), 0 24px 50px -28px rgba(0,0,0,.9); }
     .link-underline { background-image: linear-gradient(#ff7a3d,#ff7a3d); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s; }
     .link-underline:hover { background-size:100% 2px; }
   </style>
@@ -95,7 +107,7 @@
         <a href="#about" class="hover:text-fire-400 transition">About</a>
         <a href="#songs" class="hover:text-fire-400 transition">Repertoire</a>
       </div>
-      <a href="#book" class="text-[13px] font-display font-600 uppercase tracking-wider bg-fire-500 hover:bg-fire-400 text-midnight-950 px-4 py-2 rounded-md transition glow-fire">Book Now</a>
+      <a href="#book" class="text-[13px] font-display font-600 uppercase tracking-wider bg-fire-500 hover:bg-fire-400 text-midnight-950 px-4 py-2 rounded-md transition">Book Now</a>
     </div>
   </nav>
 
@@ -111,15 +123,15 @@
          class="absolute inset-0 w-full h-full object-cover object-[75%_center]">
     <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/88 to-midnight-950/40"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-transparent to-midnight-950/55"></div>
-    <!-- Neon color wash echoing the logo tubes -->
-    <div class="absolute -top-32 -left-24 w-96 h-96 bg-fire-500/20 rounded-full blur-3xl"></div>
-    <div class="absolute top-40 -right-24 w-96 h-96 bg-azure-500/20 rounded-full blur-3xl"></div>
+    <!-- Neon color wash echoing the logo tubes (hidden on mobile — expensive to composite) -->
+    <div aria-hidden="true" class="hidden md:block absolute -top-32 -left-24 w-96 h-96 bg-fire-500/20 rounded-full blur-3xl"></div>
+    <div aria-hidden="true" class="hidden md:block absolute top-40 -right-24 w-96 h-96 bg-azure-500/20 rounded-full blur-3xl"></div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-28">
       <div class="max-w-2xl">
         <img src="assets/zemba-logo.webp" alt="Zemba Music Co, Ignite Your Soul" class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover ring-neon mb-6">
         <p class="eyebrow text-[11px] md:text-xs font-display font-600 uppercase text-fire-400 mb-3">Official Electronic Press Kit &middot; Las Vegas, NV</p>
-        <h1 class="font-heavy text-6xl md:text-8xl leading-[0.92] tracking-tight text-white uppercase">Chris<br><span class="text-forge">Zemba</span></h1>
+        <h1 class="font-heavy text-[clamp(3rem,1.4rem+7vw,7rem)] leading-[0.88] tracking-[-0.02em] text-white uppercase text-balance">Chris<br><span class="text-forge">Zemba</span></h1>
         <p class="font-display font-500 text-xl md:text-2xl text-slate-200 mt-4 tracking-wide uppercase">Guitarist &middot; Vocalist &middot; Bandleader</p>
         <p class="text-slate-300/90 text-base md:text-lg mt-4 leading-relaxed max-w-xl">
           Twenty-five years of live music built for the room you are filling, from an intimate acoustic ceremony to a full band that packs the dance floor.
@@ -133,7 +145,7 @@
         </div>
 
         <div class="flex flex-wrap gap-3.5 mt-8">
-          <a href="#book" class="font-display font-600 uppercase tracking-wider text-sm bg-fire-500 hover:bg-fire-400 text-midnight-950 px-7 py-3.5 rounded-lg transition glow-fire">Check Availability</a>
+          <a href="#book" class="font-display font-600 uppercase tracking-wider text-sm bg-fire-500 hover:bg-fire-400 text-midnight-950 px-7 py-3.5 rounded-lg transition glow-fire">Check your date</a>
           <a href="#acts" class="font-display font-600 uppercase tracking-wider text-sm bg-white/5 hover:bg-white/10 border border-white/15 text-white px-7 py-3.5 rounded-lg transition flex items-center gap-2"><i class="fa-solid fa-play text-fire-400"></i> Watch the Reels</a>
         </div>
       </div>
@@ -161,7 +173,7 @@
   <!-- ============ VENUE MARQUEE (trust strip) ============ -->
   <section aria-label="Venues and stages" class="border-y border-white/5 bg-midnight-900 py-5">
     <div class="marquee-mask overflow-hidden">
-      <div class="marquee-track gap-10 text-slate-500 font-display font-500 uppercase tracking-widest text-sm md:text-base whitespace-nowrap">
+      <div class="marquee-track gap-10 text-slate-300/90 font-display font-500 uppercase tracking-[0.15em] text-sm md:text-base whitespace-nowrap">
         <span class="flex items-center gap-10">
           <span>Bally's Las Vegas</span><span class="text-fire-500">&bull;</span>
           <span>Planet Hollywood EXTRA Lounge</span><span class="text-fire-500">&bull;</span>
@@ -191,16 +203,17 @@
   <main class="max-w-6xl mx-auto px-5">
 
     <!-- ============ EVENTS WE PLAY (booking-audience bento) ============ -->
-    <section id="events" class="py-16 md:py-24">
-      <div class="max-w-2xl mb-10">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">Right act, right room</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">Built for the event <span class="text-fire-grad">you are producing</span></h2>
-        <hr class="neon-rule w-40 mt-5">
-        <p class="text-slate-400 mt-5 leading-relaxed">One bandleader, one point of contact, and a lineup that scales from a solo acoustic ceremony to a five-piece show. Every date is tailored to your crowd, your run-of-show, and your room.</p>
+    <section id="events" class="scroll-mt-24 py-20 md:py-28">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Right act, right room</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Built for the event <span class="text-fire-grad">you are producing</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">One bandleader, one point of contact, and a lineup that scales from a solo acoustic ceremony to a five-piece show. Every date is tailored to your crowd, your run-of-show, and your room.</p>
       </div>
 
       <!-- Asymmetric bento: a tall wedding feature anchoring smaller event tiles -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[168px]">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 md:auto-rows-[168px]">
 
         <!-- Feature: Weddings (tall, photo-backed) -->
         <article class="md:row-span-2 relative rounded-2xl overflow-hidden border border-white/10 card-hover group min-h-[280px]">
@@ -209,42 +222,42 @@
           <div class="relative h-full flex flex-col justify-end p-6">
             <i class="fa-solid fa-champagne-glasses text-fire-400 text-2xl mb-3"></i>
             <h3 class="font-display font-700 text-2xl uppercase tracking-wide">Weddings</h3>
-            <p class="text-slate-300 text-sm mt-2 leading-relaxed">Solo guitar for the ceremony, a refined duo for cocktail hour, then the full band to fill the floor. One vendor, seamless transitions, and a first dance that lands.</p>
+            <p class="text-slate-300 text-[15px] mt-2 leading-[1.6]">Solo guitar for the ceremony, a refined duo for cocktail hour, then the full band to fill the floor. One vendor, seamless transitions, and a first dance that lands.</p>
             <span class="mt-4 inline-flex w-max text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/15 text-fire-300 px-3 py-1 rounded-full">Ceremony &rarr; Cocktail &rarr; Reception</span>
           </div>
         </article>
 
         <!-- Corporate & Galas (wide) -->
-        <article class="md:col-span-2 relative rounded-2xl overflow-hidden border border-white/10 bg-midnight-850 card-hover hover:border-fire-500/40 p-6 flex flex-col justify-center">
+        <article class="group md:col-span-2 relative rounded-2xl overflow-hidden border border-white/10 bg-midnight-850 card-hover hover:border-fire-500/40 p-6 flex flex-col justify-center">
           <div class="flex items-start gap-4">
-            <div class="shrink-0 w-11 h-11 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-building-columns text-fire-400 text-lg"></i></div>
+            <div class="shrink-0 w-11 h-11 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-building-columns text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i></div>
             <div>
               <h3 class="font-display font-700 text-xl uppercase tracking-wide">Corporate &amp; Galas</h3>
-              <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Award dinners, brand launches, conference after-parties, and holiday galas. Clean stage presentation, on-time downbeats, W&#8209;9 and certificate of insurance handled before you ask.</p>
+              <p class="text-slate-300 text-[15px] mt-1.5 leading-[1.6]">Award dinners, brand launches, conference after-parties, and holiday galas. Clean stage presentation, on-time downbeats, W&#8209;9 and certificate of insurance handled before you ask.</p>
             </div>
           </div>
         </article>
 
         <!-- Casino & Resort -->
-        <article class="relative rounded-2xl overflow-hidden border border-white/10 bg-midnight-850 card-hover hover:border-azure-400/40 p-6 flex flex-col justify-center">
-          <div class="w-11 h-11 rounded-lg bg-azure-500/15 grid place-items-center mb-3"><i class="fa-solid fa-dice text-azure-300 text-lg"></i></div>
+        <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-midnight-850 card-hover hover:border-azure-400/40 p-6 flex flex-col justify-center">
+          <div class="w-11 h-11 rounded-lg bg-azure-500/15 grid place-items-center mb-3"><i class="fa-solid fa-dice text-slate-400 text-lg transition-colors duration-300 group-hover:text-azure-300"></i></div>
           <h3 class="font-display font-700 text-lg uppercase tracking-wide">Casino &amp; Resort</h3>
-          <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Lounge and showroom residencies that keep players in the room.</p>
+          <p class="text-slate-300 text-[15px] mt-1.5 leading-[1.6]">Lounge and showroom residencies that keep players in the room.</p>
         </article>
 
         <!-- Private Parties -->
-        <article class="relative rounded-2xl overflow-hidden border border-white/10 bg-midnight-850 card-hover hover:border-fire-500/40 p-6 flex flex-col justify-center">
-          <div class="w-11 h-11 rounded-lg bg-fire-500/15 grid place-items-center mb-3"><i class="fa-solid fa-martini-glass-citrus text-fire-400 text-lg"></i></div>
+        <article class="group relative rounded-2xl overflow-hidden border border-white/10 bg-midnight-850 card-hover hover:border-fire-500/40 p-6 flex flex-col justify-center">
+          <div class="w-11 h-11 rounded-lg bg-fire-500/15 grid place-items-center mb-3"><i class="fa-solid fa-martini-glass-citrus text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i></div>
           <h3 class="font-display font-700 text-lg uppercase tracking-wide">Private Parties</h3>
-          <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Milestone birthdays, backyard soirees, and VIP celebrations.</p>
+          <p class="text-slate-300 text-[15px] mt-1.5 leading-[1.6]">Milestone birthdays, backyard soirees, and VIP celebrations.</p>
         </article>
 
         <!-- Festivals & Grand Openings (wide) -->
-        <article class="md:col-span-3 relative rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-r from-midnight-800 to-midnight-850 card-hover hover:border-fire-500/40 p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-          <div class="shrink-0 w-11 h-11 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-guitar text-fire-400 text-lg"></i></div>
+        <article class="group md:col-span-3 relative rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-r from-midnight-800 to-midnight-850 card-hover hover:border-fire-500/40 p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+          <div class="shrink-0 w-11 h-11 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-guitar text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i></div>
           <div class="md:flex-1">
             <h3 class="font-display font-700 text-xl uppercase tracking-wide">Festivals &amp; Grand Openings</h3>
-            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Outdoor stages, ribbon-cuttings, and property launches, delivered with a self-contained PA and lighting package when the venue needs it.</p>
+            <p class="text-slate-300 text-[15px] mt-1.5 leading-[1.6]">Outdoor stages, ribbon-cuttings, and property launches, delivered with a self-contained PA and lighting package when the venue needs it.</p>
           </div>
           <div class="flex flex-wrap gap-2">
             <span class="text-[11px] font-display font-600 uppercase tracking-wider bg-white/5 border border-white/10 px-3 py-1 rounded-full text-slate-300">Self-contained PA</span>
@@ -254,8 +267,8 @@
       </div>
 
       <!-- Format ribbon -->
-      <div class="mt-6 rounded-2xl border border-white/10 bg-midnight-900 px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <p class="font-display font-600 uppercase tracking-wider text-sm text-slate-300"><i class="fa-solid fa-sliders text-fire-400 mr-2"></i>Four ways to book the same trusted bandleader</p>
+      <div class="mt-6 rounded-2xl card-surface px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <p class="font-display font-600 uppercase tracking-wider text-sm text-slate-300"><i class="fa-solid fa-sliders text-slate-400 mr-2"></i>Four ways to book the same trusted bandleader</p>
         <div class="flex flex-wrap gap-2 text-[12px] font-display font-500 uppercase tracking-wide">
           <span class="bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Solo Acoustic</span>
           <span class="bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Duo</span>
@@ -266,12 +279,13 @@
     </section>
 
     <!-- ============ FEATURED MEDIA / THREE ACTS ============ -->
-    <section id="acts" class="py-16 md:py-20 border-t border-white/5">
-      <div class="max-w-2xl mb-9">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">See it and hear it</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">Three acts, <span class="text-fire-grad">one brand</span></h2>
-        <hr class="neon-rule w-40 mt-5">
-        <p class="text-slate-400 mt-5 leading-relaxed">High-energy full band, after-hours soul, and intimate acoustic. Pick the tab that fits your event and watch a real reel from a real stage.</p>
+    <section id="acts" class="scroll-mt-24 py-20 md:py-28 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">See it and hear it</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Three acts, <span class="text-fire-grad">one brand</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">High-energy full band, after-hours soul, and intimate acoustic. Pick the tab that fits your event and watch a real reel from a real stage.</p>
       </div>
 
       <!-- Brand banner: all three acts in one frame -->
@@ -283,7 +297,7 @@
       <div class="flex flex-wrap gap-2.5 mb-7" role="tablist" aria-label="Featured media format">
         <button type="button" id="media-tab-band" role="tab" aria-selected="true" aria-controls="media-panel-band"
           onclick="setMediaTab('band')"
-          class="font-display font-600 uppercase tracking-wide px-4 py-2.5 rounded-lg text-sm border transition bg-fire-500 text-midnight-950 border-fire-500 glow-fire">
+          class="font-display font-600 uppercase tracking-wide px-4 py-2.5 rounded-lg text-sm border transition bg-fire-500 text-midnight-950 border-fire-500">
           The Chris Zemba Band
         </button>
         <button type="button" id="media-tab-lateshift" role="tab" aria-selected="false" aria-controls="media-panel-lateshift"
@@ -303,7 +317,7 @@
         <img src="assets/logo-chris-zemba-band.webp" alt="The Chris Zemba Band" class="h-20 md:h-24 w-auto mb-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
-            <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire relative group cursor-pointer"
+            <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 relative group cursor-pointer"
                  data-id="TVp9LDZ0g_M" role="button" tabindex="0" aria-label="Play: The Chris Zemba Band Official Promo Reel 2026">
               <img src="assets/photos/live-hero-guitar.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
               <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
@@ -318,7 +332,7 @@
             </div>
           </div>
           <div class="space-y-3">
-            <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure relative group cursor-pointer"
+            <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 relative group cursor-pointer"
                  data-id="ugXHelhrRcI" role="button" tabindex="0" aria-label="Play: Chris Zemba Live on FOX5, Gibson Showroom Las Vegas">
               <img src="assets/photos/fox5-gibson-group.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
               <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
@@ -333,7 +347,7 @@
             </div>
           </div>
           <div class="space-y-3 md:col-span-2">
-            <div class="yt aspect-video w-full md:max-w-2xl md:mx-auto rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire relative group cursor-pointer"
+            <div class="yt aspect-video w-full md:max-w-2xl md:mx-auto rounded-xl overflow-hidden bg-midnight-900 border border-white/10 relative group cursor-pointer"
                  data-id="K7J20uZlLak" role="button" tabindex="0" aria-label="Play: Live Festival Set, Great American Foodie Fest 2026">
               <img src="assets/photos/hero-foodie-fest.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
               <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
@@ -352,14 +366,14 @@
 
       <!-- Panel: Chris Zemba & The Late Shift Band -->
       <div id="media-panel-lateshift" role="tabpanel" aria-labelledby="media-tab-lateshift" class="hidden">
-        <div class="max-w-2xl mx-auto mb-6 rounded-xl overflow-hidden border border-white/10 glow-fire">
+        <div class="max-w-2xl mx-auto mb-6 rounded-xl overflow-hidden border border-white/10">
           <img src="assets/photos/late-shift-key-art.webp" alt="Chris Zemba & The Late Shift Band official key art" class="w-full h-auto" loading="lazy">
         </div>
         <div class="max-w-2xl mx-auto text-center space-y-2 mb-6">
           <p class="text-sm text-slate-300 leading-relaxed">The after-hours side of Zemba Music Co. A late-night revue of Classic Rock, Blues, Soul, R&amp;B, Funk, and Jazz built for lounges and rooms that keep the night going. Headlined the grand reopening of the Sand Dollar Lounge (featured in the Las Vegas Review-Journal) and residencies at Roxy's Lounge, Sam's Town.</p>
         </div>
         <div class="max-w-2xl mx-auto mb-6 space-y-3">
-          <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire relative group cursor-pointer"
+          <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 relative group cursor-pointer"
                data-id="p19g4pt0BIc" role="button" tabindex="0" aria-label="Play: Chris Zemba & The Late Shift Band Official Promo Reel 2026">
             <img src="assets/photos/late-shift-key-art.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
             <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
@@ -387,12 +401,12 @@
 
       <!-- Panel: ZembAcoustics -->
       <div id="media-panel-acoustic" role="tabpanel" aria-labelledby="media-tab-acoustic" class="hidden">
-        <div class="max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-white/10 glow-azure">
+        <div class="max-w-xs mx-auto mb-6 rounded-xl overflow-hidden border border-white/10">
           <img src="assets/logo-zembacoustics.webp" alt="ZembAcoustics: Solo & Duo Showcases" class="w-full h-auto">
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
-            <div class="yt aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure relative group cursor-pointer"
+            <div class="yt aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 relative group cursor-pointer"
                  data-id="7Zr64EOXZHI" role="button" tabindex="0" aria-label="Play: Live Residency Highlights, Southeastern CT">
               <img src="assets/photos/live-vocal-grey-suit.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
               <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
@@ -407,7 +421,7 @@
             </div>
           </div>
           <div class="space-y-3">
-            <div class="yt aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure relative group cursor-pointer"
+            <div class="yt aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 relative group cursor-pointer"
                  data-id="f6zFKqcqB8g" role="button" tabindex="0" aria-label="Play: Live at Union Station, New Haven CT">
               <img src="assets/photos/portrait-chris.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
               <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
@@ -426,15 +440,16 @@
     </section>
 
     <!-- ============ ON STAGE GALLERY (bento) ============ -->
-    <section id="stage" class="py-16 md:py-20 border-t border-white/5">
-      <div class="max-w-2xl mb-9">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">Real rooms, real crowds</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">On <span class="text-fire-grad">stage</span></h2>
-        <hr class="neon-rule w-40 mt-5">
-        <p class="text-slate-400 mt-5 leading-relaxed">The rooms talent buyers know, from casino lounges and showrooms to festival stages and packed dance floors.</p>
+    <section id="stage" class="scroll-mt-24 py-20 md:py-28 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Real rooms, real crowds</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">On <span class="text-fire-grad">stage</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">The rooms talent buyers know, from casino lounges and showrooms to festival stages and packed dance floors.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[190px]">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 md:auto-rows-[190px]">
         <!-- Big feature -->
         <figure class="col-span-2 md:row-span-2 relative rounded-2xl overflow-hidden border border-white/10 group card-hover">
           <img src="assets/photos/live-neon-closeup.webp" alt="Chris Zemba playing slide guitar under neon stage light" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
@@ -476,12 +491,13 @@
     </section>
 
     <!-- ============ MARQUEE BILLING (on-property flyers) ============ -->
-    <section id="billing" class="py-16 md:py-20 border-t border-white/5">
-      <div class="max-w-2xl mb-9">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">Booked, and billed</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">On the <span class="text-fire-grad">marquee</span></h2>
-        <hr class="neon-rule w-40 mt-5">
-        <p class="text-slate-400 mt-5 leading-relaxed">Not just booked. Billed on property and on the flyer, from the Las Vegas Strip to Primm Valley Casino Resorts.</p>
+    <section id="billing" class="scroll-mt-24 py-14 md:py-20 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Booked, and billed</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">On the <span class="text-fire-grad">marquee</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">Not just booked. Billed on property and on the flyer, from the Las Vegas Strip to Primm Valley Casino Resorts.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-5 items-start">
@@ -493,7 +509,7 @@
             <span class="bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Planet Hollywood</span>
           </div>
         </div>
-        <figure class="md:col-span-1 rounded-2xl overflow-hidden border border-white/10 bg-midnight-900 glow-fire">
+        <figure class="md:col-span-1 rounded-2xl overflow-hidden border border-white/10 bg-midnight-900 inset-hi">
           <img src="assets/photos/primm-valley-flyer.webp" alt="Chris Zemba Band live music flyer, The Saloon at Primm Valley Casino Resorts, presented by Extreme Live Productions" class="w-full h-auto" loading="lazy">
           <figcaption class="px-3 py-2 text-[11px] text-slate-400">The Saloon &middot; Primm Valley Casino Resorts</figcaption>
         </figure>
@@ -509,22 +525,21 @@
     </section>
 
     <!-- ============ PROOF / PRESS ============ -->
-    <section id="press" class="py-16 md:py-20 border-t border-white/5">
-      <div class="max-w-2xl mb-9">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">On the record</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">Press &amp; <span class="text-fire-grad">proof</span></h2>
-        <hr class="neon-rule w-40 mt-5">
+    <section id="press" class="scroll-mt-24 py-14 md:py-20 border-t border-white/5">
+      <div class="max-w-2xl mb-12 md:mb-16">
+        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">On the record</p>
+        <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Press &amp; <span class="text-fire-grad">proof</span></h2>
       </div>
 
       <!-- Pull quote feature (asymmetric split) -->
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 items-stretch">
         <a href="https://www.reviewjournal.com/entertainment/music/sand-dollar-tries-to-recapture-blues-magic/" target="_blank" rel="noopener" class="lg:col-span-3 relative rounded-2xl border border-white/10 hover:border-fire-500/40 bg-gradient-to-br from-midnight-850 to-midnight-900 p-8 md:p-10 flex flex-col justify-center card-hover overflow-hidden group">
-          <div class="absolute -right-6 -top-6 w-40 h-40 bg-fire-500/10 rounded-full blur-2xl"></div>
+          <div aria-hidden="true" class="hidden md:block absolute -right-6 -top-6 w-40 h-40 bg-fire-500/10 rounded-full blur-2xl"></div>
           <i class="fa-solid fa-quote-left text-4xl text-fire-500/50 mb-4"></i>
           <p class="font-display font-500 text-2xl md:text-3xl leading-snug text-slate-100">His lips are moving, but it is his guitar that is doing all the talking. It has plenty to say.</p>
           <div class="mt-6">
             <p class="font-display font-600 uppercase tracking-wide text-slate-200 text-sm">Las Vegas Review-Journal <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500 group-hover:text-fire-400"></i></p>
-            <p class="text-xs text-slate-500 mt-1">Feature on Chris Zemba &amp; The Late Shift Band headlining the grand reopening of the legendary Sand Dollar Lounge. By Jason Bracelin.</p>
+            <p class="text-xs text-slate-400 mt-1">Feature on Chris Zemba &amp; The Late Shift Band headlining the grand reopening of the legendary Sand Dollar Lounge. By Jason Bracelin.</p>
           </div>
         </a>
         <figure class="lg:col-span-2 rounded-2xl overflow-hidden border border-white/10 bg-midnight-900">
@@ -532,23 +547,23 @@
         </figure>
       </div>
 
-      <!-- Proof stat row (varied widths, not equal cards) -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
-        <div class="rounded-2xl border border-white/10 bg-midnight-850 p-5 text-center">
-          <p class="font-heavy text-3xl text-fire-grad">25+</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wide mt-1 font-display">Years live</p>
+      <!-- Proof stats (§3.5) — hairline dividers over a light track read more editorial than four floating boxes -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.07] rounded-2xl overflow-hidden shadow-[inset_0_1px_0_0_rgba(255,255,255,0.07)] mt-6">
+        <div class="bg-midnight-900 px-5 py-8 md:py-10 text-center">
+          <p class="font-heavy tabular-nums text-fire-grad leading-none text-[clamp(2.5rem,1.5rem+3.5vw,4.25rem)]">25<span class="text-[0.6em] align-super">+</span></p>
+          <p class="text-[11px] text-slate-400 uppercase tracking-[0.18em] mt-3 font-display font-500">Years live</p>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight-850 p-5 text-center">
-          <p class="font-heavy text-3xl text-fire-grad">8+</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wide mt-1 font-display">Casino properties</p>
+        <div class="bg-midnight-900 px-5 py-8 md:py-10 text-center">
+          <p class="font-heavy tabular-nums text-fire-grad leading-none text-[clamp(2.5rem,1.5rem+3.5vw,4.25rem)]">8<span class="text-[0.6em] align-super">+</span></p>
+          <p class="text-[11px] text-slate-400 uppercase tracking-[0.18em] mt-3 font-display font-500">Casino properties</p>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight-850 p-5 text-center">
-          <p class="font-heavy text-3xl text-fire-grad">160</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wide mt-1 font-display">Songs in the repertoire</p>
+        <div class="bg-midnight-900 px-5 py-8 md:py-10 text-center">
+          <p class="font-heavy tabular-nums text-fire-grad leading-none text-[clamp(2.5rem,1.5rem+3.5vw,4.25rem)]">160</p>
+          <p class="text-[11px] text-slate-400 uppercase tracking-[0.18em] mt-3 font-display font-500">Songs in the repertoire</p>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight-850 p-5 text-center">
-          <p class="font-heavy text-3xl text-fire-grad">FOX5</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wide mt-1 font-display">Las Vegas TV feature</p>
+        <div class="bg-midnight-900 px-5 py-8 md:py-10 text-center">
+          <p class="font-heavy text-fire-grad leading-none text-[clamp(2rem,1.3rem+2.6vw,3.25rem)]">FOX5</p>
+          <p class="text-[11px] text-slate-400 uppercase tracking-[0.18em] mt-3 font-display font-500">Las Vegas TV feature</p>
         </div>
       </div>
 
@@ -565,22 +580,22 @@
         <div class="rounded-2xl border border-white/10 bg-midnight-900 p-6">
           <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm mb-2"><i class="fa-solid fa-briefcase text-fire-400 mr-2"></i>Represented by talent agencies</p>
           <div class="flex flex-wrap gap-2 text-xs">
-            <a href="https://www.celebritytalent.net/sampletalent/19016/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Celebrity Talent Intl <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-600"></i></a>
-            <a href="https://www.lasvegastalent.net/library/bio/3226/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Las Vegas Talent <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-600"></i></a>
-            <a href="https://seattletalentbuying.com/artists/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Seattle Talent Buying <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-600"></i></a>
+            <a href="https://www.celebritytalent.net/sampletalent/19016/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Celebrity Talent Intl <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i></a>
+            <a href="https://www.lasvegastalent.net/library/bio/3226/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Las Vegas Talent <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i></a>
+            <a href="https://seattletalentbuying.com/artists/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Seattle Talent Buying <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i></a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ ABOUT / BIO ============ -->
-    <section id="about" class="py-16 md:py-20 border-t border-white/5">
+    <section id="about" class="scroll-mt-24 py-20 md:py-28 border-t border-white/5">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
 
         <!-- Photo collage column (the new live shots, around the bio) -->
         <div class="lg:col-span-5 order-2 lg:order-1">
           <div class="grid grid-cols-2 gap-3">
-            <figure class="col-span-2 rounded-2xl overflow-hidden border border-white/10 glow-fire">
+            <figure class="col-span-2 rounded-2xl overflow-hidden border border-white/10">
               <img src="assets/photos/live-hero-guitar.webp" alt="Chris Zemba on the Telecaster under blue stage light" class="w-full h-64 object-cover object-top" loading="lazy">
             </figure>
             <figure class="rounded-2xl overflow-hidden border border-white/10">
@@ -594,10 +609,9 @@
 
         <!-- Bio text column -->
         <div class="lg:col-span-7 order-1 lg:order-2">
-          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">The bandleader</p>
-          <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">About <span class="text-fire-grad">Chris Zemba</span></h2>
-          <hr class="neon-rule w-40 mt-5 mb-6">
-          <p class="text-slate-200 leading-relaxed text-lg">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">The bandleader</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">About <span class="text-fire-grad">Chris Zemba</span></h2>
+          <p class="text-slate-200 leading-relaxed text-lg mt-6">
             Chris Zemba is a seasoned Las Vegas-based guitarist, vocalist, and bandleader delivering a no-nonsense brand of high-energy Blues Rock, R&amp;B, and Soul. He commands the stage with a fusion of contemporary Top 40 rock, pop, R&amp;B, and country, tailored to the audience in front of him.
           </p>
           <p class="text-slate-400 leading-relaxed mt-4">
@@ -653,14 +667,13 @@
     </section>
 
     <!-- ============ REPERTOIRE + AUDIO ============ -->
-    <section id="songs" class="py-16 md:py-20 border-t border-white/5">
+    <section id="songs" class="scroll-mt-24 py-14 md:py-20 border-t border-white/5">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Repertoire -->
         <div>
-          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">What we play</p>
-          <h2 class="font-display font-700 text-3xl md:text-4xl uppercase tracking-tight leading-none">Genres &amp; <span class="text-fire-grad">repertoire</span></h2>
-          <hr class="neon-rule w-40 mt-5 mb-6">
-          <div class="rounded-2xl border border-white/10 bg-midnight-900 p-6 space-y-5">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">What we play</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.75rem,1rem+2.4vw,2.5rem)] leading-[0.98] tracking-[-0.01em]">Genres &amp; <span class="text-fire-grad">repertoire</span></h2>
+          <div class="rounded-2xl card-surface p-6 space-y-5 mt-6">
             <div class="grid grid-cols-2 gap-3 text-sm">
               <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-fire-500"></span> Classic Rock</div>
               <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-fire-500"></span> Electric Blues</div>
@@ -670,7 +683,7 @@
               <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-fire-500"></span> Classic &amp; Modern Country</div>
             </div>
             <div class="border-t border-white/5 pt-4">
-              <p class="text-[11px] text-slate-500 uppercase tracking-wider font-display font-600 mb-2">A sample of the artists in rotation</p>
+              <p class="text-[11px] text-slate-400 uppercase tracking-wider font-display font-600 mb-2">A sample of the artists in rotation</p>
               <p class="text-xs text-slate-400 leading-relaxed">Stevie Wonder &middot; The Allman Brothers Band &middot; Jimi Hendrix &middot; Stevie Ray Vaughan &middot; Marvin Gaye &middot; Tom Petty &middot; Steely Dan &middot; The Black Crowes &middot; George Benson &middot; B.B. King &middot; Led Zeppelin &middot; Eric Clapton &middot; Lynyrd Skynyrd &middot; Van Morrison &middot; ZZ Top, plus contemporary Top 40, pop, R&amp;B, and country.</p>
               <div class="flex flex-wrap gap-2.5 mt-4">
                 <a href="songs.html" class="inline-flex items-center gap-2 bg-fire-500 hover:bg-fire-400 text-midnight-950 font-display font-600 uppercase tracking-wide px-4 py-2.5 rounded-lg text-xs transition"><i class="fa-solid fa-list-ul"></i> Full Song List</a>
@@ -682,10 +695,9 @@
 
         <!-- Audio -->
         <div>
-          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">Press play</p>
-          <h2 class="font-display font-700 text-3xl md:text-4xl uppercase tracking-tight leading-none">Featured <span class="text-fire-grad">audio</span></h2>
-          <hr class="neon-rule w-40 mt-5 mb-6">
-          <div class="rounded-2xl border border-white/10 bg-midnight-900 p-5 space-y-4">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Press play</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.75rem,1rem+2.4vw,2.5rem)] leading-[0.98] tracking-[-0.01em]">Featured <span class="text-fire-grad">audio</span></h2>
+          <div class="rounded-2xl card-surface p-5 space-y-4 mt-6">
             <div class="sc relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-r from-midnight-850 to-midnight-900 cursor-pointer group h-[110px] flex items-center gap-4 px-5"
                  role="button" tabindex="0" aria-label="Play featured track on SoundCloud"
                  data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fchris-zemba&color=%23ee5a20&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
@@ -728,12 +740,13 @@
     </section>
 
     <!-- ============ SPECS & TECH ============ -->
-    <section id="specs" class="py-16 md:py-20 border-t border-white/5">
-      <div class="max-w-2xl mb-9">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">Low-risk booking</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">Specs &amp; <span class="text-fire-grad">logistics</span></h2>
-        <hr class="neon-rule w-40 mt-5">
-        <p class="text-slate-400 mt-5 leading-relaxed">Everything a production manager or planner needs to say yes with confidence. <a href="assets/downloads/zemba-music-tech-rider.pdf" target="_blank" rel="noopener" class="text-azure-300 link-underline">Download the printable stage plot and tech rider</a>.</p>
+    <section id="specs" class="scroll-mt-24 py-14 md:py-20 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Low-risk booking</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Specs &amp; <span class="text-fire-grad">logistics</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">Everything a production manager or planner needs to say yes with confidence. <a href="assets/downloads/zemba-music-tech-rider.pdf" target="_blank" rel="noopener" class="text-azure-300 link-underline">Download the printable stage plot and tech rider</a>.</p>
       </div>
 
       <!-- Specs: asymmetric split, feature card + list -->
@@ -750,7 +763,7 @@
         </div>
 
         <!-- Spec list -->
-        <div class="lg:col-span-3 rounded-2xl border border-white/10 bg-midnight-900 divide-y divide-white/5">
+        <div class="lg:col-span-3 rounded-2xl card-surface divide-y divide-white/5">
           <div class="flex items-start gap-4 p-5">
             <i class="fa-solid fa-users text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
             <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Performance formats</p><p class="text-sm text-slate-400 mt-0.5">Solo Acoustic, Duo, Trio, or 4 to 5 piece full band.</p></div>
@@ -813,7 +826,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-xs">
             <thead>
-              <tr class="text-left text-slate-500 uppercase tracking-wider border-b border-white/5 font-display">
+              <tr class="text-left text-slate-400 uppercase tracking-wider border-b border-white/5 font-display">
                 <th class="px-5 py-2.5 font-500">Ch</th><th class="px-5 py-2.5 font-500">Source</th><th class="px-5 py-2.5 font-500">Mic / DI Preference</th>
               </tr>
             </thead>
@@ -831,17 +844,18 @@
             </tbody>
           </table>
         </div>
-        <p class="px-5 py-3 text-[11px] text-slate-500 border-t border-white/5">Guitar amp is mic'd (SM57) or run direct depending on house preference. All preferences flexible.</p>
+        <p class="px-5 py-3 text-[11px] text-slate-400 border-t border-white/5">Guitar amp is mic'd (SM57) or run direct depending on house preference. All preferences flexible.</p>
       </div>
     </section>
 
     <!-- ============ WORD OF MOUTH (reviews) ============ -->
-    <section id="reviews" class="py-16 md:py-20 border-t border-white/5">
-      <div class="max-w-2xl mb-9">
-        <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-2">Word of mouth</p>
-        <h2 class="font-display font-700 text-3xl md:text-5xl uppercase tracking-tight leading-none">What the rooms <span class="text-fire-grad">keep saying</span></h2>
-        <hr class="neon-rule w-40 mt-5">
-        <p class="text-slate-400 mt-5 leading-relaxed">Twenty-five years of stages, covering weddings from Las Vegas to the New England shoreline. The couples, the press, and the competition judges keep coming to the same conclusion.</p>
+    <section id="reviews" class="scroll-mt-24 py-14 md:py-20 border-t border-white/5">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7">
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Word of mouth</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">What the rooms <span class="text-fire-grad">keep saying</span></h2>
+        </div>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">Twenty-five years of stages, covering weddings from Las Vegas to the New England shoreline. The couples, the press, and the competition judges keep coming to the same conclusion.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 items-stretch">
@@ -859,7 +873,7 @@
         <div class="lg:col-span-3 flex flex-col gap-5">
           <!-- Hero review: real wedding-client testimonial -->
           <div class="relative rounded-2xl border border-fire-500/25 bg-gradient-to-br from-fire-500/10 to-midnight-900 p-7 overflow-hidden flex-1">
-            <div class="absolute -right-6 -top-6 w-32 h-32 bg-fire-500/15 rounded-full blur-2xl"></div>
+            <div aria-hidden="true" class="hidden md:block absolute -right-6 -top-6 w-32 h-32 bg-fire-500/15 rounded-full blur-2xl"></div>
             <i class="fa-solid fa-quote-left text-2xl text-fire-500/60 mb-3"></i>
             <p class="font-display font-500 text-xl md:text-2xl leading-snug text-white">The band was fantastic. Chris is an exceptional entertainer.</p>
             <p class="font-display font-600 uppercase tracking-wide text-fire-300 text-xs mt-4">Barnett Wedding Party</p>
@@ -869,7 +883,7 @@
             <a href="https://www.reviewjournal.com/entertainment/music/sand-dollar-tries-to-recapture-blues-magic/" target="_blank" rel="noopener" class="rounded-2xl border border-white/10 hover:border-fire-500/40 bg-midnight-900 p-6 flex flex-col card-hover group">
               <i class="fa-solid fa-quote-left text-fire-400 text-lg mb-2"></i>
               <p class="text-slate-100 leading-snug font-500">His guitar does all the talking, and it has plenty to say.</p>
-              <p class="font-display font-600 uppercase tracking-wide text-slate-400 text-[11px] mt-auto pt-4">Las Vegas Review-Journal <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-600 group-hover:text-fire-400"></i></p>
+              <p class="font-display font-600 uppercase tracking-wide text-slate-400 text-[11px] mt-auto pt-4">Las Vegas Review-Journal <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500 group-hover:text-fire-400"></i></p>
             </a>
             <div class="rounded-2xl border border-white/10 bg-midnight-900 p-6 flex flex-col">
               <i class="fa-solid fa-rotate-right text-fire-400 text-lg mb-2"></i>
@@ -882,15 +896,16 @@
     </section>
 
     <!-- ============ BOOKING CTA ============ -->
-    <section id="book" class="py-16 md:py-24 border-t border-white/5">
+    <section id="book" class="scroll-mt-24 py-24 md:py-36 lg:py-44 border-t border-white/5">
       <div class="relative rounded-3xl overflow-hidden border border-white/10">
         <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('assets/photos/live-ballroom-fullbody.webp'); background-position:center 25%;"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/92 to-midnight-950/70"></div>
-        <div class="absolute -top-16 -right-10 w-72 h-72 bg-fire-500/20 rounded-full blur-3xl"></div>
+        <div aria-hidden="true" class="hidden md:block absolute -top-16 -right-10 w-72 h-72 bg-fire-500/20 rounded-full blur-3xl"></div>
         <div class="relative z-10 p-6 sm:p-8 md:p-14 max-w-2xl">
           <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Now booking 2026 &amp; 2027</p>
-          <h2 class="font-heavy text-4xl md:text-6xl uppercase leading-[0.95] text-white">Let's put your date <span class="text-forge">on the calendar</span></h2>
-          <p class="text-slate-300 mt-5 leading-relaxed">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Tell me your date, room, and vibe, and you will get a fast, professional response.</p>
+          <h2 class="font-heavy uppercase text-white text-balance text-[clamp(2.25rem,1.4rem+3.6vw,4rem)] leading-[0.95] tracking-[-0.01em]">Let's put your date <span class="text-forge">on the calendar</span></h2>
+          <hr class="neon-rule w-40 mt-6">
+          <p class="text-slate-300 mt-6 leading-relaxed">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Tell me your date, room, and vibe, and you will get a fast, professional response.</p>
 
           <!-- Inline booking form (P0.1). ACTION BELOW IS A PLACEHOLDER: replace REPLACE_WITH_FORM_ID
                with the real Formspree (or Netlify Forms) endpoint before go-live, or inquiries will not be delivered. -->
@@ -944,7 +959,7 @@
               </select>
             </label>
             <label class="sm:col-span-2 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Budget range <span class="normal-case tracking-normal text-slate-500">(helps me tailor the right lineup &mdash; kept private)</span></span>
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Budget range <span class="normal-case tracking-normal text-slate-400">(helps me tailor the right lineup &mdash; kept private)</span></span>
               <select name="budget"
                       class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
                 <option value="">Budget range&hellip;</option>
@@ -984,15 +999,15 @@
   <footer class="border-t border-white/5 bg-midnight-950 py-10 text-center">
     <img src="assets/zemba-logo.webp" alt="Zemba Music Co" class="w-14 h-14 rounded-full object-cover mx-auto mb-4 ring-1 ring-white/10">
     <p class="font-display font-600 uppercase tracking-widest text-slate-300 text-sm">Zemba Music Co &middot; Ignite Your Soul</p>
-    <p class="text-slate-600 text-xs mt-2">&copy; 2026 Zemba Music. All rights reserved.</p>
-    <p class="text-slate-600 text-xs mt-2"><a href="https://venmo.com/zembamusicco" target="_blank" rel="noopener" class="hover:text-slate-400 transition">Venmo @zembamusicco</a></p>
+    <p class="text-slate-400 text-xs mt-2">&copy; 2026 Zemba Music. All rights reserved.</p>
+    <p class="text-slate-400 text-xs mt-2"><a href="https://venmo.com/zembamusicco" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Venmo @zembamusicco</a></p>
   </footer>
 
   <!-- Featured Media tab switcher (three Zemba Music Co acts, one tab each) -->
   <script>
     (function () {
       var TABS = ['band', 'lateshift', 'acoustic'];
-      var ACTIVE = ['bg-fire-500', 'text-midnight-950', 'border-fire-500', 'glow-fire'];
+      var ACTIVE = ['bg-fire-500', 'text-midnight-950', 'border-fire-500'];
       var INACTIVE = ['bg-midnight-850', 'text-slate-400', 'border-white/10', 'hover:border-fire-500/50', 'hover:text-slate-200'];
 
       function styleTabBtn(btn, active) {
