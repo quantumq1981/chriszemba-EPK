@@ -15,7 +15,9 @@
 | 1 | **No booking form.** `mailto:` is your only conversion path. | Highest. Corporate machines frequently have no mail client bound to `mailto:`. The click does nothing and the lead evaporates silently. |
 | 2 | **Page weight.** Tailwind CDN JIT compiler + 6 live iframes on first paint. | High. A buyer on venue Wi-Fi sees an unstyled flash, then a stall. "Slow" reads as "amateur" before a single word is processed. |
 | 3 | **Uniform hierarchy.** Ten sections, one rhythm. | Medium-high. Nothing is emphasized, so nothing is remembered. The eye has no path. |
-| 4 | **Premium-signal leaks.** `github.io` URL, `gmail.com` address, a 413 area code on a Las Vegas act. | Medium. Individually trivial, cumulatively they cap your perceived rate. |
+| 4 | **Premium-signal leaks.** `github.io` URL, `gmail.com` address, a 413 area code on a Las Vegas act. | Medium. Individually trivial, cumulatively they cap your perceived rate. | 
+
+Subsequently, the domain name “zembamusicco.com“ has been purchased by the User and the following domain e-mail address’s have been qued for creation [admin@zembamusicco.com and booking@zembamusicco.com ] a phone number local to the Las Vegas area 702 area code is being arranged therefore, a placeholder should just be noted until that can be officially added to the site
 
 Everything below is ordered by revenue impact, not by how interesting it is to build.
 
