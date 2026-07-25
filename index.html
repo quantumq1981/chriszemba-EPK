@@ -10,41 +10,27 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Chris Zemba | Las Vegas Live Music EPK">
   <meta property="og:description" content="Guitarist • Vocalist • Bandleader for weddings, corporate events, and casino stages. Solo acoustic to full band, 25+ years live, featured on FOX5. Now booking 2026/2027.">
-  <meta property="og:url" content="https://quantumq1981.github.io/chriszemba-EPK/">
-  <meta property="og:image" content="https://quantumq1981.github.io/chriszemba-EPK/assets/photos/brand-banner.webp">
+  <meta property="og:url" content="https://zembamusicco.com/">
+  <meta property="og:image" content="https://zembamusicco.com/assets/photos/brand-banner.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chris Zemba | Las Vegas Live Music EPK">
   <meta name="twitter:description" content="Guitarist • Vocalist • Bandleader for weddings, corporate events, and casino stages. Solo acoustic to full band, featured on FOX5.">
-  <meta name="twitter:image" content="https://quantumq1981.github.io/chriszemba-EPK/assets/photos/brand-banner.webp">
+  <meta name="twitter:image" content="https://zembamusicco.com/assets/photos/brand-banner.webp">
+  <link rel="canonical" href="https://zembamusicco.com/">
 
   <link rel="icon" type="image/png" href="assets/photos/favicon.png">
+
+  <!-- Hero LCP: let the preload scanner fetch the largest-paint image early, sized per viewport -->
+  <link rel="preload" as="image" href="assets/photos/hero-city-street.webp"
+        imagesrcset="assets/photos/hero-city-street-800.webp 800w, assets/photos/hero-city-street-1400.webp 1400w, assets/photos/hero-city-street.webp 1920w"
+        imagesizes="100vw" fetchpriority="high">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Purged, static Tailwind build (no CDN JIT in production). Regenerate with: npm run build:css -->
+  <link rel="stylesheet" href="assets/tw.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            midnight: { 950:'#04060d', 900:'#080d1a', 850:'#0c1322', 800:'#111a2e', 750:'#17223a', 700:'#1e2b48' },
-            fire:  { 300:'#ff9d5f', 400:'#ff7a3d', 500:'#ee5a20', 600:'#cf470f', 700:'#a5360a' },
-            azure: { 200:'#bcd4f5', 300:'#8fb8ee', 400:'#5f97e2', 500:'#3d7fd6' },
-            ember: '#e0332a'
-          },
-          fontFamily: {
-            heavy: ['Anton','system-ui','sans-serif'],
-            display: ['Oswald','system-ui','sans-serif'],
-            sans: ['Inter','system-ui','sans-serif']
-          },
-          fontWeight: {
-            '400':'400', '500':'500', '600':'600', '700':'700'
-          }
-        }
-      }
-    }
-  </script>
   <style>
     html { scroll-behavior: smooth; }
     body { -webkit-font-smoothing: antialiased; }
@@ -115,8 +101,14 @@
 
   <!-- ============ HERO ============ -->
   <header id="top" class="relative overflow-hidden grain">
-    <!-- Live performance backdrop (Chris on the Telecaster, blue-lit stage) -->
-    <div class="absolute inset-0 bg-cover" style="background-image:url('assets/photos/hero-city-street.webp'); background-position:right center;"></div>
+    <!-- Live performance backdrop: real <img> so the preload scanner + srcset can do their job (§5.7) -->
+    <img src="assets/photos/hero-city-street.webp"
+         srcset="assets/photos/hero-city-street-800.webp 800w,
+                 assets/photos/hero-city-street-1400.webp 1400w,
+                 assets/photos/hero-city-street.webp 1920w"
+         sizes="100vw" alt="" aria-hidden="true"
+         fetchpriority="high" decoding="async"
+         class="absolute inset-0 w-full h-full object-cover object-[75%_center]">
     <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/88 to-midnight-950/40"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-transparent to-midnight-950/55"></div>
     <!-- Neon color wash echoing the logo tubes -->
@@ -147,6 +139,24 @@
       </div>
     </div>
   </header>
+
+  <!-- ============ TRUST BAR (front-loads the corporate differentiator, §7) ============ -->
+  <a href="#specs" aria-label="Booking compliance: insured, W-9 on file, certificate of insurance on request, stage plot published — see full logistics"
+     class="block border-b border-white/[0.06] bg-midnight-900 hover:bg-midnight-850 transition-colors">
+    <div class="max-w-6xl mx-auto px-5 py-3">
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12px] md:text-[13px] font-display font-500 uppercase tracking-[0.12em] text-slate-300">
+        <li class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-fire-400"></i> Fully insured</li>
+        <li aria-hidden="true" class="text-fire-500/70">&bull;</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-file-signature text-fire-400"></i> W&#8209;9 on file</li>
+        <li aria-hidden="true" class="text-fire-500/70">&bull;</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-file-shield text-fire-400"></i> COI on request</li>
+        <li aria-hidden="true" class="text-fire-500/70">&bull;</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-diagram-project text-fire-400"></i> Stage plot published</li>
+        <li aria-hidden="true" class="hidden sm:block text-slate-500">&mdash;</li>
+        <li class="hidden sm:flex items-center gap-1.5 text-fire-300 normal-case tracking-normal">View logistics <i class="fa-solid fa-arrow-right text-[10px]"></i></li>
+      </ul>
+    </div>
+  </a>
 
   <!-- ============ VENUE MARQUEE (trust strip) ============ -->
   <section aria-label="Venues and stages" class="border-y border-white/5 bg-midnight-900 py-5">
@@ -293,8 +303,14 @@
         <img src="assets/logo-chris-zemba-band.webp" alt="The Chris Zemba Band" class="h-20 md:h-24 w-auto mb-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
-            <div class="aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/TVp9LDZ0g_M" title="The Chris Zemba Band Promo 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire relative group cursor-pointer"
+                 data-id="TVp9LDZ0g_M" role="button" tabindex="0" aria-label="Play: The Chris Zemba Band Official Promo Reel 2026">
+              <img src="assets/photos/live-hero-guitar.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
+              <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
+              <span aria-hidden="true" class="absolute inset-0 grid place-items-center">
+                <span class="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-fire-500/95 text-midnight-950 text-2xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-1"></i></span>
+              </span>
+              <span aria-hidden="true" class="absolute bottom-2 right-2 text-[10px] font-display font-600 uppercase tracking-wider bg-midnight-950/80 text-slate-200 px-2 py-1 rounded"><i class="fa-brands fa-youtube text-fire-400 mr-1"></i>YouTube</span>
             </div>
             <div>
               <p class="font-display font-600 text-slate-100 text-base uppercase tracking-wide">Official Promo Reel 2026</p>
@@ -302,8 +318,14 @@
             </div>
           </div>
           <div class="space-y-3">
-            <div class="aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/ugXHelhrRcI" title="Chris Zemba Live | FOX5 Gibson Showroom Performance (Las Vegas)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure relative group cursor-pointer"
+                 data-id="ugXHelhrRcI" role="button" tabindex="0" aria-label="Play: Chris Zemba Live on FOX5, Gibson Showroom Las Vegas">
+              <img src="assets/photos/fox5-gibson-group.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
+              <span aria-hidden="true" class="absolute inset-0 grid place-items-center">
+                <span class="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-fire-500/95 text-midnight-950 text-2xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-1"></i></span>
+              </span>
+              <span aria-hidden="true" class="absolute bottom-2 right-2 text-[10px] font-display font-600 uppercase tracking-wider bg-midnight-950/80 text-slate-200 px-2 py-1 rounded"><i class="fa-brands fa-youtube text-fire-400 mr-1"></i>YouTube</span>
             </div>
             <div>
               <p class="font-display font-600 text-slate-100 text-base uppercase tracking-wide">FOX5 Gibson Showroom TV Spot</p>
@@ -311,8 +333,14 @@
             </div>
           </div>
           <div class="space-y-3 md:col-span-2">
-            <div class="aspect-video w-full md:max-w-2xl md:mx-auto rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/K7J20uZlLak" title="Great American Foodie Fest 2026, Live Festival Set" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="yt aspect-video w-full md:max-w-2xl md:mx-auto rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire relative group cursor-pointer"
+                 data-id="K7J20uZlLak" role="button" tabindex="0" aria-label="Play: Live Festival Set, Great American Foodie Fest 2026">
+              <img src="assets/photos/hero-foodie-fest.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+              <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
+              <span aria-hidden="true" class="absolute inset-0 grid place-items-center">
+                <span class="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-fire-500/95 text-midnight-950 text-2xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-1"></i></span>
+              </span>
+              <span aria-hidden="true" class="absolute bottom-2 right-2 text-[10px] font-display font-600 uppercase tracking-wider bg-midnight-950/80 text-slate-200 px-2 py-1 rounded"><i class="fa-brands fa-youtube text-fire-400 mr-1"></i>YouTube</span>
             </div>
             <div class="md:max-w-2xl md:mx-auto">
               <p class="font-display font-600 text-slate-100 text-base uppercase tracking-wide">Festival Set, Great American Foodie Fest 2026</p>
@@ -331,8 +359,14 @@
           <p class="text-sm text-slate-300 leading-relaxed">The after-hours side of Zemba Music Co. A late-night revue of Classic Rock, Blues, Soul, R&amp;B, Funk, and Jazz built for lounges and rooms that keep the night going. Headlined the grand reopening of the Sand Dollar Lounge (featured in the Las Vegas Review-Journal) and residencies at Roxy's Lounge, Sam's Town.</p>
         </div>
         <div class="max-w-2xl mx-auto mb-6 space-y-3">
-          <div class="aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/p19g4pt0BIc" title="Chris Zemba & The Late Shift Band Promo Reel 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="yt aspect-video w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-fire relative group cursor-pointer"
+               data-id="p19g4pt0BIc" role="button" tabindex="0" aria-label="Play: Chris Zemba & The Late Shift Band Official Promo Reel 2026">
+            <img src="assets/photos/late-shift-key-art.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+            <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
+            <span aria-hidden="true" class="absolute inset-0 grid place-items-center">
+              <span class="grid place-items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-fire-500/95 text-midnight-950 text-2xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-1"></i></span>
+            </span>
+            <span aria-hidden="true" class="absolute bottom-2 right-2 text-[10px] font-display font-600 uppercase tracking-wider bg-midnight-950/80 text-slate-200 px-2 py-1 rounded"><i class="fa-brands fa-youtube text-fire-400 mr-1"></i>YouTube</span>
           </div>
           <div>
             <p class="font-display font-600 text-slate-100 text-base uppercase tracking-wide">Official Promo Reel 2026</p>
@@ -358,8 +392,14 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-3">
-            <div class="aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/7Zr64EOXZHI" title="Live Residency Highlights – Southeastern CT (Thames River)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="yt aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure relative group cursor-pointer"
+                 data-id="7Zr64EOXZHI" role="button" tabindex="0" aria-label="Play: Live Residency Highlights, Southeastern CT">
+              <img src="assets/photos/live-vocal-grey-suit.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
+              <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
+              <span aria-hidden="true" class="absolute inset-0 grid place-items-center">
+                <span class="grid place-items-center w-16 h-16 rounded-full bg-fire-500/95 text-midnight-950 text-2xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-1"></i></span>
+              </span>
+              <span aria-hidden="true" class="absolute bottom-2 right-2 text-[10px] font-display font-600 uppercase tracking-wider bg-midnight-950/80 text-slate-200 px-2 py-1 rounded"><i class="fa-brands fa-youtube text-fire-400 mr-1"></i>YouTube</span>
             </div>
             <div>
               <p class="font-display font-600 text-slate-100 text-base uppercase tracking-wide">Riverside Residency Highlights</p>
@@ -367,8 +407,14 @@
             </div>
           </div>
           <div class="space-y-3">
-            <div class="aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/f6zFKqcqB8g" title="Live at Union Station – New Haven, CT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="yt aspect-[9/16] max-w-xs mx-auto w-full rounded-xl overflow-hidden bg-midnight-900 border border-white/10 glow-azure relative group cursor-pointer"
+                 data-id="f6zFKqcqB8g" role="button" tabindex="0" aria-label="Play: Live at Union Station, New Haven CT">
+              <img src="assets/photos/portrait-chris.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy">
+              <span aria-hidden="true" class="absolute inset-0 bg-midnight-950/35 group-hover:bg-midnight-950/20 transition"></span>
+              <span aria-hidden="true" class="absolute inset-0 grid place-items-center">
+                <span class="grid place-items-center w-16 h-16 rounded-full bg-fire-500/95 text-midnight-950 text-2xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-1"></i></span>
+              </span>
+              <span aria-hidden="true" class="absolute bottom-2 right-2 text-[10px] font-display font-600 uppercase tracking-wider bg-midnight-950/80 text-slate-200 px-2 py-1 rounded"><i class="fa-brands fa-youtube text-fire-400 mr-1"></i>YouTube</span>
             </div>
             <div>
               <p class="font-display font-600 text-slate-100 text-base uppercase tracking-wide">Live at Union Station, New Haven CT</p>
@@ -640,7 +686,15 @@
           <h2 class="font-display font-700 text-3xl md:text-4xl uppercase tracking-tight leading-none">Featured <span class="text-fire-grad">audio</span></h2>
           <hr class="neon-rule w-40 mt-5 mb-6">
           <div class="rounded-2xl border border-white/10 bg-midnight-900 p-5 space-y-4">
-            <iframe title="Chris Zemba on SoundCloud" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fchris-zemba&color=%23ee5a20&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+            <div class="sc relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-r from-midnight-850 to-midnight-900 cursor-pointer group h-[110px] flex items-center gap-4 px-5"
+                 role="button" tabindex="0" aria-label="Play featured track on SoundCloud"
+                 data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fchris-zemba&color=%23ee5a20&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+              <span class="shrink-0 grid place-items-center w-14 h-14 rounded-full bg-fire-500/95 text-midnight-950 text-xl shadow-[0_12px_40px_-8px_rgba(238,90,32,.8)] transition-transform duration-300 group-hover:scale-110"><i class="fa-solid fa-play ml-0.5"></i></span>
+              <span class="min-w-0">
+                <span class="block font-display font-600 text-slate-100 text-sm uppercase tracking-wide">Play featured track</span>
+                <span class="block text-xs text-slate-400 mt-0.5"><i class="fa-brands fa-soundcloud text-fire-400"></i> Streams from SoundCloud &middot; tap to load the player</span>
+              </span>
+            </div>
             <div class="flex items-center justify-between gap-3">
               <div>
                 <h4 class="font-display font-600 text-slate-100 text-sm uppercase tracking-wide">Blues for Z from the Five in G</h4>
@@ -833,17 +887,93 @@
         <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('assets/photos/live-ballroom-fullbody.webp'); background-position:center 25%;"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/92 to-midnight-950/70"></div>
         <div class="absolute -top-16 -right-10 w-72 h-72 bg-fire-500/20 rounded-full blur-3xl"></div>
-        <div class="relative z-10 p-8 md:p-14 max-w-2xl">
+        <div class="relative z-10 p-6 sm:p-8 md:p-14 max-w-2xl">
           <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Now booking 2026 &amp; 2027</p>
           <h2 class="font-heavy text-4xl md:text-6xl uppercase leading-[0.95] text-white">Let's put your date <span class="text-forge">on the calendar</span></h2>
           <p class="text-slate-300 mt-5 leading-relaxed">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Tell me your date, room, and vibe, and you will get a fast, professional response.</p>
-          <div class="flex flex-wrap gap-4 mt-8">
-            <a href="mailto:zembamusicco@gmail.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba" class="bg-fire-500 hover:bg-fire-400 text-midnight-950 font-display font-700 uppercase tracking-wide px-7 py-4 rounded-xl transition glow-fire flex items-center gap-2"><i class="fa-solid fa-envelope"></i> Send Booking Inquiry</a>
-            <a href="tel:+14139777060" class="bg-white/5 hover:bg-white/10 border border-white/15 text-white font-display font-600 uppercase tracking-wide px-7 py-4 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-phone text-fire-400"></i> (413) 977-7060</a>
-          </div>
-          <div class="flex flex-wrap gap-x-6 gap-y-2 mt-7 text-sm text-slate-400">
+
+          <!-- Inline booking form (P0.1). ACTION BELOW IS A PLACEHOLDER: replace REPLACE_WITH_FORM_ID
+               with the real Formspree (or Netlify Forms) endpoint before go-live, or inquiries will not be delivered. -->
+          <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" class="grid sm:grid-cols-2 gap-4 mt-8">
+            <input type="hidden" name="_subject" value="New booking inquiry — Chris Zemba EPK">
+            <!-- Honeypot: bots fill this, humans never see it -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+            <label class="sm:col-span-1 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Your name</span>
+              <input name="name" required autocomplete="name" placeholder="Your name"
+                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+            </label>
+            <label class="sm:col-span-1 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Email</span>
+              <input name="email" type="email" required autocomplete="email" placeholder="you@email.com"
+                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+            </label>
+            <label class="sm:col-span-1 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Event date</span>
+              <input name="date" type="date" required
+                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition [color-scheme:dark]">
+            </label>
+            <label class="sm:col-span-1 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Venue or city</span>
+              <input name="venue" placeholder="Venue or city"
+                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+            </label>
+            <label class="sm:col-span-1 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Event type</span>
+              <select name="event_type" required
+                      class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
+                <option value="">Event type&hellip;</option>
+                <option>Wedding</option>
+                <option>Corporate / gala</option>
+                <option>Casino / venue residency</option>
+                <option>Private party</option>
+                <option>Festival / grand opening</option>
+              </select>
+            </label>
+            <label class="sm:col-span-1 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Format</span>
+              <select name="format"
+                      class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
+                <option value="">Format (if known)&hellip;</option>
+                <option>Solo acoustic</option>
+                <option>Duo</option>
+                <option>Trio</option>
+                <option>Full band (4&ndash;5 pc)</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="sm:col-span-2 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Budget range <span class="normal-case tracking-normal text-slate-500">(helps me tailor the right lineup &mdash; kept private)</span></span>
+              <select name="budget"
+                      class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
+                <option value="">Budget range&hellip;</option>
+                <option>Under $2K</option>
+                <option>$2&ndash;5K</option>
+                <option>$5&ndash;10K</option>
+                <option>$10K+</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="sm:col-span-2 flex flex-col gap-1.5">
+              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Details</span>
+              <textarea name="details" rows="3" placeholder="Run of show, timing, anything else"
+                        class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition"></textarea>
+            </label>
+            <button type="submit"
+                    class="sm:col-span-2 group relative overflow-hidden rounded-xl bg-gradient-to-b from-fire-400 to-fire-600 text-midnight-950 font-display font-700 uppercase tracking-wider py-4 shadow-[0_10px_30px_-10px_rgba(238,90,32,.65),inset_0_1px_0_0_rgba(255,255,255,.35)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5">
+              <i class="fa-solid fa-calendar-check"></i> Send booking inquiry
+            </button>
+            <p class="sm:col-span-2 text-[13px] text-slate-400 text-center">
+              Replies within one business day. Prefer to email?
+              <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba" class="text-fire-300 link-underline">booking@zembamusicco.com</a>
+            </p>
+          </form>
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-7 text-sm text-slate-400">
             <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-fire-400"></i> Las Vegas, NV</span>
-            <a href="mailto:zembamusicco@gmail.com" class="flex items-center gap-2 hover:text-slate-200 transition"><i class="fa-solid fa-envelope text-fire-400"></i> zembamusicco@gmail.com</a>
+            <a href="mailto:booking@zembamusicco.com" class="flex items-center gap-2 hover:text-slate-200 transition"><i class="fa-solid fa-envelope text-fire-400"></i> booking@zembamusicco.com</a>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-fire-400"></i> Direct 702 line &mdash; activating</span>
           </div>
         </div>
       </div>
@@ -883,6 +1013,48 @@
       var act = new URLSearchParams(window.location.search).get('act');
       if (act === 'solo' || act === 'duo') setMediaTab('acoustic');
       else if (act === 'late_shift') setMediaTab('lateshift');
+    })();
+  </script>
+
+  <!-- Click-to-load media facades (§5.4): iframes mount only on user intent, keeping first paint light -->
+  <script>
+    (function () {
+      function mountYT(el) {
+        if (el.dataset.mounted) return;
+        el.dataset.mounted = '1';
+        var f = document.createElement('iframe');
+        f.className = 'w-full h-full';
+        f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.id + '?autoplay=1&rel=0';
+        f.title = el.getAttribute('aria-label') || 'Video';
+        f.setAttribute('frameborder', '0');
+        f.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; web-share');
+        f.setAttribute('allowfullscreen', '');
+        el.innerHTML = '';
+        el.appendChild(f);
+      }
+      function mountSC(el) {
+        if (el.dataset.mounted) return;
+        el.dataset.mounted = '1';
+        var f = document.createElement('iframe');
+        f.width = '100%'; f.height = '166'; f.scrolling = 'no';
+        f.title = 'Chris Zemba on SoundCloud';
+        f.setAttribute('frameborder', 'no');
+        f.setAttribute('allow', 'autoplay');
+        f.src = el.dataset.src;
+        ['h-[110px]','flex','items-center','gap-4','px-5','cursor-pointer','group'].forEach(function (c) { el.classList.remove(c); });
+        el.innerHTML = '';
+        el.appendChild(f);
+      }
+      function wire(sel, fn) {
+        document.querySelectorAll(sel).forEach(function (el) {
+          el.addEventListener('click', function () { fn(el); });
+          el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fn(el); }
+          });
+        });
+      }
+      wire('.yt', mountYT);
+      wire('.sc', mountSC);
     })();
   </script>
 

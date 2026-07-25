@@ -1,0 +1,12 @@
+{
+  "name": "chriszemba-epk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chris Zemba EPK — static site. Tailwind is compiled to a purged stylesheet (no CDN in production).",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/tw.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
