@@ -97,4 +97,59 @@ Branch restarted from merged `main` (PR #21). Same single-file coordinated strea
 
 ---
 
+## Audit v2 → v3 execution (branch `claude/epk-audit-v2-fixes-3jfg83`)
+
+Blueprint: `EPK-AUDIT-v2.md` §8 ship order. Same single-file coordinated stream as prior phases
+(parallel agents on one `index.html` would conflict). Markup edited first; `assets/tw.css` rebuilt
+last against the final markup with Tailwind 3.4.19 so every new utility class is purged in.
+
+### Phase 0 — Blocking
+
+| # | Item | Audit ref | What shipped | Status |
+|---|------|-----------|--------------|--------|
+| 1 | Verify `tw.css` carries the theme | §2.1 | Toolchain restored (`npm i`, Tailwind 3.4.19). Smoke test passes: `bg-midnight-950`, `text-fire-400`, `Oswald`, `font-weight:600`, `text-wrap:balance` all ≥1. `clamp()` classes processed by Tailwind (not hand-copied). | ✅ |
+| 2 | Asset path check | §2.2 | All `assets/` refs resolve, including `portrait-chris.webp` (89 KB, exists) — the JSON-LD image is valid, no broken path. | ✅ |
+| 3 | Form wiring — no redirect | §3.2 | Fetch-based submit handler: `e.preventDefault()`, POST via `fetch`, inline "Inquiry received" success card, and an error path that re-enables the button + surfaces the email fallback (de-duplicated on retry). Buyer never leaves the page. | ✅ |
+| 3b | Plausible fixed | §3.3 | Swapped to `script.file-downloads.outbound-links.tagged-events.js`; removed the inert `plausible-event-name=...` class; fire `plausible('Booking Inquiry')` from the handler (reliable, controlled timing). | ✅ |
+| 4 | Build size / LCP | red team | Purged `tw.css` ≈ 28 KB (not 3 MB → purge works). Hero LCP path already correct (`<img>` + srcset + `fetchpriority=high` + preload). Full Lighthouse run needs the deployed URL (see note). | ✅ static / ⚠️ live |
+
+### Phase 1 — Direct booking impact
+
+| # | Item | Audit ref | What shipped | Status |
+|---|------|-----------|--------------|--------|
+| 5 | Sticky mobile action bar | §4.1 | Two-up **Email / Check your date**, `fixed … md:hidden`, safe-area padding, hidden in print. `pb-24 md:pb-0` added to `<body>`. Swap Email → Call when the 702 line activates (comment in place). | ✅ |
+| 6 | Booking panel two-column split | §3.1 | `#book` inner content is now a 12-col grid — pitch + direct contact left (`col-span-5`), form in its own `card-surface` glass card right (`col-span-7`). Dropped redundant `sm:col-span-1`. | ✅ |
+| 7 | Un-orphan short bio | §3.4 | Re-added the paste-ready short-bio block (`.copy-btn` / `#short-bio`) inside `#about`, matching the existing copy-to-clipboard JS. (It had been added then removed in commit 258dfe7, leaving the listener dead.) | ✅ |
+| 8 | Dates truth-in-advertising | §5.2 | Retitled **"Where to catch us live"**; badge is now day/format on top, cadence underneath (no more `LIVE` ×3). All three acts appear: Late Shift residencies (Public) + The Chris Zemba Band and ZembAcoustics rows ("By arrangement" — honest, not invented public dates). | ✅ |
+
+### Phase 2 — Polish & perceived rate
+
+| # | Item | Audit ref | What shipped | Status |
+|---|------|-----------|--------------|--------|
+| 9 | Accent budget | §4.5 / red team | Trust-bar icons → `text-slate-400` (calm authority); separators stay fire. Demoted structural icons in colored tiles (specs list, "Official Website" globe) to slate-400 with `group-hover:text-fire-400`. Fire kept on trust chips, CTAs, stat numbers, gradient words. | ✅ |
+| 10 | Nav glass + Logistics | §4.2 | `backdrop-blur-xl backdrop-saturate-150` + `supports-[backdrop-filter]` fallback. Nav "Repertoire" → **"Logistics"** (`#specs`) so production managers find the stage plot directly. | ✅ |
+| 11 | Hero CTA treatment | §4.3 | §5.3 gradient / press-state / hover-sweep applied to the hero primary "Check your date"; matched quieter treatment on the secondary "Watch the Reels". | ✅ |
+| 12 | Finish card-surface rollout | §6 | Applied `card-surface` uniformly to the flat content cards (press coverage + agency, About formats stack, spec/stage/input-list rows, two review sub-cards). Photo frames and the intentional hairline stat-divider tiles stay flat. | ✅ |
+| 13 | Small contrast fixes | §6 | Footer "Updated July 2026" and all form placeholders → `text-slate-400`. Remaining `slate-500` is decorative only (em-dash separator, external-link arrows). | ✅ |
+
+### Phase 3 — Structure & shelf life
+
+| # | Item | Audit ref | What shipped | Status |
+|---|------|-----------|--------------|--------|
+| 16 | JSON-LD restructure | §5.3 | Three acts are now `subOrganization` `MusicGroup`s under an `Organization` (`#org`) with `contactPoint` Booking — no longer collapsed as `alternateName` of one band. `WebSite.publisher` → `#org`. Validate at Rich Results Test before publishing. | ✅ |
+| 17 | Comment cleanup | red team | Replaced every `§`/`P0`-style audit-reference comment with plain-English explanations of what the code does. | ✅ |
+
+### Content gaps — NOT fabricated, owned by Chris / manager
+- **Corporate proof (highest-value gap, red team §7).** No award-dinner / brand-launch / conference photo or named corporate reference is invented. **Needs: two corporate event photos + one named corporate reference (title + company).**
+- **Named testimonials — three total (§4.6).** Still "Barnett Wedding Party" + two press/residency quotes. Per User note, individual testimonials are in progress and will be dropped in when supplied (title + property, one sentence each). No quotes or attributions invented.
+
+### Verify on the deployed URL (needs the live site, can't run here)
+- Lighthouse **mobile** run on the deployed URL; confirm LCP is reasonable and `tw.css` downloads at its purged ~28 KB.
+- Google Rich Results Test on the new JSON-LD.
+
+### Go-live checklist (User-owned, unchanged)
+1. Confirm the Formspree recipient inbox (`xjgnpodo`); switch the action to `booking@` once that mailbox is live. 2. `booking@` / `admin@` mailboxes. 3. 702 number → make the pitch line + mobile-bar button a `tel:` link. 4. Add `zembamusicco.com` in a Plausible account so events record.
+
+---
+
 _Log updated as each task completes._

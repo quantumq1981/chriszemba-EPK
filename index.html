@@ -40,20 +40,38 @@
         ]
       },
       {
-        "@type": "MusicGroup",
-        "@id": "https://zembamusicco.com/#band",
-        "name": "The Chris Zemba Band",
-        "alternateName": ["Chris Zemba & The Late Shift Band", "ZembAcoustics"],
+        "@type": "Organization",
+        "@id": "https://zembamusicco.com/#org",
+        "name": "Zemba Music Co",
         "url": "https://zembamusicco.com/",
         "image": "https://zembamusicco.com/assets/photos/brand-banner.webp",
-        "genre": ["Blues Rock", "R&B", "Soul", "Classic Rock", "Funk", "Top 40"],
-        "member": { "@id": "https://zembamusicco.com/#chris" },
-        "areaServed": "Las Vegas, NV",
+        "founder": { "@id": "https://zembamusicco.com/#chris" },
+        "areaServed": { "@type": "AdministrativeArea", "name": "Las Vegas Valley, Nevada" },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Booking",
+          "email": "booking@zembamusicco.com",
+          "availableLanguage": "English"
+        },
         "sameAs": [
           "https://www.facebook.com/ChrisZembaMusic",
           "https://www.instagram.com/chriszembamusic/",
           "https://youtube.com/@czembamusic",
           "https://linktr.ee/chriszemba"
+        ],
+        "subOrganization": [
+          { "@type": "MusicGroup", "@id": "https://zembamusicco.com/#band",
+            "name": "The Chris Zemba Band",
+            "genre": ["Blues Rock", "R&B", "Soul", "Top 40"],
+            "member": { "@id": "https://zembamusicco.com/#chris" } },
+          { "@type": "MusicGroup", "@id": "https://zembamusicco.com/#lateshift",
+            "name": "Chris Zemba & The Late Shift Band",
+            "genre": ["Classic Rock", "Blues", "Soul", "Funk", "Jazz"],
+            "member": { "@id": "https://zembamusicco.com/#chris" } },
+          { "@type": "MusicGroup", "@id": "https://zembamusicco.com/#acoustic",
+            "name": "ZembAcoustics",
+            "genre": ["Acoustic", "Pop", "Soul"],
+            "member": { "@id": "https://zembamusicco.com/#chris" } }
         ]
       },
       {
@@ -61,7 +79,8 @@
         "@id": "https://zembamusicco.com/#website",
         "url": "https://zembamusicco.com/",
         "name": "Chris Zemba | Las Vegas Live Music EPK",
-        "about": { "@id": "https://zembamusicco.com/#chris" }
+        "about": { "@id": "https://zembamusicco.com/#chris" },
+        "publisher": { "@id": "https://zembamusicco.com/#org" }
       }
     ]
   }
@@ -82,28 +101,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Privacy-friendly analytics. Auto-tracks file downloads (tech rider, repertoire PDF) + outbound
-       clicks. Requires the domain to be added in a Plausible account; harmless no-op until then. -->
-  <script defer data-domain="zembamusicco.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>
+       clicks; the "tagged-events" build also supports the manual plausible('Booking Inquiry') call we
+       fire from the form handler below. Requires the domain to be added in a Plausible account;
+       harmless no-op until then. -->
+  <script defer data-domain="zembamusicco.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
   <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
   <style>
-    /* Smooth scroll only when the visitor hasn't asked for reduced motion (§2.2) */
+    /* Smooth scroll, but only when the visitor hasn't asked the OS for reduced motion */
     @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
     body { -webkit-font-smoothing: antialiased; }
     ::selection { background: #ee5a20; color: #04060d; }
 
-    /* §5.1 — visible keyboard focus (browser default is near-invisible on #04060d) */
+    /* Visible keyboard-focus ring — the browser default is nearly invisible on this near-black bg */
     :where(a, button, [tabindex], summary, input, select, textarea):focus-visible {
       outline: 2px solid #ff9d5f; outline-offset: 3px; border-radius: 8px;
     }
     :where(a, button):focus:not(:focus-visible) { outline: none; }
 
-    /* §5.2 — respect reduced motion on the gallery scales and card lifts */
+    /* Reduced motion: freeze the gallery zooms and card-lift transforms. Because the video/audio
+       facades lose their hover scale here, give them a border-color cue so hover is still visible. */
     @media (prefers-reduced-motion: reduce) {
       .card-hover, .card-hover:hover { transform: none; }
       .group:hover img { transform: none !important; }
+      .yt:hover, .sc:hover { border-color: rgba(238,90,32,.5); }
     }
 
-    /* §5.8 — print stylesheet: planners print EPKs for committee meetings */
+    /* Print stylesheet — planners print this EPK for committee meetings */
     @media print {
       nav, .marquee-mask, iframe, video, .fixed, .yt, .sc { display: none !important; }
       body { background: #fff !important; color: #000 !important; }
@@ -143,11 +166,11 @@
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Section eyebrow tick (§3.6 — .32em fragmented the word at 11px) */
+    /* Section eyebrow spacing — tighter than a default wide track so 11px labels stay one readable word */
     .eyebrow { letter-spacing:.20em; }
 
-    /* §4.3 — premium dark surfaces: gradient glass fill + inset top highlight.
-       Replaces flat bg-midnight-850/900 "paint" with edge-lit glass. */
+    /* Premium dark surface: gradient-glass fill + inset top highlight. This is the edge-lit look that
+       replaces flat bg-midnight paint on content cards, so surfaces read as glass, not blocks. */
     .card-surface {
       background-image: linear-gradient(to bottom, rgba(255,255,255,0.055), rgba(255,255,255,0.012));
       border: 1px solid rgba(255,255,255,0.09);
@@ -162,18 +185,22 @@
     .marquee-mask { -webkit-mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
     @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
-    /* §4.3a — every hover-card carries a top inset highlight (edge light); the hover state
-       deepens it and adds a lift shadow. Single rule so the treatment stays consistent. */
+    /* Every hover-card carries a top inset highlight (edge light); hovering deepens it and adds a lift
+       shadow. Kept as one rule so the treatment stays identical across every card that uses it. */
     .card-hover { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; box-shadow: inset 0 1px 0 0 rgba(255,255,255,.07); }
     .card-hover:hover { transform: translateY(-4px); box-shadow: inset 0 1px 0 0 rgba(255,255,255,.12), 0 24px 50px -28px rgba(0,0,0,.9); }
     .link-underline { background-image: linear-gradient(#ff7a3d,#ff7a3d); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s; }
     .link-underline:hover { background-size:100% 2px; }
   </style>
 </head>
-<body class="bg-midnight-950 text-slate-100 font-sans antialiased">
+<body class="bg-midnight-950 text-slate-100 font-sans antialiased pb-24 md:pb-0">
 
   <!-- ============ STICKY NAV ============ -->
-  <nav class="sticky top-0 z-50 backdrop-blur-md bg-midnight-950/80 border-b border-white/5">
+  <!-- Saturated blur ("expensive glass") when the browser supports backdrop-filter; a solid dark bar
+       as the fallback so the nav never turns into a low-contrast grey haze over the hero. -->
+  <nav class="sticky top-0 z-50 border-b border-white/[0.06]
+              bg-midnight-950/85 backdrop-blur-xl backdrop-saturate-150
+              supports-[backdrop-filter]:bg-midnight-950/60 transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-2.5 group">
         <img src="assets/logo-zemba-transparent.png" onerror="this.src='assets/zemba-logo.webp'" alt="Zemba Music Co" class="h-8 w-8 object-contain">
@@ -185,7 +212,7 @@
         <a href="#stage" class="hover:text-fire-400 transition">On Stage</a>
         <a href="#dates" class="hover:text-fire-400 transition">Dates</a>
         <a href="#about" class="hover:text-fire-400 transition">About</a>
-        <a href="#songs" class="hover:text-fire-400 transition">Repertoire</a>
+        <a href="#specs" class="hover:text-fire-400 transition">Logistics</a>
       </div>
       <a href="#book" class="text-[13px] font-display font-600 uppercase tracking-wider bg-fire-500 hover:bg-fire-400 text-midnight-950 px-4 py-2 rounded-md transition">Book Now</a>
     </div>
@@ -193,7 +220,8 @@
 
   <!-- ============ HERO ============ -->
   <header id="top" class="relative overflow-hidden grain">
-    <!-- Live performance backdrop: real <img> so the preload scanner + srcset can do their job (§5.7) -->
+    <!-- Live performance backdrop as a real <img> (not a CSS background) so the browser's preload
+         scanner and srcset can fetch the right-sized hero early — it's the largest-contentful paint. -->
     <img src="assets/photos/hero-city-street.webp"
          srcset="assets/photos/hero-city-street-800.webp 800w,
                  assets/photos/hero-city-street-1400.webp 1400w,
@@ -201,7 +229,7 @@
          sizes="100vw" alt="" aria-hidden="true"
          fetchpriority="high" decoding="async"
          class="absolute inset-0 w-full h-full object-cover object-[75%_center]">
-    <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/88 to-midnight-950/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/90 to-midnight-950/40"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-transparent to-midnight-950/55"></div>
     <!-- Neon color wash echoing the logo tubes (hidden on mobile — expensive to composite) -->
     <div aria-hidden="true" class="hidden md:block absolute -top-32 -left-24 w-96 h-96 bg-fire-500/20 rounded-full blur-3xl"></div>
@@ -225,25 +253,53 @@
         </div>
 
         <div class="flex flex-wrap gap-3.5 mt-8">
-          <a href="#book" class="font-display font-600 uppercase tracking-wider text-sm bg-fire-500 hover:bg-fire-400 text-midnight-950 px-7 py-3.5 rounded-lg transition glow-fire">Check your date</a>
-          <a href="#acts" class="font-display font-600 uppercase tracking-wider text-sm bg-white/5 hover:bg-white/10 border border-white/15 text-white px-7 py-3.5 rounded-lg transition flex items-center gap-2"><i class="fa-solid fa-play text-fire-400"></i> Watch the Reels</a>
+          <!-- Primary CTA: raised gradient, press feedback, and a light sweep on hover -->
+          <a href="#book"
+             class="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl
+                    bg-gradient-to-b from-fire-400 to-fire-600 text-midnight-950
+                    font-display font-700 uppercase tracking-wider text-sm px-8 py-4
+                    shadow-[0_10px_30px_-10px_rgba(238,90,32,.65),inset_0_1px_0_0_rgba(255,255,255,.35)]
+                    transition-[transform,box-shadow] duration-200
+                    hover:-translate-y-0.5
+                    hover:shadow-[0_18px_44px_-12px_rgba(238,90,32,.85),inset_0_1px_0_0_rgba(255,255,255,.45)]
+                    active:translate-y-0 active:shadow-[0_6px_18px_-8px_rgba(238,90,32,.6)]">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Check your date</span>
+            <span aria-hidden="true"
+                  class="pointer-events-none absolute inset-0 -translate-x-full
+                         bg-gradient-to-r from-transparent via-white/25 to-transparent
+                         transition-transform duration-700 group-hover:translate-x-full"></span>
+          </a>
+          <!-- Secondary CTA: matched press feel, quieter surface so the hierarchy stays clear -->
+          <a href="#acts"
+             class="inline-flex items-center gap-2.5 rounded-xl px-8 py-4
+                    font-display font-600 uppercase tracking-wider text-sm text-white
+                    bg-white/[0.05] border border-white/[0.14]
+                    shadow-[inset_0_1px_0_0_rgba(255,255,255,0.07)]
+                    transition-[transform,background-color,border-color] duration-200
+                    hover:bg-white/[0.09] hover:border-white/25 hover:-translate-y-0.5 active:translate-y-0">
+            <i class="fa-solid fa-play text-fire-400"></i> Watch the Reels
+          </a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ============ TRUST BAR (front-loads the corporate differentiator, §7) ============ -->
+  <!-- ============ TRUST BAR ============ -->
+  <!-- Front-loads the corporate compliance differentiator above the fold. Icons are neutral slate
+       (calm institutional authority — insurance/W-9 shouldn't read as "excitement"); only the
+       separators and the wayfinding arrow carry the fire accent. -->
   <a href="#specs" aria-label="Booking compliance: insured, W-9 on file, certificate of insurance on request, stage plot published — see full logistics"
      class="block border-b border-white/[0.06] bg-midnight-900 hover:bg-midnight-850 transition-colors">
     <div class="max-w-6xl mx-auto px-5 py-3">
       <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[12px] md:text-[13px] font-display font-500 uppercase tracking-[0.12em] text-slate-300">
-        <li class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-fire-400"></i> Fully insured</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-slate-400"></i> Fully insured</li>
         <li aria-hidden="true" class="text-fire-500/70">&bull;</li>
-        <li class="flex items-center gap-2"><i class="fa-solid fa-file-signature text-fire-400"></i> W&#8209;9 on file</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-file-signature text-slate-400"></i> W&#8209;9 on file</li>
         <li aria-hidden="true" class="text-fire-500/70">&bull;</li>
-        <li class="flex items-center gap-2"><i class="fa-solid fa-file-shield text-fire-400"></i> COI on request</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-file-shield text-slate-400"></i> COI on request</li>
         <li aria-hidden="true" class="text-fire-500/70">&bull;</li>
-        <li class="flex items-center gap-2"><i class="fa-solid fa-diagram-project text-fire-400"></i> Stage plot published</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-diagram-project text-slate-400"></i> Stage plot published</li>
         <li aria-hidden="true" class="hidden sm:block text-slate-500">&mdash;</li>
         <li class="hidden sm:flex items-center gap-1.5 text-fire-300 normal-case tracking-normal">View logistics <i class="fa-solid fa-arrow-right text-[10px]"></i></li>
       </ul>
@@ -570,23 +626,27 @@
       </div>
     </section>
 
-    <!-- ============ LIVE DATES & RESIDENCIES (P1.1) ============ -->
+    <!-- ============ WHERE TO CATCH US LIVE ============ -->
+    <!-- Public residencies drawn from current on-property billing, plus the two acts that book by date.
+         Badge = day/format on top, cadence underneath, so a row reads as a schedule (not a dates list
+         with the dates missing). When a real one-off lands, set the top line to the day, e.g. "15" over
+         a small "Aug", and give it a "Public" pill. -->
     <section id="dates" class="scroll-mt-24 py-20 md:py-28 border-t border-white/5">
       <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
         <div class="lg:col-span-7">
           <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Come see it live</p>
-          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Live dates &amp; <span class="text-fire-grad">residencies</span></h2>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Where to catch us <span class="text-fire-grad">live</span></h2>
         </div>
-        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">The strongest way to book with confidence is to come watch. Catch a public set at one of these Las Vegas rooms, or ask for the current calendar of private and special-event dates.</p>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">The strongest way to book with confidence is to come watch. Catch a public residency set at one of these Las Vegas rooms, or book the full band and the acoustic act by date for your own event.</p>
       </div>
 
       <div class="rounded-2xl card-surface divide-y divide-white/[0.06] overflow-hidden">
-        <!-- Recurring residencies drawn from current on-property billing. To add a specific one-off date,
-             copy a row and set the badge to the month/day, e.g. AUG / 15. -->
+
+        <!-- Public residency — Late Shift Band, Bally's -->
         <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
-          <div class="shrink-0 w-14 text-center">
-            <p class="font-display font-600 uppercase text-[11px] tracking-[0.18em] text-fire-400">Fri</p>
-            <p class="font-heavy text-lg leading-none text-white uppercase">Live</p>
+          <div class="shrink-0 w-16 text-center">
+            <p class="font-heavy text-xl leading-none text-white uppercase">Fri</p>
+            <p class="font-display font-600 uppercase text-[10px] tracking-[0.18em] text-fire-400 mt-1">Weekly</p>
           </div>
           <div class="min-w-0 flex-1">
             <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Indigo Lounge &middot; Bally's Las Vegas</p>
@@ -594,10 +654,12 @@
           </div>
           <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
         </div>
+
+        <!-- Public residency — Late Shift Band, Planet Hollywood -->
         <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
-          <div class="shrink-0 w-14 text-center">
-            <p class="font-display font-600 uppercase text-[11px] tracking-[0.18em] text-fire-400">Wkly</p>
-            <p class="font-heavy text-lg leading-none text-white uppercase">Live</p>
+          <div class="shrink-0 w-16 text-center">
+            <p class="font-heavy text-xl leading-none text-white uppercase">Wkly</p>
+            <p class="font-display font-600 uppercase text-[10px] tracking-[0.18em] text-fire-400 mt-1">Lounge</p>
           </div>
           <div class="min-w-0 flex-1">
             <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">EXTRA Lounge &middot; Planet Hollywood</p>
@@ -605,16 +667,44 @@
           </div>
           <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
         </div>
+
+        <!-- Public residency — Late Shift Band, Sam's Town -->
         <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
-          <div class="shrink-0 w-14 text-center">
-            <p class="font-display font-600 uppercase text-[11px] tracking-[0.18em] text-fire-400">Res</p>
-            <p class="font-heavy text-lg leading-none text-white uppercase">Live</p>
+          <div class="shrink-0 w-16 text-center">
+            <p class="font-heavy text-xl leading-none text-white uppercase">Res</p>
+            <p class="font-display font-600 uppercase text-[10px] tracking-[0.18em] text-fire-400 mt-1">Ongoing</p>
           </div>
           <div class="min-w-0 flex-1">
             <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Roxy's Lounge &middot; Sam's Town (Boyd Gaming)</p>
             <p class="text-[13px] text-slate-400 mt-0.5">Chris Zemba &amp; The Late Shift Band &middot; Ongoing residency</p>
           </div>
           <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
+        </div>
+
+        <!-- Books by date — The Chris Zemba Band (full band) -->
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-16 text-center">
+            <p class="font-heavy text-xl leading-none text-white uppercase">Band</p>
+            <p class="font-display font-600 uppercase text-[10px] tracking-[0.18em] text-slate-400 mt-1">By date</p>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Full band &middot; Festivals, galas &amp; showrooms</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">The Chris Zemba Band &middot; Primm Valley, Caesars rooms &amp; festival stages</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10 px-3 py-1 rounded-full">By arrangement</span>
+        </div>
+
+        <!-- Books by date — ZembAcoustics (solo & duo) -->
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-16 text-center">
+            <p class="font-heavy text-xl leading-none text-white uppercase">Duo</p>
+            <p class="font-display font-600 uppercase text-[10px] tracking-[0.18em] text-slate-400 mt-1">By date</p>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Solo &amp; duo acoustic &middot; Ceremonies &amp; cocktail hours</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">ZembAcoustics &middot; Across Las Vegas &amp; Southern Nevada</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10 px-3 py-1 rounded-full">By arrangement</span>
         </div>
       </div>
       <p class="text-[13px] text-slate-400 mt-4 text-center">
@@ -680,7 +770,7 @@
         </figure>
       </div>
 
-      <!-- Proof stats (§3.5) — hairline dividers over a light track read more editorial than four floating boxes -->
+      <!-- Proof stats — hairline dividers over a light track read more editorial than four floating boxes -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.07] rounded-2xl overflow-hidden shadow-[inset_0_1px_0_0_rgba(255,255,255,0.07)] mt-6">
         <div class="bg-midnight-900 px-5 py-8 md:py-10 text-center">
           <p class="font-heavy tabular-nums text-fire-grad leading-none text-[clamp(2.5rem,1.5rem+3.5vw,4.25rem)]">25<span class="text-[0.6em] align-super">+</span></p>
@@ -702,7 +792,7 @@
 
       <!-- Coverage + agency listings -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-        <div class="rounded-2xl border border-white/10 bg-midnight-900 p-6">
+        <div class="rounded-2xl card-surface p-6">
           <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm mb-2"><i class="fa-solid fa-newspaper text-fire-400 mr-2"></i>Las Vegas Sun</p>
           <p class="text-xs text-slate-400 leading-relaxed">
             <a href="https://lasvegassun.com/photos/galleries/2014/jul/11/Chris_Zemba_and_the_Late_Shift_Band/" target="_blank" rel="noopener" class="text-azure-300 link-underline">Live photo gallery at the Sand Dollar Lounge</a> &middot;
@@ -710,7 +800,7 @@
             <a href="https://lasvegassun.com/blogs/kats-report/2014/jul/18/rockie-brown-sand-dollar-tuscany-forge-symmetry-/" target="_blank" rel="noopener" class="text-azure-300 link-underline">Kats' Report festival coverage</a>
           </p>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-midnight-900 p-6">
+        <div class="rounded-2xl card-surface p-6">
           <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm mb-2"><i class="fa-solid fa-briefcase text-fire-400 mr-2"></i>Represented by talent agencies</p>
           <div class="flex flex-wrap gap-2 text-xs">
             <a href="https://www.celebritytalent.net/sampletalent/19016/chris-zemba-and-the-late-shift-band/" target="_blank" rel="noopener" class="bg-white/5 border border-white/10 hover:border-fire-500/50 text-slate-300 px-3 py-1.5 rounded-full transition">Celebrity Talent Intl <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500"></i></a>
@@ -754,6 +844,28 @@
             Since 2011, Chris has owned and operated Zemba Entertainment, managing multiple acts and partnering with top talent agencies to craft unforgettable entertainment for casino, corporate, and private events.
           </p>
 
+          <!-- Paste-ready short bio: a banquet manager or planner copies this straight into an event
+               listing. The Copy button is wired by the .copy-btn / #short-bio handler near the page foot. -->
+          <div class="mt-7 rounded-2xl card-surface p-6">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <p class="font-display font-600 uppercase tracking-[0.14em] text-slate-400 text-[11px]">
+                Short bio &middot; third person &middot; ready to paste
+              </p>
+              <button type="button" class="copy-btn shrink-0 text-[11px] font-display font-600 uppercase
+                             tracking-wider bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12]
+                             px-3 py-1.5 rounded-lg transition" data-copy-target="short-bio">
+                <i class="fa-regular fa-copy mr-1.5"></i><span class="copy-label">Copy</span>
+              </button>
+            </div>
+            <p id="short-bio" class="text-[15px] text-slate-300 leading-[1.7]">
+              Chris Zemba is a Las Vegas guitarist, vocalist, and bandleader with more than 25 years on stage.
+              He performs solo acoustic through full band, blending Blues Rock, R&amp;B, Soul, and Top 40 for
+              weddings, corporate galas, private events, and casino residencies. He has held residencies at
+              Caesars Entertainment, Station Casinos, and Boyd Gaming properties, and has been featured on
+              FOX5 Las Vegas and in the Las Vegas Review-Journal.
+            </p>
+          </div>
+
           <!-- Proof of the Rowdy Band Battle of the Bands win -->
           <figure class="mt-6 rounded-2xl overflow-hidden border border-white/10 bg-midnight-900">
             <img src="assets/photos/rowdy-band-banner.webp" alt="The Rowdy Band, Winner of the KWNR 95.5 Vegas Country Battle of the Bands 2012" class="w-full h-auto" loading="lazy">
@@ -761,7 +873,7 @@
           </figure>
 
           <!-- Performance formats (not equal cards: a labeled stack) -->
-          <div class="mt-7 rounded-2xl border border-white/10 bg-midnight-900 divide-y divide-white/5">
+          <div class="mt-7 rounded-2xl card-surface divide-y divide-white/5">
             <div class="flex items-center justify-between gap-3 px-5 py-3.5">
               <span class="font-display font-500 uppercase tracking-wide text-sm text-slate-200">Solo Acoustic</span>
               <span class="text-[11px] font-display bg-fire-500/10 text-fire-300 px-2.5 py-0.5 rounded-full">Ceremony / Lounge</span>
@@ -856,7 +968,7 @@
           <div class="mt-4 space-y-3">
             <a href="https://zembamusicco.com" target="_blank" rel="noopener" class="flex items-center justify-between gap-3 rounded-2xl border border-fire-500/25 bg-gradient-to-r from-fire-500/10 to-midnight-900 px-5 py-4 card-hover hover:border-fire-500/50 group">
               <span class="flex items-center gap-3">
-                <span class="shrink-0 w-10 h-10 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-globe text-fire-400"></i></span>
+                <span class="shrink-0 w-10 h-10 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-globe text-slate-400 transition-colors duration-300 group-hover:text-fire-400"></i></span>
                 <span>
                   <span class="block font-display font-600 uppercase tracking-wide text-sm text-white">Official Website</span>
                   <span class="block text-[11px] text-slate-400">zembamusicco.com</span>
@@ -901,20 +1013,20 @@
 
         <!-- Spec list -->
         <div class="lg:col-span-3 rounded-2xl card-surface divide-y divide-white/5">
-          <div class="flex items-start gap-4 p-5">
-            <i class="fa-solid fa-users text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+          <div class="group flex items-start gap-4 p-5">
+            <i class="fa-solid fa-users text-slate-400 text-lg mt-0.5 w-6 text-center transition-colors duration-300 group-hover:text-fire-400"></i>
             <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Performance formats</p><p class="text-sm text-slate-400 mt-0.5">Solo Acoustic, Duo, Trio, or 4 to 5 piece full band.</p></div>
           </div>
-          <div class="flex items-start gap-4 p-5">
-            <i class="fa-solid fa-sliders text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+          <div class="group flex items-start gap-4 p-5">
+            <i class="fa-solid fa-sliders text-slate-400 text-lg mt-0.5 w-6 text-center transition-colors duration-300 group-hover:text-fire-400"></i>
             <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Production &amp; PA</p><p class="text-sm text-slate-400 mt-0.5">Self-contained state-of-the-art PA and lighting package available for rooms up to 300 capacity.</p></div>
           </div>
-          <div class="flex items-start gap-4 p-5">
-            <i class="fa-solid fa-clock text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+          <div class="group flex items-start gap-4 p-5">
+            <i class="fa-solid fa-clock text-slate-400 text-lg mt-0.5 w-6 text-center transition-colors duration-300 group-hover:text-fire-400"></i>
             <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Set length</p><p class="text-sm text-slate-400 mt-0.5">Up to 3 to 4 hours of material, customizable into 45 or 60 minute sets.</p></div>
           </div>
-          <div class="flex items-start gap-4 p-5">
-            <i class="fa-solid fa-plug-circle-check text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+          <div class="group flex items-start gap-4 p-5">
+            <i class="fa-solid fa-plug-circle-check text-slate-400 text-lg mt-0.5 w-6 text-center transition-colors duration-300 group-hover:text-fire-400"></i>
             <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">House-friendly</p><p class="text-sm text-slate-400 mt-0.5">Every input preference is flexible. We work with your house inventory, console, and run-of-show.</p></div>
           </div>
         </div>
@@ -922,7 +1034,7 @@
 
       <!-- Stage configs (varied, not three identical boxes) -->
       <div class="grid grid-cols-1 md:grid-cols-6 gap-4 mt-5">
-        <div class="md:col-span-3 rounded-2xl border border-white/10 bg-midnight-900 p-5">
+        <div class="md:col-span-3 rounded-2xl card-surface p-5">
           <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-users-line text-fire-400"></i><h3 class="font-display font-600 uppercase tracking-wide text-sm">Full Band, 4 to 5 piece</h3></div>
           <ul class="text-xs text-slate-400 space-y-1.5 leading-relaxed">
             <li>Drums upstage center on 6' x 8' rug, keys upstage left</li>
@@ -933,7 +1045,7 @@
           </ul>
         </div>
         <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="rounded-2xl border border-white/10 bg-midnight-900 p-5">
+          <div class="rounded-2xl card-surface p-5">
             <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-user text-fire-400"></i><h3 class="font-display font-600 uppercase tracking-wide text-sm">Solo</h3></div>
             <ul class="text-xs text-slate-400 space-y-1.5 leading-relaxed">
               <li>Vocal + acoustic guitar via DI</li>
@@ -942,7 +1054,7 @@
               <li>Self-contained PA available</li>
             </ul>
           </div>
-          <div class="rounded-2xl border border-white/10 bg-midnight-900 p-5">
+          <div class="rounded-2xl card-surface p-5">
             <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-user-group text-fire-400"></i><h3 class="font-display font-600 uppercase tracking-wide text-sm">Duo / Trio</h3></div>
             <ul class="text-xs text-slate-400 space-y-1.5 leading-relaxed">
               <li>Guitar + keys, or guitar + bass + drums</li>
@@ -955,7 +1067,7 @@
       </div>
 
       <!-- Input list -->
-      <div class="rounded-2xl border border-white/10 bg-midnight-900 overflow-hidden mt-5">
+      <div class="rounded-2xl card-surface overflow-hidden mt-5">
         <div class="px-5 py-3.5 border-b border-white/5 flex items-center gap-2">
           <i class="fa-solid fa-list-ol text-fire-400"></i>
           <h3 class="font-display font-600 uppercase tracking-wide text-sm">10-channel input list, full band</h3>
@@ -1017,12 +1129,12 @@
             <p class="text-[11px] text-slate-400 mt-0.5">Rocky Neck State Park &middot; Southeast Connecticut shoreline</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <a href="https://www.reviewjournal.com/entertainment/music/sand-dollar-tries-to-recapture-blues-magic/" target="_blank" rel="noopener" class="rounded-2xl border border-white/10 hover:border-fire-500/40 bg-midnight-900 p-6 flex flex-col card-hover group">
+            <a href="https://www.reviewjournal.com/entertainment/music/sand-dollar-tries-to-recapture-blues-magic/" target="_blank" rel="noopener" class="rounded-2xl card-surface hover:border-fire-500/40 p-6 flex flex-col card-hover group">
               <i class="fa-solid fa-quote-left text-fire-400 text-lg mb-2"></i>
               <p class="text-slate-100 leading-snug font-500">His guitar does all the talking, and it has plenty to say.</p>
               <p class="font-display font-600 uppercase tracking-wide text-slate-400 text-[11px] mt-auto pt-4">Las Vegas Review-Journal <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-500 group-hover:text-fire-400"></i></p>
             </a>
-            <div class="rounded-2xl border border-white/10 bg-midnight-900 p-6 flex flex-col">
+            <div class="rounded-2xl card-surface p-6 flex flex-col">
               <i class="fa-solid fa-rotate-right text-fire-400 text-lg mb-2"></i>
               <p class="text-slate-100 leading-snug font-500">Booked and re-booked, week after week.</p>
               <p class="font-display font-600 uppercase tracking-wide text-slate-400 text-[11px] mt-auto pt-4">Bally's Indigo Lounge &middot; Planet Hollywood EXTRA Lounge</p>
@@ -1074,96 +1186,114 @@
     <section id="book" class="scroll-mt-24 py-24 md:py-36 lg:py-44 border-t border-white/5">
       <div class="relative rounded-3xl overflow-hidden border border-white/10">
         <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('assets/photos/live-ballroom-fullbody.webp'); background-position:center 25%;"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/92 to-midnight-950/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-midnight-950 via-midnight-950/90 to-midnight-950/70"></div>
         <div aria-hidden="true" class="hidden md:block absolute -top-16 -right-10 w-72 h-72 bg-fire-500/20 rounded-full blur-3xl"></div>
-        <div class="relative z-10 p-6 sm:p-8 md:p-14 max-w-2xl">
-          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Now booking 2026 &amp; 2027</p>
-          <h2 class="font-heavy uppercase text-white text-balance text-[clamp(2.25rem,1.4rem+3.6vw,4rem)] leading-[0.95] tracking-[-0.01em]">Let's put your date <span class="text-forge">on the calendar</span></h2>
-          <hr class="neon-rule w-40 mt-6">
-          <p class="text-slate-300 mt-6 leading-relaxed">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Tell me your date, room, and vibe, and you will get a fast, professional response.</p>
+        <!-- Two-column split: the pitch and direct-contact details on the left, the form in its own
+             glass card on the right, so the form gets real width instead of the cramped left third. -->
+        <div class="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 p-6 sm:p-8 md:p-12 lg:p-14">
 
-          <!-- Inline booking form (P0.1). Wired to Formspree; verify the recipient inbox is confirmed in the
-               Formspree dashboard (and switch it to booking@zembamusicco.com once that mailbox is live). -->
-          <form action="https://formspree.io/f/xjgnpodo" method="POST" class="grid sm:grid-cols-2 gap-4 mt-8">
-            <input type="hidden" name="_subject" value="New booking inquiry — Chris Zemba EPK">
-            <!-- Honeypot: bots fill this, humans never see it -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+          <!-- Pitch + direct contact -->
+          <div class="lg:col-span-5">
+            <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Now booking 2026 &amp; 2027</p>
+            <h2 class="font-heavy uppercase text-white text-balance text-[clamp(2.25rem,1.4rem+3.6vw,4rem)] leading-[0.95] tracking-[-0.01em]">Let's put your date <span class="text-forge">on the calendar</span></h2>
+            <hr class="neon-rule w-40 mt-6">
+            <p class="text-slate-300 mt-6 leading-relaxed text-[15px]">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Tell me your date, room, and vibe, and you will get a fast, professional response.</p>
+            <div class="mt-8 space-y-3 text-sm">
+              <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba"
+                 class="flex items-center gap-3 text-slate-300 hover:text-white transition">
+                <i class="fa-solid fa-envelope text-fire-400 w-4"></i> booking@zembamusicco.com
+              </a>
+              <p class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-location-dot text-fire-400 w-4"></i> Las Vegas, NV
+              </p>
+              <!-- Swap to a tel: link the day the 702 number is provisioned. -->
+              <p class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-phone text-fire-400 w-4"></i> Direct 702 line &mdash; activating
+              </p>
+            </div>
+          </div>
 
-            <label class="sm:col-span-1 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Your name</span>
-              <input name="name" required autocomplete="name" placeholder="Your name"
-                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
-            </label>
-            <label class="sm:col-span-1 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Email</span>
-              <input name="email" type="email" required autocomplete="email" placeholder="you@email.com"
-                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
-            </label>
-            <label class="sm:col-span-1 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Event date</span>
-              <input name="date" type="date" required
-                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition [color-scheme:dark]">
-            </label>
-            <label class="sm:col-span-1 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Venue or city</span>
-              <input name="venue" placeholder="Venue or city"
-                     class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
-            </label>
-            <label class="sm:col-span-1 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Event type</span>
-              <select name="event_type" required
-                      class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
-                <option value="">Event type&hellip;</option>
-                <option>Wedding</option>
-                <option>Corporate / gala</option>
-                <option>Casino / venue residency</option>
-                <option>Private party</option>
-                <option>Festival / grand opening</option>
-              </select>
-            </label>
-            <label class="sm:col-span-1 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Format</span>
-              <select name="format"
-                      class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
-                <option value="">Format (if known)&hellip;</option>
-                <option>Solo acoustic</option>
-                <option>Duo</option>
-                <option>Trio</option>
-                <option>Full band (4&ndash;5 pc)</option>
-                <option>Not sure yet</option>
-              </select>
-            </label>
-            <label class="sm:col-span-2 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Budget range <span class="normal-case tracking-normal text-slate-400">(helps me tailor the right lineup &mdash; kept private)</span></span>
-              <select name="budget"
-                      class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
-                <option value="">Budget range&hellip;</option>
-                <option>Under $2K</option>
-                <option>$2&ndash;5K</option>
-                <option>$5&ndash;10K</option>
-                <option>$10K+</option>
-                <option>Not sure yet</option>
-              </select>
-            </label>
-            <label class="sm:col-span-2 flex flex-col gap-1.5">
-              <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Details</span>
-              <textarea name="details" rows="3" placeholder="Run of show, timing, anything else"
-                        class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition"></textarea>
-            </label>
-            <button type="submit"
-                    class="plausible-event-name=Booking+Inquiry sm:col-span-2 group relative overflow-hidden rounded-xl bg-gradient-to-b from-fire-400 to-fire-600 text-midnight-950 font-display font-700 uppercase tracking-wider py-4 shadow-[0_10px_30px_-10px_rgba(238,90,32,.65),inset_0_1px_0_0_rgba(255,255,255,.35)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5">
-              <i class="fa-solid fa-calendar-check"></i> Send booking inquiry
-            </button>
-            <p class="sm:col-span-2 text-[13px] text-slate-400 text-center">
-              Replies within one business day. Prefer to email?
-              <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba" class="text-fire-300 link-underline">booking@zembamusicco.com</a>
-            </p>
-          </form>
+          <!-- Form gets its own glass card and the full remaining width -->
+          <div class="lg:col-span-7 rounded-2xl card-surface p-5 sm:p-7">
+            <!-- Wired to Formspree. The submit handler near the page foot posts via fetch and shows an
+                 inline success/error message, so the buyer never leaves the page for a third-party
+                 confirmation screen. Confirm the recipient inbox in the Formspree dashboard, and switch
+                 the action to booking@zembamusicco.com once that mailbox is live. -->
+            <form action="https://formspree.io/f/xjgnpodo" method="POST" class="grid sm:grid-cols-2 gap-4">
+              <input type="hidden" name="_subject" value="New booking inquiry — Chris Zemba EPK">
+              <!-- Honeypot: bots fill this, humans never see it -->
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
-          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-7 text-sm text-slate-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-fire-400"></i> Las Vegas, NV</span>
-            <a href="mailto:booking@zembamusicco.com" class="flex items-center gap-2 hover:text-slate-200 transition"><i class="fa-solid fa-envelope text-fire-400"></i> booking@zembamusicco.com</a>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-fire-400"></i> Direct 702 line &mdash; activating</span>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Your name</span>
+                <input name="name" required autocomplete="name" placeholder="Your name"
+                       class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Email</span>
+                <input name="email" type="email" required autocomplete="email" placeholder="you@email.com"
+                       class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Event date</span>
+                <input name="date" type="date" required
+                       class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition [color-scheme:dark]">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Venue or city</span>
+                <input name="venue" placeholder="Venue or city"
+                       class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Event type</span>
+                <select name="event_type" required
+                        class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
+                  <option value="">Event type&hellip;</option>
+                  <option>Wedding</option>
+                  <option>Corporate / gala</option>
+                  <option>Casino / venue residency</option>
+                  <option>Private party</option>
+                  <option>Festival / grand opening</option>
+                </select>
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Format</span>
+                <select name="format"
+                        class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
+                  <option value="">Format (if known)&hellip;</option>
+                  <option>Solo acoustic</option>
+                  <option>Duo</option>
+                  <option>Trio</option>
+                  <option>Full band (4&ndash;5 pc)</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+              <label class="sm:col-span-2 flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Budget range <span class="normal-case tracking-normal text-slate-400">(helps me tailor the right lineup &mdash; kept private)</span></span>
+                <select name="budget"
+                        class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
+                  <option value="">Budget range&hellip;</option>
+                  <option>Under $2K</option>
+                  <option>$2&ndash;5K</option>
+                  <option>$5&ndash;10K</option>
+                  <option>$10K+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+              <label class="sm:col-span-2 flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Details</span>
+                <textarea name="details" rows="3" placeholder="Run of show, timing, anything else"
+                          class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition"></textarea>
+              </label>
+              <button type="submit"
+                      class="sm:col-span-2 group relative overflow-hidden rounded-xl bg-gradient-to-b from-fire-400 to-fire-600 text-midnight-950 font-display font-700 uppercase tracking-wider py-4 shadow-[0_10px_30px_-10px_rgba(238,90,32,.65),inset_0_1px_0_0_rgba(255,255,255,.35)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5">
+                <i class="fa-solid fa-calendar-check"></i> Send booking inquiry
+              </button>
+              <p class="sm:col-span-2 text-[13px] text-slate-400 text-center">
+                Replies within one business day. Prefer to email?
+                <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba" class="text-fire-300 link-underline">booking@zembamusicco.com</a>
+              </p>
+            </form>
           </div>
         </div>
       </div>
@@ -1171,11 +1301,32 @@
 
   </main>
 
+  <!-- Sticky mobile action bar: on phones the nav is just logo + "Book Now", so once the hero scrolls
+       away there is no persistent path to the form. Two-up Email / Check your date; hidden from md up
+       and out of print. Swap the Email button to a tel: "Call" link the day the 702 number activates. -->
+  <div class="fixed inset-x-0 bottom-0 z-50 md:hidden
+              grid grid-cols-2 gap-2.5 px-3 pt-2.5
+              pb-[calc(0.625rem+env(safe-area-inset-bottom))]
+              border-t border-white/10 bg-midnight-950/95 backdrop-blur-xl">
+    <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba"
+       class="flex items-center justify-center gap-2 rounded-xl py-3.5
+              bg-white/[0.06] border border-white/15 text-white
+              font-display font-600 uppercase tracking-wider text-[13px]">
+      <i class="fa-solid fa-envelope text-fire-400"></i> Email
+    </a>
+    <a href="#book"
+       class="flex items-center justify-center gap-2 rounded-xl py-3.5
+              bg-fire-500 text-midnight-950
+              font-display font-700 uppercase tracking-wider text-[13px]">
+      <i class="fa-solid fa-calendar-check"></i> Check your date
+    </a>
+  </div>
+
   <footer class="border-t border-white/5 bg-midnight-950 py-10 text-center">
     <img src="assets/zemba-logo.webp" alt="Zemba Music Co" class="w-14 h-14 rounded-full object-cover mx-auto mb-4 ring-1 ring-white/10">
     <p class="font-display font-600 uppercase tracking-widest text-slate-300 text-sm">Zemba Music Co &middot; Ignite Your Soul</p>
     <p class="text-slate-400 text-xs mt-2">&copy; <span id="yr">2026</span> Zemba Music. All rights reserved.</p>
-    <p class="text-slate-500 text-[11px] mt-1 uppercase tracking-[0.16em] font-display">Updated July 2026</p>
+    <p class="text-slate-400 text-[11px] mt-1 uppercase tracking-[0.16em] font-display">Updated July 2026</p>
     <p class="text-slate-400 text-xs mt-2"><a href="https://venmo.com/zembamusicco" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Venmo @zembamusicco</a></p>
   </footer>
 
@@ -1207,7 +1358,8 @@
     })();
   </script>
 
-  <!-- Click-to-load media facades (§5.4): iframes mount only on user intent, keeping first paint light -->
+  <!-- Click-to-load media facades: the YouTube/SoundCloud iframes mount only when the visitor clicks a
+       poster, so first paint stays light instead of loading several embeds up front. -->
   <script>
     (function () {
       function mountYT(el) {
@@ -1249,10 +1401,11 @@
     })();
   </script>
 
-  <!-- Tab roving-tabindex + arrow-key nav (§5.5), copy-to-clipboard, and dynamic year (§7) -->
+  <!-- Media tablist keyboard nav (roving tabindex + arrow keys), the paste-ready-bio copy button,
+       and the auto-updating copyright year. -->
   <script>
     (function () {
-      // §5.5 — WAI-ARIA arrow-key navigation for the media tablist
+      // WAI-ARIA arrow-key navigation for the media tablist (ArrowLeft/Right, Home, End)
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
       tabs.forEach(function (tab, i) {
         tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
@@ -1285,9 +1438,49 @@
         });
       });
 
-      // §7 — keep the year current so the page never reads abandoned
+      // Keep the copyright year current so the page never reads as abandoned
       var yr = document.getElementById('yr');
       if (yr) yr.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <!-- Booking form: submit over fetch so the buyer stays on this page. On success we swap the form for
+       an inline confirmation and fire the Plausible "Booking Inquiry" goal; on failure we re-enable the
+       button and surface the email fallback, because a form that fails silently is worse than no form. -->
+  <script>
+    (function () {
+      var form = document.querySelector('form[action*="formspree"]');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type=submit]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        // Clear any error left over from a previous failed attempt
+        var prevErr = form.querySelector('.form-error');
+        if (prevErr) prevErr.remove();
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        }).then(function (r) {
+          if (!r.ok) throw new Error('Bad response');
+          if (window.plausible) plausible('Booking Inquiry');
+          form.innerHTML =
+            '<div class="sm:col-span-2 rounded-xl border border-fire-500/30 bg-fire-500/10 p-6 text-center">'
+            + '<i class="fa-solid fa-circle-check text-fire-400 text-2xl mb-3"></i>'
+            + '<p class="font-display font-600 uppercase tracking-wide text-white">Inquiry received</p>'
+            + '<p class="text-[15px] text-slate-300 mt-2">You\'ll hear back within one business day.</p></div>';
+        }).catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Send booking inquiry';
+          form.insertAdjacentHTML('beforeend',
+            '<p class="form-error sm:col-span-2 text-[13px] text-fire-300 text-center">That didn\'t send. '
+            + 'Email <a class="link-underline" href="mailto:booking@zembamusicco.com">booking@zembamusicco.com</a> '
+            + 'and I\'ll pick it up there.</p>');
+        });
+      });
     })();
   </script>
 
