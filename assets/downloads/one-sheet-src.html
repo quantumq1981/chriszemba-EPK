@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: Letter; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 8.5in; height: 11in; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #14181f; }
+  .sheet { width: 8.5in; height: 11in; padding: 0.55in 0.6in; display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid #ee5a20; padding-bottom: 14px; }
+  .name { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; line-height: 0.95; }
+  .name span { color: #cf470f; }
+  .role { font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #ee5a20; margin-top: 6px; }
+  .eyebrow { font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #7a828e; margin-bottom: 4px; }
+  .logo { width: 74px; height: 74px; border-radius: 50%; object-fit: cover; }
+  .hero { width: 100%; height: 2.35in; object-fit: cover; object-position: 50% 30%; border-radius: 10px; margin: 16px 0; }
+  .row { display: flex; gap: 20px; }
+  h2 { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #ee5a20; margin-bottom: 6px; }
+  .bio { font-size: 11.2px; line-height: 1.55; color: #2b313b; }
+  .quotes { margin-top: 14px; }
+  .q { border-left: 3px solid #ee5a20; padding-left: 10px; margin-bottom: 9px; }
+  .q p { font-size: 11px; font-style: italic; color: #1c2129; line-height: 1.4; }
+  .q cite { font-size: 9px; font-style: normal; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7a828e; }
+  .col-main { flex: 1.55; }
+  .col-side { flex: 1; }
+  .panel { background: #f4f5f7; border: 1px solid #e4e6ea; border-radius: 10px; padding: 12px 13px; margin-bottom: 12px; }
+  .panel h2 { margin-bottom: 8px; }
+  .fmt { display: flex; justify-content: space-between; font-size: 10.5px; padding: 4px 0; border-bottom: 1px solid #e7e9ed; }
+  .fmt:last-child { border-bottom: 0; }
+  .fmt b { font-weight: 700; }
+  .fmt span { color: #7a828e; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+  .chip { font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #fbe7de; color: #b23c0c; padding: 3px 8px; border-radius: 999px; }
+  .spacer { flex: 1; }
+  .contact { border-top: 3px solid #ee5a20; padding-top: 12px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .contact .lines div { font-size: 11px; color: #1c2129; margin-top: 3px; }
+  .contact .lines b { color: #cf470f; }
+  .contact .site { text-align: right; font-size: 10px; color: #7a828e; }
+  .contact .site .big { font-size: 14px; font-weight: 800; color: #14181f; letter-spacing: -0.01em; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="top">
+      <div>
+        <p class="eyebrow">Official One-Sheet &middot; Las Vegas, NV</p>
+        <div class="name">Chris <span>Zemba</span></div>
+        <div class="role">Guitarist &middot; Vocalist &middot; Bandleader</div>
+      </div>
+      <img class="logo" src="../zemba-logo.webp" alt="Zemba Music Co">
+    </div>
+
+    <img class="hero" src="../photos/live-hero-guitar.webp" alt="Chris Zemba on the Telecaster">
+
+    <div class="row">
+      <div class="col-main">
+        <h2>About</h2>
+        <p class="bio">Chris Zemba is a Las Vegas&ndash;based guitarist, vocalist, and bandleader with more than 25 years on stage, delivering high-energy Blues Rock, R&amp;B, and Soul alongside contemporary Top 40, rock, pop, and country. He has performed at Caesars Entertainment, Station Casinos, and Boyd Gaming properties, and Mohegan Sun&rsquo;s Wolf Den, and currently plays lead guitar and directs the seven-piece horn band DSJ. From solo acoustic to full band, every set is tailored to the room.</p>
+
+        <div class="quotes">
+          <div class="q"><p>&ldquo;His lips are moving, but it is his guitar that is doing all the talking. It has plenty to say.&rdquo;</p><cite>&mdash; Las Vegas Review-Journal</cite></div>
+          <div class="q"><p>&ldquo;The band was fantastic. Chris is an exceptional entertainer.&rdquo;</p><cite>&mdash; Wedding client, Southeast Connecticut shoreline</cite></div>
+          <div class="q"><p>Featured on FOX5 Las Vegas &middot; Live at the Gibson Showroom.</p><cite>&mdash; FOX5 TV feature</cite></div>
+        </div>
+      </div>
+
+      <div class="col-side">
+        <div class="panel">
+          <h2>Formats</h2>
+          <div class="fmt"><b>Solo Acoustic</b><span>Ceremony / Lounge</span></div>
+          <div class="fmt"><b>Duo</b><span>Cocktail / Mid-size</span></div>
+          <div class="fmt"><b>Trio</b><span>Scales to room</span></div>
+          <div class="fmt"><b>Full Band</b><span>4&ndash;5 piece show</span></div>
+        </div>
+        <div class="panel">
+          <h2>Booking-Ready</h2>
+          <div class="chips">
+            <span class="chip">Insured</span>
+            <span class="chip">W-9 on file</span>
+            <span class="chip">COI on request</span>
+            <span class="chip">Stage plot</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Plays</h2>
+          <div class="chips">
+            <span class="chip">Blues Rock</span><span class="chip">R&amp;B</span><span class="chip">Soul</span>
+            <span class="chip">Classic Rock</span><span class="chip">Top 40</span><span class="chip">Country</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="contact">
+      <div class="lines">
+        <h2>Booking</h2>
+        <div><b>booking@zembamusicco.com</b></div>
+        <div>Las Vegas, NV &middot; Now booking 2026 &amp; 2027</div>
+      </div>
+      <div class="site">
+        <div class="big">zembamusicco.com</div>
+        <div>Weddings &middot; Corporate &middot; Casino &middot; Private &middot; Festivals</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
