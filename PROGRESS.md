@@ -93,7 +93,7 @@ Branch restarted from merged `main` (PR #21). Same single-file coordinated strea
 - **Specific upcoming one-off dates** (beyond the residencies) can be added anytime using the template comment in `#dates`.
 
 ### Go-live checklist (unchanged, User-owned)
-1. Formspree form ID. 2. `booking@`/`admin@` mailboxes. 3. 702 number (User adding later per instruction). 4. Plausible: add `zembamusicco.com` in a Plausible account for the analytics to record.
+1. ~~Formspree form ID~~ ✅ wired (`xjgnpodo`) — confirm the recipient inbox in the Formspree dashboard, then switch it to `booking@` once live. 2. `booking@`/`admin@` mailboxes. 3. 702 number (User adding later per instruction). 4. Plausible: add `zembamusicco.com` in a Plausible account for the analytics to record.
 
 ---
 
