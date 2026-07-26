@@ -462,3 +462,7 @@ Because a second audit reads as a list of complaints, and that's not the shape o
 - Cutting `neon-rule` from ten uses to two, and `glow-fire` from seven to four, took discipline. Those were your signature devices and you let them go.
 
 The gap between v1 and v2 is larger than the gap between v2 and finished.
+
+- Do not schedule automated check-ins, loops, or triggers to monitor PR merges.
+
+
