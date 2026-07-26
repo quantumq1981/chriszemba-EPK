@@ -148,7 +148,7 @@ last against the final markup with Tailwind 3.4.19 so every new utility class is
 - Google Rich Results Test on the new JSON-LD.
 
 ### Go-live checklist (User-owned, unchanged)
-1. Confirm the Formspree recipient inbox (`xjgnpodo`); switch the action to `booking@` once that mailbox is live. 2. `booking@` / `admin@` mailboxes. 3. 702 number → make the pitch line + mobile-bar button a `tel:` link. 4. Add `zembamusicco.com` in a Plausible account so events record.
+1. Confirm the Formspree recipient inbox (`xjgnpodo`); switch the action to `booking@` once that mailbox is live. 2. `booking@` / `admin@` mailboxes. 3. ~~702 number~~ ✅ **(702) 706-2145** now live as a `tel:` link on the booking-panel contact list, the mobile **Call** button (Email → Call swap done), and the JSON-LD `contactPoint.telephone`. 4. Add `zembamusicco.com` in a Plausible account so events record.
 
 ---
 
