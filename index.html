@@ -50,6 +50,7 @@
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "Booking",
+          "telephone": "+1-702-706-2145",
           "email": "booking@zembamusicco.com",
           "availableLanguage": "English"
         },
@@ -1230,10 +1231,9 @@
               <p class="flex items-center gap-3 text-slate-400">
                 <i class="fa-solid fa-location-dot text-fire-400 w-4"></i> Las Vegas, NV
               </p>
-              <!-- Swap to a tel: link the day the 702 number is provisioned. -->
-              <p class="flex items-center gap-3 text-slate-400">
-                <i class="fa-solid fa-phone text-fire-400 w-4"></i> Direct 702 line &mdash; activating
-              </p>
+              <a href="tel:+17027062145" class="flex items-center gap-3 text-slate-300 hover:text-white transition">
+                <i class="fa-solid fa-phone text-fire-400 w-4"></i> (702) 706-2145
+              </a>
             </div>
           </div>
 
@@ -1326,17 +1326,17 @@
   </main>
 
   <!-- Sticky mobile action bar: on phones the nav is just logo + "Book Now", so once the hero scrolls
-       away there is no persistent path to the form. Two-up Email / Check your date; hidden from md up
-       and out of print. Swap the Email button to a tel: "Call" link the day the 702 number activates. -->
+       away there is no persistent path to the form. Two-up Call / Check your date; hidden from md up
+       and out of print. -->
   <div class="fixed inset-x-0 bottom-0 z-50 md:hidden
               grid grid-cols-2 gap-2.5 px-3 pt-2.5
               pb-[calc(0.625rem+env(safe-area-inset-bottom))]
               border-t border-white/10 bg-midnight-950/95 backdrop-blur-xl">
-    <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba"
+    <a href="tel:+17027062145"
        class="flex items-center justify-center gap-2 rounded-xl py-3.5
               bg-white/[0.06] border border-white/15 text-white
               font-display font-600 uppercase tracking-wider text-[13px]">
-      <i class="fa-solid fa-envelope text-fire-400"></i> Email
+      <i class="fa-solid fa-phone text-fire-400"></i> Call
     </a>
     <a href="#book"
        class="flex items-center justify-center gap-2 rounded-xl py-3.5
