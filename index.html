@@ -211,7 +211,7 @@
         <a href="#events" class="hover:text-fire-400 transition">Events</a>
         <a href="#acts" class="hover:text-fire-400 transition">The Acts</a>
         <a href="#stage" class="hover:text-fire-400 transition">On Stage</a>
-        <a href="#dates" class="hover:text-fire-400 transition">Residencies</a>
+        <a href="#dates" class="hover:text-fire-400 transition">Live</a>
         <a href="#about" class="hover:text-fire-400 transition">About</a>
         <a href="#specs" class="hover:text-fire-400 transition">Logistics</a>
       </div>
@@ -249,7 +249,7 @@
         <!-- Credential chips (no filler, all verifiable) -->
         <div class="flex flex-wrap gap-2.5 mt-7 text-[13px]">
           <span class="bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full flex items-center gap-2"><i class="fa-solid fa-tv text-fire-400"></i> Featured on FOX5</span>
-          <span class="bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full flex items-center gap-2"><i class="fa-solid fa-dice text-fire-400"></i> Caesars &middot; Stations &middot; Boyd residencies</span>
+          <span class="bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full flex items-center gap-2"><i class="fa-solid fa-dice text-fire-400"></i> Caesars &middot; Stations &middot; Boyd stages</span>
           <span class="bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full flex items-center gap-2"><i class="fa-solid fa-shield-halved text-fire-400"></i> Insured &amp; W&#8209;9 ready</span>
         </div>
 
@@ -651,19 +651,51 @@
       </div>
     </section>
 
-    <!-- ============ LAS VEGAS RESIDENCY EXPERIENCE ============ -->
-    <!-- Past casino-lounge residencies presented as a track-record credential, NOT a "come watch"
-         schedule — these engagements have ended, so nothing here implies a current public set. The
-         operator names (Caesars Entertainment, Boyd Gaming) carry the credibility. -->
+    <!-- ============ CATCH US LIVE + RESIDENCY EXPERIENCE ============ -->
+    <!-- Two groups: current public dates a buyer can actually attend now (Tiki Di Amore monthly dates,
+         Lucille's at Red Rock regular contract), then past casino-lounge residencies as a track record.
+         Station Casinos rooms were performances / a regular contract, NOT residencies, so they are
+         never labeled "residency" here. Update or remove the dated Tiki rows as each show passes. -->
     <section id="dates" class="scroll-mt-24 py-20 md:py-28 border-t border-white/5">
       <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
         <div class="lg:col-span-7">
-          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Past casino residencies</p>
-          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Las Vegas residency <span class="text-fire-grad">experience</span></h2>
+          <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Now playing in Las Vegas</p>
+          <h2 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Catch us <span class="text-fire-grad">live</span></h2>
         </div>
-        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">A proven Las Vegas act with past residencies in prominent casino lounges operated by Caesars Entertainment and Boyd Gaming. These engagements reflect the professionalism, versatility, and consistent performance quality Chris Zemba brings to every stage.</p>
+        <p class="lg:col-span-5 text-slate-300 text-[15px] md:text-base leading-[1.7] lg:pb-1">Come watch a current set at Tiki Di Amore or Lucille's at Red Rock Resort, backed by a proven residency track record with Caesars Entertainment and Boyd Gaming.</p>
       </div>
 
+      <!-- Current, public dates -->
+      <p class="font-display font-600 uppercase tracking-[0.16em] text-[11px] text-slate-400 mb-3">Upcoming &amp; current dates</p>
+      <div class="rounded-2xl card-surface divide-y divide-white/[0.06] overflow-hidden">
+
+        <!-- Tiki Di Amore — current 2026 monthly dates. Trim/append as shows pass. -->
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-11 h-11 rounded-lg bg-fire-500/10 grid place-items-center">
+            <i class="fa-solid fa-calendar-day text-fire-400"></i>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Tiki Di Amore &middot; Las Vegas</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">Chris Zemba &amp; The Late Shift Band &middot; Aug 1, Sep 4 &amp; Oct 2, 2026 &middot; 7&ndash;10 PM</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
+        </div>
+
+        <!-- Lucille's at Red Rock — ongoing regular contract (Station Casinos property, not a residency) -->
+        <div class="flex items-center gap-5 px-5 py-4 md:px-6 md:py-5 hover:bg-white/[0.03] transition">
+          <div class="shrink-0 w-11 h-11 rounded-lg bg-fire-500/10 grid place-items-center">
+            <i class="fa-solid fa-calendar-check text-fire-400"></i>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-display font-600 uppercase tracking-wide text-slate-100 text-sm">Lucille's Smokehouse BBQ &middot; Red Rock Resort &amp; Casino</p>
+            <p class="text-[13px] text-slate-400 mt-0.5">Chris Zemba &amp; The Late Shift Band &middot; Ongoing regular live dates</p>
+          </div>
+          <span class="hidden sm:inline-flex shrink-0 text-[11px] font-display font-600 uppercase tracking-wider bg-fire-500/10 text-fire-300 border border-fire-500/20 px-3 py-1 rounded-full">Public</span>
+        </div>
+      </div>
+
+      <!-- Past residency track record -->
+      <p class="font-display font-600 uppercase tracking-[0.16em] text-[11px] text-slate-400 mt-8 mb-3">Past casino-lounge residencies</p>
       <div class="rounded-2xl card-surface divide-y divide-white/[0.06] overflow-hidden">
 
         <!-- Past residency — Bally's (Caesars Entertainment) -->
@@ -703,7 +735,7 @@
         </div>
       </div>
       <p class="text-[13px] text-slate-400 mt-4 text-center">
-        Available now for private and corporate events across Las Vegas and Southern Nevada, solo acoustic through full band.
+        Also available for private and corporate events across Las Vegas and Southern Nevada, solo acoustic through full band.
         <a href="#book" class="text-fire-300 link-underline">Check your date</a>,
         or see <a href="https://linktr.ee/chriszemba" target="_blank" rel="noopener" class="text-fire-300 link-underline">all live links</a>.
       </p>
@@ -856,9 +888,9 @@
             <p id="short-bio" class="text-[15px] text-slate-300 leading-[1.7]">
               Chris Zemba is a Las Vegas guitarist, vocalist, and bandleader with more than 25 years on stage.
               He performs solo acoustic through full band, blending Blues Rock, R&amp;B, Soul, and Top 40 for
-              weddings, corporate galas, private events, and casino residencies. He has held residencies at
-              Caesars Entertainment, Station Casinos, and Boyd Gaming properties, and has been featured on
-              FOX5 Las Vegas and in the Las Vegas Review-Journal.
+              weddings, corporate galas, private events, and casino residencies. He has held lounge residencies at
+              Caesars Entertainment and Boyd Gaming properties, performed across Station Casinos venues, and
+              has been featured on FOX5 Las Vegas and in the Las Vegas Review-Journal.
             </p>
           </div>
 
