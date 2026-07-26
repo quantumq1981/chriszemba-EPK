@@ -793,3 +793,6 @@ I can't convene other agents, so this is me deliberately taking four adversarial
 | 12 | One-sheet PDF + short bio + testimonials (P1.2–P1.4) | content-bound | ★★★★☆ |
 
 Steps 1–3 are the ones that change your booking rate. Steps 4–10 are what make a buyer believe your rate.
+
+Do not schedule automated check-ins, loops, or triggers to monitor PR merges.
+
