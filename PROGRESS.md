@@ -139,9 +139,9 @@ last against the final markup with Tailwind 3.4.19 so every new utility class is
 | 16 | JSON-LD restructure | §5.3 | Three acts are now `subOrganization` `MusicGroup`s under an `Organization` (`#org`) with `contactPoint` Booking — no longer collapsed as `alternateName` of one band. `WebSite.publisher` → `#org`. Validate at Rich Results Test before publishing. | ✅ |
 | 17 | Comment cleanup | red team | Replaced every `§`/`P0`-style audit-reference comment with plain-English explanations of what the code does. | ✅ |
 
-### Content gaps — NOT fabricated, owned by Chris / manager
-- **Corporate proof (highest-value gap, red team §7).** No award-dinner / brand-launch / conference photo or named corporate reference is invented. **Needs: two corporate event photos + one named corporate reference (title + company).**
-- **Named testimonials — three total (§4.6).** Still "Barnett Wedding Party" + two press/residency quotes. Per User note, individual testimonials are in progress and will be dropped in when supplied (title + property, one sentence each). No quotes or attributions invented.
+### Content gaps
+- **Corporate proof (highest-value gap, red team §7) — ✅ CLOSED.** Chris supplied a real booking: **Baskow Talent Agency** booked Chris Zemba & The Late Shift Band for a private corporate event at the **Palms Casino Resort** (Crestron-branded stage visible in the photo). Added a corporate-proof block to `#events`: the event photo (`assets/photos/corporate-crestron-palms.webp`), the named agency reference, and their post-event quote ("extremely polished, seasoned and professional"). Integrity guardrail: the David Walker / Renee Balaco / Ian Seeberg quotes are testimonials about *Baskow the agency*, not about Chris, so they were **not** used as endorsements of Chris. The contract `.doc` was treated as backing only — not read, not published.
+- **Named testimonials — still partial (§4.6).** The corporate named reference (Baskow) is now live. Still "Barnett Wedding Party" + two press/residency quotes for the wedding/individual side; per User note those individual testimonials are in progress and will be dropped in when supplied. No quotes or attributions invented.
 
 ### Verify on the deployed URL (needs the live site, can't run here)
 - Lighthouse **mobile** run on the deployed URL; confirm LCP is reasonable and `tw.css` downloads at its purged ~28 KB.
