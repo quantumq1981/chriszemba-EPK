@@ -152,4 +152,40 @@ last against the final markup with Tailwind 3.4.19 so every new utility class is
 
 ---
 
+## Post-audit follow-on work (all merged to `main`, branch `claude/epk-audit-v2-fixes-3jfg83`)
+
+Each item below shipped as its own PR after the v2 audit fixes. Every change was verified: `tw.css`
+rebuilt (Tailwind 3.4.19), full class-parity check (all class tokens in `index.html` resolve), and
+JSON-LD parse check where relevant. Build environment CANNOT render a browser or reach Bandsintown,
+so anything visual should be eyeballed on the deployed site.
+
+| PR | What shipped |
+|----|--------------|
+| #25 | The full v2 audit punch list (Phases 0–3 above) + fix for 3 silently-dropped opacity classes (Tailwind only emits multiples of 5; `via-midnight-950/88`, `/92`, `bg-midnight-950/92` → rounded to /90, /95). |
+| #26 | **Corporate proof** block in `#events`: Baskow Talent Agency / Crestron corporate event at the Palms (`assets/photos/corporate-crestron-palms.webp`) + quote. |
+| #27 | **702 line live**: (702) 706-2145 as `tel:` in booking panel + mobile Call button + JSON-LD `contactPoint.telephone`. |
+| #28 | **Residency accuracy**: reframed the Vegas casino residencies as PAST (Caesars/Boyd), retitled section, fixed "standing residencies" (present tense) in `#billing` and a reviews card; softened ZembAcoustics "ongoing" CT residency. |
+| #29 | **Current live dates** added: split section into "Catch us live" (current) + past residencies. Fixed Station Casinos overclaim — it was performances/a regular contract, NOT a residency (hero badge "…residencies" → "…stages"; short bio corrected). |
+| #30 | **Bandsintown widget** ("Upcoming shows") replaces hardcoded dates — self-maintaining, artist `id_5846821`, themed to dark/fire palette, lazy-loaded on scroll (IntersectionObserver, off first paint), with a fallback CTA. Plus a "who's who" text key clarifying the acts + specs note: formats "scalable to a 7-piece with a full horn section on request". |
+| #31–#33 | **Act logos** added to the who's-who key: Southern Stüe, Johnny B & The Road Dogs (#31); dark-bg Late Shift headline logo replacing the white-bg video version (#32); DSJ logo, restructured to Late Shift featured card + 3-up 4:3 grid for DSJ/Southern Stüe/Johnny B (#33). Logos: `assets/photos/logo-{late-shift-dark,southern-stue,johnny-b-road-dogs,dsj}.webp`. |
+
+### Acts on the calendar (transparency framing — do not misrepresent)
+- **Chris Zemba & The Late Shift Band** — headline act, booked through Zemba Music Co.
+- **DSJ** (formerly Down South Jukers) — 7-piece horn band Chris FRONTS (lead vocals, lead guitar, MD); bookable as a full horn section UNDER HIS BRAND (not as DSJ) on Zemba contracts.
+- **w/ Southern Stüe** (Southern-rock tribute) & **Johnny B & The Road Dogs** (classic rock) — acts Chris GUESTS with on guitar. Not his acts; never present as bookable-through-Zemba.
+
+### ⚠️ HANDOFF — open items for the next agent / owner (Chris)
+1. **Populate Bandsintown** — the "Upcoming shows" widget is EMPTY until Chris enters gigs in Bandsintown for Artists. Cannot be done for him (needs his login; sandbox can't reach Bandsintown). Dates he has: Tiki Di Amore (Aug 1, Sep 4, Oct 2, 2026), Lucille's/Red Rock, and the multi-band calendar in his screenshots.
+2. **Free hosting NOT yet set up** — the EPK is NOT publicly live; `zembamusicco.com` currently forwards to Linktree. Recommended: **GitHub Pages** (free) — enable via repo Settings → Pages → Source: `main` / root. Chris green-lit nothing yet; he said he can't afford paid hosting, so GitHub Pages is the path.
+3. **Named testimonials** — still only "Barnett Wedding Party" (kept intentionally — it encapsulates the whole wedding party via their coordinator; accurate, do NOT change). Optional future upgrade: if Chris gets the wedding coordinator's name + company, it becomes a named industry reference. No quotes/attributions may be invented.
+4. **Logo grid mobile check** — the 3-up 4:3 logo cards get small on narrow phones. Chris was offered 2-up / stacked / DSJ-promoted alternatives; awaiting his pick after he eyeballs it live.
+5. **Still needs the deployed URL**: Lighthouse mobile run; Google Rich Results Test on the JSON-LD; visual QA of the Bandsintown widget theming (colors set via `data-*`, unverified in a real browser).
+
+### Build/verify commands (for the next agent)
+- Rebuild purged CSS: `npm run build:css` (Tailwind auto-discovers `tailwind.config.js`). `sharp` (installed `--no-save`) is used for image → webp conversion.
+- Smoke test tokens in `assets/tw.css`: `4 6 13`, `255 122 61`, `Oswald`, `font-weight:600`, `text-wrap:balance` (each must be ≥1).
+- ALWAYS rebuild `tw.css` after markup edits or new utility classes silently won't be styled. Watch for non-multiple-of-5 slash-opacity classes (Tailwind drops them).
+
+---
+
 _Log updated as each task completes._
