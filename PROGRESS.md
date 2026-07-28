@@ -276,13 +276,13 @@ eager `<script src>` from the snippet — the loader injects it on scroll). The 
 now self-populates from whatever the User has entered under artist `id_14646019` in Bandsintown for
 Artists. If the User later wants the literal yellow/black look, it's a one-block swap.
 
-**Follow-up tweak (User's second snippet):** applied the User's newer display settings — `Brush Script MT`
-font, `capitalize` casing, ticket icon on, RSVP icon off, follow section moved to the bottom with header
-"Subscribe for updates on upcoming events", BIT logo `topRight`, past dates + lineup **off**. That snippet
-again omitted the color set (would revert to Bandsintown's light default = white box on the dark page), so
-the EPK dark/fire theming (`auto-style=false` + colors) was kept. Note flagged to the User: `Brush Script MT`
-is a casual script face that reads off-brand for a blues/rock EPK and isn't installed on many devices (esp.
-iOS), so it will often fall back to a default sans — easy to change on request.
+**Follow-up tweak (User's second snippet):** applied the User's newer display settings — `capitalize`
+casing, ticket icon on, RSVP icon off, follow section moved to the bottom with header "Subscribe for
+updates on upcoming events", BIT logo `topRight`, past dates + lineup **off**. That snippet again omitted
+the color set (would revert to Bandsintown's light default = white box on the dark page), so the EPK
+dark/fire theming (`auto-style=false` + colors) was kept. The snippet's `Brush Script MT` font was flagged
+as off-brand + poorly supported on mobile; the User agreed and it was set to **`Oswald`** (the site display
+font) instead.
 
 ---
 
