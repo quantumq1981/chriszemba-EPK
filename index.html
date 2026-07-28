@@ -1489,6 +1489,46 @@
     })();
   </script>
 
+  <!-- In-page anchor jumps (Book Now, nav tabs, hero CTAs): on a long page, lazy images and the
+       Upcoming-shows widget below can load *during* the scroll and grow the page, so a single tap
+       used to land just short of the target and you'd have to tap again. This intercepts every
+       same-page "#" link, scrolls to the section, then re-aligns a few times as the layout settles
+       so one tap always lands on it. Honors reduced-motion and keeps the hash in the URL. -->
+  <script>
+    (function () {
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var docEl = document.documentElement;
+      function align(target, smooth) {
+        if (smooth) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+        // The re-alignment nudges must be INSTANT. scrollIntoView({behavior:'auto'}) inherits the
+        // page's CSS scroll-behavior:smooth, so force instant by overriding it for this one call —
+        // otherwise the nudges animate, fight the first scroll, and never settle on the target.
+        var prev = docEl.style.scrollBehavior;
+        docEl.style.scrollBehavior = 'auto';
+        target.scrollIntoView({ block: 'start' });
+        docEl.style.scrollBehavior = prev;
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        if (!href || href.length < 2) return;            // ignore bare "#"
+        var target = document.getElementById(href.slice(1));
+        if (!target) return;
+        e.preventDefault();
+        if (history.replaceState) history.replaceState(null, '', href);
+        align(target, !reduce);
+        // Re-align as lazy content finishes loading. The nudges start after the smooth scroll has
+        // had time to run, then snap onto the final position a few times over ~800ms.
+        var tries = 0;
+        setTimeout(function tick() {
+          align(target, false);
+          if (++tries < 5) setTimeout(tick, 160);
+        }, reduce ? 0 : 380);
+      });
+    })();
+  </script>
+
   <!-- Featured Media tab switcher (three Zemba Music Co acts, one tab each) -->
   <script>
     (function () {
