@@ -222,4 +222,36 @@ for the check, then reverted out of `package.json`/`package-lock.json` — not a
 
 ---
 
+## Booking form moved off Formspree → FormSubmit.co (branch `claude/entertainment-epk-platform-3vg7zf`)
+
+The Formspree form `xjgnpodo` was orphaned — the User has no such form in any account, so nothing
+was ever deliverable through it. Per the User's ask ("forward to my email without signing up for a
+service"), the form now uses **FormSubmit.co**, which needs **no account and no dashboard**:
+
+- **Action:** `https://formsubmit.co/ajax/booking@zembamusicco.com` (change the inbox by editing the
+  email in the action — that's the only place the destination lives now).
+- Uses the `/ajax` endpoint so the existing fetch handler keeps the inline success/error card (no
+  redirect, works from any host including a not-yet-deployed page). Handler selector changed from
+  `form[action*="formspree"]` → `#book form`.
+- Config inputs added: `_subject`, `_template=table`, `_captcha=false`; honeypot renamed `_gotcha`
+  → `_honey` (FormSubmit's honeypot field).
+- **Activation:** the FIRST submission triggers a one-time "activate this form" email to
+  `booking@zembamusicco.com`. Until the User clicks that link, nothing is delivered. That click also
+  proves the mailbox actually receives mail — if the activation email never arrives, `booking@` isn't
+  set up yet and the action should be pointed at the User's known-working Gmail instead (one-line edit).
+- **Photos:** the `/ajax` endpoint does not carry file uploads. The photo field's helper text already
+  says "email them to booking@". To enable true in-form attachments later, switch to the non-AJAX
+  endpoint (`formsubmit.co/booking@…`) with a `_next` redirect back to the deployed URL — that mode
+  supports free file attachments but requires the site to be live at a fixed URL.
+
+### ⚠️ HANDOFF — the ONE step the User must do
+Submit the live form once, then click the FormSubmit **activation email** in `booking@zembamusicco.com`
+(check spam). After that, inquiries are delivered. If the activation email never lands, `booking@`
+can't receive mail yet → tell me and I'll repoint the action at the Gmail. Optional later polish:
+FormSubmit issues a random alias (`/el/xxxxx`) after activation that hides the raw email from page
+source — swap it in to reduce scraping. Also: the form only works from a **served page**, so the EPK
+must actually be deployed (GitHub Pages, etc.) for real visitors to reach it.
+
+---
+
 _Log updated as each task completes._

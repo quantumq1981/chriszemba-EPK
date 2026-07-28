@@ -1294,14 +1294,18 @@
 
           <!-- Form gets its own glass card and the full remaining width -->
           <div class="lg:col-span-7 rounded-2xl card-surface p-5 sm:p-7">
-            <!-- Wired to Formspree. The submit handler near the page foot posts via fetch and shows an
-                 inline success/error message, so the buyer never leaves the page for a third-party
-                 confirmation screen. Confirm the recipient inbox in the Formspree dashboard, and switch
-                 the action to booking@zembamusicco.com once that mailbox is live. -->
-            <form action="https://formspree.io/f/xjgnpodo" method="POST" enctype="multipart/form-data" class="grid sm:grid-cols-2 gap-4">
+            <!-- Wired to FormSubmit.co (no account, no dashboard): inquiries are emailed straight to the
+                 address in the action URL. FormSubmit sends a one-time "activate this form" email to that
+                 address on the first submission; click it once and every later inquiry is delivered.
+                 The submit handler near the page foot posts to the /ajax endpoint via fetch and shows an
+                 inline success/error message, so the buyer never leaves the page. To change the inbox,
+                 just edit the email in the action below. -->
+            <form action="https://formsubmit.co/ajax/booking@zembamusicco.com" method="POST" enctype="multipart/form-data" class="grid sm:grid-cols-2 gap-4">
               <input type="hidden" name="_subject" value="New booking inquiry — Chris Zemba EPK">
-              <!-- Honeypot: bots fill this, humans never see it -->
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <!-- Honeypot: bots fill this, humans never see it (FormSubmit reads the _honey field) -->
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
               <!-- Only name, email, date, and event type are required. Everything below is optional so
                    the buyer can send a fast inquiry, or spec the whole show — their choice. -->
@@ -1604,7 +1608,7 @@
        button and surface the email fallback, because a form that fails silently is worse than no form. -->
   <script>
     (function () {
-      var form = document.querySelector('form[action*="formspree"]');
+      var form = document.querySelector('#book form');
       if (!form) return;
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -1615,10 +1619,10 @@
         var prevErr = form.querySelector('.form-error');
         if (prevErr) prevErr.remove();
 
-        // Formspree's free plan rejects submissions that carry a file part. Drop the empty
-        // photo field so an ordinary (no-photo) inquiry always posts cleanly and is delivered;
-        // when a photo IS attached and the upload is refused, the catch below shows the email
-        // fallback so the lead is never silently lost.
+        // The /ajax relay endpoint delivers form fields but not file uploads, and an empty file
+        // part can trip some relays, so drop the photo field when nothing is attached. The helper
+        // text under the field already tells buyers to email photos to booking@, and if an upload
+        // ever does cause a failure the catch below surfaces that same email fallback.
         var data = new FormData(form);
         var photoInput = form.querySelector('input[type=file]');
         if (photoInput && photoInput.files.length === 0) data.delete(photoInput.name);
