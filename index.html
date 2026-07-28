@@ -198,24 +198,52 @@
 
   <!-- ============ STICKY NAV ============ -->
   <!-- Saturated blur ("expensive glass") when the browser supports backdrop-filter; a solid dark bar
-       as the fallback so the nav never turns into a low-contrast grey haze over the hero. -->
+       as the fallback so the nav never turns into a low-contrast grey haze over the hero.
+       Desktop (lg+) shows the section shortcut tabs inline; below lg they collapse into the
+       hamburger menu, so phones finally get a full jump-to-section index instead of just the CTA. -->
   <nav class="sticky top-0 z-50 border-b border-white/[0.06]
               bg-midnight-950/85 backdrop-blur-xl backdrop-saturate-150
               supports-[backdrop-filter]:bg-midnight-950/60 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5 group">
+    <div class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2.5 group shrink-0">
         <img src="assets/logo-zemba-transparent.png" onerror="this.src='assets/zemba-logo.webp'" alt="Zemba Music Co" class="h-9 w-auto object-contain">
         <span class="font-display font-600 tracking-wide text-sm uppercase text-slate-200 group-hover:text-fire-400 transition">Chris Zemba</span>
       </a>
-      <div class="hidden md:flex items-center gap-7 text-[13px] font-display font-500 uppercase tracking-wider text-slate-400">
-        <a href="#events" class="hover:text-fire-400 transition">Events</a>
-        <a href="#acts" class="hover:text-fire-400 transition">The Acts</a>
-        <a href="#stage" class="hover:text-fire-400 transition">On Stage</a>
+      <!-- Desktop shortcut tabs: one tap to every section a talent buyer scans for -->
+      <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-[13px] font-display font-500 uppercase tracking-wider text-slate-400">
+        <a href="#acts" class="hover:text-fire-400 transition">Videos</a>
+        <a href="#songs" class="hover:text-fire-400 transition">Songs</a>
+        <a href="#stage" class="hover:text-fire-400 transition">Gallery</a>
         <a href="#dates" class="hover:text-fire-400 transition">Live</a>
+        <a href="#reviews" class="hover:text-fire-400 transition">Reviews</a>
         <a href="#about" class="hover:text-fire-400 transition">About</a>
-        <a href="#specs" class="hover:text-fire-400 transition">Logistics</a>
+        <a href="#specs" class="hover:text-fire-400 transition">Specs</a>
       </div>
-      <a href="#book" class="text-[13px] font-display font-600 uppercase tracking-wider bg-fire-500 hover:bg-fire-400 text-midnight-950 px-4 py-2 rounded-md transition">Book Now</a>
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="#book" class="text-[13px] font-display font-600 uppercase tracking-wider bg-fire-500 hover:bg-fire-400 text-midnight-950 px-4 py-2 rounded-md transition">Book Now</a>
+        <!-- Hamburger: collapses the shortcut tabs on tablet/phone -->
+        <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu"
+                class="lg:hidden grid place-items-center w-10 h-10 rounded-md border border-white/10 text-slate-200 hover:text-fire-400 hover:border-fire-500/50 transition">
+          <i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile / tablet dropdown: the full section index, two-up so nothing scrolls off. -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/[0.06] bg-midnight-950/95 backdrop-blur-xl">
+      <div class="max-w-6xl mx-auto px-5 py-3 grid grid-cols-2 gap-x-4 text-[13px] font-display font-500 uppercase tracking-wider">
+        <a href="#events"  class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Events</a>
+        <a href="#acts"    class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Videos</a>
+        <a href="#songs"   class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Songs &amp; Repertoire</a>
+        <a href="#stage"   class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Gallery</a>
+        <a href="#dates"   class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Live Dates</a>
+        <a href="#billing" class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">On the Marquee</a>
+        <a href="#press"   class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Press</a>
+        <a href="#reviews" class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Reviews</a>
+        <a href="#about"   class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">About</a>
+        <a href="#specs"   class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition border-b border-white/5">Specs &amp; Rider</a>
+        <a href="#how"     class="js-nav-link py-2.5 text-slate-300 hover:text-fire-400 transition">How Booking Works</a>
+        <a href="#book"    class="js-nav-link py-2.5 text-fire-300 hover:text-fire-400 transition">Book Now &rarr;</a>
+      </div>
     </div>
   </nav>
 
@@ -1067,7 +1095,7 @@
         <div class="lg:col-span-3 rounded-2xl card-surface divide-y divide-white/5">
           <div class="group flex items-start gap-4 p-5">
             <i class="fa-solid fa-users text-slate-400 text-lg mt-0.5 w-6 text-center transition-colors duration-300 group-hover:text-fire-400"></i>
-            <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Performance formats</p><p class="text-sm text-slate-400 mt-0.5">Solo Acoustic, Duo, Trio, or 4 to 5 piece full band &mdash; scalable to a 7-piece with a full horn section on request.</p></div>
+            <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Performance formats</p><p class="text-sm text-slate-400 mt-0.5">Solo acoustic, duo, trio, and instrumental jazz trio, up through a 4 to 5 piece band &mdash; and scalable to a 7 to 9 piece show with a full horn section.</p></div>
           </div>
           <div class="group flex items-start gap-4 p-5">
             <i class="fa-solid fa-sliders text-slate-400 text-lg mt-0.5 w-6 text-center transition-colors duration-300 group-hover:text-fire-400"></i>
@@ -1213,7 +1241,7 @@
             <i class="fa-solid fa-paper-plane text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i>
           </div>
           <h3 class="font-display font-600 uppercase tracking-wide text-slate-100 text-lg">Inquiry</h3>
-          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">Send your date, room, and vibe through the form. You get a fast, professional reply within one business day, usually with a quote and a format recommendation.</p>
+          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">Send your date, room, and vibe through the booking form &mdash; spec the lineup and attach reference photos if you like, or just send the date. You get a professional reply within one business day, usually with a quote and a lineup recommendation.</p>
         </div>
         <div class="group rounded-2xl card-surface p-6 md:p-8 card-hover">
           <div class="flex items-center gap-3 mb-4">
@@ -1229,7 +1257,7 @@
             <i class="fa-solid fa-calendar-check text-slate-400 text-lg transition-colors duration-300 group-hover:text-fire-400"></i>
           </div>
           <h3 class="font-display font-600 uppercase tracking-wide text-slate-100 text-lg">Advance &amp; downbeat</h3>
-          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">A week out, we advance the details: stage plot, input list, run-of-show, and timing. On the day, we load in on time and deliver the show you booked.</p>
+          <p class="text-[15px] text-slate-300 mt-2 leading-[1.6]">About a week out, we lock the final details: stage plot, input list, run-of-show, and set times. On the day, we load in early and deliver exactly the show you booked.</p>
         </div>
       </div>
     </section>
@@ -1249,7 +1277,7 @@
             <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mb-3">Now booking 2026 &amp; 2027</p>
             <h2 class="font-heavy uppercase text-white text-balance text-[clamp(2.25rem,1.4rem+3.6vw,4rem)] leading-[0.95] tracking-[-0.01em]">Let's put your date <span class="text-forge">on the calendar</span></h2>
             <hr class="neon-rule w-40 mt-6">
-            <p class="text-slate-300 mt-6 leading-relaxed text-[15px]">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Tell me your date, room, and vibe, and you will get a fast, professional response.</p>
+            <p class="text-slate-300 mt-6 leading-relaxed text-[15px]">Weddings, corporate galas, private parties, festivals, and casino residencies across Las Vegas, Henderson, Boulder City, and Southern Nevada. Spec the show as far as you like &mdash; music style, ensemble from solo up to a nine-piece horn band, budget, even a few reference photos &mdash; or just send the date. Either way you get a fast, professional response.</p>
             <div class="mt-8 space-y-3 text-sm">
               <a href="mailto:booking@zembamusicco.com?subject=Booking%20Inquiry%20-%20Chris%20Zemba"
                  class="flex items-center gap-3 text-slate-300 hover:text-white transition">
@@ -1270,11 +1298,13 @@
                  inline success/error message, so the buyer never leaves the page for a third-party
                  confirmation screen. Confirm the recipient inbox in the Formspree dashboard, and switch
                  the action to booking@zembamusicco.com once that mailbox is live. -->
-            <form action="https://formspree.io/f/xjgnpodo" method="POST" class="grid sm:grid-cols-2 gap-4">
+            <form action="https://formspree.io/f/xjgnpodo" method="POST" enctype="multipart/form-data" class="grid sm:grid-cols-2 gap-4">
               <input type="hidden" name="_subject" value="New booking inquiry — Chris Zemba EPK">
               <!-- Honeypot: bots fill this, humans never see it -->
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
+              <!-- Only name, email, date, and event type are required. Everything below is optional so
+                   the buyer can send a fast inquiry, or spec the whole show — their choice. -->
               <label class="flex flex-col gap-1.5">
                 <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Your name</span>
                 <input name="name" required autocomplete="name" placeholder="Your name"
@@ -1283,6 +1313,11 @@
               <label class="flex flex-col gap-1.5">
                 <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Email</span>
                 <input name="email" type="email" required autocomplete="email" placeholder="you@email.com"
+                       class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Phone <span class="normal-case tracking-normal text-slate-400">(optional)</span></span>
+                <input name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000"
                        class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition">
               </label>
               <label class="flex flex-col gap-1.5">
@@ -1307,33 +1342,77 @@
                   <option>Festival / grand opening</option>
                 </select>
               </label>
-              <label class="flex flex-col gap-1.5">
-                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Format</span>
-                <select name="format"
-                        class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
-                  <option value="">Format (if known)&hellip;</option>
-                  <option>Solo acoustic</option>
-                  <option>Duo</option>
-                  <option>Trio</option>
-                  <option>Full band (4&ndash;5 pc)</option>
-                  <option>Not sure yet</option>
-                </select>
-              </label>
+
+              <!-- Music style — single choice, tappable chips (hidden radios styled via peer-checked) -->
+              <fieldset class="sm:col-span-2 flex flex-col gap-2.5 pt-1">
+                <legend class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400 mb-1">Music style <span class="normal-case tracking-normal">(pick the closest — we tailor from there)</span></legend>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Greatest Pop & Dance Hits (70s–Top 40)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Greatest Pop &amp; Dance Hits (70s&ndash;Top 40)</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Classic Rock, Blues & Southern Rock" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Classic Rock, Blues &amp; Southern Rock</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Soul, Funk & R&B" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Soul, Funk &amp; R&amp;B</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Country (classic & modern)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Country (classic &amp; modern)</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Light Pop / Jazz — cocktail or dinner" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Light Pop / Jazz &mdash; cocktail or dinner</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Instrumental background (no vocals)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Instrumental background (no vocals)</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="High-energy dance-floor variety (mix)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">High-energy dance-floor variety</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="music_style" value="Let's chat to decide" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Let's chat to decide</span></label>
+                </div>
+              </fieldset>
+
+              <!-- Ensemble / band size — multi-select. Covers solo up through the 7–9 piece horn show
+                   Chris fronts, plus the instrumental jazz trio, all under Zemba Music Co. -->
+              <fieldset class="sm:col-span-2 flex flex-col gap-2.5 pt-1">
+                <legend class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400 mb-1">Ensemble to quote <span class="normal-case tracking-normal">(check any you'd like priced)</span></legend>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="Solo acoustic (guitar & vocal)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Solo acoustic &middot; guitar &amp; vocal</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="Duo (guitar + keys/percussion)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Duo &middot; guitar + keys/percussion</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="Instrumental jazz trio (cocktail/dinner)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Instrumental jazz trio &middot; cocktail/dinner</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="4-piece band (keys, bass, drums + Chris)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">4-piece band</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="5-piece band (+ sax or extra vocal)" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">5-piece band &middot; + sax or extra vocal</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="7-piece with horn section" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">7-piece with horn section</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="8–9 piece with full horn section" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">8&ndash;9 piece with full horn section</span></label>
+                  <label class="cursor-pointer"><input type="checkbox" name="ensemble" value="Add 1–2 additional vocalists" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Add 1&ndash;2 vocalists</span></label>
+                  <label class="cursor-pointer sm:col-span-2"><input type="checkbox" name="ensemble" value="Not sure — recommend the right lineup" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Not sure &mdash; recommend the right lineup for my room</span></label>
+                </div>
+              </fieldset>
+
+              <!-- Sound & lighting -->
+              <fieldset class="sm:col-span-2 flex flex-col gap-2.5 pt-1">
+                <legend class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400 mb-1">Sound system &amp; stage lighting</legend>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <label class="cursor-pointer"><input type="radio" name="production" value="Provide through Chris's vendor" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">We'll provide it</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="production" value="Provided by venue / purchaser" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Venue provides</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="production" value="Let's chat to decide" class="peer sr-only"><span class="block rounded-lg border border-white/[0.12] bg-white/[0.04] px-3.5 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Let's chat</span></label>
+                </div>
+              </fieldset>
+
+              <!-- Budget ladder — kept private, helps size the right lineup fast -->
+              <fieldset class="sm:col-span-2 flex flex-col gap-2.5 pt-1">
+                <legend class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400 mb-1">Band budget <span class="normal-case tracking-normal">(kept private &mdash; helps me size the lineup)</span></legend>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$2,000–$4,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$2&ndash;4K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$4,000–$6,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$4&ndash;6K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$6,000–$8,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$6&ndash;8K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$8,000–$10,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$8&ndash;10K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$10,000–$15,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$10&ndash;15K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$15,000–$20,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$15&ndash;20K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$20,000–$25,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$20&ndash;25K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="$25,000–$30,000" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] tabular-nums text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">$25&ndash;30K</span></label>
+                  <label class="cursor-pointer"><input type="radio" name="budget" value="Prefer to discuss" class="peer sr-only"><span class="block text-center rounded-lg border border-white/[0.12] bg-white/[0.04] px-2 py-2.5 text-[13px] text-slate-300 transition hover:border-fire-500/40 hover:text-white peer-checked:border-fire-500 peer-checked:bg-fire-500/15 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-fire-300">Let's discuss</span></label>
+                </div>
+              </fieldset>
+
+              <!-- Reference photos: the interactive extra the buyer asked for — attach a mood board, the
+                   room, a past event, a dress-code look. Sent with the inquiry via multipart POST. -->
               <label class="sm:col-span-2 flex flex-col gap-1.5">
-                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Budget range <span class="normal-case tracking-normal text-slate-400">(helps me tailor the right lineup &mdash; kept private)</span></span>
-                <select name="budget"
-                        class="rounded-xl bg-midnight-900 border border-white/[0.12] px-4 py-3.5 text-slate-300 focus:border-fire-500/60 outline-none transition">
-                  <option value="">Budget range&hellip;</option>
-                  <option>Under $2K</option>
-                  <option>$2&ndash;5K</option>
-                  <option>$5&ndash;10K</option>
-                  <option>$10K+</option>
-                  <option>Not sure yet</option>
-                </select>
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Attach reference photos <span class="normal-case tracking-normal">(optional &mdash; style, the room, a look you love)</span></span>
+                <input name="photos" type="file" accept="image/*" multiple
+                       class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3 text-[13px] text-slate-300 file:mr-4 file:rounded-lg file:border-0 file:bg-fire-500/90 file:px-4 file:py-2 file:text-midnight-950 file:font-display file:font-600 file:uppercase file:tracking-wider file:text-[11px] hover:file:bg-fire-400 file:cursor-pointer focus:border-fire-500/60 outline-none transition">
+                <span class="text-[11px] text-slate-400">JPG or PNG. Can't attach here? Email them to <a href="mailto:booking@zembamusicco.com" class="text-fire-300 link-underline">booking@zembamusicco.com</a>.</span>
               </label>
+
               <label class="sm:col-span-2 flex flex-col gap-1.5">
-                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Details</span>
-                <textarea name="details" rows="3" placeholder="Run of show, timing, anything else"
+                <span class="text-[11px] font-display font-600 uppercase tracking-[0.14em] text-slate-400">Additional details</span>
+                <textarea name="details" rows="3" placeholder="Run of show, timing, guest count, must-play songs, anything else"
                           class="rounded-xl bg-white/[0.05] border border-white/[0.12] px-4 py-3.5 text-white placeholder:text-slate-400 focus:border-fire-500/60 focus:bg-white/[0.08] outline-none transition"></textarea>
               </label>
               <button type="submit"
@@ -1380,6 +1459,31 @@
     <p class="text-slate-400 text-[11px] mt-1 uppercase tracking-[0.16em] font-display">Updated July 2026</p>
     <p class="text-slate-400 text-xs mt-2"><a href="https://venmo.com/zembamusicco" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Venmo @zembamusicco</a></p>
   </footer>
+
+  <!-- Mobile nav: toggle the dropdown, swap the hamburger/close icon, and close on link-tap or Escape. -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (!toggle || !menu) return;
+      var icon = toggle.querySelector('i');
+      function setOpen(open) {
+        menu.classList.toggle('hidden', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        if (icon) icon.className = (open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars') + ' text-lg';
+      }
+      toggle.addEventListener('click', function () {
+        setOpen(menu.classList.contains('hidden'));
+      });
+      menu.querySelectorAll('.js-nav-link').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) { setOpen(false); toggle.focus(); }
+      });
+    })();
+  </script>
 
   <!-- Featured Media tab switcher (three Zemba Music Co acts, one tab each) -->
   <script>

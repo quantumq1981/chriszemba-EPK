@@ -188,4 +188,38 @@ so anything visual should be eyeballed on the deployed site.
 
 ---
 
+## Navigation + interactive booking form (branch `claude/entertainment-epk-platform-3vg7zf`)
+
+Blueprint: the User's four booking-form reference screenshots (`IMG_4776`–`4779`) + the brief to add
+shortcut-tab navigation, clarify the step-by-step copy, and reflect the 7–9-piece / horn-section /
+jazz-trio ensemble range. Same single-file coordinated stream; markup edited first, `assets/tw.css`
+rebuilt last (Tailwind 3.4.19). Verified with headless Chromium (playwright-core installed `--no-save`
+for the check, then reverted out of `package.json`/`package-lock.json` — not a project dependency).
+
+### What shipped
+
+| # | Item | What shipped | Status |
+|---|------|--------------|--------|
+| 1 | Shortcut-tab navigation | Desktop nav (now `lg:` breakpoint) surfaces the sections a talent buyer scans for: **Videos · Songs · Gallery · Live · Reviews · About · Specs**. Below `lg`, a **hamburger menu** (`#nav-toggle` → `#mobile-menu`) opens a two-column, 12-link full section index — phones previously had *no* section nav at all, only the CTA + bottom bar. Toggle JS swaps the bars/xmark icon, sets `aria-expanded`, closes on link-tap and Escape. | ✅ |
+| 2 | Interactive booking form | `#book` form rebuilt from the reference screenshots, **adapted to Chris** (not the reference's "singer Justin"): **Music style** (8 single-select chips, grounded in his real repertoire), **Ensemble to quote** (9 multi-select chips: solo → duo → jazz trio → 4/5-pc → **7-pc and 8–9-pc horn section** + add-vocalists), **Sound & lighting** (3 radios), **Band budget** ($2–4K … $25–30K ladder + "let's discuss"), **reference-photo upload** (`input[type=file] multiple accept=image/*`, multipart POST), phone field, and additional details. Only name/email/date/event-type are required — everything else optional so a buyer can send a 10-second inquiry or spec the whole show. | ✅ |
+| 3 | Chip UI | Options are tappable pills built with hidden `peer sr-only` inputs + `peer-checked:` fire fill/border/white-text (verified via CDP: selected chip → `rgba(238,90,32,.15)` bg, `#ee5a20` border, white text). Streamlined, not the reference's plain radio wall. | ✅ |
+| 4 | Copy / clarity pass | Tightened the step-by-step service copy: **How booking works** step 1 (now mentions spec-the-lineup / attach-photos, "professional reply within one business day") and step 3 ("lock the final details… load in early", replacing the jargon "advance the details"). **Specs → Performance formats** updated to the full ladder incl. jazz trio and 7–9-piece horn section. Booking-panel pitch rewritten to invite spec'ing style/ensemble/budget/photos or just sending the date. | ✅ |
+
+### Verification performed
+- **Headless Chromium (1440px + 390px):** 7 desktop tabs present; hamburger toggles `#mobile-menu` (hidden→shown) with 12 links; form renders 8 music / 9 ensemble / 9 budget / 3 production chips + 1 file input; chip `peer-checked` highlight confirmed after the 150 ms transition settles (CDP `getMatchedStylesForNode` shows the peer-checked rule matches **and** wins the cascade). **Zero JS/page errors** — only the sandbox proxy blocking Google Fonts / Font Awesome / Plausible / Bandsintown, which load normally in a real browser.
+- **Class parity:** all new tokens (`peer`, `peer-checked:*`, `peer-focus-visible:*`, `sr-only`, `file:*`, chip borders, budget grid) resolve in the rebuilt `tw.css` (34.8 KB). Only pre-existing comma-bearing arbitrary utilities (clamp/shadow) don't literal-match a naive grep — they compile and render fine.
+- **Tag balance:** form 1/1, fieldset 4/4, legend 4/4, section 13/13, nav 1/1. No leftover "singer Justin" / `REPLACE_*` placeholders.
+- **Fixed two Tailwind drops before build:** `bg-midnight-950/97` → `/95` (opacity must be a multiple of 5) and an undefined `text-fire-200` (fire palette is 300–700).
+
+### ⚠️ HANDOFF — open items for the next agent / owner (Chris)
+1. **Formspree file uploads need a paid plan.** The photo `input[type=file]` posts via the existing fetch handler (multipart), but **attachments only deliver on Formspree's paid tier**. On the free plan the POST with files may be rejected → the handler's error path surfaces the `booking@zembamusicco.com` email fallback (and the field's helper text already says "Can't attach here? Email them to booking@"). To fully enable in-form photos: upgrade Formspree, or switch to **Netlify Forms** (free file uploads) if the site moves to Netlify hosting. No leads are silently lost either way.
+2. **New form fields flow straight to the same Formspree inbox** (`xjgnpodo`) as labeled keys: `music_style`, `ensemble` (repeats for multi-select), `production`, `budget`, `photos`, `phone`, `details`. Confirm they read cleanly in the Formspree dashboard once a test submission comes through.
+3. **Ensemble honesty guardrail preserved:** the 7-pc / 8–9-pc horn options are legitimate — they're the DSJ horn band Chris fronts, offered *under Zemba Music Co* (per the transparency framing above). Do not relabel them as "DSJ" on the booking side.
+4. Everything from the prior handoff (Bandsintown population, GitHub Pages hosting, named testimonials, logo-grid mobile check, deployed-URL Lighthouse/Rich-Results) still stands.
+
+### Build/verify note added this round
+- Chip styling relies on `peer-checked:` — when eyeballing a selected chip's color in code, remember the `.transition` class animates it over ~150 ms, so a computed-style read immediately after a click returns the *start* color, not the final one. Wait for the transition (or read the matched rule) before concluding it "doesn't apply".
+
+---
+
 _Log updated as each task completes._
