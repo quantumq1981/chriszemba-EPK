@@ -252,6 +252,30 @@ FormSubmit issues a random alias (`/el/xxxxx`) after activation that hides the r
 source — swap it in to reduce scraping. Also: the form only works from a **served page**, so the EPK
 must actually be deployed (GitHub Pages, etc.) for real visitors to reach it.
 
+### Follow-ups shipped after the FormSubmit switch
+- **Booking form is LIVE.** The User completed the FormSubmit activation click ("Form Activated" +
+  a test inquiry landed in the inbox). No further form setup needed.
+- **Single-tap anchor nav.** Fixed the "Book Now needs two taps" bug: lazy images + the events widget
+  grew the page mid-scroll so the first tap landed short. A click handler on same-page `#` links now
+  re-aligns to the target as the layout settles, with the correction forced INSTANT (plain
+  `scrollIntoView({behavior:'auto'})` inherits CSS `scroll-behavior:smooth`, so it must override it).
+  Honors reduced-motion.
+
+## Bandsintown widget updated to the User's real artist (`id_14646019`)
+
+The User supplied a new Bandsintown embed (artist `id_14646019`, app-id
+`3e4eac79fcd71e8e2e0a45643fe1c75a`) with past dates, lineup, details, start times, ticket buttons, a
+"Stay Connected" follow section, and `display-limit=all`. All of those **functional** settings were
+applied. The User's pasted **styling** (bright yellow `#f7e409` + Impact font + white dividers + green
+ticket buttons) would clash with the EPK, so — per the User's pick of "Match the EPK" — the colors and
+font were mapped onto the site palette: transparent background, slate text `#e2e8f0`, fire accents
+(`#ff7a3d`/`#ee5a20`), midnight popups `#0c1322`, `Oswald` display font, subtle white dividers, fire
+ticket/RSVP/follow CTAs with midnight text, ember `#e0332a` sold-out button, logo hidden. Kept
+`data-auto-style="false"` (required for custom colors) and the existing lazy-loader (did NOT add the
+eager `<script src>` from the snippet — the loader injects it on scroll). The "Upcoming shows" widget
+now self-populates from whatever the User has entered under artist `id_14646019` in Bandsintown for
+Artists. If the User later wants the literal yellow/black look, it's a one-block swap.
+
 ---
 
 _Log updated as each task completes._
