@@ -699,43 +699,42 @@
            always gives the buyer a way to reach us. Colors themed to the dark/fire palette. -->
       <p class="font-display font-600 uppercase tracking-[0.16em] text-[11px] text-slate-400 mb-3">Upcoming shows</p>
       <div id="bit-widget-card" class="rounded-2xl card-surface p-4 sm:p-6">
-        <!-- Artist id_14646019. Functional settings (past dates, lineup, details, start times, ticket
-             buttons, "Stay Connected" follow section, show-all) are the User's; the colors and font are
-             mapped onto the EPK's dark + fire-orange palette (fire #ee5a20/#ff7a3d, midnight popups,
-             Oswald display font) so the widget reads as part of the page, not a pasted-in block.
-             data-auto-style="false" is required for these custom colors to take. -->
+        <!-- Artist id_14646019. Display settings are the User's latest snippet (Brush Script MT font,
+             capitalize casing, ticket icon, RSVP icon off, follow section at the bottom, BIT logo
+             top-right, past dates + lineup off, show-all). The User's snippet dropped the color set,
+             which would revert the widget to Bandsintown's light default (a white box on this dark
+             page) — so the EPK dark + fire-orange theming (auto-style=false + colors) is kept.
+             data-auto-style="false" is required for the custom colors to take. -->
         <a class="bit-widget-initializer"
            data-artist-name="id_14646019"
            data-app-id="3e4eac79fcd71e8e2e0a45643fe1c75a"
            data-auto-style="false"
-           data-display-local-dates="false"
-           data-display-past-dates="true"
-           data-display-lineup="true"
+           data-language="en"
+           data-display-limit="all"
            data-display-details="true"
            data-display-start-time="true"
+           data-display-past-dates="false"
+           data-display-lineup="false"
            data-social-share-icon="true"
-           data-display-limit="all"
-           data-language="en"
-           data-local-dates-position="aboveUpcoming"
            data-button-label-capitalization="capitalize"
-           data-location-capitalization="uppercase"
-           data-venue-capitalization="uppercase"
+           data-location-capitalization="capitalize"
+           data-venue-capitalization="capitalize"
            data-date-orientation="vertical"
            data-date-format="MMM. DD YYYY"
-           data-date-capitalization="uppercase"
+           data-date-capitalization="capitalize"
            data-date-border-width="1px"
            data-date-border-radius="8px"
            data-date-border-color="rgba(255,255,255,0.12)"
-           data-font="Oswald"
+           data-font="Brush Script MT"
            data-background-color="rgba(0,0,0,0)"
            data-text-color="#e2e8f0"
            data-link-color="#ff7a3d"
            data-separator-color="rgba(255,255,255,0.08)"
            data-popup-background-color="#0c1322"
-           data-bit-logo-position="hidden"
+           data-bit-logo-position="topRight"
            data-request-show-button-color="#ee5a20"
+           data-event-ticket-icon="true"
            data-event-ticket-cta-size="medium"
-           data-event-ticket-text="BUY TICKETS"
            data-event-ticket-cta-bg-color="#ee5a20"
            data-event-ticket-cta-text-color="#04060d"
            data-event-ticket-cta-border-width="1px"
@@ -743,13 +742,13 @@
            data-sold-out-button-background-color="#e0332a"
            data-sold-out-button-text-color="#ffffff"
            data-sold-out-button-border-color="rgba(224,51,42,0.5)"
+           data-event-rsvp-icon="false"
            data-event-rsvp-position="left"
-           data-event-rsvp-only-show-icon="true"
            data-event-rsvp-cta-text-color="#ff7a3d"
-           data-follow-section-position="top"
+           data-follow-section-position="bottom"
            data-follow-section-alignment="center"
            data-follow-section-cta-text="FOLLOW"
-           data-follow-section-header-text="Stay Connected"
+           data-follow-section-header-text="Subscribe for updates on upcoming events"
            data-follow-section-cta-size="medium"
            data-follow-section-cta-bg-color="#ee5a20"
            data-follow-section-cta-text-color="#04060d"></a>
