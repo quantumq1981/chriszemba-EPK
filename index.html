@@ -87,6 +87,48 @@
   }
   </script>
 
+  <!-- FAQ structured data: answers the exact questions a talent buyer filters on, drawn verbatim
+       from the on-page copy (Events, Specs, Compliance, How Booking Works). Helps search + AI
+       discovery, and is eligible for FAQ rich results. Validate at search.google.com/test/rich-results. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What kinds of events does Chris Zemba play?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Weddings, corporate galas and award dinners, casino and resort lounges, private parties, and festivals and grand openings across Las Vegas and Southern Nevada." }
+      },
+      {
+        "@type": "Question",
+        "name": "What lineups or ensemble sizes are available?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Solo acoustic, duo, trio, and instrumental jazz trio, up through a 4 to 5 piece band, and scalable to a 7 to 9 piece show with a full horn section." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you insured, and can you provide a certificate of insurance and W-9?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chris Zemba is fully insured, has a W-9 on file, and provides a certificate of insurance on request for casino, resort, and corporate stages." }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Las Vegas, Henderson, Boulder City, and Southern Nevada, with a self-contained PA and lighting package available for rooms up to 300 capacity." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does booking work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Send your date, room, and vibe through the booking form and you get a professional reply within one business day, usually with a quote and a lineup recommendation. We then place a courtesy hold and send a simple contract with the W-9 and certificate of insurance up front, and lock the final stage plot, input list, and run-of-show about a week out." }
+      },
+      {
+        "@type": "Question",
+        "name": "How large is the repertoire?",
+        "acceptedAnswer": { "@type": "Answer", "text": "160 songs across 6 genres: Classic Rock, Electric Blues, Soul and Funk, Contemporary R&B, Top 40 and Pop, and Classic and Modern Country." }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="assets/photos/favicon.png">
 
   <!-- Hero LCP: let the preload scanner fetch the largest-paint image early, sized per viewport -->
@@ -366,6 +408,48 @@
   </section>
 
   <main class="max-w-6xl mx-auto px-5">
+
+    <!-- ============ CAPABILITY SNAPSHOT (10-second skim for talent buyers) ============ -->
+    <!-- The trust bar above covers compliance in one glance; this covers logistics/capability the
+         same way. Every value here is restated from a detailed section below (Specs, Repertoire,
+         How Booking Works) — no new claims. Icons stay neutral slate so the strip reads as a calm
+         spec sheet, not another accent cluster. -->
+    <section aria-label="Booking capability at a glance" class="pt-10 md:pt-12 -mb-4">
+      <ul class="rounded-2xl card-surface grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.07] overflow-hidden">
+        <li class="px-4 py-4 md:py-5 text-center">
+          <i class="fa-solid fa-users text-slate-400 text-base mb-2"></i>
+          <p class="font-display font-700 uppercase tracking-wide text-slate-100 text-[15px] leading-tight">Solo &rarr; 9&#8209;piece</p>
+          <p class="text-[10px] text-slate-400 uppercase tracking-[0.14em] mt-1 font-display font-500">Scalable lineups</p>
+        </li>
+        <li class="px-4 py-4 md:py-5 text-center">
+          <i class="fa-solid fa-people-group text-slate-400 text-base mb-2"></i>
+          <p class="font-display font-700 uppercase tracking-wide text-slate-100 text-[15px] leading-tight tabular-nums">Up to 300</p>
+          <p class="text-[10px] text-slate-400 uppercase tracking-[0.14em] mt-1 font-display font-500">Room capacity</p>
+        </li>
+        <li class="px-4 py-4 md:py-5 text-center">
+          <i class="fa-solid fa-clock text-slate-400 text-base mb-2"></i>
+          <p class="font-display font-700 uppercase tracking-wide text-slate-100 text-[15px] leading-tight tabular-nums">3&ndash;4 hours</p>
+          <p class="text-[10px] text-slate-400 uppercase tracking-[0.14em] mt-1 font-display font-500">Set length</p>
+        </li>
+        <li class="px-4 py-4 md:py-5 text-center">
+          <a href="songs.html" class="block group">
+            <i class="fa-solid fa-music text-slate-400 group-hover:text-fire-400 transition-colors text-base mb-2"></i>
+            <p class="font-display font-700 uppercase tracking-wide text-slate-100 group-hover:text-white text-[15px] leading-tight tabular-nums">160 &middot; 6 genres</p>
+            <p class="text-[10px] text-slate-400 uppercase tracking-[0.14em] mt-1 font-display font-500">Songs in rotation</p>
+          </a>
+        </li>
+        <li class="px-4 py-4 md:py-5 text-center">
+          <i class="fa-solid fa-location-dot text-slate-400 text-base mb-2"></i>
+          <p class="font-display font-700 uppercase tracking-wide text-slate-100 text-[15px] leading-tight">Las Vegas + S. NV</p>
+          <p class="text-[10px] text-slate-400 uppercase tracking-[0.14em] mt-1 font-display font-500">Service area</p>
+        </li>
+        <li class="px-4 py-4 md:py-5 text-center">
+          <i class="fa-solid fa-reply text-slate-400 text-base mb-2"></i>
+          <p class="font-display font-700 uppercase tracking-wide text-slate-100 text-[15px] leading-tight">1 business day</p>
+          <p class="text-[10px] text-slate-400 uppercase tracking-[0.14em] mt-1 font-display font-500">Quote turnaround</p>
+        </li>
+      </ul>
+    </section>
 
     <!-- ============ EVENTS WE PLAY (booking-audience bento) ============ -->
     <section id="events" class="scroll-mt-24 py-20 md:py-28">

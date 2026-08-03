@@ -286,4 +286,40 @@ font) instead.
 
 ---
 
+## v3 polish pass (branch `claude/epk-improvement-plan-1gflkj`)
+
+Blueprint: a fresh review of `index.html` + `songs.html` measured against the best practices in
+`claude-skills/Skills/EPK-skill.md`. The main page already embodied most of the skill; the real
+gaps were the songs page, top-of-page skimmability, and structured-data/SEO. Same single-file
+discipline; `assets/tw.css` rebuilt last (Tailwind 3.4.19). All changes verified in headless
+Chromium (1440px + 390px, **0 page errors**) and JSON-LD parse-checked.
+
+| # | Item | What shipped | Status |
+|---|------|--------------|--------|
+| 1 | **Rebrand + de-bloat `songs.html`** | Ported onto the EPK design system (shared `assets/tw.css`, Oswald/Anton/Inter, fire/midnight/azure tokens); replaced the **~870 KB inline base64 JPEG hero** with an existing optimized webp (`live-neon-closeup.webp`); added the shared sticky nav, footer, and mobile action bar; fixed the booking email (`zembamusicco@gmail.com` → `booking@zembamusicco.com`); formats presented asymmetrically (no three-equal-boxes). **Song dataset + filter JS kept byte-for-byte** — verified 159 selections / 6 genres render, Solo filter → 44. **File: 911 KB → 50 KB.** | ✅ |
+| 2 | **Capability snapshot strip** (`index.html`) | 6-cell skim band right after the venue marquee: Solo→9-piece · up to 300 cap · 3–4 hr sets · 160 songs / 6 genres (links to `songs.html`) · Las Vegas + S. NV · reply in 1 business day. Every value restated from a detailed section below — no new claims; icons neutral slate so it reads as a spec sheet, not an accent cluster. Delivers the skill's 10–15s buyer skim. | ✅ |
+| 3 | **FAQPage structured data** (`index.html`) | Second JSON-LD block (events, ensembles, insurance/COI/W-9, service area, booking flow, repertoire size) drawn verbatim from on-page copy. Eligible for FAQ rich results + AI discovery. Both JSON-LD blocks parse clean. | ✅ |
+| 4 | **Tailwind content** | Added `./songs.html` to `tailwind.config.js` content so the rebranded page's utilities are emitted in the purge. `tw.css` rebuilt (36 KB); smoke tokens all ≥1; new clamp/`lg:grid-cols-6`/`divide-x`/safe-area utilities confirmed present. | ✅ |
+| 5 | **Accessibility pass** | Audited both pages: all 37 real images carry `alt` (decorative use `alt=""`); heading order sane; contrast residuals are decorative only. `songs.html` filters/toolbar given `aria-label`s and search an `aria-label`. | ✅ |
+
+### Companion skill upgrade (`claude-skills/Skills/EPK-skill.md`)
+- Fixed malformed frontmatter (stray `EPK-SKILL.MD` title line before `---` → `---` now line 1).
+- Sample JSON relabeled as an **illustrative fictional template** (`The Steel City Revue`) so a real
+  artist's name is never paired with fabricated venues/city.
+- Added a **`proof_and_media`** schema block + a **Live Proof** section-order step (video + press +
+  named testimonial) — previously the skill omitted media entirely.
+- Added a **one-sheet vs. web-EPK** format section (skimmable capability strip, downloadable
+  one-sheet, structured data, accessibility, image compression — "never inline a base64 hero").
+- Added an explicit **anti-fabrication rule** (never invent compliance flags, testimonials,
+  capacities, or client names — omit and flag instead).
+
+### Integrity guardrails held
+- No fabricated content. Named testimonials remain the genuine ones (Barnett Wedding Party +
+  Baskow + RJ); a third *named* wedding testimonial and Bandsintown gig population stay
+  **owner-supplied follow-ups**, not invented here.
+- Font Awesome left on the shared CDN (cached across both pages); subsetting is noted as an
+  optional future perf item rather than a risky forced change that could break ~40 icons.
+
+---
+
 _Log updated as each task completes._
