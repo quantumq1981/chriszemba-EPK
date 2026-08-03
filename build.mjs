@@ -23,6 +23,7 @@ import { parse } from 'node-html-parser';
 const root = dirname(fileURLToPath(import.meta.url));
 const SRC = join(root, 'index.html');
 const MANIFEST = join(root, 'src', 'variants.json');
+const SITE = join(root, 'src', 'site.json');
 
 const rawSource = readFileSync(SRC, 'utf8');
 const { variants } = JSON.parse(readFileSync(MANIFEST, 'utf8'));
@@ -130,4 +131,14 @@ for (const v of variants) {
   console.log(`built ${v.outDir}/index.html — kept [${r.kept.join(', ')}] · dropped [${r.removed.join(', ')}]`);
   ok++;
 }
+
+// Emit /epk.json — a public, machine-readable manifest of booking contact details, the venue-cut
+// URL, and downloadable asset links. The Setlist-Generator venue-outreach app fetches this to sync
+// its EPK settings, so the two projects share one source of truth and never drift. Only the
+// already-public data in src/site.json is exposed here.
+const site = JSON.parse(readFileSync(SITE, 'utf8'));
+delete site._comment;
+writeFileSync(join(root, 'epk.json'), JSON.stringify({ ...site, updatedAt: new Date().toISOString() }, null, 2) + '\n');
+console.log('wrote epk.json (public sync manifest)');
+
 console.log(`\n${ok} variant(s) generated from index.html.`);

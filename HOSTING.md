@@ -12,6 +12,9 @@ npm run build     # regenerates every cut from index.html, then rebuilds assets/
 ```
 
 - `build.mjs` reads `index.html` + `src/variants.json` and writes each cut to `<outDir>/index.html`.
+  It also copies `src/site.json` → `epk.json` at the repo root (with an `updatedAt` stamp): a public,
+  CORS-open manifest the Setlist-Generator outreach app fetches to sync booking details and links.
+  Keep only already-public data in `src/site.json`.
 - Each `<section>` in `index.html` carries `data-audience="all"` or `data-audience="full"`; a cut
   keeps sections tagged `all` or its own token (e.g. `venues`). Nav links (`data-nav-for`) to
   dropped sections are removed automatically; hero copy + SEO tags come from `src/variants.json`.

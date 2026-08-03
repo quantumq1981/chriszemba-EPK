@@ -149,6 +149,47 @@
        harmless no-op until then. -->
   <script defer data-domain="zembamusicco.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
   <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
+
+  <!-- Outreach attribution. The Setlist-Generator venue-outreach app tags every EPK link it sends
+       with ?act=<format>&track=<venue-token> (older links use ?ref=<slug>), plus utm_source/campaign.
+       We capture those here so (1) a Plausible "EPK Visit" custom event names which pitched venue is
+       looking, and (2) the booking form carries the same tag in hidden fields, so an inquiry email
+       says exactly which venue/outreach produced it — closing the outreach→booking loop with no
+       backend. sessionStorage persists the tag across in-site navigation to the booking form. -->
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var tag = {
+        venue:    q.get('track') || q.get('ref') || '',
+        act:      q.get('act') || '',
+        source:   q.get('utm_source') || '',
+        campaign: q.get('utm_campaign') || ''
+      };
+      try {
+        if (tag.venue) sessionStorage.setItem('epkTag', JSON.stringify(tag));
+        else { var s = sessionStorage.getItem('epkTag'); if (s) tag = JSON.parse(s); }
+      } catch (e) {}
+      window.__epkTag = tag;
+      // Custom event (supported by the tagged-events script) so the dashboard shows who clicked.
+      if (window.plausible && tag.venue) {
+        plausible('EPK Visit', { props: {
+          venue: tag.venue, act: tag.act || 'na', source: tag.source || 'direct'
+        } });
+      }
+      // Stamp the booking form so FormSubmit delivers the attribution with the inquiry.
+      document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('#book form'); if (!form) return;
+        [['epk_venue', tag.venue], ['epk_act', tag.act],
+         ['epk_campaign', tag.campaign], ['epk_source', tag.source || (tag.venue ? 'venue-outreach' : '')]]
+          .forEach(function (kv) {
+            if (!kv[1]) return;
+            var i = document.createElement('input');
+            i.type = 'hidden'; i.name = kv[0]; i.value = kv[1];
+            form.appendChild(i);
+          });
+      });
+    })();
+  </script>
   <style>
     /* Smooth scroll, but only when the visitor hasn't asked the OS for reduced motion */
     @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
@@ -1674,10 +1715,13 @@
       }
       window.setMediaTab = setMediaTab;
 
-      // Deep-link support: ?act=<format> opens straight to the matching act's tab.
+      // Deep-link support: ?act=<format> opens straight to the matching act's tab. The outreach
+      // app tags links with solo/duo/trio/band/late_shift (see epkLinkForVenue), so every format
+      // it can send resolves to a tab here.
       var act = new URLSearchParams(window.location.search).get('act');
       if (act === 'solo' || act === 'duo') setMediaTab('acoustic');
       else if (act === 'late_shift') setMediaTab('lateshift');
+      else if (act === 'band' || act === 'trio') setMediaTab('band');
     })();
   </script>
 
@@ -1797,7 +1841,12 @@
           headers: { Accept: 'application/json' }
         }).then(function (r) {
           if (!r.ok) throw new Error('Bad response');
-          if (window.plausible) plausible('Booking Inquiry');
+          if (window.plausible) {
+            var tag = window.__epkTag || {};
+            plausible('Booking Inquiry', { props: {
+              venue: tag.venue || 'direct', act: tag.act || 'na', source: tag.source || 'direct'
+            } });
+          }
           form.innerHTML =
             '<div class="sm:col-span-2 rounded-xl border border-fire-500/30 bg-fire-500/10 p-6 text-center">'
             + '<i class="fa-solid fa-circle-check text-fire-400 text-2xl mb-3"></i>'

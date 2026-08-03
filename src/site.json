@@ -1,0 +1,18 @@
+{
+  "_comment": "Canonical machine-readable EPK data. `npm run build` copies this to /epk.json at the repo root (served CORS-open by GitHub Pages) so the Setlist-Generator venue-outreach app can pull booking contact details, the venue-cut URL, and downloadable asset links with a single fetch — one source of truth, no drift. Only put ALREADY-PUBLIC data here; epk.json is world-readable.",
+  "act": "Zemba Music Co — Chris Zemba",
+  "contactEmail": "booking@zembamusicco.com",
+  "contactPhone": "(702) 706-2145",
+  "website": "https://zembamusicco.com",
+  "epkFull": "https://zembamusicco.com/",
+  "venueCut": "https://zembamusicco.com/venues/",
+  "songs": "https://zembamusicco.com/songs.html",
+  "linktree": "https://linktr.ee/chriszemba",
+  "downloads": {
+    "oneSheet": "https://zembamusicco.com/assets/downloads/chris-zemba-one-sheet.pdf",
+    "techRider": "https://zembamusicco.com/assets/downloads/zemba-music-tech-rider.pdf",
+    "repertoire": "https://zembamusicco.com/assets/downloads/zemba-music-corporate-repertoire.pdf",
+    "pressPhotos": "https://zembamusicco.com/assets/downloads/zemba-music-press-photos.zip"
+  },
+  "credibility": "Featured on FOX5 Las Vegas and in the Las Vegas Review-Journal; casino-lounge residencies including Sam's Town, Planet Hollywood, and Bally's."
+}
