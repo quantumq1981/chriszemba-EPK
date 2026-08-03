@@ -1,0 +1,22 @@
+{
+  "_comment": "Audience-tailored cuts derived from index.html (the single source of truth). Each variant keeps sections whose data-audience contains 'all' or the variant's audience token, applies the head + hero overrides below, and is written to <outDir>/index.html. Add a new object here to add a cut — no new plumbing. See build.mjs.",
+  "variants": [
+    {
+      "slug": "venues",
+      "outDir": "venues",
+      "audience": "venues",
+      "subjectLabel": "Venues & bars",
+      "title": "Chris Zemba | Live Music for Las Vegas Venues, Bars & Restaurants",
+      "description": "Solo, duo, and trio live music for Las Vegas venues, bars, restaurants, and lounges. Flexible, self-contained, fully insured, and easy to book. Featured on FOX5.",
+      "canonical": "https://zembamusicco.com/venues/",
+      "ogUrl": "https://zembamusicco.com/venues/",
+      "ogTitle": "Chris Zemba | Live Music for Venues, Bars & Restaurants",
+      "ogDescription": "Solo, duo & trio sets that fill your room and your calendar. Flexible, self-contained, insured. Featured on FOX5.",
+      "hideBudgetLadder": true,
+      "slots": {
+        "hero-eyebrow": "Live music for venues, bars &amp; restaurants &middot; Las Vegas, NV",
+        "hero-subcopy": "Solo, duo, and trio sets that fill your room and your calendar &mdash; flexible, self-contained, and easy to book, from a quiet dinner set to a packed Friday night."
+      }
+    }
+  ]
+}
