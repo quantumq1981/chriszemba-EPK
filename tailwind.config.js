@@ -6,7 +6,7 @@
  * Build:  npm run build:css   (see package.json)
  */
 module.exports = {
-  content: ['./index.html', './songs.html'],
+  content: ['./index.html', './songs.html', './venues/**/*.html', './casino/**/*.html'],
   // Classes toggled at runtime by the media tab switcher — safelisted so the
   // purge never drops them even if the scanner misses a JS-built string.
   safelist: [

@@ -322,4 +322,52 @@ Chromium (1440px + 390px, **0 page errors**) and JSON-LD parse-checked.
 
 ---
 
+## Audience-tailored cuts — single-source build (branch `claude/epk-improvement-plan-1gflkj`, round 2)
+
+Owner asked to spin up audience-specific versions of the (now complete) EPK that cherry-pick only
+what a given buyer needs — starting with a lean **venues / bars / restaurants (agent-ready)** cut,
+with the full EPK staying the "everything" version. Hard requirement: **no content drift** — one
+source of truth. Target host is Cloudflare Pages (owner connected the repo via Git but chose not to
+deploy yet); output stays live on GitHub Pages in the meantime.
+
+### Architecture — "canonical source, generated views"
+Rather than fork the 1,760-line page, `index.html` **remains the single source** and each cut is
+*derived* from it by a tiny zero-framework Node build. Contact/specs/song data live once, so cuts
+cannot drift (proven: temp-changed the booking phone in `index.html`, rebuilt, watched it
+propagate to `venues/`, reverted).
+
+| Piece | What it does |
+|---|---|
+| `index.html` tags | Every `<main> > section` carries `data-audience="all"` or `"full"`; nav links carry `data-nav-for="<id>"`; hero eyebrow/subcopy carry `data-slot`; the budget fieldset carries `data-slot="budget-ladder"`. **All additive — the full page renders byte-identically** (verified: stripping the `data-*` attrs reproduces the pre-tag file). |
+| `src/variants.json` | Per-cut manifest: audience token, `<title>`/description/canonical/OG overrides, hero slot copy, `hideBudgetLadder`, subject label. Add an object = add a cut. |
+| `build.mjs` | Keeps sections tagged `all`/`<audience>`, drops nav links to removed sections, applies slot + head overrides, injects a hidden `variant` field + per-cut email subject into the booking form, root-absolutizes local `assets/`·`songs.html`·`index.html` URLs (incl. `srcset`/`imagesrcset`/`onerror`) so `/venues/` resolves anywhere. Uses `node-html-parser` (added as a devDependency). |
+| `package.json` | `npm run build` = `node build.mjs && build:css`. |
+| `tailwind.config.js` | `content` now also scans `venues/**` + `casino/**` so cut-only classes purge in. |
+
+### Venues cut (`/venues/index.html`) — shipped
+Sections kept: capability snapshot, videos, gallery, repertoire, specs, reviews, book. Dropped:
+events, dates, billing, press, about, how-booking. Hero reframed ("Live music for venues, bars &
+restaurants" / "Solo, duo & trio sets that fill your room and your calendar"), budget ladder
+hidden, booking inquiries tagged `variant=venues` + subject "New booking inquiry (Venues & bars)".
+
+### Verification
+- Headless Chromium over a real HTTP server (root-absolute paths need a web root), 1440 + 390px:
+  `/venues/` shows the 7 intended sections in order, `/` still shows all 13; **0 page errors**,
+  **0 failed same-origin asset requests**, `tw.css` applies (midnight body bg). Root full EPK
+  unchanged.
+- No dead in-body anchors to dropped sections; nav trimmed to 11 links; both JSON-LD blocks parse.
+- `tw.css` unchanged in size (venues is a strict subset of index's classes); smoke tokens all ≥1.
+
+### Hosting
+- **Already live by path on GitHub Pages** once merged: `zembamusicco.com/venues/`. No Cloudflare
+  needed for that. `HOSTING.md` documents the optional Cloudflare Pages connect + `_redirects`
+  subdomain mapping (`venues.` → `/venues`) for when the owner cuts over.
+
+### Owner follow-ups
+- When ready: finish the Cloudflare Pages deploy (build command `npm run build`, output `/`) and
+  add the subdomain `_redirects`. Casino / weddings / corporate cuts are now just new
+  `variants.json` entries + a section token.
+
+---
+
 _Log updated as each task completes._

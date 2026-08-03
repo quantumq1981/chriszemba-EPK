@@ -4,9 +4,12 @@
   "private": true,
   "description": "Chris Zemba EPK — static site. Tailwind is compiled to a purged stylesheet (no CDN in production).",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/input.css -o ./assets/tw.css --minify"
+    "build:variants": "node build.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/tw.css --minify",
+    "build": "node build.mjs && tailwindcss -i ./src/input.css -o ./assets/tw.css --minify"
   },
   "devDependencies": {
+    "node-html-parser": "^6.1.13",
     "tailwindcss": "^3.4.0"
   }
 }
