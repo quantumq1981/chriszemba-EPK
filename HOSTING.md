@@ -22,6 +22,11 @@ npm run build     # regenerates every cut from index.html, then rebuilds assets/
   `data-audience="all casino"`) and a new object in `src/variants.json`. No other changes.
 - Generated files (`venues/index.html`, `assets/tw.css`) are committed so the static host needs no
   build step.
+- `solo-duo/index.html` is the exception: it is a **standalone ZembAcoustics sub-brand page**
+  (its own logo, photos, and azure theme), hand-maintained rather than generated from `index.html`.
+  It is included in the Tailwind `content` globs, so `npm run build` still purges its classes into
+  `assets/tw.css` — but the build never rewrites the page itself. It shares the full EPK's booking
+  form wiring, tracking, and `/assets/…` downloads to keep contact/spec data from drifting.
 
 ## Current live behavior (GitHub Pages)
 
@@ -30,6 +35,7 @@ The site is on GitHub Pages at `zembamusicco.com`. Because the cuts are plain fo
 
 - `zembamusicco.com/` — full EPK
 - `zembamusicco.com/venues/` — venues / bars / restaurants cut
+- `zembamusicco.com/solo-duo/` — ZembAcoustics solo & duo acoustic page
 - `zembamusicco.com/songs.html` — repertoire
 
 No Cloudflare is required for that. Subdomains are a nicety on top.
@@ -45,11 +51,13 @@ No Cloudflare is required for that. Subdomains are a nicety on top.
 4. **Map subdomains to the generated paths** with a `_redirects` file at the repo root:
 
    ```
-   https://epk.zembamusicco.com/*       https://zembamusicco.com/:splat        301
-   https://venues.zembamusicco.com/*    https://zembamusicco.com/venues/:splat 301
+   https://epk.zembamusicco.com/*        https://zembamusicco.com/:splat          301
+   https://venues.zembamusicco.com/*     https://zembamusicco.com/venues/:splat   301
+   https://acoustic.zembamusicco.com/*   https://zembamusicco.com/solo-duo/:splat 301
    ```
 
-   (Add `casino.` / `weddings.` lines as those cuts ship.) Alternatively add each subdomain as a
+   (`acoustic.` is the natural subdomain for the ZembAcoustics solo & duo page; add `casino.` /
+   `weddings.` lines as those cuts ship.) Alternatively add each subdomain as a
    Pages custom domain and point it at the matching path. Note: `_redirects` is a Cloudflare Pages
    feature — it is ignored by GitHub Pages, so only add it once you have cut over.
 5. **Optional** — switch the booking form to Cloudflare Pages Forms for free in-form photo uploads

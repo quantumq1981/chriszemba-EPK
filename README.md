@@ -5,6 +5,8 @@ Electronic press kit for Zemba Music Co (Chris Zemba).
 - `index.html` — the full EPK and the **single source of truth**.
 - `songs.html` — filterable repertoire directory.
 - `venues/index.html` — generated "venues, bars & restaurants" cut (agent-ready).
+- `solo-duo/index.html` — standalone **ZembAcoustics** solo & duo acoustic page (its own sub-brand,
+  logo, photos, and azure theme; hand-maintained, not generated from `index.html`). Agent-ready.
 - `epk.json` — generated public sync manifest (from `src/site.json`): booking contact, the venue-cut
   URL, and asset download links. The Setlist-Generator venue-outreach app fetches it to stay in sync.
 - Audience cuts are generated from `index.html`; edit content once, run `npm run build`.
