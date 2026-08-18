@@ -1,0 +1,728 @@
+[
+{
+"n": 1,
+"title": "Simple Man",
+"artist": "Lynyrd Skynyrd",
+"ta": "Simple ManLynyrd Skynyrd"
+},
+{
+"n": 2,
+"title": "Can't You See",
+"artist": "The Marshall Tucker Band",
+"ta": "Can't You SeeThe Marshall Tucker Band"
+},
+{
+"n": 3,
+"title": "Love Me Two Times / Roadhouse Blues",
+"artist": "The Doors",
+"ta": "Love Me Two Times / Roadhouse BluesThe Doors"
+},
+{
+"n": 4,
+"title": "PDFPDFLOVE ME 2 TIMES / RO\u00c9",
+"artist": "The Doors",
+"ta": "PDFPDFLOVE ME 2 TIMES / RO\u00c9The Doors"
+},
+{
+"n": 5,
+"title": "Free Bird",
+"artist": "Lynyrd Skynyrd",
+"ta": "Free BirdLynyrd Skynyrd"
+},
+{
+"n": 6,
+"title": "Soul MedleyWilson Pickett / Soul MedleyC /",
+"artist": "",
+"ta": "Soul MedleyWilson Pickett / Soul MedleyC / "
+},
+{
+"n": 7,
+"title": "SoulshineGov't Mule /",
+"artist": "Allman Brothers",
+"ta": "SoulshineGov't Mule / Allman Brothers"
+},
+{
+"n": 8,
+"title": "PDFPDFSOULSHINEGov't Mule\u00c9",
+"artist": "",
+"ta": "PDFPDFSOULSHINEGov't Mule\u00c9"
+},
+{
+"n": 9,
+"title": "PDF-style-columninferred/cross-checkedREMEDYThe Black \u00c9c110Born on the Bayou / Suzie Q",
+"artist": "Creedence Clearwater Revival",
+"ta": "PDF-style-columninferred/cross-checkedREMEDYThe Black \u00c9c110Born on the Bayou / Suzie QCreedence Clearwater Revival"
+},
+{
+"n": 10,
+"title": "PDF-style-columninferred/cross-checkedBORN ON THE BAYOU/\u00c9Creedence\u00c9e111My Old School",
+"artist": "Steely Dan",
+"ta": "PDF-style-columninferred/cross-checkedBORN ON THE BAYOU/\u00c9Creedence\u00c9e111My Old SchoolSteely Dan"
+},
+{
+"n": 11,
+"title": "PDF-style-columninferred/cross-checkedMY OLD SCHOOLSteely Dang112Call Me the BreezeLynyrd Skynyrd / J.J. CaleA192Rockabilly82MidStaticPDF-style-columninferred/cross-checkedCALL ME THE BREEZELynyrd Sk\u00c9a113Bad to the Bone",
+"artist": "George Thorogood",
+"ta": "PDF-style-columninferred/cross-checkedMY OLD SCHOOLSteely Dang112Call Me the BreezeLynyrd Skynyrd / J.J. CaleA192Rockabilly82MidStaticPDF-style-columninferred/cross-checkedCALL ME THE BREEZELynyrd Sk\u00c9a113Bad to the BoneGeorge Thorogood"
+},
+{
+"n": 12,
+"title": "PDF-style-columninferred/cross-checkedBAD TO THE BONEGeorge Th\u00c9g114TrudyThe Charlie Daniels BandA125Classic Country41LowStaticPDF-style-columninferred/cross-checkedTRUDYThe Charli\u00c9a215Sweet Home Alabama",
+"artist": "Lynyrd Skynyrd",
+"ta": "PDF-style-columninferred/cross-checkedBAD TO THE BONEGeorge Th\u00c9g114TrudyThe Charlie Daniels BandA125Classic Country41LowStaticPDF-style-columninferred/cross-checkedTRUDYThe Charli\u00c9a215Sweet Home AlabamaLynyrd Skynyrd"
+},
+{
+"n": 13,
+"title": "PDF-style-columninferred/cross-checkedSWEET HOME ALABAMALynyrd Sk\u00c9g216Whipping Post",
+"artist": "The Allman Brothers Band",
+"ta": "PDF-style-columninferred/cross-checkedSWEET HOME ALABAMALynyrd Sk\u00c9g216Whipping PostThe Allman Brothers Band"
+},
+{
+"n": 14,
+"title": "PDF-style-columninferred/cross-checkedWHIPPING POSTThe Allma\u00c9a217Suspicious Minds",
+"artist": "Elvis Presley",
+"ta": "PDF-style-columninferred/cross-checkedWHIPPING POSTThe Allma\u00c9a217Suspicious MindsElvis Presley"
+},
+{
+"n": 15,
+"title": "PDF-style-columninferred/cross-checkedSUSPICIOUS MINDSElvis Presleyf#21825 or 6 to 4",
+"artist": "Chicago",
+"ta": "PDF-style-columninferred/cross-checkedSUSPICIOUS MINDSElvis Presleyf#21825 or 6 to 4Chicago"
+},
+{
+"n": 16,
+"title": "PDF-style-columninferred/cross-checked25 OR 6 TO 4Chicagoam219Don't Change HorsesTower of PowerG98Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedDONT CHANGE HORSESTower Of P\u00c9g220Rocky Mountain WayJoe Walsh",
+"artist": "",
+"ta": "PDF-style-columninferred/cross-checked25 OR 6 TO 4Chicagoam219Don't Change HorsesTower of PowerG98Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedDONT CHANGE HORSESTower Of P\u00c9g220Rocky Mountain WayJoe Walsh"
+},
+{
+"n": 17,
+"title": "PDF-style-columninferred/cross-checkedROCKY MTN WAYJoe Walshe221Heart of Rock & Roll",
+"artist": "Huey Lewis and the News",
+"ta": "PDF-style-columninferred/cross-checkedROCKY MTN WAYJoe Walshe221Heart of Rock & RollHuey Lewis and the News"
+},
+{
+"n": 18,
+"title": "PDF-style-columninferred/cross-checkedHEART OF ROCK & ROLLHuey Lewisc222The Weight",
+"artist": "The Band",
+"ta": "PDF-style-columninferred/cross-checkedHEART OF ROCK & ROLLHuey Lewisc222The WeightThe Band"
+},
+{
+"n": 19,
+"title": "PDF-style-columninferred/cross-checkedTHE WEIGHTThe Banda223Gimme Three Steps",
+"artist": "Lynyrd Skynyrd",
+"ta": "PDF-style-columninferred/cross-checkedTHE WEIGHTThe Banda223Gimme Three StepsLynyrd Skynyrd"
+},
+{
+"n": 20,
+"title": "PDF-style-columninferred/cross-checkedGIMME THREE STEPSLynyrd Sk\u00c9d224Mary Jane's Last DanceTom Petty and the Heartbreakers",
+"artist": "",
+"ta": "PDF-style-columninferred/cross-checkedGIMME THREE STEPSLynyrd Sk\u00c9d224Mary Jane's Last DanceTom Petty and the Heartbreakers"
+},
+{
+"n": 21,
+"title": "PDF-style-columninferred/cross-checkedMARY JANE'S LAST DA\u00c9Tom Petty \u00c9a225Ramblin' Man",
+"artist": "The Allman Brothers Band",
+"ta": "PDF-style-columninferred/cross-checkedMARY JANE'S LAST DA\u00c9Tom Petty \u00c9a225Ramblin' ManThe Allman Brothers Band"
+},
+{
+"n": 22,
+"title": "PDF-style-columninferred/cross-checkedRAMBLIN' MANAllman Brosg226Flirtin' With Disaster",
+"artist": "Molly Hatchet",
+"ta": "PDF-style-columninferred/cross-checkedRAMBLIN' MANAllman Brosg226Flirtin' With DisasterMolly Hatchet"
+},
+{
+"n": 23,
+"title": "PDF-style-columninferred/cross-checkedFLIRTIN' WITH DISASTERMolly Hatc\u00c9e227One Way Out",
+"artist": "The Allman Brothers Band",
+"ta": "PDF-style-columninferred/cross-checkedFLIRTIN' WITH DISASTERMolly Hatc\u00c9e227One Way OutThe Allman Brothers Band"
+},
+{
+"n": 24,
+"title": "PDF-style-columninferred/cross-checkedONE WAY OUTThe Allma\u00c9a228Give Me One ReasonTracy Chapman",
+"artist": "",
+"ta": "PDF-style-columninferred/cross-checkedONE WAY OUTThe Allma\u00c9a228Give Me One ReasonTracy Chapman"
+},
+{
+"n": 25,
+"title": "PDF-style-columninferred/cross-checkedGIVE ME ONE REASONTracy Cha\u00c9f229Just Got Paid",
+"artist": "ZZ Top",
+"ta": "PDF-style-columninferred/cross-checkedGIVE ME ONE REASONTracy Cha\u00c9f229Just Got PaidZZ Top"
+},
+{
+"n": 26,
+"title": "PDF-style-columninferred/cross-checkedJUST GOT PAIDZZ Tope330Long Train Runnin'The Doobie BrothersGm108Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedLONG TRAIN RUNNIN' (\u00c9The Doobi\u00c9gm331You Can Leave Your Hat On",
+"artist": "Joe Cocker",
+"ta": "PDF-style-columninferred/cross-checkedJUST GOT PAIDZZ Tope330Long Train Runnin'The Doobie BrothersGm108Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedLONG TRAIN RUNNIN' (\u00c9The Doobi\u00c9gm331You Can Leave Your Hat OnJoe Cocker"
+},
+{
+"n": 27,
+"title": "PDF-style-columninferred/cross-checkedYOU CAN LEAVE YOUR \u00c9Joe Cockerc332Roadhouse Blues",
+"artist": "The Doors",
+"ta": "PDF-style-columninferred/cross-checkedYOU CAN LEAVE YOUR \u00c9Joe Cockerc332Roadhouse BluesThe Doors"
+},
+{
+"n": 28,
+"title": "PDF-style-columninferred/cross-checkedROADHOUSE BLUESThe Doorse333Statesboro Blues",
+"artist": "The Allman Brothers Band",
+"ta": "PDF-style-columninferred/cross-checkedROADHOUSE BLUESThe Doorse333Statesboro BluesThe Allman Brothers Band"
+},
+{
+"n": 29,
+"title": "PDF-style-columninferred/cross-checkedSTATESBORO BLUESThe Allma\u00c9d334Hold On Loosely38 Special",
+"artist": "",
+"ta": "PDF-style-columninferred/cross-checkedSTATESBORO BLUESThe Allma\u00c9d334Hold On Loosely38 Special"
+},
+{
+"n": 30,
+"title": "PDF-style-columninferred/cross-checkedHOLD ON LOOSELY38 Speciale335Cold Shot",
+"artist": "Stevie Ray Vaughan",
+"ta": "PDF-style-columninferred/cross-checkedHOLD ON LOOSELY38 Speciale335Cold ShotStevie Ray Vaughan"
+},
+{
+"n": 31,
+"title": "PDF-style-columninferred/cross-checkedCOLD SHOTStevie Ray\u00c9a336The Letter",
+"artist": "Joe Cocker",
+"ta": "PDF-style-columninferred/cross-checkedCOLD SHOTStevie Ray\u00c9a336The LetterJoe Cocker"
+},
+{
+"n": 32,
+"title": "PDF-style-columninferred/cross-checkedTHE LETTERJoe Cockerbb337Down South JukersImported library/header row",
+"artist": "",
+"ta": "PDF-style-columninferred/cross-checkedTHE LETTERJoe Cockerbb337Down South JukersImported library/header row"
+},
+{
+"n": 33,
+"title": "inferredinferred/cross-checkedPOTENTIAL HEADER ROW - retained to preserve 155-countDOWN SOUTH JUKERS69 songs, \u00c9midtempo338Up on Cripple Creek",
+"artist": "The Band",
+"ta": "inferredinferred/cross-checkedPOTENTIAL HEADER ROW - retained to preserve 155-countDOWN SOUTH JUKERS69 songs, \u00c9midtempo338Up on Cripple CreekThe Band"
+},
+{
+"n": 34,
+"title": "PDF-style-columninferred/cross-checkedUP ON CRIPPLE CREEKThe Banda339Gimme All Your Lovin'",
+"artist": "ZZ Top",
+"ta": "PDF-style-columninferred/cross-checkedUP ON CRIPPLE CREEKThe Banda339Gimme All Your Lovin'ZZ Top"
+},
+{
+"n": 35,
+"title": "PDF-style-columninferred/cross-checkedGIMME ALL YOUR LOVIN'ZZ Topc340SuperstitionStevie WonderEm100Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedSUPERSTITIONStevie Won\u00c9em341Jealous Again",
+"artist": "The Black Crowes",
+"ta": "PDF-style-columninferred/cross-checkedGIMME ALL YOUR LOVIN'ZZ Topc340SuperstitionStevie WonderEm100Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedSUPERSTITIONStevie Won\u00c9em341Jealous AgainThe Black Crowes"
+},
+{
+"n": 36,
+"title": "inferredPDF-style-columnJEALOUS AGAINThe Black \u00c9118342There Goes Another Love Song",
+"artist": "The Outlaws",
+"ta": "inferredPDF-style-columnJEALOUS AGAINThe Black \u00c9118342There Goes Another Love SongThe Outlaws"
+},
+{
+"n": 37,
+"title": "inferredPDF-style-columnTHERE GOES ANOTHE\u00c9The Outlaws132343Mustang Sally",
+"artist": "Wilson Pickett",
+"ta": "inferredPDF-style-columnTHERE GOES ANOTHE\u00c9The Outlaws132343Mustang SallyWilson Pickett"
+},
+{
+"n": 38,
+"title": "inferredinferred/cross-checkedMUSTANG SALLYWilson Pic\u00c9midtempo344Love & Happiness",
+"artist": "Al Green",
+"ta": "inferredinferred/cross-checkedMUSTANG SALLYWilson Pic\u00c9midtempo344Love & HappinessAl Green"
+},
+{
+"n": 39,
+"title": "inferredPDF-style-columnLOVE & HAPPINESSAl Green98445Sick & Tired",
+"artist": "Boz Scaggs",
+"ta": "inferredPDF-style-columnLOVE & HAPPINESSAl Green98445Sick & TiredBoz Scaggs"
+},
+{
+"n": 40,
+"title": "PDF-style-columninferred/cross-checkedSICK & TIREDBoz Scaggsbb446I Shot the SheriffEric Clapton /",
+"artist": "Bob Marley",
+"ta": "PDF-style-columninferred/cross-checkedSICK & TIREDBoz Scaggsbb446I Shot the SheriffEric Clapton / Bob Marley"
+},
+{
+"n": 41,
+"title": "PDFPDFSLOW BLUES FOR Z F\u00c9",
+"artist": "Chris Zemba",
+"ta": "PDFPDFSLOW BLUES FOR Z F\u00c9Chris Zemba"
+},
+{
+"n": 42,
+"title": "PDFPDFHELP THE POORRobben FordDm88shuffle449Trouble No More (Live)",
+"artist": "The Allman Brothers Band",
+"ta": "PDFPDFHELP THE POORRobben FordDm88shuffle449Trouble No More (Live)The Allman Brothers Band"
+},
+{
+"n": 43,
+"title": "PDF-style-columninferred/cross-checkedTROUBLE NO MORE (LI\u00c9The Allma\u00c9a450Red House",
+"artist": "Jimi Hendrix",
+"ta": "PDF-style-columninferred/cross-checkedTROUBLE NO MORE (LI\u00c9The Allma\u00c9a450Red HouseJimi Hendrix"
+},
+{
+"n": 44,
+"title": "PDFPDFRED HOUSE",
+"artist": "Jimi Hendrix",
+"ta": "PDFPDFRED HOUSEJimi Hendrix"
+},
+{
+"n": 45,
+"title": "PDFPDFDO IT AGAINSteely DanGm96pop452There's Got to Be a Change",
+"artist": "Jonny Lang",
+"ta": "PDFPDFDO IT AGAINSteely DanGm96pop452There's Got to Be a ChangeJonny Lang"
+},
+{
+"n": 46,
+"title": "PDFPDFTHERE'S GOT TO BE A \u00c9Jonny LangC112blues453Isn't She Lovely",
+"artist": "Stevie Wonder",
+"ta": "PDFPDFTHERE'S GOT TO BE A \u00c9Jonny LangC112blues453Isn't She LovelyStevie Wonder"
+},
+{
+"n": 47,
+"title": "PDFPDFISN'T SHE LOVELYStevie Won\u00c9E127midtempo454Shakey GroundDelbert McClinton / The TemptationsE100Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedSHAKEY GROUNDDelbert Mc\u00c9e455Tennessee WhiskeyChris StapletonA48Classic Country41LowStaticPDFPDFTENNESSEE WHISKEYChris Stapl\u00c9A48country456What You Won't Do for Love",
+"artist": "Bobby Caldwell",
+"ta": "PDFPDFISN'T SHE LOVELYStevie Won\u00c9E127midtempo454Shakey GroundDelbert McClinton / The TemptationsE100Up-Tempo Funk92MidStaticPDF-style-columninferred/cross-checkedSHAKEY GROUNDDelbert Mc\u00c9e455Tennessee WhiskeyChris StapletonA48Classic Country41LowStaticPDFPDFTENNESSEE WHISKEYChris Stapl\u00c9A48country456What You Won't Do for LoveBobby Caldwell"
+},
+{
+"n": 48,
+"title": "PDFPDFWHAT YOU WON'T DO F\u00c9Bobby Cal\u00c9",
+"artist": "",
+"ta": "PDFPDFWHAT YOU WON'T DO F\u00c9Bobby Cal\u00c9"
+},
+{
+"n": 49,
+"title": "PDFPDFPRIDE & JOY /LITTLE W\u00c9SRVHendrixEm68rock4c\u00d4u\u0085u\u00e1v>v\u009bv\u00f8wVw\u00b3x\u0011xnx\u00ccy*y\u0089y\u00e7zFz\u00a5{\u0004{c{\u00c2|!|\u0081|\u00e1}A}\u00a1~\u0001~b~\u00c2\u007f#\u007f\u0084\u007f\u00e5\u0080G\u0080\u00a8\u0081\u0081k\u0081\u00cd\u00820\u0082\u0092\u0082\u00f4\u0083W\u0083\u00ba\u0084\u001d\u0084\u0080\u0084\u00e3\u0085G\u0085\u00ab\u0086\u000e\u0086r\u0086\u00d7\u0087;\u0087\u009f\u0088\u0004\u0088i\u0088\u00ce\u00893\u0089\u0099\u0089\u00fe\u008ad\u008a\u00ca\u008b0\u008b\u0096\u008b\u00fc\u008cc\u008c\u00ca\u008d1\u008d\u0098\u008d\u00ff\u008ef\u008e\u00ce\u008f6\u008f\u009e\u0090\u0006\u0090n\u0090\u00d6\u0091?\u0091\u00a8\u0092\u0011\u0092z\u0092\u00e3\u0093M\u0093\u00b6\u0094 \u0094\u008a\u0094\u00f4\u0095_\u0095\u00c9\u00964\u0096\u009f\u0097\u0097u\u0097\u00e0\u0098L\u0098\u00b8\u0099$\u0099\u0090\u0099\u00fc\u009ah\u009a\u00d5\u009bB\u009b\u00af\u009c\u001c\u009c\u0089\u009c\u00f7\u009dd\u009d\u00d2\u009e@\u009e\u00ae\u009f\u001d\u009f\u008b\u009f\u00fa\u00a0i\u00a0\u00d8\u00a1G\u00a1\u00b6\u00a2&\u00a2\u0096\u00a3\u0006\u00a3v\u00a3\u00e6\u00a4V\u00a4\u00c7\u00a58\u00a5\u00a9\u00a6\u001a\u00a6\u008b\u00a6\u00fd\u00a7n\u00a7\u00e0\u00a8R\u00a8\u00c4\u00a97\u00a9\u00a9\u00aa\u001c\u00aa\u008f\u00ab\u0002\u00abu\u00ab\u00e9\u00ac\\\u00ac\u00d0\u00adD\u00ad\u00b8\u00ae-\u00ae\u00a1\u00af\u0016\u00af\u008b\u00b0\u0000\u00b0u\u00b0\u00ea\u00b1`\u00b1\u00d6\u00b2K\u00b2\u00c2\u00b38\u00b3\u00ae\u00b4%\u00b4\u009c\u00b5\u0013\u00b5\u008a\u00b6\u0001\u00b6y\u00b6\u00f0\u00b7h\u00b7\u00e0\u00b8Y\u00b8\u00d1\u00b9J\u00b9\u00c2\u00ba;\u00ba\u00b5\u00bb.\u00bb\u00a7\u00bc!\u00bc\u009b\u00bd\u0015\u00bd\u008f\u00be\u00be\u0084\u00be\u00ff\u00bfz\u00bf\u00f5\u00c0p\u00c0\u00ec\u00c1g\u00c1\u00e3\u00c2_\u00c2\u00db\u00c3X\u00c3\u00d4\u00c4Q\u00c4\u00ce\u00c5K\u00c5\u00c8\u00c6F\u00c6\u00c3\u00c7A\u00c7\u00bf\u00c8=\u00c8\u00bc\u00c9:\u00c9\u00b9\u00ca8\u00ca\u00b7\u00cb6\u00cb\u00b6\u00cc5\u00cc\u00b5\u00cd5\u00cd\u00b5\u00ce6\u00ce\u00b6\u00cf7\u00cf\u00b8\u00d09\u00d0\u00ba\u00d1<\u00d1\u00be\u00d2?\u00d2\u00c1\u00d3D\u00d3\u00c6\u00d4I\u00d4\u00cb\u00d5N\u00d5\u00d1\u00d6U\u00d6\u00d8\u00d7\\\u00d7\u00e0\u00d8d\u00d8\u00e8\u00d9l\u00d9\u00f1\u00dav\u00da\u00fb\u00db\u0080\u00dc\u0005\u00dc\u008a\u00dd\u0010\u00dd\u0096\u00de\u001c\u00de\u00a2\u00df\u00ee\u00b4\u00ef@\u00ef\u00cc\u00f0X\u00f0\u00e5\u00f1r\u00f1\u00ff\u00f2\u008c\u00f3\u0019\u00f3\u00a7\u00f44\u00f4\u00c2\u00f5P\u00f5\u00de\u00f6m\u00f6\u00fb\u00f7\u008a\u00f8\u0019\u00f8\u00a8\u00f98\u00f9\u00c7\u00faW\u00fa\u00e7\u00fbw\u00fc\u0007\u00fc\u0098\u00fd58AffirmationGeorge BensonBm96Smooth Jazz44FluidCounterclockwisePDFPDFAFFIRMATIONGeorge Be\u00c9",
+"artist": "",
+"ta": "PDFPDFPRIDE & JOY /LITTLE W\u00c9SRVHendrixEm68rock4c\u00d4u\u0085u\u00e1v>v\u009bv\u00f8wVw\u00b3x\u0011xnx\u00ccy*y\u0089y\u00e7zFz\u00a5{\u0004{c{\u00c2|!|\u0081|\u00e1}A}\u00a1~\u0001~b~\u00c2\u007f#\u007f\u0084\u007f\u00e5\u0080G\u0080\u00a8\u0081\u0081k\u0081\u00cd\u00820\u0082\u0092\u0082\u00f4\u0083W\u0083\u00ba\u0084\u001d\u0084\u0080\u0084\u00e3\u0085G\u0085\u00ab\u0086\u000e\u0086r\u0086\u00d7\u0087;\u0087\u009f\u0088\u0004\u0088i\u0088\u00ce\u00893\u0089\u0099\u0089\u00fe\u008ad\u008a\u00ca\u008b0\u008b\u0096\u008b\u00fc\u008cc\u008c\u00ca\u008d1\u008d\u0098\u008d\u00ff\u008ef\u008e\u00ce\u008f6\u008f\u009e\u0090\u0006\u0090n\u0090\u00d6\u0091?\u0091\u00a8\u0092\u0011\u0092z\u0092\u00e3\u0093M\u0093\u00b6\u0094 \u0094\u008a\u0094\u00f4\u0095_\u0095\u00c9\u00964\u0096\u009f\u0097\u0097u\u0097\u00e0\u0098L\u0098\u00b8\u0099$\u0099\u0090\u0099\u00fc\u009ah\u009a\u00d5\u009bB\u009b\u00af\u009c\u001c\u009c\u0089\u009c\u00f7\u009dd\u009d\u00d2\u009e@\u009e\u00ae\u009f\u001d\u009f\u008b\u009f\u00fa\u00a0i\u00a0\u00d8\u00a1G\u00a1\u00b6\u00a2&\u00a2\u0096\u00a3\u0006\u00a3v\u00a3\u00e6\u00a4V\u00a4\u00c7\u00a58\u00a5\u00a9\u00a6\u001a\u00a6\u008b\u00a6\u00fd\u00a7n\u00a7\u00e0\u00a8R\u00a8\u00c4\u00a97\u00a9\u00a9\u00aa\u001c\u00aa\u008f\u00ab\u0002\u00abu\u00ab\u00e9\u00ac\\\u00ac\u00d0\u00adD\u00ad\u00b8\u00ae-\u00ae\u00a1\u00af\u0016\u00af\u008b\u00b0\u0000\u00b0u\u00b0\u00ea\u00b1`\u00b1\u00d6\u00b2K\u00b2\u00c2\u00b38\u00b3\u00ae\u00b4%\u00b4\u009c\u00b5\u0013\u00b5\u008a\u00b6\u0001\u00b6y\u00b6\u00f0\u00b7h\u00b7\u00e0\u00b8Y\u00b8\u00d1\u00b9J\u00b9\u00c2\u00ba;\u00ba\u00b5\u00bb.\u00bb\u00a7\u00bc!\u00bc\u009b\u00bd\u0015\u00bd\u008f\u00be\u00be\u0084\u00be\u00ff\u00bfz\u00bf\u00f5\u00c0p\u00c0\u00ec\u00c1g\u00c1\u00e3\u00c2_\u00c2\u00db\u00c3X\u00c3\u00d4\u00c4Q\u00c4\u00ce\u00c5K\u00c5\u00c8\u00c6F\u00c6\u00c3\u00c7A\u00c7\u00bf\u00c8=\u00c8\u00bc\u00c9:\u00c9\u00b9\u00ca8\u00ca\u00b7\u00cb6\u00cb\u00b6\u00cc5\u00cc\u00b5\u00cd5\u00cd\u00b5\u00ce6\u00ce\u00b6\u00cf7\u00cf\u00b8\u00d09\u00d0\u00ba\u00d1<\u00d1\u00be\u00d2?\u00d2\u00c1\u00d3D\u00d3\u00c6\u00d4I\u00d4\u00cb\u00d5N\u00d5\u00d1\u00d6U\u00d6\u00d8\u00d7\\\u00d7\u00e0\u00d8d\u00d8\u00e8\u00d9l\u00d9\u00f1\u00dav\u00da\u00fb\u00db\u0080\u00dc\u0005\u00dc\u008a\u00dd\u0010\u00dd\u0096\u00de\u001c\u00de\u00a2\u00df\u00ee\u00b4\u00ef@\u00ef\u00cc\u00f0X\u00f0\u00e5\u00f1r\u00f1\u00ff\u00f2\u008c\u00f3\u0019\u00f3\u00a7\u00f44\u00f4\u00c2\u00f5P\u00f5\u00de\u00f6m\u00f6\u00fb\u00f7\u008a\u00f8\u0019\u00f8\u00a8\u00f98\u00f9\u00c7\u00faW\u00fa\u00e7\u00fbw\u00fc\u0007\u00fc\u0098\u00fd58AffirmationGeorge BensonBm96Smooth Jazz44FluidCounterclockwisePDFPDFAFFIRMATIONGeorge Be\u00c9"
+},
+{
+"n": 50,
+"title": "PDFPDFHEARTBREAKER",
+"artist": "Led Zeppelin",
+"ta": "PDFPDFHEARTBREAKERLed Zeppelin"
+},
+{
+"n": 51,
+"title": "PDFPDFCROSSFIREStevie Ray\u00c9",
+"artist": "",
+"ta": "PDFPDFCROSSFIREStevie Ray\u00c9"
+},
+{
+"n": 52,
+"title": "PDFPDFHOTEL CALIFORNIA",
+"artist": "Eagles",
+"ta": "PDFPDFHOTEL CALIFORNIAEagles"
+},
+{
+"n": 53,
+"title": "PDFPDFLOVE ME TWO TIMES / \u00c9",
+"artist": "The Doors",
+"ta": "PDFPDFLOVE ME TWO TIMES / \u00c9The Doors"
+},
+{
+"n": 54,
+"title": "PDFPDFUSE MEBill WithersE105midtempo564Mr. MagicGrover Washington Jr.Cm92Up-Tempo Funk92MidStaticPDFPDFMR. MAGICGrover Wa\u00c9",
+"artist": "",
+"ta": "PDFPDFUSE MEBill WithersE105midtempo564Mr. MagicGrover Washington Jr.Cm92Up-Tempo Funk92MidStaticPDFPDFMR. MAGICGrover Wa\u00c9"
+},
+{
+"n": 55,
+"title": "PDFPDFDRIVE",
+"artist": "Incubus",
+"ta": "PDFPDFDRIVEIncubus"
+},
+{
+"n": 56,
+"title": "PDFPDFLOVE ME 2 TIMES / RO\u00c9The DoorsE122shuffle567What's Going On / Mercy Mercy Me",
+"artist": "Marvin Gaye",
+"ta": "PDFPDFLOVE ME 2 TIMES / RO\u00c9The DoorsE122shuffle567What's Going On / Mercy Mercy MeMarvin Gaye"
+},
+{
+"n": 57,
+"title": "PDFPDFWHAT'S GOING ON / M\u00c9",
+"artist": "Marvin Gaye",
+"ta": "PDFPDFWHAT'S GOING ON / M\u00c9Marvin Gaye"
+},
+{
+"n": 58,
+"title": "PDFPDFTIGHTROPEStevie Ray\u00c9",
+"artist": "",
+"ta": "PDFPDFTIGHTROPEStevie Ray\u00c9"
+},
+{
+"n": 59,
+"title": "PDFPDFBORN UNDER A BAD SI\u00c9",
+"artist": "Robben Ford",
+"ta": "PDFPDFBORN UNDER A BAD SI\u00c9Robben Ford"
+},
+{
+"n": 60,
+"title": "PDFPDFHEY JOEJimi HendrixE94midtempo572The Thrill Is Gone",
+"artist": "B.B. King",
+"ta": "PDFPDFHEY JOEJimi HendrixE94midtempo572The Thrill Is GoneB.B. King"
+},
+{
+"n": 61,
+"title": "PDFPDFTHE THRILL IS GONE",
+"artist": "B.B. King",
+"ta": "PDFPDFTHE THRILL IS GONEB.B. King"
+},
+{
+"n": 62,
+"title": "PDFPDFNEVER BEEN TO SPAINThree Dog \u00c9",
+"artist": "",
+"ta": "PDFPDFNEVER BEEN TO SPAINThree Dog \u00c9"
+},
+{
+"n": 63,
+"title": "PDFinferred/cross-checkedREVELATIONRobben FordGmidtempo675Boogie on Reggae WomanStevie WonderA97Up-Tempo Funk92MidStaticPDFPDFBOOGIE ON REGGAE \u00c9Stevie Won\u00c9",
+"artist": "",
+"ta": "PDFinferred/cross-checkedREVELATIONRobben FordGmidtempo675Boogie on Reggae WomanStevie WonderA97Up-Tempo Funk92MidStaticPDFPDFBOOGIE ON REGGAE \u00c9Stevie Won\u00c9"
+},
+{
+"n": 64,
+"title": "PDFPDFHEY HEY WHAT CAN I DOLed ZeppelinA114midtempo677Black Magic WomanSantanaDm120Afro-Cuban Jazz93HighStaticPDFPDFBLACK MAGIC WOMANSantanaDm120groove678Breezin'George BensonD94Smooth Jazz44FluidCounterclockwisePDFPDFBREEZIN'George Be\u00c9",
+"artist": "",
+"ta": "PDFPDFHEY HEY WHAT CAN I DOLed ZeppelinA114midtempo677Black Magic WomanSantanaDm120Afro-Cuban Jazz93HighStaticPDFPDFBLACK MAGIC WOMANSantanaDm120groove678Breezin'George BensonD94Smooth Jazz44FluidCounterclockwisePDFPDFBREEZIN'George Be\u00c9"
+},
+{
+"n": 65,
+"title": "PDFPDFTHE LEMONLed ZeppelinE102shuffle680Mary Jane's Last DanceTom Petty and the Heartbreakers",
+"artist": "",
+"ta": "PDFPDFTHE LEMONLed ZeppelinE102shuffle680Mary Jane's Last DanceTom Petty and the Heartbreakers"
+},
+{
+"n": 66,
+"title": "PDFPDFMARY JANE'S LAST DA\u00c9Tom PettyAm87groove681Before You Hit the GroundJonny LangE110Up-Tempo Funk92MidStaticPDFPDFBEFORE YOU HIT THE \u00c9",
+"artist": "Jonny Lang",
+"ta": "PDFPDFMARY JANE'S LAST DA\u00c9Tom PettyAm87groove681Before You Hit the GroundJonny LangE110Up-Tempo Funk92MidStaticPDFPDFBEFORE YOU HIT THE \u00c9Jonny Lang"
+},
+{
+"n": 67,
+"title": "PDFPDFKILLING FLOOR",
+"artist": "Hendrix",
+"ta": "PDFPDFKILLING FLOORHendrix"
+},
+{
+"n": 68,
+"title": "PDFPDFCOME TOGETHERThe BeatlesD85rock684Sittin' on the Dock of the Bay",
+"artist": "Otis Redding",
+"ta": "PDFPDFCOME TOGETHERThe BeatlesD85rock684Sittin' on the Dock of the BayOtis Redding"
+},
+{
+"n": 69,
+"title": "PDFPDFSITTIN' ON THE DOCK \u00c9Otis ReddingG106ballad685What I GotSublimeD96Reggae52LowStaticPDFPDFWHAT I GOTSublimeD96midtempo686Comin' Home BabyMel Torme / David SanbornGm130Hard Bop83HighStaticPDFPDFCOMIN' HOME BABYDanny Gat\u00c9",
+"artist": "",
+"ta": "PDFPDFSITTIN' ON THE DOCK \u00c9Otis ReddingG106ballad685What I GotSublimeD96Reggae52LowStaticPDFPDFWHAT I GOTSublimeD96midtempo686Comin' Home BabyMel Torme / David SanbornGm130Hard Bop83HighStaticPDFPDFCOMIN' HOME BABYDanny Gat\u00c9"
+},
+{
+"n": 70,
+"title": "PDFPDFCROSSROADSEric ClaptonA110blues689Tune 88Jeff LorberG100Up-Tempo Funk92MidStaticPDFPDFTUNE 88Jeff LorberG100funk790Rack 'Em Up",
+"artist": "Jonny Lang",
+"ta": "PDFPDFCROSSROADSEric ClaptonA110blues689Tune 88Jeff LorberG100Up-Tempo Funk92MidStaticPDFPDFTUNE 88Jeff LorberG100funk790Rack 'Em UpJonny Lang"
+},
+{
+"n": 71,
+"title": "PDFPDFRACK 'EM UP",
+"artist": "Jonny Lang",
+"ta": "PDFPDFRACK 'EM UPJonny Lang"
+},
+{
+"n": 72,
+"title": "PDFPDFTALK TO YOUR DAUGH\u00c9Robben FordG136uptempo792All BluesMiles DavisG120Modal Jazz44FluidFluidPDFPDFALL BLUESMiles DavisG120swing793Let's Get It On",
+"artist": "Marvin Gaye",
+"ta": "PDFPDFTALK TO YOUR DAUGH\u00c9Robben FordG136uptempo792All BluesMiles DavisG120Modal Jazz44FluidFluidPDFPDFALL BLUESMiles DavisG120swing793Let's Get It OnMarvin Gaye"
+},
+{
+"n": 73,
+"title": "PDFPDFLET'S GET IT ON",
+"artist": "Marvin Gaye",
+"ta": "PDFPDFLET'S GET IT ONMarvin Gaye"
+},
+{
+"n": 74,
+"title": "PDFPDFDEALGrateful D\u00c9A112groove795Every Day I Have the Blues",
+"artist": "B.B. King",
+"ta": "PDFPDFDEALGrateful D\u00c9A112groove795Every Day I Have the BluesB.B. King"
+},
+{
+"n": 75,
+"title": "PDFPDFEVERY DAY I HAVE THE\u00c9",
+"artist": "B.B. King",
+"ta": "PDFPDFEVERY DAY I HAVE THE\u00c9B.B. King"
+},
+{
+"n": 76,
+"title": "PDFPDFTHIS MASQUERADEGeorge Be\u00c9",
+"artist": "",
+"ta": "PDFPDFTHIS MASQUERADEGeorge Be\u00c9"
+},
+{
+"n": 77,
+"title": "PDFPDFTHE SKY IS CRYINGElmore Ja\u00c9Bb60blues798Let's Stay Together",
+"artist": "Al Green",
+"ta": "PDFPDFTHE SKY IS CRYINGElmore Ja\u00c9Bb60blues798Let's Stay TogetherAl Green"
+},
+{
+"n": 78,
+"title": "PDFPDFLET'S STAY TOGETHER",
+"artist": "Al Green",
+"ta": "PDFPDFLET'S STAY TOGETHERAl Green"
+},
+{
+"n": 79,
+"title": "PDFPDFALL ALONG THE WATC\u00c9Jimi HendrixC114midtempo7100On BroadwayGeorge BensonBb120Smooth Jazz44FluidCounterclockwisePDFPDFON BROADWAYGeorge Be\u00c9Bb120groove7101My Mama Told Me SoThe CrusadersBb110Up-Tempo Funk92MidStaticPDFPDFMY MAMA TOLD ME SOThe Crusa\u00c9",
+"artist": "",
+"ta": "PDFPDFALL ALONG THE WATC\u00c9Jimi HendrixC114midtempo7100On BroadwayGeorge BensonBb120Smooth Jazz44FluidCounterclockwisePDFPDFON BROADWAYGeorge Be\u00c9Bb120groove7101My Mama Told Me SoThe CrusadersBb110Up-Tempo Funk92MidStaticPDFPDFMY MAMA TOLD ME SOThe Crusa\u00c9"
+},
+{
+"n": 80,
+"title": "PDFPDFBLACK CAT BONEJohnny Wi\u00c9C110shuffle7103Take FiveDave BrubeckEbm174Cool Jazz44FluidFluidPDFPDFTAKE FIVEDave Brub\u00c9",
+"artist": "",
+"ta": "PDFPDFBLACK CAT BONEJohnny Wi\u00c9C110shuffle7103Take FiveDave BrubeckEbm174Cool Jazz44FluidFluidPDFPDFTAKE FIVEDave Brub\u00c9"
+},
+{
+"n": 81,
+"title": "PDFPDFGRAVITY",
+"artist": "John Mayer",
+"ta": "PDFPDFGRAVITYJohn Mayer"
+},
+{
+"n": 82,
+"title": "PDFPDFPLUSHStone Tem\u00c9",
+"artist": "",
+"ta": "PDFPDFPLUSHStone Tem\u00c9"
+},
+{
+"n": 83,
+"title": "PDFPDFSO VERY HARD TO GOTower of P\u00c9Bb84ballad8107Living for the CityStevie WonderE102Up-Tempo Funk92MidStaticPDFPDFLIVING FOR THE CITYStevie Won\u00c9E102funk8108Ain't No Sunshine",
+"artist": "Bill Withers",
+"ta": "PDFPDFSO VERY HARD TO GOTower of P\u00c9Bb84ballad8107Living for the CityStevie WonderE102Up-Tempo Funk92MidStaticPDFPDFLIVING FOR THE CITYStevie Won\u00c9E102funk8108Ain't No SunshineBill Withers"
+},
+{
+"n": 84,
+"title": "PDFPDFAIN'T NO SUNSHINE",
+"artist": "Bill Withers",
+"ta": "PDFPDFAIN'T NO SUNSHINEBill Withers"
+},
+{
+"n": 85,
+"title": "PDFPDFMY GIRLThe Tempt\u00c9",
+"artist": "",
+"ta": "PDFPDFMY GIRLThe Tempt\u00c9"
+},
+{
+"n": 86,
+"title": "PDFPDFINTERSTATE LOVEStone Tem\u00c9",
+"artist": "",
+"ta": "PDFPDFINTERSTATE LOVEStone Tem\u00c9"
+},
+{
+"n": 87,
+"title": "PDFPDFYELLOW LEDBETTER",
+"artist": "Pearl Jam",
+"ta": "PDFPDFYELLOW LEDBETTERPearl Jam"
+},
+{
+"n": 88,
+"title": "PDFPDFBROWN EYED GIRLVan Morris\u00c9",
+"artist": "",
+"ta": "PDFPDFBROWN EYED GIRLVan Morris\u00c9"
+},
+{
+"n": 89,
+"title": "PDFPDFVOODOO CHILD",
+"artist": "Jimi Hendrix",
+"ta": "PDFPDFVOODOO CHILDJimi Hendrix"
+},
+{
+"n": 90,
+"title": "PDFPDFSHE TALKS TO ANGELSBlack Cro\u00c9E75ballad8115Ain't Too Proud to Beg",
+"artist": "The Temptations",
+"ta": "PDFPDFSHE TALKS TO ANGELSBlack Cro\u00c9E75ballad8115Ain't Too Proud to BegThe Temptations"
+},
+{
+"n": 91,
+"title": "PDFPDFAIN'T TOO PROUD TO B\u00c9The Tempt\u00c9C118uptempo8116Room 335Larry CarltonD112Up-Tempo Funk92MidStaticPDFPDFROOM 335Larry CarltonD112funk8117Put It Where You Want ItThe CrusadersC110Jazz Fusion93HighFluidPDFPDFPUT IT WHERE YOU WA\u00c9The Crusa\u00c9C110groove8118Me & Mrs. Jones",
+"artist": "Billy Paul",
+"ta": "PDFPDFAIN'T TOO PROUD TO B\u00c9The Tempt\u00c9C118uptempo8116Room 335Larry CarltonD112Up-Tempo Funk92MidStaticPDFPDFROOM 335Larry CarltonD112funk8117Put It Where You Want ItThe CrusadersC110Jazz Fusion93HighFluidPDFPDFPUT IT WHERE YOU WA\u00c9The Crusa\u00c9C110groove8118Me & Mrs. JonesBilly Paul"
+},
+{
+"n": 92,
+"title": "MidStaticPDFPDFHIGHER GROUNDStevie Won\u00c9",
+"artist": "",
+"ta": "MidStaticPDFPDFHIGHER GROUNDStevie Won\u00c9"
+},
+{
+"n": 93,
+"title": "PDFPDFPRIDE & JOY - LITTLE \u00c9",
+"artist": "SRVHendrix",
+"ta": "PDFPDFPRIDE & JOY - LITTLE \u00c9SRVHendrix"
+},
+{
+"n": 94,
+"title": "PDFPDFPURPLE HAZE",
+"artist": "Jimi Hendrix",
+"ta": "PDFPDFPURPLE HAZEJimi Hendrix"
+},
+{
+"n": 95,
+"title": "PDFPDFSLOW BLUES FOR Z F\u00c9Chris ZembaG60blues9123What You Won't Do for Love",
+"artist": "Bobby Caldwell",
+"ta": "PDFPDFSLOW BLUES FOR Z F\u00c9Chris ZembaG60blues9123What You Won't Do for LoveBobby Caldwell"
+},
+{
+"n": 96,
+"title": "PDFPDFWHAT YOU WON'T DO F\u00c9Bobby Cal\u00c9Em112midtempo9124Put It Where You Want ItThe CrusadersC110Jazz Fusion93HighFluidPDFPDFPUT IT WHERE YOU WA\u00c9The Crusa\u00c9",
+"artist": "",
+"ta": "PDFPDFWHAT YOU WON'T DO F\u00c9Bobby Cal\u00c9Em112midtempo9124Put It Where You Want ItThe CrusadersC110Jazz Fusion93HighFluidPDFPDFPUT IT WHERE YOU WA\u00c9The Crusa\u00c9"
+},
+{
+"n": 97,
+"title": "PDFPDFTALK TO YOUR DAUGH\u00c9",
+"artist": "Robben Ford",
+"ta": "PDFPDFTALK TO YOUR DAUGH\u00c9Robben Ford"
+},
+{
+"n": 98,
+"title": "PDF-style-columninferred/cross-checkedDIXIE CHICKENLittle Feata9127All Along the Watchtower",
+"artist": "Jimi Hendrix",
+"ta": "PDF-style-columninferred/cross-checkedDIXIE CHICKENLittle Feata9127All Along the WatchtowerJimi Hendrix"
+},
+{
+"n": 99,
+"title": "PDFPDFALL ALONG THE WATC\u00c9",
+"artist": "Jimi Hendrix",
+"ta": "PDFPDFALL ALONG THE WATC\u00c9Jimi Hendrix"
+},
+{
+"n": 100,
+"title": "PDF-style-columninferred/cross-checkedPOWER OF LOVEHuey Lewisc9129Foxy Lady",
+"artist": "Jimi Hendrix",
+"ta": "PDF-style-columninferred/cross-checkedPOWER OF LOVEHuey Lewisc9129Foxy LadyJimi Hendrix"
+},
+{
+"n": 101,
+"title": "PDFPDFFOXY LADY",
+"artist": "Jimi Hendrix",
+"ta": "PDFPDFFOXY LADYJimi Hendrix"
+},
+{
+"n": 102,
+"title": "PDF-style-columninferred/cross-checkedTHE NEEDLE AND THE \u00c9Lynyrd Sk\u00c9d9131Pick Up the Pieces",
+"artist": "Average White Band",
+"ta": "PDF-style-columninferred/cross-checkedTHE NEEDLE AND THE \u00c9Lynyrd Sk\u00c9d9131Pick Up the PiecesAverage White Band"
+},
+{
+"n": 103,
+"title": "PDFPDFDOCK OF THE BAYOtis ReddingG104midtempo9133Ain't Too Proud to Beg",
+"artist": "The Temptations",
+"ta": "PDFPDFDOCK OF THE BAYOtis ReddingG104midtempo9133Ain't Too Proud to BegThe Temptations"
+},
+{
+"n": 104,
+"title": "PDFPDFAIN'T TOO PROUD TO B\u00c9The Tempt\u00c9",
+"artist": "",
+"ta": "PDFPDFAIN'T TOO PROUD TO B\u00c9The Tempt\u00c9"
+},
+{
+"n": 105,
+"title": "PDF-style-columninferred/cross-checkedGIVING IT UP FOR YOU\u00c9Delbert Mc\u00c9c10135Tush",
+"artist": "ZZ Top",
+"ta": "PDF-style-columninferred/cross-checkedGIVING IT UP FOR YOU\u00c9Delbert Mc\u00c9c10135TushZZ Top"
+},
+{
+"n": 106,
+"title": "PDF-style-columninferred/cross-checkedTUSHZZ Topg10136Train, Train",
+"artist": "Blackfoot",
+"ta": "PDF-style-columninferred/cross-checkedTUSHZZ Topg10136Train, TrainBlackfoot"
+},
+{
+"n": 107,
+"title": "PDF-style-columninferred/cross-checkedTRAIN, TRAINBlackfoote10137What's Going On / Mercy Mercy Me",
+"artist": "Marvin Gaye",
+"ta": "PDF-style-columninferred/cross-checkedTRAIN, TRAINBlackfoote10137What's Going On / Mercy Mercy MeMarvin Gaye"
+},
+{
+"n": 108,
+"title": "PDFPDFWHAT'S GOING ON / M\u00c9",
+"artist": "Marvin Gaye",
+"ta": "PDFPDFWHAT'S GOING ON / M\u00c9Marvin Gaye"
+},
+{
+"n": 109,
+"title": "PDF-style-columninferred/cross-checkedMINUTE BY MINUTEThe Doobi\u00c9c10139La Grange",
+"artist": "ZZ Top",
+"ta": "PDF-style-columninferred/cross-checkedMINUTE BY MINUTEThe Doobi\u00c9c10139La GrangeZZ Top"
+},
+{
+"n": 110,
+"title": "PDF-style-columninferred/cross-checkedLA GRANGEZZ Topa10140Don't Ask Me No Questions",
+"artist": "Lynyrd Skynyrd",
+"ta": "PDF-style-columninferred/cross-checkedLA GRANGEZZ Topa10140Don't Ask Me No QuestionsLynyrd Skynyrd"
+},
+{
+"n": 111,
+"title": "PDF-style-columninferred/cross-checkedDON'T ASK ME NO QUE\u00c9Lynyrd Sk\u00c9g10141Born Under a Bad SignRobben Ford /",
+"artist": "Albert King",
+"ta": "PDF-style-columninferred/cross-checkedDON'T ASK ME NO QUE\u00c9Lynyrd Sk\u00c9g10141Born Under a Bad SignRobben Ford / Albert King"
+},
+{
+"n": 112,
+"title": "PDFPDFBORN UNDER A BAD SI\u00c9",
+"artist": "Robben Ford",
+"ta": "PDFPDFBORN UNDER A BAD SI\u00c9Robben Ford"
+},
+{
+"n": 113,
+"title": "PDF-style-columninferred/cross-checkedHOOCHIE COOCHIE MANEric Claptona10143Cissy Strut",
+"artist": "The Meters",
+"ta": "PDF-style-columninferred/cross-checkedHOOCHIE COOCHIE MANEric Claptona10143Cissy StrutThe Meters"
+},
+{
+"n": 114,
+"title": "PDF-style-columninferred/cross-checkedOPHELIAThe Bandc10145Hard to Handle",
+"artist": "The Black Crowes",
+"ta": "PDF-style-columninferred/cross-checkedOPHELIAThe Bandc10145Hard to HandleThe Black Crowes"
+},
+{
+"n": 115,
+"title": "PDF-style-columninferred/cross-checkedHARD TO HANDLEThe Black \u00c9b10146Domino",
+"artist": "Van Morrison",
+"ta": "PDF-style-columninferred/cross-checkedHARD TO HANDLEThe Black \u00c9b10146DominoVan Morrison"
+},
+{
+"n": 116,
+"title": "PDF-style-columninferred/cross-checkedDOMINOVan Morris\u00c9a10147Vehicle",
+"artist": "The Ides of March",
+"ta": "PDF-style-columninferred/cross-checkedDOMINOVan Morris\u00c9a10147VehicleThe Ides of March"
+},
+{
+"n": 117,
+"title": "PDF-style-columninferred/cross-checkedVEHICLEIdes of Mar\u00c9ebm10148Down South Jukin'",
+"artist": "Lynyrd Skynyrd",
+"ta": "PDF-style-columninferred/cross-checkedVEHICLEIdes of Mar\u00c9ebm10148Down South Jukin'Lynyrd Skynyrd"
+},
+{
+"n": 118,
+"title": "PDF-style-columninferred/cross-checkedDOWN SOUTH JUKIN' (\u00c9Lynyrd Sk\u00c9a10149Keep Your Hands to YourselfGeorgia SatellitesA115Rockabilly82MidStaticPDF-style-columninferred/cross-checkedKEEP YOUR HANDS TO \u00c9Georgia Sa\u00c9a11150Honky Tonk Women",
+"artist": "The Rolling Stones",
+"ta": "PDF-style-columninferred/cross-checkedDOWN SOUTH JUKIN' (\u00c9Lynyrd Sk\u00c9a10149Keep Your Hands to YourselfGeorgia SatellitesA115Rockabilly82MidStaticPDF-style-columninferred/cross-checkedKEEP YOUR HANDS TO \u00c9Georgia Sa\u00c9a11150Honky Tonk WomenThe Rolling Stones"
+},
+{
+"n": 119,
+"title": "PDF-style-columninferred/cross-checkedHONKY TONK WOMENThe Rollin\u00c9g11151Peg",
+"artist": "Steely Dan",
+"ta": "PDF-style-columninferred/cross-checkedHONKY TONK WOMENThe Rollin\u00c9g11151PegSteely Dan"
+},
+{
+"n": 120,
+"title": "PDF-style-columninferred/cross-checkedPEGSteely Dang11152Green River",
+"artist": "Creedence Clearwater Revival",
+"ta": "PDF-style-columninferred/cross-checkedPEGSteely Dang11152Green RiverCreedence Clearwater Revival"
+},
+{
+"n": 121,
+"title": "PDF-style-columninferred/cross-checkedGREEN RIVERCreedence\u00c9e11153I Know a LittleLynyrd SkynyrdA212Rockabilly82MidStaticPDF-style-columninferred/cross-checkedI KNOW A LITTLELynyrd Sk\u00c9a11154Midnight Rider",
+"artist": "The Allman Brothers Band",
+"ta": "PDF-style-columninferred/cross-checkedGREEN RIVERCreedence\u00c9e11153I Know a LittleLynyrd SkynyrdA212Rockabilly82MidStaticPDF-style-columninferred/cross-checkedI KNOW A LITTLELynyrd Sk\u00c9a11154Midnight RiderThe Allman Brothers Band"
+}
+]

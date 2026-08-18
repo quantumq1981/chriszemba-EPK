@@ -1,0 +1,4659 @@
+source_order
+
+title
+
+key
+
+bpm style
+
+baseEnergy gravityGroup harmonicFriction gravityBias
+
+sourceKey
+
+sourceBPM
+
+warning
+
+raw_title
+
+raw_artist
+
+raw_key raw_bpm raw_style
+
+pdf_page
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+36
+
+37
+
+38
+
+39
+
+40
+
+41
+
+42
+
+43
+
+44
+
+45
+
+46
+
+47
+
+48
+
+49
+
+50
+
+51
+
+52
+
+53
+
+54
+
+55
+
+56
+
+57
+
+Simple Man
+
+Can't You See
+
+artist
+
+Lynyrd Skynyrd
+
+The Marshall Tucker Band
+
+Love Me Two Times / Roadhouse Blues The Doors
+
+C
+
+D
+
+E
+
+60
+
+85
+
+Soft Rock
+
+Roots Americana
+
+122
+
+Blues-Rock
+
+Lowdown
+
+Free Bird
+
+Soul Medley
+
+Soulshine
+
+Boz Scaggs
+
+Em 117
+
+Yacht Rock
+
+Lynyrd Skynyrd
+
+G
+
+60
+
+Soft Rock
+
+Wilson Pickett / Soul Medley
+
+C / F 112 Classic Soul
+
+Gov't Mule / Allman Brothers
+
+Bb
+
+65
+
+Blues-Rock
+
+Sledgehammer
+
+Peter Gabriel
+
+Ebm 96
+
+Up-Tempo Funk
+
+Remedy
+
+The Black Crowes
+
+Born on the Bayou / Suzie Q
+
+Creedence Clearwater Revival
+
+My Old School
+
+Steely Dan
+
+Call Me the Breeze
+
+Lynyrd Skynyrd / J.J. Cale
+
+Bad to the Bone
+
+George Thorogood
+
+Trudy
+
+The Charlie Daniels Band
+
+Sweet Home Alabama
+
+Lynyrd Skynyrd
+
+Whipping Post
+
+The Allman Brothers Band
+
+C
+
+E
+
+G
+
+A
+
+G
+
+A
+
+G
+
+A
+
+80
+
+Blues-Rock
+
+115
+
+Blues-Rock
+
+118
+
+Yacht Rock
+
+192 Rockabilly
+
+94
+
+Blues-Rock
+
+125 Classic Country
+
+Suspicious Minds
+
+25 or 6 to 4
+
+Elvis Presley
+
+Chicago
+
+Don't Change Horses
+
+Tower of Power
+
+Rocky Mountain Way
+
+Joe Walsh
+
+Heart of Rock & Roll
+
+Huey Lewis and the News
+
+The Weight
+
+The Band
+
+Gimme Three Steps
+
+Lynyrd Skynyrd
+
+Mary Jane's Last Dance
+
+Tom Petty and the Heartbreakers
+
+Ramblin' Man
+
+The Allman Brothers Band
+
+Flirtin' With Disaster
+
+Molly Hatchet
+
+One Way Out
+
+The Allman Brothers Band
+
+Give Me One Reason
+
+Tracy Chapman
+
+Just Got Paid
+
+ZZ Top
+
+You Can Leave Your Hat On
+
+Joe Cocker
+
+Roadhouse Blues
+
+The Doors
+
+Statesboro Blues
+
+The Allman Brothers Band
+
+Hold On Loosely
+
+38 Special
+
+Cold Shot
+
+The Letter
+
+Stevie Ray Vaughan
+
+Joe Cocker
+
+Down South Jukers
+
+Imported library/header row
+
+Up on Cripple Creek
+
+Gimme All Your Lovin'
+
+Superstition
+
+Jealous Again
+
+The Band
+
+ZZ Top
+
+There Goes Another Love Song
+
+The Outlaws
+
+Mustang Sally
+
+Wilson Pickett
+
+Love & Happiness
+
+Sick & Tired
+
+Al Green
+
+Boz Scaggs
+
+100
+
+Straight-Ahead Rock 9
+
+132
+
+Blues-Rock
+
+F#
+
+116
+
+Pop-Rock
+
+Am 147
+
+Straight-Ahead Rock 9
+
+98
+
+92
+
+Up-Tempo Funk
+
+Blues-Rock
+
+143
+
+Pop-Rock
+
+72
+
+Roots Americana
+
+9
+
+8
+
+7
+
+5
+
+132
+
+Straight-Ahead Rock 9
+
+87
+
+99
+
+90
+
+Roots Americana
+
+Roots Americana
+
+5
+
+5
+
+Straight-Ahead Rock 9
+
+212
+
+Blues-Rock
+
+100 R&B
+
+98
+
+Blues-Rock
+
+86
+
+R&B
+
+122
+
+Blues-Rock
+
+125
+
+Traditional Blues
+
+128
+
+Straight-Ahead Rock 9
+
+98
+
+90
+
+Traditional Blues
+
+Classic Soul
+
+120 Roots Americana
+
+80
+
+Roots Americana
+
+4
+
+6
+
+5
+
+5
+
+120
+
+Straight-Ahead Rock 9
+
+132
+
+Straight-Ahead Rock 9
+
+115 Classic Soul
+
+98
+
+Classic Soul
+
+Bb
+
+139
+
+Yacht Rock
+
+G
+
+E
+
+C
+
+A
+
+D
+
+A
+
+G
+
+E
+
+A
+
+F
+
+E
+
+C
+
+E
+
+D
+
+E
+
+A
+
+Bb
+
+C
+
+A
+
+C
+
+D
+
+G
+
+C
+
+C
+
+Stevie Wonder
+
+Em 100 Up-Tempo Funk
+
+The Black Crowes
+
+118
+
+Blues-Rock
+
+Long Train Runnin'
+
+The Doobie Brothers
+
+Gm 108 Up-Tempo Funk
+
+I Shot the Sheriff
+
+Eric Clapton / Bob Marley
+
+Gm 85
+
+Reggae
+
+Slow Blues for Z from the 5
+
+Chris Zemba
+
+G
+
+60
+
+Traditional Blues
+
+Help the Poor
+
+Robben Ford
+
+Dm 88
+
+Traditional Blues
+
+Trouble No More (Live)
+
+The Allman Brothers Band
+
+Red House
+
+Do It Again
+
+Jimi Hendrix
+
+Steely Dan
+
+There's Got to Be a Change
+
+Jonny Lang
+
+Isn't She Lovely
+
+Shakey Ground
+
+Stevie Wonder
+
+A
+
+A
+
+136
+
+Traditional Blues
+
+60
+
+Traditional Blues
+
+Gm 96
+
+Pop-Rock
+
+C
+
+E
+
+112
+
+Traditional Blues
+
+127 Classic Soul
+
+Tennessee Whiskey
+
+Chris Stapleton
+
+A
+
+48
+
+Classic Country
+
+What You Won't Do for Love
+
+Bobby Caldwell
+
+Em 112 R&B
+
+Pride & Joy / Little Wing
+
+Stevie Ray Vaughan / Jimi Hendrix
+
+Em 68
+
+Blues-Rock
+
+4
+
+5
+
+8
+
+5
+
+4
+
+6
+
+8
+
+9
+
+8
+
+8
+
+5
+
+8
+
+8
+
+4
+
+8
+
+7
+
+8
+
+6
+
+8
+
+9
+
+6
+
+8
+
+4
+
+9
+
+8
+
+6
+
+6
+
+5
+
+5
+
+4
+
+4
+
+4
+
+4
+
+7
+
+4
+
+6
+
+9
+
+4
+
+6
+
+8
+
+1
+
+1
+
+2
+
+2
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+1
+
+2
+
+2
+
+1
+
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+1
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+2
+
+1
+
+1
+
+1
+
+2
+
+2
+
+1
+
+2
+
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+1
+
+2
+
+1
+
+2
+
+2
+
+1
+
+2
+
+2
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+SIMPLE MAN
+
+Lynyrd Sk…
+
+CAN'T YOU SEE
+
+The Marsh…
+
+c
+
+d
+
+Counterclockwise PDF
+
+PDF
+
+LOVE ME 2 TIMES / RO… The Doors
+
+E
+
+122
+
+shuffle
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+LOWDOWN
+
+Boz Scaggs
+
+FREE BIRD
+
+Lynyrd Sk…
+
+em
+
+g
+
+Counterclockwise inferred
+
+inferred/cross-checked
+
+SOUL MEDLEY
+
+Wilson Pic…
+
+c / f / f /
+
+Counterclockwise PDF
+
+PDF
+
+SOULSHINE
+
+Gov't Mule… Bb
+
+65
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+SLEDGEHAMMER
+
+Peter Gabriel
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+REMEDY
+
+The Black …
+
+BORN ON THE BAYOU/…
+
+Creedence…
+
+MY OLD SCHOOL
+
+Steely Dan
+
+CALL ME THE BREEZE
+
+Lynyrd Sk…
+
+BAD TO THE BONE
+
+George Th…
+
+TRUDY
+
+The Charli…
+
+SWEET HOME ALABAMA
+
+Lynyrd Sk…
+
+WHIPPING POST
+
+The Allma…
+
+SUSPICIOUS MINDS
+
+Elvis Presley
+
+25 OR 6 TO 4
+
+Chicago
+
+DONT CHANGE HORSES
+
+Tower Of P…
+
+ROCKY MTN WAY
+
+Joe Walsh
+
+HEART OF ROCK & ROLL
+
+Huey Lewis
+
+THE WEIGHT
+
+The Band
+
+GIMME THREE STEPS
+
+Lynyrd Sk…
+
+MARY JANE'S LAST DA…
+
+Tom Petty …
+
+RAMBLIN' MAN
+
+Allman Bros
+
+FLIRTIN' WITH DISASTER Molly Hatc…
+
+ONE WAY OUT
+
+The Allma…
+
+GIVE ME ONE REASON
+
+Tracy Cha…
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+JUST GOT PAID
+
+ZZ Top
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+LONG TRAIN RUNNIN' (… The Doobi…
+
+YOU CAN LEAVE YOUR … Joe Cocker
+
+ROADHOUSE BLUES
+
+The Doors
+
+STATESBORO BLUES
+
+The Allma…
+
+HOLD ON LOOSELY
+
+38 Special
+
+COLD SHOT
+
+Stevie Ray…
+
+THE LETTER
+
+Joe Cocker
+
+bb
+
+ebm
+
+c
+
+e
+
+g
+
+a
+
+g
+
+a
+
+g
+
+a
+
+f#
+
+am
+
+g
+
+e
+
+c
+
+a
+
+d
+
+a
+
+g
+
+e
+
+a
+
+f
+
+e
+
+gm
+
+c
+
+e
+
+d
+
+e
+
+a
+
+bb
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+3
+
+3
+
+3
+
+3
+
+3
+
+3
+
+3
+
+3
+
+Counterclockwise inferred
+
+inferred/cross-checked POTENTIAL HEADER ROW - retained to preserve 155-count DOWN SOUTH JUKERS
+
+69 songs, …
+
+midtempo 3
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise inferred
+
+PDF-style-column
+
+Clockwise
+
+inferred
+
+PDF-style-column
+
+UP ON CRIPPLE CREEK
+
+The Band
+
+GIMME ALL YOUR LOVIN' ZZ Top
+
+SUPERSTITION
+
+Stevie Won…
+
+JEALOUS AGAIN
+
+The Black …
+
+THERE GOES ANOTHE…
+
+The Outlaws
+
+a
+
+c
+
+em
+
+118
+
+132
+
+3
+
+3
+
+3
+
+3
+
+3
+
+Counterclockwise inferred
+
+inferred/cross-checked
+
+MUSTANG SALLY
+
+Wilson Pic…
+
+midtempo 3
+
+Counterclockwise inferred
+
+PDF-style-column
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+PDF
+
+LOVE & HAPPINESS
+
+Al Green
+
+SICK & TIRED
+
+Boz Scaggs
+
+I SHOT THE SHERIFF
+
+Eric Clapton
+
+Gm
+
+SLOW BLUES FOR Z F…
+
+Chris Zemba G
+
+HELP THE POOR
+
+Robben Ford Dm
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+TROUBLE NO MORE (LI… The Allma…
+
+Counterclockwise PDF
+
+Clockwise
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+RED HOUSE
+
+Jimi Hendrix
+
+A
+
+DO IT AGAIN
+
+Steely Dan
+
+Gm
+
+THERE'S GOT TO BE A … Jonny Lang
+
+C
+
+ISN'T SHE LOVELY
+
+Stevie Won… E
+
+Static
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+PDF
+
+TENNESSEE WHISKEY
+
+Chris Stapl… A
+
+WHAT YOU WON'T DO F… Bobby Cal…
+
+Em
+
+PRIDE & JOY /LITTLE W… SRVHendrix
+
+Em
+
+98
+
+bb
+
+reggae
+
+blues
+
+shuffle
+
+a
+
+blues
+
+pop
+
+blues
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+midtempo 4
+
+e
+
+country
+
+4
+
+4
+
+midtempo 4
+
+rock
+
+4
+
+85
+
+60
+
+88
+
+60
+
+96
+
+112
+
+127
+
+48
+
+112
+
+68
+
+Delbert McClinton / The Temptations E
+
+100 Up-Tempo Funk
+
+PDF-style-column inferred/cross-checked
+
+SHAKEY GROUND
+
+Delbert Mc…
+
+58
+
+59
+
+60
+
+61
+
+62
+
+63
+
+64
+
+65
+
+66
+
+67
+
+68
+
+69
+
+70
+
+71
+
+72
+
+73
+
+74
+
+75
+
+76
+
+77
+
+78
+
+79
+
+80
+
+81
+
+82
+
+83
+
+84
+
+85
+
+86
+
+87
+
+88
+
+89
+
+90
+
+91
+
+92
+
+93
+
+94
+
+95
+
+96
+
+97
+
+98
+
+99
+
+100
+
+101
+
+102
+
+103
+
+104
+
+105
+
+106
+
+107
+
+108
+
+109
+
+110
+
+111
+
+112
+
+113
+
+114
+
+115
+
+Affirmation
+
+Heartbreaker
+
+Crossfire
+
+Use Me
+
+Mr. Magic
+
+Drive
+
+George Benson
+
+Bm 96
+
+Smooth Jazz
+
+4
+
+Led Zeppelin
+
+Stevie Ray Vaughan
+
+A
+
+E
+
+108
+
+Straight-Ahead Rock 9
+
+118
+
+Blues-Rock
+
+Hotel California
+
+Eagles
+
+Am 74
+
+Soft Rock
+
+Love Me Two Times / Roadhouse Blues The Doors
+
+Bill Withers
+
+E
+
+E
+
+122
+
+Blues-Rock
+
+105 R&B
+
+Grover Washington Jr.
+
+Cm 92
+
+Up-Tempo Funk
+
+Incubus
+
+Em 92
+
+Indie Pop
+
+Love Me Two Times / Roadhouse Blues The Doors
+
+What's Going On / Mercy Mercy Me
+
+Marvin Gaye
+
+Tightrope
+
+Stevie Ray Vaughan
+
+Born Under a Bad Sign
+
+Robben Ford / Albert King
+
+Slightly Dirty
+
+Hey Joe
+
+Larry Carlton
+
+Jimi Hendrix
+
+E
+
+E
+
+E
+
+D
+
+D
+
+E
+
+122
+
+Blues-Rock
+
+84
+
+Classic Soul
+
+112
+
+Blues-Rock
+
+94
+
+97
+
+94
+
+Traditional Blues
+
+Jazz Fusion
+
+Blues-Rock
+
+The Thrill Is Gone
+
+B.B. King
+
+Cm 70
+
+Traditional Blues
+
+Never Been to Spain
+
+Three Dog Night
+
+Revelation
+
+Robben Ford
+
+Boogie on Reggae Woman
+
+Stevie Wonder
+
+Hey Hey What Can I Do
+
+Led Zeppelin
+
+E
+
+G
+
+A
+
+A
+
+110 Roots Americana
+
+128
+
+Blues-Rock
+
+97
+
+Up-Tempo Funk
+
+114 Roots Americana
+
+Black Magic Woman
+
+Santana
+
+Dm 120
+
+Afro-Cuban Jazz
+
+Breezin'
+
+George Benson
+
+The Lemon Song
+
+Led Zeppelin
+
+D
+
+E
+
+94
+
+Smooth Jazz
+
+102
+
+Blues-Rock
+
+Mary Jane's Last Dance
+
+Tom Petty and the Heartbreakers
+
+Am 87
+
+Roots Americana
+
+Before You Hit the Ground
+
+Jonny Lang
+
+Killing Floor
+
+Come Together
+
+Jimi Hendrix / Howlin Wolf
+
+The Beatles
+
+Sittin' on the Dock of the Bay
+
+Otis Redding
+
+What I Got
+
+Sublime
+
+E
+
+A
+
+D
+
+G
+
+D
+
+110 Up-Tempo Funk
+
+114
+
+Traditional Blues
+
+85
+
+Straight-Ahead Rock 9
+
+106 Classic Soul
+
+96
+
+Reggae
+
+Comin' Home Baby
+
+Mel Torme / David Sanborn
+
+Gm 130 Hard Bop
+
+Santeria
+
+Crossroads
+
+Tune 88
+
+Rack 'Em Up
+
+Sublime
+
+Eric Clapton / Cream
+
+Jeff Lorber
+
+Jonny Lang
+
+Talk to Your Daughter
+
+Robben Ford
+
+All Blues
+
+Let's Get It On
+
+Deal
+
+Miles Davis
+
+Marvin Gaye
+
+Grateful Dead
+
+E
+
+A
+
+G
+
+C
+
+G
+
+G
+
+C
+
+A
+
+90
+
+Reggae
+
+110
+
+Traditional Blues
+
+100 Up-Tempo Funk
+
+112
+
+Traditional Blues
+
+136
+
+Blues-Rock
+
+120 Modal Jazz
+
+79
+
+Classic Soul
+
+112 Roots Americana
+
+Every Day I Have the Blues
+
+B.B. King
+
+Bb
+
+106
+
+Traditional Blues
+
+This Masquerade
+
+George Benson
+
+F
+
+The Sky Is Crying
+
+Elmore James / Stevie Ray Vaughan Bb
+
+Let's Stay Together
+
+Al Green
+
+All Along the Watchtower
+
+Jimi Hendrix
+
+On Broadway
+
+George Benson
+
+My Mama Told Me So
+
+The Crusaders
+
+Black Cat Bone
+
+Take Five
+
+Gravity
+
+Plush
+
+Johnny Winter
+
+Dave Brubeck
+
+John Mayer
+
+Stone Temple Pilots
+
+66
+
+60
+
+Soft Rock
+
+Traditional Blues
+
+102 Classic Soul
+
+114
+
+Blues-Rock
+
+120
+
+Smooth Jazz
+
+110 Up-Tempo Funk
+
+110
+
+Traditional Blues
+
+Ebm 174 Cool Jazz
+
+63
+
+Gospel Ballads
+
+104
+
+Straight-Ahead Rock 9
+
+F
+
+C
+
+Bb
+
+Bb
+
+C
+
+G
+
+G
+
+So Very Hard to Go
+
+Tower of Power
+
+Bb
+
+84
+
+Classic Soul
+
+Living for the City
+
+Stevie Wonder
+
+E
+
+102 Up-Tempo Funk
+
+Ain't No Sunshine
+
+Bill Withers
+
+Am 76
+
+R&B
+
+My Girl
+
+The Temptations
+
+Interstate Love Song
+
+Stone Temple Pilots
+
+Yellow Ledbetter
+
+Brown Eyed Girl
+
+Voodoo Child
+
+Pearl Jam
+
+Van Morrison
+
+Jimi Hendrix
+
+She Talks to Angels
+
+The Black Crowes
+
+Ain't Too Proud to Beg
+
+The Temptations
+
+C
+
+A
+
+E
+
+G
+
+E
+
+E
+
+C
+
+104 Classic Soul
+
+115
+
+Straight-Ahead Rock 9
+
+78
+
+Soft Rock
+
+150
+
+Power Pop
+
+112
+
+Blues-Rock
+
+75
+
+Soft Rock
+
+118 Motown
+
+4
+
+8
+
+8
+
+4
+
+7
+
+8
+
+4
+
+8
+
+6
+
+9
+
+6
+
+8
+
+6
+
+8
+
+4
+
+9
+
+8
+
+4
+
+5
+
+8
+
+9
+
+5
+
+9
+
+4
+
+8
+
+5
+
+9
+
+4
+
+6
+
+5
+
+8
+
+5
+
+4
+
+9
+
+4
+
+8
+
+4
+
+6
+
+5
+
+4
+
+4
+
+4
+
+6
+
+8
+
+4
+
+9
+
+4
+
+4
+
+3
+
+6
+
+9
+
+6
+
+6
+
+4
+
+1
+
+2
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+3
+
+2
+
+1
+
+1
+
+2
+
+2
+
+1
+
+3
+
+4
+
+2
+
+1
+
+2
+
+1
+
+1
+
+2
+
+2
+
+3
+
+2
+
+1
+
+2
+
+1
+
+2
+
+4
+
+2
+
+1
+
+1
+
+1
+
+1
+
+2
+
+2
+
+4
+
+2
+
+1
+
+4
+
+1
+
+1
+
+2
+
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+2
+
+1
+
+2
+
+Fluid
+
+Low
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+High
+
+Mid
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Low
+
+High
+
+Fluid
+
+Mid
+
+Low
+
+Mid
+
+Low
+
+Low
+
+Mid
+
+Low
+
+High
+
+Low
+
+Low
+
+Mid
+
+Low
+
+Mid
+
+Fluid
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Fluid
+
+Mid
+
+Low
+
+Fluid
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Low
+
+Mid
+
+Counterclockwise PDF
+
+Clockwise
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Static
+
+Clockwise
+
+PDF
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Fluid
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+AFFIRMATION
+
+George Be… Bm
+
+HEARTBREAKER
+
+Led Zeppelin A
+
+CROSSFIRE
+
+Stevie Ray… E
+
+HOTEL CALIFORNIA
+
+Eagles
+
+Am
+
+LOVE ME TWO TIMES / … The Doors
+
+USE ME
+
+Bill Withers
+
+E
+
+E
+
+MR. MAGIC
+
+Grover Wa… Cm
+
+DRIVE
+
+Incubus
+
+Em
+
+LOVE ME 2 TIMES / RO… The Doors
+
+WHAT'S GOING ON / M… Marvin Gaye
+
+E
+
+E
+
+TIGHTROPE
+
+Stevie Ray… E
+
+BORN UNDER A BAD SI… Robben Ford D
+
+SLIGHTLY DIRTY
+
+Larry Carlton D
+
+HEY JOE
+
+Jimi Hendrix
+
+E
+
+THE THRILL IS GONE
+
+B.B. King
+
+Cm
+
+96
+
+108
+
+118
+
+74
+
+122
+
+105
+
+92
+
+92
+
+122
+
+84
+
+112
+
+94
+
+97
+
+94
+
+70
+
+jazz
+
+4
+
+midtempo 5
+
+shuffle
+
+5
+
+midtempo 5
+
+rock
+
+5
+
+midtempo 5
+
+funk
+
+5
+
+midtempo 5
+
+shuffle
+
+5
+
+midtempo 5
+
+blues
+
+shuffle
+
+groove
+
+5
+
+5
+
+5
+
+midtempo 5
+
+blues
+
+5
+
+5
+
+NEVER BEEN TO SPAIN
+
+Three Dog … E
+
+110
+
+groove
+
+Counterclockwise PDF
+
+inferred/cross-checked
+
+REVELATION
+
+Robben Ford G
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Clockwise
+
+PDF
+
+Counterclockwise PDF
+
+Static
+
+Static
+
+Static
+
+PDF
+
+PDF
+
+PDF
+
+Counterclockwise PDF
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Fluid
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Fluid
+
+Clockwise
+
+Clockwise
+
+PDF
+
+PDF
+
+PDF
+
+Counterclockwise PDF
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Clockwise
+
+PDF
+
+Counterclockwise PDF
+
+Clockwise
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+BOOGIE ON REGGAE …
+
+Stevie Won… A
+
+HEY HEY WHAT CAN I DO Led Zeppelin A
+
+BLACK MAGIC WOMAN
+
+Santana
+
+Dm
+
+BREEZIN'
+
+George Be… D
+
+THE LEMON
+
+Led Zeppelin E
+
+MARY JANE'S LAST DA…
+
+Tom Petty
+
+Am
+
+BEFORE YOU HIT THE …
+
+Jonny Lang
+
+KILLING FLOOR
+
+Hendrix
+
+COME TOGETHER
+
+The Beatles
+
+E
+
+A
+
+D
+
+SITTIN' ON THE DOCK … Otis Redding G
+
+WHAT I GOT
+
+Sublime
+
+D
+
+COMIN' HOME BABY
+
+Danny Gat… Gm
+
+SANTERIA
+
+Sublime
+
+CROSSROADS
+
+Eric Clapton
+
+TUNE 88
+
+Jeff Lorber
+
+RACK 'EM UP
+
+Jonny Lang
+
+E
+
+A
+
+G
+
+C
+
+TALK TO YOUR DAUGH…
+
+Robben Ford G
+
+ALL BLUES
+
+Miles Davis
+
+G
+
+LET'S GET IT ON
+
+Marvin Gaye C
+
+DEAL
+
+Grateful D…
+
+A
+
+EVERY DAY I HAVE THE… B.B. King
+
+Bb
+
+THIS MASQUERADE
+
+George Be… F
+
+THE SKY IS CRYING
+
+Elmore Ja…
+
+Bb
+
+LET'S STAY TOGETHER
+
+Al Green
+
+ALL ALONG THE WATC…
+
+Jimi Hendrix
+
+F
+
+C
+
+ON BROADWAY
+
+George Be… Bb
+
+MY MAMA TOLD ME SO
+
+The Crusa…
+
+Bb
+
+BLACK CAT BONE
+
+Johnny Wi…
+
+C
+
+TAKE FIVE
+
+Dave Brub… Ebm
+
+GRAVITY
+
+PLUSH
+
+John Mayer
+
+G
+
+Stone Tem… G
+
+SO VERY HARD TO GO
+
+Tower of P…
+
+Bb
+
+LIVING FOR THE CITY
+
+Stevie Won… E
+
+AIN'T NO SUNSHINE
+
+Bill Withers
+
+Am
+
+MY GIRL
+
+The Tempt… C
+
+INTERSTATE LOVE
+
+Stone Tem… A
+
+YELLOW LEDBETTER
+
+Pearl Jam
+
+E
+
+BROWN EYED GIRL
+
+Van Morris… G
+
+VOODOO CHILD
+
+Jimi Hendrix
+
+SHE TALKS TO ANGELS
+
+Black Cro…
+
+E
+
+E
+
+AIN'T TOO PROUD TO B… The Tempt… C
+
+97
+
+114
+
+120
+
+94
+
+102
+
+87
+
+110
+
+114
+
+85
+
+106
+
+96
+
+130
+
+90
+
+110
+
+100
+
+112
+
+136
+
+120
+
+79
+
+112
+
+106
+
+66
+
+60
+
+102
+
+114
+
+120
+
+110
+
+110
+
+174
+
+63
+
+104
+
+84
+
+102
+
+76
+
+104
+
+115
+
+78
+
+150
+
+112
+
+75
+
+118
+
+midtempo 6
+
+funk
+
+6
+
+midtempo 6
+
+groove
+
+jazz
+
+shuffle
+
+groove
+
+funk
+
+shuffle
+
+rock
+
+ballad
+
+6
+
+6
+
+6
+
+6
+
+6
+
+6
+
+6
+
+6
+
+midtempo 6
+
+uptempo
+
+6
+
+midtempo 6
+
+blues
+
+funk
+
+shuffle
+
+uptempo
+
+swing
+
+6
+
+7
+
+7
+
+7
+
+7
+
+midtempo 7
+
+groove
+
+shuffle
+
+ballad
+
+blues
+
+soul
+
+7
+
+7
+
+7
+
+7
+
+7
+
+midtempo 7
+
+groove
+
+funk
+
+shuffle
+
+jazz
+
+ballad
+
+groove
+
+ballad
+
+funk
+
+7
+
+7
+
+7
+
+7
+
+8
+
+8
+
+8
+
+8
+
+midtempo 8
+
+soul
+
+groove
+
+ballad
+
+uptempo
+
+groove
+
+ballad
+
+uptempo
+
+8
+
+8
+
+8
+
+8
+
+8
+
+8
+
+8
+
+Power of Love
+
+Foxy Lady
+
+Huey Lewis and the News
+
+Jimi Hendrix
+
+F#
+
+128
+
+Straight-Ahead Rock 9
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+POWER OF LOVE
+
+Huey Lewis
+
+c
+
+Clockwise
+
+PDF
+
+PDF
+
+FOXY LADY
+
+Jimi Hendrix
+
+F#
+
+128
+
+uptempo
+
+116
+
+117
+
+118
+
+119
+
+120
+
+121
+
+122
+
+123
+
+124
+
+125
+
+126
+
+127
+
+128
+
+129
+
+130
+
+131
+
+132
+
+133
+
+134
+
+135
+
+136
+
+137
+
+138
+
+139
+
+140
+
+141
+
+142
+
+143
+
+144
+
+145
+
+146
+
+147
+
+148
+
+149
+
+150
+
+151
+
+152
+
+153
+
+154
+
+155
+
+Room 335
+
+Larry Carlton
+
+Put It Where You Want It
+
+The Crusaders
+
+D
+
+C
+
+112 Up-Tempo Funk
+
+110
+
+Jazz Fusion
+
+Me & Mrs. Jones
+
+Billy Paul
+
+Cm 65
+
+Classic Soul
+
+Higher Ground
+
+Stevie Wonder
+
+E
+
+108 Up-Tempo Funk
+
+Pride & Joy / Little Wing
+
+Stevie Ray Vaughan / Jimi Hendrix
+
+Em 68
+
+Blues-Rock
+
+9
+
+9
+
+6
+
+9
+
+8
+
+Purple Haze
+
+Jimi Hendrix
+
+Slow Blues for Z from the 5
+
+Chris Zemba
+
+E
+
+G
+
+116
+
+Straight-Ahead Rock 9
+
+60
+
+Traditional Blues
+
+What You Won't Do for Love
+
+Bobby Caldwell
+
+Em 112 R&B
+
+Put It Where You Want It
+
+The Crusaders
+
+Talk to Your Daughter
+
+Robben Ford
+
+Dixie Chicken
+
+Little Feat
+
+All Along the Watchtower
+
+Jimi Hendrix
+
+C
+
+G
+
+A
+
+C
+
+C
+
+110
+
+Jazz Fusion
+
+136
+
+Blues-Rock
+
+78
+
+Roots Americana
+
+114
+
+Blues-Rock
+
+118
+
+Pop-Rock
+
+The Needle and the Spoon
+
+Lynyrd Skynyrd
+
+D
+
+102
+
+Straight-Ahead Rock 9
+
+Pick Up the Pieces
+
+Average White Band
+
+Fm
+
+109 Up-Tempo Funk
+
+Dock of the Bay
+
+Otis Redding
+
+Ain't Too Proud to Beg
+
+The Temptations
+
+Giving It Up for Your Love
+
+Delbert McClinton
+
+Tush
+
+Train, Train
+
+ZZ Top
+
+Blackfoot
+
+What's Going On / Mercy Mercy Me
+
+Marvin Gaye
+
+Minute by Minute
+
+The Doobie Brothers
+
+La Grange
+
+ZZ Top
+
+Don't Ask Me No Questions
+
+Lynyrd Skynyrd
+
+Born Under a Bad Sign
+
+Robben Ford / Albert King
+
+Hoochie Coochie Man
+
+Eric Clapton / Muddy Waters
+
+Cissy Strut
+
+Ophelia
+
+The Meters
+
+The Band
+
+Hard to Handle
+
+The Black Crowes
+
+G
+
+C
+
+C
+
+G
+
+E
+
+E
+
+C
+
+A
+
+G
+
+D
+
+A
+
+C
+
+C
+
+B
+
+A
+
+104 Classic Soul
+
+118 Motown
+
+107 Classic Soul
+
+144
+
+Blues-Rock
+
+121
+
+Straight-Ahead Rock 9
+
+84
+
+95
+
+Classic Soul
+
+Yacht Rock
+
+162
+
+Blues-Rock
+
+6
+
+5
+
+8
+
+132
+
+Straight-Ahead Rock 9
+
+94
+
+85
+
+93
+
+Traditional Blues
+
+Traditional Blues
+
+Up-Tempo Funk
+
+101 Roots Americana
+
+103 Classic Soul
+
+132 Classic Soul
+
+Domino
+
+Vehicle
+
+Van Morrison
+
+The Ides of March
+
+Ebm 102 Classic Soul
+
+Down South Jukin'
+
+Lynyrd Skynyrd
+
+Keep Your Hands to Yourself
+
+Georgia Satellites
+
+Honky Tonk Women
+
+The Rolling Stones
+
+Peg
+
+Green River
+
+I Know a Little
+
+Midnight Rider
+
+Steely Dan
+
+Creedence Clearwater Revival
+
+Lynyrd Skynyrd
+
+The Allman Brothers Band
+
+The House Is Rockin'
+
+Stevie Ray Vaughan
+
+A
+
+A
+
+G
+
+G
+
+E
+
+A
+
+D
+
+C
+
+132
+
+Straight-Ahead Rock 9
+
+115 Rockabilly
+
+8
+
+120
+
+Straight-Ahead Rock 9
+
+117
+
+Yacht Rock
+
+100
+
+Blues-Rock
+
+212 Rockabilly
+
+92
+
+Roots Americana
+
+172 Rockabilly
+
+5
+
+8
+
+8
+
+5
+
+8
+
+4
+
+6
+
+9
+
+8
+
+5
+
+8
+
+7
+
+9
+
+6
+
+7
+
+6
+
+8
+
+4
+
+4
+
+9
+
+5
+
+6
+
+6
+
+6
+
+2
+
+3
+
+2
+
+2
+
+2
+
+1
+
+1
+
+2
+
+3
+
+2
+
+1
+
+2
+
+2
+
+1
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+2
+
+2
+
+2
+
+1
+
+1
+
+1
+
+2
+
+1
+
+2
+
+2
+
+2
+
+1
+
+2
+
+1
+
+2
+
+2
+
+2
+
+1
+
+2
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Low
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Mid
+
+Mid
+
+High
+
+Mid
+
+Mid
+
+Mid
+
+Low
+
+Low
+
+Mid
+
+Static
+
+Fluid
+
+PDF
+
+PDF
+
+Counterclockwise PDF
+
+Static
+
+PDF
+
+Counterclockwise PDF
+
+Clockwise
+
+PDF
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+High
+
+Fluid
+
+PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+PDF
+
+ROOM 335
+
+Larry Carlton D
+
+PUT IT WHERE YOU WA… The Crusa…
+
+C
+
+ME & MRS. JONES
+
+Billy Paul
+
+Cm
+
+HIGHER GROUND
+
+Stevie Won… E
+
+PRIDE & JOY - LITTLE …
+
+SRVHendrix
+
+Em
+
+PURPLE HAZE
+
+Jimi Hendrix
+
+E
+
+SLOW BLUES FOR Z F…
+
+Chris Zemba G
+
+WHAT YOU WON'T DO F… Bobby Cal…
+
+Em
+
+PUT IT WHERE YOU WA… The Crusa…
+
+C
+
+TALK TO YOUR DAUGH…
+
+Robben Ford G
+
+112
+
+110
+
+65
+
+108
+
+68
+
+116
+
+60
+
+112
+
+110
+
+136
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+DIXIE CHICKEN
+
+Little Feat
+
+Counterclockwise PDF
+
+PDF
+
+ALL ALONG THE WATC…
+
+Jimi Hendrix
+
+C
+
+114
+
+midtempo 9
+
+funk
+
+groove
+
+ballad
+
+funk
+
+rock
+
+uptempo
+
+blues
+
+8
+
+8
+
+8
+
+9
+
+9
+
+9
+
+9
+
+midtempo 9
+
+groove
+
+uptempo
+
+a
+
+9
+
+9
+
+9
+
+9
+
+9
+
+9
+
+9
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF
+
+Counterclockwise PDF
+
+PDF
+
+PDF
+
+THE NEEDLE AND THE … Lynyrd Sk…
+
+PICK UP THE PIECES
+
+AWB
+
+d
+
+fm
+
+DOCK OF THE BAY
+
+Otis Redding G
+
+AIN'T TOO PROUD TO B… The Tempt… C
+
+104
+
+118
+
+midtempo 9
+
+uptempo
+
+9
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+GIVING IT UP FOR YOU… Delbert Mc…
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+TUSH
+
+ZZ Top
+
+TRAIN, TRAIN
+
+Blackfoot
+
+c
+
+g
+
+e
+
+Counterclockwise PDF
+
+PDF
+
+WHAT'S GOING ON / M… Marvin Gaye
+
+E
+
+84
+
+groove
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+MINUTE BY MINUTE
+
+The Doobi…
+
+LA GRANGE
+
+ZZ Top
+
+DON'T ASK ME NO QUE… Lynyrd Sk…
+
+c
+
+a
+
+g
+
+Counterclockwise PDF
+
+PDF
+
+BORN UNDER A BAD SI… Robben Ford D
+
+94
+
+shuffle
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+HOOCHIE COOCHIE MAN Eric Clapton
+
+a
+
+Static
+
+PDF
+
+PDF
+
+CISSY STRUT
+
+The Meters
+
+C
+
+93
+
+funk
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Clockwise
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+Counterclockwise PDF-style-column inferred/cross-checked
+
+Static
+
+PDF-style-column inferred/cross-checked
+
+OPHELIA
+
+The Band
+
+HARD TO HANDLE
+
+The Black …
+
+DOMINO
+
+VEHICLE
+
+Van Morris…
+
+Ides of Mar…
+
+DOWN SOUTH JUKIN' (… Lynyrd Sk…
+
+KEEP YOUR HANDS TO … Georgia Sa…
+
+HONKY TONK WOMEN
+
+The Rollin…
+
+PEG
+
+Steely Dan
+
+GREEN RIVER
+
+Creedence…
+
+I KNOW A LITTLE
+
+Lynyrd Sk…
+
+MIDNIGHT RIDER
+
+The Allma…
+
+THE HOUSE IS ROCKIN'
+
+Stevie Ray…
+
+c
+
+b
+
+a
+
+ebm
+
+a
+
+a
+
+g
+
+g
+
+e
+
+a
+
+d
+
+c
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+10
+
+11
+
+11
+
+11
+
+11
+
+11
+
+11
+
+11
+
+
