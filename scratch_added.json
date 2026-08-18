@@ -1,0 +1,272 @@
+[
+ {
+  "title": "Simple Man",
+  "artist": "Lynyrd Skynyrd",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": true,
+  "solo": true,
+  "highlight": false
+ },
+ {
+  "title": "Free Bird",
+  "artist": "Lynyrd Skynyrd",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": true,
+  "solo": true,
+  "highlight": false
+ },
+ {
+  "title": "Gimme Three Steps",
+  "artist": "Lynyrd Skynyrd",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "The Needle and the Spoon",
+  "artist": "Lynyrd Skynyrd",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Don't Ask Me No Questions",
+  "artist": "Lynyrd Skynyrd",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Down South Jukin'",
+  "artist": "Lynyrd Skynyrd",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Lowdown",
+  "artist": "Boz Scaggs",
+  "genre": "Jazz, Pop & Crossover",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Sick & Tired",
+  "artist": "Boz Scaggs",
+  "genre": "Jazz, Pop & Crossover",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Bad to the Bone",
+  "artist": "George Thorogood",
+  "genre": "Blues & Blues Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Trudy",
+  "artist": "The Charlie Daniels Band",
+  "genre": "Country, Americana & Roots",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Suspicious Minds",
+  "artist": "Elvis Presley",
+  "genre": "Jazz, Pop & Crossover",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": true,
+  "solo": true,
+  "highlight": false
+ },
+ {
+  "title": "Rocky Mountain Way",
+  "artist": "Joe Walsh",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Give Me One Reason",
+  "artist": "Tracy Chapman",
+  "genre": "Soul, Motown & R&B",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": true,
+  "solo": true,
+  "highlight": false
+ },
+ {
+  "title": "Just Got Paid",
+  "artist": "ZZ Top",
+  "genre": "Blues & Blues Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "You Can Leave Your Hat On",
+  "artist": "Joe Cocker",
+  "genre": "Soul, Motown & R&B",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": true,
+  "solo": true,
+  "highlight": false
+ },
+ {
+  "title": "Hold On Loosely",
+  "artist": "38 Special",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Gimme All Your Lovin'",
+  "artist": "ZZ Top",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "There Goes Another Love Song",
+  "artist": "The Outlaws",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Love & Happiness",
+  "artist": "Al Green",
+  "genre": "Soul, Motown & R&B",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": true,
+  "solo": true,
+  "highlight": false
+ },
+ {
+  "title": "All Along the Watchtower",
+  "artist": "Jimi Hendrix",
+  "genre": "Blues & Blues Rock",
+  "fullBand": true,
+  "lateShift": true,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Power of Love",
+  "artist": "Huey Lewis & The News",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Giving It Up for Your Love",
+  "artist": "Delbert McClinton",
+  "genre": "Soul, Motown & R&B",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Tush",
+  "artist": "ZZ Top",
+  "genre": "Blues & Blues Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Train, Train",
+  "artist": "Blackfoot",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Vehicle",
+  "artist": "The Ides of March",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "Green River",
+  "artist": "Creedence Clearwater Revival",
+  "genre": "Classic Rock & Southern Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ },
+ {
+  "title": "The House Is Rockin'",
+  "artist": "Stevie Ray Vaughan",
+  "genre": "Blues & Blues Rock",
+  "fullBand": true,
+  "lateShift": false,
+  "duo": false,
+  "solo": false,
+  "highlight": false
+ }
+]
