@@ -487,6 +487,13 @@
       </ul>
     </section>
 
+    <!-- ============ WHO'S BOOKING? — persona router to tailored cuts ============ -->
+    <!-- data-audience="full" → present only on the full EPK and dropped from every generated cut
+         (a cut is already aimed at one buyer, so it needs no router). Sends each buyer to the
+         version of the kit trimmed to exactly what they shortlist on. Neutral spec-sheet surface
+         per the accent-budget rule; icons ignite on hover only. -->
+    
+
     <!-- ============ EVENTS WE PLAY (booking-audience bento) ============ -->
     
 
@@ -648,6 +655,13 @@
             </div>
           </div>
         </div>
+        <!-- ZembAcoustics has its own standalone sub-brand page (azure theme, solo/duo focus). -->
+        <div class="mt-6 text-center">
+          <a href="/solo-duo/" class="inline-flex items-center gap-2 rounded-xl bg-white/[0.05] border border-white/[0.14] text-white font-display font-600 uppercase tracking-wider text-[13px] px-5 py-3 hover:bg-white/[0.09] hover:border-white/25 transition group">
+            <i class="fa-solid fa-guitar text-fire-400"></i> See the full ZembAcoustics solo &amp; duo page
+            <i class="fa-solid fa-arrow-right text-slate-500 group-hover:text-fire-400 group-hover:translate-x-1 transition"></i>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -775,14 +789,19 @@
             </div>
           </div>
 
-          <!-- Connect: Linktree hub + native socials -->
+          <!-- Connect: for FANS. Booking is handled by #book / the contact block above — this block is
+               deliberately the fan spoke, not another route to booking, so talent buyers are never
+               funneled into a link aggregator. The hub card points OUT to Linktree (this page is the
+               canonical home, so a self-link to zembamusicco.com would be circular). utm_* on the
+               Linktree link lets the EPK→Linktree hand-off show up in the outbound-link analytics. -->
           <div class="mt-4 space-y-3">
-            <a href="https://zembamusicco.com" target="_blank" rel="noopener" class="flex items-center justify-between gap-3 rounded-2xl border border-fire-500/25 bg-gradient-to-r from-fire-500/10 to-midnight-900 px-5 py-4 card-hover hover:border-fire-500/50 group">
+            <p class="font-display font-600 uppercase tracking-[0.16em] text-[11px] text-slate-400">For fans &middot; follow &amp; stream</p>
+            <a href="https://linktr.ee/chriszemba?utm_source=epk&amp;utm_medium=connect&amp;utm_campaign=fan_hub" target="_blank" rel="noopener" class="flex items-center justify-between gap-3 rounded-2xl border border-fire-500/25 bg-gradient-to-r from-fire-500/10 to-midnight-900 px-5 py-4 card-hover hover:border-fire-500/50 group">
               <span class="flex items-center gap-3">
-                <span class="shrink-0 w-10 h-10 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-globe text-slate-400 transition-colors duration-300 group-hover:text-fire-400"></i></span>
+                <span class="shrink-0 w-10 h-10 rounded-lg bg-fire-500/15 grid place-items-center"><i class="fa-solid fa-link text-slate-400 transition-colors duration-300 group-hover:text-fire-400"></i></span>
                 <span>
-                  <span class="block font-display font-600 uppercase tracking-wide text-sm text-white">Official Website</span>
-                  <span class="block text-[11px] text-slate-400">zembamusicco.com</span>
+                  <span class="block font-display font-600 uppercase tracking-wide text-sm text-white">All links &middot; Linktree</span>
+                  <span class="block text-[11px] text-slate-400">Tickets, music, socials &amp; merch in one place</span>
                 </span>
               </span>
               <i class="fa-solid fa-arrow-right text-slate-500 group-hover:text-fire-400 group-hover:translate-x-1 transition"></i>
@@ -1430,15 +1449,53 @@
     (function () {
       var card = document.getElementById('bit-widget-card');
       if (!card) return;
-      var loaded = false;
+      var fallback = document.getElementById('bit-fallback');
+      var anchor = card.querySelector('.bit-widget-initializer');
+      var loaded = false, decided = false;
+
+      // A rendered event row carries a date; the widget's own "no shows" message and the follow
+      // section do not. So "the widget produced a Bandsintown-classed node containing a date" is a
+      // reliable-enough signal that real events exist. Best-effort — eyeball on the deployed URL.
+      var DATE_RE = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|20\d{2})\b/i;
+      function hasEvents() {
+        var nodes = card.querySelectorAll('[class*="bit"]');
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+          if (fallback && (n === fallback || fallback.contains(n))) continue;
+          if (n.classList && n.classList.contains('bit-widget-initializer')) continue;
+          if (DATE_RE.test(n.textContent || '')) return true;
+        }
+        return false;
+      }
+      function showFallback() {           // empty calendar or blocked/failed script
+        if (decided || !fallback) return;
+        decided = true;
+        if (anchor) anchor.hidden = true; // suppress the widget's own bare "no shows" state
+        fallback.hidden = false;
+      }
+      function keepWidget() { decided = true; }  // real events rendered — leave the widget alone
+
       function load() {
         if (loaded) return;
         loaded = true;
         var s = document.createElement('script');
         s.charset = 'utf-8';
         s.src = 'https://widgetv3.bandsintown.com/main.min.js';
+        s.onerror = showFallback;        // ad blocker / network failure
         document.body.appendChild(s);
+
+        var mo = new MutationObserver(function () {
+          if (hasEvents()) { keepWidget(); mo.disconnect(); }
+        });
+        mo.observe(card, { childList: true, subtree: true });
+        // If nothing event-like appears in the window, treat the calendar as empty and swap in
+        // the branded residency card instead of leaving a bare box under the live heading.
+        setTimeout(function () {
+          mo.disconnect();
+          if (hasEvents()) { keepWidget(); } else { showFallback(); }
+        }, 6000);
       }
+
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
           if (entries.some(function (e) { return e.isIntersecting; })) { load(); io.disconnect(); }

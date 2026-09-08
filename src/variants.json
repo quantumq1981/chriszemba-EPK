@@ -17,6 +17,40 @@
         "hero-eyebrow": "Live music for venues, bars &amp; restaurants &middot; Las Vegas, NV",
         "hero-subcopy": "Solo, duo, and trio sets that fill your room and your calendar &mdash; flexible, self-contained, and easy to book, from a quiet dinner set to a packed Friday night."
       }
+    },
+    {
+      "slug": "corporate",
+      "outDir": "corporate",
+      "audience": "corporate",
+      "subjectLabel": "Corporate & galas",
+      "title": "Chris Zemba | Corporate Event & Gala Entertainment · Las Vegas",
+      "description": "Fully insured, W-9 and COI-ready live music for Las Vegas corporate events, galas, brand launches, and conference after-parties. Scalable from a jazz trio to a 9-piece horn section. Featured on FOX5.",
+      "canonical": "https://zembamusicco.com/corporate/",
+      "ogUrl": "https://zembamusicco.com/corporate/",
+      "ogTitle": "Chris Zemba | Corporate & Gala Entertainment · Las Vegas",
+      "ogDescription": "Insured, COI-ready live music for corporate events, galas, and brand launches. Jazz trio to 9-piece horn section. Booked through one point of contact.",
+      "hideBudgetLadder": false,
+      "slots": {
+        "hero-eyebrow": "Corporate events, galas &amp; brand activations &middot; Las Vegas, NV",
+        "hero-subcopy": "Award dinners, brand launches, conference after-parties, and holiday galas &mdash; fully insured, W&#8209;9 and COI ready, and scalable from a jazz trio to a 9-piece horn section, all booked through one point of contact."
+      }
+    },
+    {
+      "slug": "weddings",
+      "outDir": "weddings",
+      "audience": "weddings",
+      "subjectLabel": "Weddings",
+      "title": "Chris Zemba | Wedding Ceremony, Cocktail & Reception Music · Las Vegas",
+      "description": "One bandleader for your whole wedding day in Las Vegas — solo acoustic ceremony, cocktail-hour duo, and a full band for the reception. Insured, professional, and easy to book. Featured on FOX5.",
+      "canonical": "https://zembamusicco.com/weddings/",
+      "ogUrl": "https://zembamusicco.com/weddings/",
+      "ogTitle": "Chris Zemba | Wedding Music · Ceremony to Reception · Las Vegas",
+      "ogDescription": "One bandleader for the whole day: acoustic ceremony, cocktail duo, full-band reception. Insured and professional. Featured on FOX5.",
+      "hideBudgetLadder": false,
+      "slots": {
+        "hero-eyebrow": "Weddings &middot; ceremony, cocktail hour &amp; reception &middot; Las Vegas, NV",
+        "hero-subcopy": "One bandleader for the whole day &mdash; a solo acoustic ceremony, a cocktail-hour duo, and a full band that packs the reception dance floor, with a repertoire built from your must-play list."
+      }
     }
   ]
 }
