@@ -54,16 +54,18 @@ their booking.**
    *first* thing a production manager, corporate planner, or entertainment director shortlists on.
 4. **Cross-page nav is inconsistent.** `songs.html` has a proper "← Full EPK" backlink; `solo-duo/`
    had only `#book`/`#songs` — a dead end with no route back.
-5. **The Bandsintown block reads as abandoned when empty.** A live "Upcoming shows" heading over an
-   empty (or ad-blocked) third-party widget is the exact "dated site = not currently working" signal
-   the audits warned about — worse than having no dates section at all.
+5. **The Bandsintown block had no fallback for the empty/blocked case.** A live "Upcoming shows"
+   heading over an empty (or ad-blocked) third-party widget is the exact "dated site = not currently
+   working" signal the audits warned about. (The owner has since populated the calendar, so the live
+   widget now renders real dates; the fix below is the safety net for the day it empties out or a
+   visitor's ad-blocker kills the widget script.)
 
 ---
 
 ## 3. Recommendations (implemented in this pass)
 
-All five are **code**, shipped on this branch. Owner-account steps (populate Bandsintown, Linktree
-Pro settings) are the only handoffs, listed in §5 and `CLAUDE.md`.
+All five are **code**, shipped on this branch. Remaining owner-account steps (Linktree Pro settings;
+deployed-URL QA) are the only handoffs, listed in §5 and `CLAUDE.md`.
 
 ### R1 — Persona router + Corporate & Wedding cuts *(highest impact)*
 The build system gives audience cuts for free; this pass adds the two lanes the brief names.
@@ -119,8 +121,8 @@ These two tools do different jobs; the mistake is treating either as the booking
 
 | Tool | Correct role | What this pass wired | Owner action (§5) |
 |---|---|---|---|
-| **Bandsintown for Artists** | *Fan retention + proof-of-activity.* A populated calendar signals a working act; the Track button builds a notified following. | Themed widget + graceful empty-state + tracked Track CTA. | **Populate gigs** (`id_14646019`) — the widget is empty until then. |
-| **Linktree Pro** | *Fan aggregator* for casual social traffic (IG/TikTok bio link). Not the pro booking path. | Inverted the funnel: EPK is the hub, Linktree the fan spoke, links tracked. | Pin the EPK/booking link to the **top** of Linktree; enable Linktree Pro lead-capture for fan inquiries; confirm `zembamusicco.com` resolves to the **EPK**, not a Linktree forward. |
+| **Bandsintown for Artists** | *Fan retention + proof-of-activity.* A populated calendar signals a working act; the Track button builds a notified following. | Themed widget + defensive empty-state safety net + tracked Track CTA. | ✅ **Populated** — owner maintains live dates (`id_14646019`); the widget renders them and self-updates. The empty-state only appears if the calendar ever empties or the script is blocked. |
+| **Linktree Pro** | *Fan aggregator* for casual social traffic (IG/TikTok bio link). Not the pro booking path. | Inverted the funnel: EPK is the hub, Linktree the fan spoke, links tracked. | Pin the EPK/booking link to the **top** of Linktree; enable Linktree Pro lead-capture for fan inquiries. (`zembamusicco.com` → EPK: ✅ done.) |
 
 **The principle:** the EPK is the professional funnel (agents, planners, directors, club owners →
 `#book`). Bandsintown and Linktree are fan-facing surfaces that should *feed* the EPK, not compete
@@ -130,15 +132,16 @@ with it. Both now point inward for pros and outward for fans, with the hand-off 
 
 ## 5. Owner handoffs (require account access — cannot be done in-repo)
 
-1. **Populate Bandsintown for Artists** (`id_14646019`) with upcoming public dates. Until then the
-   new residency fallback shows — which is truthful and useful, but real dates are stronger.
-2. **Linktree Pro:** pin EPK/booking to the top; enable lead-capture; verify the domain resolves to
-   the EPK (not a forward to Linktree).
-3. **Deployed-URL QA:** Lighthouse mobile, Google Rich Results on the JSON-LD, and an eyeball of the
-   Bandsintown widget theming + the empty-state swap (no browser in the build sandbox).
-4. **Named testimonials** (a standing content gap from the audits): a third named reference —
+1. **Linktree Pro:** pin EPK/booking to the top; enable lead-capture. (Domain resolution —
+   `zembamusicco.com` → EPK — is done.)
+2. **Deployed-URL QA:** Lighthouse mobile and Google Rich Results on the JSON-LD (no browser in the
+   build sandbox).
+3. **Named testimonials** (a standing content gap from the audits): a third named reference —
    entertainment director or catering/banquet manager, title + property — is the last high-value
    item. No quote or attribution may be invented; supply one and it drops in.
+
+**Already done:** Bandsintown calendar is populated (`id_14646019`, live dates render — the
+empty-state safety net stays dormant); `zembamusicco.com` resolves to the EPK.
 
 ---
 
