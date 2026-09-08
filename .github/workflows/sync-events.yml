@@ -1,0 +1,52 @@
+name: Sync Bandsintown events
+
+# Bakes the act's real upcoming Bandsintown shows into index.html as schema.org MusicEvent JSON-LD
+# (server-side fetch — no CORS), so they're eligible for Google event rich results. Runs daily and
+# on demand. Commits to main only when the event data actually changed, so there's no daily noise.
+
+on:
+  schedule:
+    - cron: '0 14 * * *'   # 14:00 UTC daily (~7am Pacific)
+  workflow_dispatch:        # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-events
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch events and regenerate if changed
+        run: |
+          set -euo pipefail
+
+          # 1) Pull events → rewrite the JSON-LD block in index.html (no-op if unchanged).
+          node scripts/sync-events.mjs
+
+          # 2) Nothing changed → stop before installing/building (avoids epk.json churn commits).
+          if git diff --quiet -- index.html; then
+            echo "No event changes — nothing to commit."
+            exit 0
+          fi
+
+          echo "Event data changed — rebuilding cuts and committing."
+          npm ci
+          npm run build
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Sync Bandsintown events into MusicEvent JSON-LD [skip ci]"
+          git push
