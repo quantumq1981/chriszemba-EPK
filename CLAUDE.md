@@ -55,9 +55,11 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
 - **Booking form:** FormSubmit `/ajax` → `booking@zembamusicco.com` (activated, live). Change the
   destination by editing the email in the form `action`. `/ajax` does not carry file uploads.
 - **Bandsintown for Artists:** artist `id_14646019`, widget in `#dates`, lazy-loaded on scroll,
-  themed dark/fire (`data-auto-style="false"`). Empty until the owner enters gigs. A branded
-  residency **fallback** (`#bit-fallback`) shows if the widget renders zero events or is
-  blocked/failed (see the loader at the foot of `index.html`).
+  themed dark/fire (`data-auto-style="false"`). **Populated and live** — the owner maintains gigs in
+  Bandsintown for Artists and the widget self-updates. A branded residency **fallback**
+  (`#bit-fallback`) is a defensive safety net that shows **only** if the widget ever renders zero
+  events or the third-party script is blocked/failed; it stays hidden while real dates render (see
+  the loader at the foot of `index.html`).
 - **Linktree** = fan spoke, not the booking path. Human-facing Linktree links carry `utm_source=epk`;
   JSON-LD `sameAs` links stay clean. Booking always routes to `#book`/contact.
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
@@ -73,12 +75,14 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
 
 ## Open owner handoffs (account-gated — can't be done in-repo)
 
-1. Populate Bandsintown (`id_14646019`) with upcoming dates.
-2. Linktree Pro: pin EPK/booking on top, enable lead-capture, confirm `zembamusicco.com` → EPK
-   (not a Linktree forward).
-3. Deployed-URL QA: Lighthouse mobile, Rich Results test, Bandsintown widget + empty-state eyeball.
-4. One more **named** testimonial (entertainment director or banquet/catering manager — title +
+1. Linktree Pro: pin EPK/booking on top, enable lead-capture.
+   (`zembamusicco.com` is wired to the EPK and Bandsintown is populated — both done.)
+2. Deployed-URL QA: Lighthouse mobile, Rich Results test.
+3. One more **named** testimonial (entertainment director or banquet/catering manager — title +
    property). Supply real; never invent.
+
+**Done (no longer open):** Bandsintown calendar is populated (`id_14646019`, live dates render);
+`zembamusicco.com` resolves to the EPK.
 
 ---
 _Update this file at the end of each session with anything the next session needs to know._
