@@ -1,0 +1,55 @@
+name: Generate booking PDFs
+
+on:
+  push:
+    branches:
+      - main
+      - update-epk-corporate-rider-2026
+    paths:
+      - 'assets/downloads/one-sheet-src.html'
+      - 'assets/downloads/tech-rider-src.html'
+      - '.github/workflows/generate-booking-pdfs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate PDFs with headless Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          if [ -z "$CHROME" ]; then
+            echo "Chrome/Chromium not found on runner" >&2
+            exit 1
+          fi
+          ROOT="file://${GITHUB_WORKSPACE}"
+          "$CHROME" --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
+            --print-to-pdf="${GITHUB_WORKSPACE}/assets/downloads/chris-zemba-one-sheet.pdf" \
+            "${ROOT}/assets/downloads/one-sheet-src.html"
+          "$CHROME" --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
+            --print-to-pdf="${GITHUB_WORKSPACE}/assets/downloads/zemba-music-tech-rider.pdf" \
+            "${ROOT}/assets/downloads/tech-rider-src.html"
+
+      - name: Commit regenerated PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/downloads/chris-zemba-one-sheet.pdf assets/downloads/zemba-music-tech-rider.pdf
+          if git diff --cached --quiet; then
+            echo "PDFs already current"
+            exit 0
+          fi
+          git commit -m "Regenerate booking PDFs"
+          git push
