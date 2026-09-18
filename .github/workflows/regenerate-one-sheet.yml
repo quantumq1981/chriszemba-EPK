@@ -1,0 +1,62 @@
+name: Regenerate one-sheet PDF
+
+on:
+  push:
+    branches:
+      - update-epk-corporate-rider-2026
+    paths:
+      - assets/downloads/one-sheet-src.html
+      - .github/workflows/regenerate-one-sheet.yml
+
+permissions:
+  contents: write
+
+jobs:
+  render-one-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Render one-sheet PDF
+        run: |
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import path from 'node:path';
+          import { pathToFileURL } from 'node:url';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 816, height: 1056 } });
+          const source = path.resolve('assets/downloads/one-sheet-src.html');
+          await page.goto(pathToFileURL(source).href, { waitUntil: 'networkidle' });
+          await page.pdf({
+            path: 'assets/downloads/chris-zemba-one-sheet.pdf',
+            format: 'Letter',
+            printBackground: true,
+            preferCSSPageSize: true,
+            margin: { top: 0, right: 0, bottom: 0, left: 0 }
+          });
+          await browser.close();
+          NODE
+
+      - name: Commit regenerated PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/downloads/chris-zemba-one-sheet.pdf
+          if git diff --cached --quiet; then
+            echo "One-sheet PDF is already current."
+          else
+            git commit -m "Regenerate one-sheet PDF for 4-6 piece lineup"
+            git push
+          fi
