@@ -214,12 +214,12 @@
               <div class="act-tags"><span>Blues Rock</span><span>R&amp;B</span><span>Soul</span><span>Top 40</span></div>
             </div>
             <div class="video-card" style="border:0;border-top:1px solid var(--line);border-radius:0">
-              <div class="video-facade yt" data-id="TVp9LDZ0g_M" role="button" tabindex="0" aria-label="Play The Chris Zemba Band Official Promo Reel 2026">
+              <a class="video-facade" href="https://www.youtube.com/watch?v=TVp9LDZ0g_M" target="_blank" rel="noopener noreferrer" aria-label="Play The Chris Zemba Band Official Promo Reel 2026 on YouTube">
                 <img src="/assets/photos/live-hero-guitar.webp" alt="">
                 <span class="play" aria-hidden="true"></span>
-              </div>
+              </a>
               <div class="vid-meta">
-                <div class="vid-title">Official Promo Reel 2026</div>
+                <div class="vid-title">Official Promo Reel 2026 <span style="color:#ff8f61;font-size:11px">· YouTube ↗</span></div>
                 <p class="vid-desc">Primary full-band showcase for casino lounges, festivals, corporate buyers, and large rooms.</p>
               </div>
             </div>
@@ -234,12 +234,12 @@
               <div class="act-tags"><span>Classic Rock</span><span>Blues</span><span>Soul</span><span>Funk</span><span>Jazz</span></div>
             </div>
             <div class="video-card" style="border:0;border-top:1px solid var(--line);border-radius:0">
-              <div class="video-facade yt" data-id="p19g4pt0BIc" role="button" tabindex="0" aria-label="Play Chris Zemba and The Late Shift Band Official Promo Reel 2026">
+              <a class="video-facade" href="https://www.youtube.com/watch?v=p19g4pt0BIc" target="_blank" rel="noopener noreferrer" aria-label="Play Chris Zemba and The Late Shift Band Official Promo Reel 2026 on YouTube">
                 <img src="/assets/photos/late-shift-key-art.webp" alt="">
                 <span class="play" aria-hidden="true"></span>
-              </div>
+              </a>
               <div class="vid-meta">
-                <div class="vid-title">Official Promo Reel 2026</div>
+                <div class="vid-title">Official Promo Reel 2026 <span style="color:#ff8f61;font-size:11px">· YouTube ↗</span></div>
                 <p class="vid-desc">Late-night soul, blues, R&amp;B and rock presented for lounges, casinos, and after-hours rooms.</p>
               </div>
             </div>
@@ -248,18 +248,18 @@
 
         <div class="mini-videos">
           <div class="video-card">
-            <div class="video-facade yt" data-id="ugXHelhrRcI" role="button" tabindex="0" aria-label="Play Chris Zemba live on FOX5 at the Gibson Showroom">
+            <a class="video-facade" href="https://www.youtube.com/watch?v=ugXHelhrRcI" target="_blank" rel="noopener noreferrer" aria-label="Play Chris Zemba live on FOX5 at the Gibson Showroom on YouTube">
               <img src="/assets/photos/fox5-gibson-group.webp" alt="">
               <span class="play" aria-hidden="true"></span>
             </div>
-            <div class="vid-meta"><div class="vid-title">FOX5 · Gibson Showroom</div><p class="vid-desc">Broadcast feature from the Gibson Showroom in Las Vegas.</p></div>
+            <div class="vid-meta"><div class="vid-title">FOX5 · Gibson Showroom <span style="color:#ff8f61;font-size:11px">· YouTube ↗</span></div><p class="vid-desc">Broadcast feature from the Gibson Showroom in Las Vegas.</p></div>
           </div>
           <div class="video-card">
-            <div class="video-facade yt" data-id="K7J20uZlLak" role="button" tabindex="0" aria-label="Play Great American Foodie Fest 2026 live festival set">
+            <a class="video-facade" href="https://www.youtube.com/watch?v=K7J20uZlLak" target="_blank" rel="noopener noreferrer" aria-label="Play Great American Foodie Fest 2026 live festival set on YouTube">
               <img src="/assets/photos/hero-foodie-fest.webp" alt="">
               <span class="play" aria-hidden="true"></span>
             </div>
-            <div class="vid-meta"><div class="vid-title">Festival Set · Las Vegas</div><p class="vid-desc">Extended full-band footage: full songs, live crowd, outdoor production.</p></div>
+            <div class="vid-meta"><div class="vid-title">Festival Set · Las Vegas <span style="color:#ff8f61;font-size:11px">· YouTube ↗</span></div><p class="vid-desc">Extended full-band footage: full songs, live crowd, outdoor production.</p></div>
           </div>
         </div>
       </div>
@@ -409,31 +409,6 @@
     <a class="btn btn-primary" href="mailto:booking@zembamusicco.com?subject=Agent%20Booking%20Inquiry%20-%20Chris%20Zemba">Email Booking</a>
   </div>
 
-  <script>
-    (function () {
-      function mountYT(el) {
-        if (el.dataset.mounted) return;
-        el.dataset.mounted = "1";
-        var f = document.createElement("iframe");
-        f.src = "https://www.youtube-nocookie.com/embed/" + el.dataset.id + "?autoplay=1&rel=0";
-        f.title = el.getAttribute("aria-label") || "Live video";
-        f.setAttribute("allow","autoplay; encrypted-media; picture-in-picture; web-share");
-        f.setAttribute("allowfullscreen","");
-        f.setAttribute("frameborder","0");
-        f.style.width = "100%";
-        f.style.height = "100%";
-        f.style.position = "absolute";
-        f.style.inset = "0";
-        el.innerHTML = "";
-        el.appendChild(f);
-      }
-      document.querySelectorAll(".yt").forEach(function(el){
-        el.addEventListener("click", function(){ mountYT(el); });
-        el.addEventListener("keydown", function(e){
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); mountYT(el); }
-        });
-      });
-    })();
-  </script>
+
 </body>
 </html>
