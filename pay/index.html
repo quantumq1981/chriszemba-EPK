@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay an Invoice | Zemba Music Co</title>
+  <meta name="description" content="Pay a Zemba Music Co retainer or balance online by card or bank account, or by Venmo, Zelle, PayPal, wire, or check.">
+  <!-- Utility page for clients with a signed agreement: linked from invoices and the performance
+       agreement, never from the nav, and kept out of search results. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://zembamusicco.com/pay/">
+  <link rel="icon" type="image/png" href="/assets/photos/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/tw.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Copied from index.html (each page carries its own inline brand rules) */
+    .text-fire-grad { background: linear-gradient(92deg,#ffb27e,#ee5a20 60%,#cf470f); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    .eyebrow { letter-spacing:.20em; }
+    .card-surface { background-image: linear-gradient(to bottom, rgba(255,255,255,0.055), rgba(255,255,255,0.012)); border: 1px solid rgba(255,255,255,0.09); box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.07); }
+    .link-underline { background-image: linear-gradient(#ff7a3d,#ff7a3d); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s; }
+    .link-underline:hover { background-size:100% 2px; }
+  </style>
+  <script defer data-domain="zembamusicco.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+</head>
+<body class="bg-midnight-950 text-slate-100 font-sans antialiased">
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-20">
+    <a href="/" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-fire-400 transition"><i class="fa-solid fa-arrow-left text-xs"></i> Zemba Music Co</a>
+
+    <p class="eyebrow text-[11px] font-display font-600 uppercase text-fire-400 mt-8 mb-3">Clients with a signed agreement</p>
+    <h1 class="font-display font-700 uppercase text-balance text-[clamp(1.875rem,1.1rem+3.4vw,3.5rem)] leading-[0.95] tracking-[-0.01em]">Pay your <span class="text-fire-grad">invoice</span></h1>
+    <p class="text-slate-300 mt-5 leading-relaxed text-[15px]">The <span class="text-slate-100 font-600">50% retainer</span> confirms your date. The <span class="text-slate-100 font-600">balance</span> is due 7 days before the event. Please put your <span class="text-slate-100 font-600">invoice number or event date</span> in the payment note so it's matched to your booking.</p>
+
+    <!-- Stripe invoice (primary: card, ACH debit, or bank transfer through the hosted invoice page) -->
+    <section class="mt-10 rounded-2xl card-surface p-6 sm:p-8">
+      <p class="font-display font-600 uppercase tracking-[0.16em] text-[11px] text-slate-400">Recommended &middot; card or bank account</p>
+      <h2 class="font-display font-700 uppercase tracking-wide text-2xl mt-1">Pay your invoice online</h2>
+      <p class="text-sm text-slate-300 mt-2 leading-relaxed">Your invoice email from Zemba Music Co includes a secure <span class="text-slate-100 font-600">Pay</span> link (processed by Stripe). Pay there by card, by linking your bank account (ACH), or by bank transfer to the account number shown on the invoice. The link always shows the exact amount due and marks the invoice paid automatically.</p>
+      <p class="text-sm text-slate-400 mt-3">Can't find the email? Ask at <a href="mailto:booking@zembamusicco.com" class="text-azure-300 link-underline">booking@zembamusicco.com</a> and we'll resend it.</p>
+    </section>
+
+    <!-- Venmo -->
+    <section class="mt-6 rounded-2xl card-surface p-6 sm:p-8 grid sm:grid-cols-[auto,1fr] gap-6 sm:gap-8 items-center">
+      <a href="https://venmo.com/u/zembamusicco" target="_blank" rel="noopener" class="block mx-auto sm:mx-0 w-52 sm:w-56 rounded-xl bg-white p-3 shadow-lg">
+        <img src="/assets/photos/venmo-qr-zembamusicco.svg" width="200" height="200" alt="Venmo QR code for Zemba Music Co, @zembamusicco" class="w-full h-auto">
+      </a>
+      <div>
+        <p class="font-display font-600 uppercase tracking-[0.16em] text-[11px] text-slate-400">Scan or tap</p>
+        <h2 class="font-display font-700 uppercase tracking-wide text-2xl mt-1">Venmo</h2>
+        <p class="text-lg text-slate-100 mt-1 font-600">@zembamusicco</p>
+        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Zemba Music Co business profile. Check the profile name before you send.</p>
+        <a href="https://venmo.com/u/zembamusicco" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 bg-fire-500 hover:bg-fire-400 text-midnight-950 font-display font-600 uppercase tracking-wide px-5 py-3 rounded-lg text-sm transition"><i class="fa-solid fa-mobile-screen"></i> Open in Venmo</a>
+      </div>
+    </section>
+
+    <!-- Other methods -->
+    <section class="mt-6 rounded-2xl card-surface divide-y divide-white/5">
+      <div class="flex items-start gap-4 p-5">
+        <i class="fa-solid fa-building-columns text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+        <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Zelle, ACH, or bank wire</p><p class="text-sm text-slate-400 mt-0.5">No fee. Account details are on your invoice. For large payments, use ACH or wire, since many banks cap Zelle at a few thousand dollars a day.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-5">
+        <i class="fa-brands fa-paypal text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+        <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">PayPal</p><p class="text-sm text-slate-400 mt-0.5">PayPal request or link sent with your invoice.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-5">
+        <i class="fa-solid fa-money-check text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+        <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Check</p><p class="text-sm text-slate-400 mt-0.5">Payable to <span class="text-slate-200">Zemba Music Co.</span> A check for the balance must arrive at least 14 days before the event.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-5">
+        <i class="fa-solid fa-credit-card text-fire-400 text-lg mt-0.5 w-6 text-center"></i>
+        <div><p class="font-display font-600 uppercase tracking-wide text-sm text-slate-100">Paying by card</p><p class="text-sm text-slate-400 mt-0.5">Credit cards may carry a surcharge of up to 3%, shown before you pay. Debit cards, bank-account (ACH) payments, Zelle, wire, and check carry no surcharge.</p></div>
+      </div>
+    </section>
+
+    <p class="text-sm text-slate-400 mt-8 leading-relaxed">Questions about an invoice? <a href="mailto:booking@zembamusicco.com" class="text-azure-300 link-underline">booking@zembamusicco.com</a> &middot; <a href="tel:+17027062145" class="text-azure-300 link-underline">(702) 706-2145</a>. Full terms are in the <a href="/assets/downloads/zemba-music-performance-agreement.pdf" target="_blank" rel="noopener" class="text-azure-300 link-underline">performance agreement</a>.</p>
+  </main>
+</body>
+</html>

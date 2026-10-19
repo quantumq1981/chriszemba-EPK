@@ -62,6 +62,29 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   the loader at the foot of `index.html`).
 - **Linktree** = fan spoke, not the booking path. Human-facing Linktree links carry `utm_source=epk`;
   JSON-LD `sameAs` links stay clean. Booking always routes to `#book`/contact.
+- **Contracts (Jotform Sign):** the per-gig e-sign contract is the Jotform Sign doc
+  **"Zemba Music Co. — Performance Agreement (v2)"** (`262913782643060`). Public mirror of its terms:
+  `assets/downloads/performance-agreement-src.html` → `zemba-music-performance-agreement.pdf`
+  (rebuilt by the PDF Action). **Keep three places in sync** when terms change: the Jotform doc, the
+  agreement source, and the "Hold & contract" copy + deposit FAQ in `index.html` / `solo-duo/`.
+  Canonical terms: 7-day courtesy hold → date confirmed only on signature + 50% non-refundable
+  retainer; balance 7 days out (100% at signing if <14 days out); Stripe hosted invoice (card / ACH
+  debit / bank transfer) + Venmo Business / Zelle / PayPal / wire / check; **credit-card surcharge
+  ≤3% only, never on debit** (card-network rule; Stripe invoices have no built-in surcharge); checks received
+  14 days out; late fee 1.5%/month; cancel <14 days = 100% due; power 1×20A (solo–trio) / 2×20A
+  (4-pc+). **`/pay/`** (hand-maintained, `noindex`, not in nav — linked from the agreement and
+  invoices) shows the Venmo Business QR (`assets/photos/venmo-qr-zembamusicco.svg`, regenerated from
+  the owner's QR payload and decode-verified) + `venmo.com/u/zembamusicco`. Venmo handle is public by
+  design; **never** publish bank/routing numbers or Zelle details — those stay on the invoice.
+  PayPal handle not supplied yet; add it to `/pay/` when the owner provides it.
+- **Stripe (Payments + Invoicing):** Dashboard-driven, **no code / no keys in this repo** (static host
+  — a secret key here would be public). Pattern per gig: (1) retainer invoice, `send_invoice`, due in
+  7 days (= courtesy hold), card + `us_bank_account` + `customer_balance` (US bank transfer VBAN);
+  (2) balance invoice created at the same time as a draft scheduled to auto-finalize ~21 days before
+  the event, `due_date` = event − 7 days. Product `Live Entertainment Performance`; event date /
+  venue in `custom_fields`, installment + event date in `metadata`. Sandbox walkthrough objects carry
+  `metadata.source=epk-setup`. Scheduled-send emails fire only in live mode. Payment plans (single
+  invoice, deposit + balance) are private preview — don't build on them yet.
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
@@ -78,7 +101,12 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
 1. Linktree Pro: pin EPK/booking on top, enable lead-capture.
    (`zembamusicco.com` is wired to the EPK and Bandsintown is populated — both done.)
 2. Deployed-URL QA: Lighthouse mobile, Rich Results test.
-3. One more **named** testimonial (entertainment director or banquet/catering manager — title +
+3. Jotform Sign: review the v2 agreement in the builder (signer order: Purchaser then Chris),
+   then delete/archive the older v1 draft ("PERFORMANCE AGREEMENT ZEMBA MUSIC CO", `262913767740061`).
+   Owner's attorney should give the agreement a once-over before first use.
+   Stripe go-live: activate the account, set branding + invoice defaults (see PROGRESS.md "Stripe"),
+   and decide whether to absorb card fees or set up a compliant credit-only surcharge.
+4. One more **named** testimonial (entertainment director or banquet/catering manager — title +
    property). Supply real; never invent.
 
 **Done (no longer open):** Bandsintown calendar is populated (`id_14646019`, live dates render);

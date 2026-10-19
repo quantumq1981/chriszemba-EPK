@@ -10,10 +10,12 @@
   "weddingsCut": "https://zembamusicco.com/weddings/",
   "soloDuoCut": "https://zembamusicco.com/solo-duo/",
   "songs": "https://zembamusicco.com/songs.html",
+  "pay": "https://zembamusicco.com/pay/",
   "linktree": "https://linktr.ee/chriszemba",
   "downloads": {
     "oneSheet": "https://zembamusicco.com/assets/downloads/chris-zemba-one-sheet.pdf",
     "techRider": "https://zembamusicco.com/assets/downloads/zemba-music-tech-rider.pdf",
+    "performanceAgreement": "https://zembamusicco.com/assets/downloads/zemba-music-performance-agreement.pdf",
     "repertoire": "https://zembamusicco.com/assets/downloads/zemba-music-corporate-repertoire.pdf",
     "pressPhotos": "https://zembamusicco.com/assets/downloads/zemba-music-press-photos.zip"
   },

@@ -371,3 +371,71 @@ hidden, booking inquiries tagged `variant=venues` + subject "New booking inquiry
 ---
 
 _Log updated as each task completes._
+
+---
+
+## Performance agreement + deposit terms (branch `claude/performance-agreement`)
+
+Owner supplied a 1-page Performance Agreement draft and asked it to be reconciled with the site and
+set up in Jotform (no merchant account; pays via Zelle, Venmo Business, PayPal, ACH, check).
+
+### Conflicts resolved
+| Draft said | Conflict | Resolution |
+|---|---|---|
+| "Dates are not held until retainer received" | Site promised a "courtesy hold" | 7-day courtesy hold; date confirmed only on signature + retainer |
+| Retainer non-refundable, but "forfeited if cancel <30 days" | Self-contradictory (forfeited at any time) | Retainer non-refundable; <14 days = 100% due; one reschedule ≥30 days out |
+| "Major credit card" | No merchant account | Cards only via PayPal / Venmo Business, 3% fee; added Venmo + PayPal |
+| Checks clear 7 business days prior | Balance due 7 calendar days prior — impossible together | Balance checks received ≥14 days out; $35 returned-check fee |
+| Late fee 1.5% per **week** (~78%/yr) | Penalty-clause enforceability risk | 1.5% per month (owner may revert) |
+| Lineups: duo/trio, 5-pc, showcase | Site sells solo → 8–9 piece | Lineup list mirrors the booking form |
+| 2×20A circuits for every gig | Overkill for solo/duo; rider says only "clean grounded power" | 1×20A solo–trio, 2×20A 4-pc+; rider incorporated by reference |
+| Optional water/green room | Rider already lists hospitality | Matches rider |
+| — | Site: PA "not included unless stated in contract" | Production checkbox added |
+| — | Missing | Overtime rate, signed-late = 100% due, outdoor weather/safety, COI, licensing, Nevada/Clark County law, e-signatures |
+
+### Shipped
+- Jotform Sign doc "Zemba Music Co. — Performance Agreement (v2)" (`262913782643060`).
+- `assets/downloads/performance-agreement-src.html` + rendered 2-page PDF; added to the PDF Action.
+- "Hold & contract" step (index + solo-duo) now states hold / retainer / balance / payment methods and
+  links the agreement; FAQ JSON-LD gains "What are your deposit and payment terms?"; Specs downloads
+  card links the agreement; `epk.json` gains `downloads.performanceAgreement`.
+- Verified: build clean, tw.css smoke tokens ≥1, JSON-LD parses in all cuts, 390px render, 0 page errors.
+
+### Follow-up: `/pay/` page + Venmo
+- Owner supplied the Venmo Business QR + `venmo.com/u/zembamusicco`. QR payload decoded
+  (`paypal.com/qrcodes/venmocs/04f3fe37-…`), re-encoded as a crisp SVG, verified to decode identically,
+  including from a 390px screenshot of the live page.
+- New `pay/index.html` (noindex, not in nav): Venmo QR + deep link, then Zelle/ACH/wire, PayPal, check,
+  and card-fee rows that mirror the agreement. Added to the Tailwind globs and `epk.json` (`pay`).
+- Agreement (PDF source + Jotform Sign v2) now names Venmo @zembamusicco and points to /pay.
+
+## Stripe (Payments + Invoicing)
+
+Owner asked to start on Stripe. The Stripe plugin isn't in the local marketplace copy, but the Stripe
+MCP connector was available; `stripe_implementation_planner` (sandbox `acct_1USIDyC075fwaJCh`,
+guide `iguide_61VbgGOSEHCh8j1ki41C075fwaJCh`) chose: **Dashboard invoicing + rendering template,
+invoice branding, Stripe-hosted invoice page, Dashboard reconciliation (ACH)**. The site stays static;
+no Stripe keys or server code in this repo.
+
+### Sandbox walkthrough (all `metadata.source=epk-setup`)
+| Object | ID | Notes |
+|---|---|---|
+| Product | `prod_VTEnZsyd0eCZ9B` | Live Entertainment Performance (service) |
+| Customer | `cus_VTEnBBTCsoDuq8` | SANDBOX Test Client (Wedding) |
+| Retainer invoice | `in_1USIKHC075fwaJChE1FMnMY7` | $2,500, open, due in 7 days, card + ACH debit + US bank transfer |
+| Balance invoice | `in_1USIKvC075fwaJChQii635Yn` | $2,500 draft, auto-finalizes 2027-04-24, due 2027-05-08 (event 05-15) |
+
+### Compliance fix
+Stripe docs: US surcharging is **credit cards only, max 3%**, must be disclosed, and debit can't be
+surcharged; hosted invoices have no built-in surcharge. The agreement, Jotform doc, `/pay/`, the
+"Hold & contract" copy and the deposit FAQ were changed from "3% on credit or debit" to "credit cards
+up to 3% where permitted; no surcharge on debit, ACH, Zelle, wire, check".
+
+### Owner go-live checklist (Dashboard, account-gated)
+1. Activate the live account (business details, payout bank).
+2. Settings → Branding: logo, brand color #ee5a20, icon.
+3. Settings → Billing → Invoices: default payment methods = Card, ACH Direct Debit, Bank transfer;
+   "Include a link to a payment page" on; reminders on; footer text = the walkthrough footer.
+4. Create an invoice rendering template (memo/footer/custom fields: Event date, Venue, Agreement).
+5. Per gig: duplicate the two sandbox-style invoices (retainer now; balance scheduled 3 weeks out).
+6. Card fees: absorb them (simplest), or set up a compliant credit-only surcharge before charging one.
