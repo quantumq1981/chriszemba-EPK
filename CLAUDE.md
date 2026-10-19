@@ -62,6 +62,16 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   the loader at the foot of `index.html`).
 - **Linktree** = fan spoke, not the booking path. Human-facing Linktree links carry `utm_source=epk`;
   JSON-LD `sameAs` links stay clean. Booking always routes to `#book`/contact.
+- **Contracts (Jotform Sign):** the per-gig e-sign contract is the Jotform Sign doc
+  **"Zemba Music Co. — Performance Agreement (v2)"** (`262913782643060`). Public mirror of its terms:
+  `assets/downloads/performance-agreement-src.html` → `zemba-music-performance-agreement.pdf`
+  (rebuilt by the PDF Action). **Keep three places in sync** when terms change: the Jotform doc, the
+  agreement source, and the "Hold & contract" copy + deposit FAQ in `index.html` / `solo-duo/`.
+  Canonical terms: 7-day courtesy hold → date confirmed only on signature + 50% non-refundable
+  retainer; balance 7 days out (100% at signing if <14 days out); Zelle / Venmo Business / PayPal /
+  ACH / wire / check (no merchant account — cards only via PayPal/Venmo, 3% fee); checks received
+  14 days out; late fee 1.5%/month; cancel <14 days = 100% due; power 1×20A (solo–trio) / 2×20A
+  (4-pc+). Never publish payment handles/account numbers on the site — they go on the invoice.
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
@@ -78,7 +88,10 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
 1. Linktree Pro: pin EPK/booking on top, enable lead-capture.
    (`zembamusicco.com` is wired to the EPK and Bandsintown is populated — both done.)
 2. Deployed-URL QA: Lighthouse mobile, Rich Results test.
-3. One more **named** testimonial (entertainment director or banquet/catering manager — title +
+3. Jotform Sign: review the v2 agreement in the builder (signer order: Purchaser then Chris),
+   then delete/archive the older v1 draft ("PERFORMANCE AGREEMENT ZEMBA MUSIC CO", `262913767740061`).
+   Owner's attorney should give the agreement a once-over before first use.
+4. One more **named** testimonial (entertainment director or banquet/catering manager — title +
    property). Supply real; never invent.
 
 **Done (no longer open):** Bandsintown calendar is populated (`id_14646019`, live dates render);

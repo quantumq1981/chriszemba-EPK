@@ -371,3 +371,32 @@ hidden, booking inquiries tagged `variant=venues` + subject "New booking inquiry
 ---
 
 _Log updated as each task completes._
+
+---
+
+## Performance agreement + deposit terms (branch `claude/performance-agreement`)
+
+Owner supplied a 1-page Performance Agreement draft and asked it to be reconciled with the site and
+set up in Jotform (no merchant account; pays via Zelle, Venmo Business, PayPal, ACH, check).
+
+### Conflicts resolved
+| Draft said | Conflict | Resolution |
+|---|---|---|
+| "Dates are not held until retainer received" | Site promised a "courtesy hold" | 7-day courtesy hold; date confirmed only on signature + retainer |
+| Retainer non-refundable, but "forfeited if cancel <30 days" | Self-contradictory (forfeited at any time) | Retainer non-refundable; <14 days = 100% due; one reschedule ≥30 days out |
+| "Major credit card" | No merchant account | Cards only via PayPal / Venmo Business, 3% fee; added Venmo + PayPal |
+| Checks clear 7 business days prior | Balance due 7 calendar days prior — impossible together | Balance checks received ≥14 days out; $35 returned-check fee |
+| Late fee 1.5% per **week** (~78%/yr) | Penalty-clause enforceability risk | 1.5% per month (owner may revert) |
+| Lineups: duo/trio, 5-pc, showcase | Site sells solo → 8–9 piece | Lineup list mirrors the booking form |
+| 2×20A circuits for every gig | Overkill for solo/duo; rider says only "clean grounded power" | 1×20A solo–trio, 2×20A 4-pc+; rider incorporated by reference |
+| Optional water/green room | Rider already lists hospitality | Matches rider |
+| — | Site: PA "not included unless stated in contract" | Production checkbox added |
+| — | Missing | Overtime rate, signed-late = 100% due, outdoor weather/safety, COI, licensing, Nevada/Clark County law, e-signatures |
+
+### Shipped
+- Jotform Sign doc "Zemba Music Co. — Performance Agreement (v2)" (`262913782643060`).
+- `assets/downloads/performance-agreement-src.html` + rendered 2-page PDF; added to the PDF Action.
+- "Hold & contract" step (index + solo-duo) now states hold / retainer / balance / payment methods and
+  links the agreement; FAQ JSON-LD gains "What are your deposit and payment terms?"; Specs downloads
+  card links the agreement; `epk.json` gains `downloads.performanceAgreement`.
+- Verified: build clean, tw.css smoke tokens ≥1, JSON-LD parses in all cuts, 390px render, 0 page errors.

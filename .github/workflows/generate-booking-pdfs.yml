@@ -8,6 +8,7 @@ on:
     paths:
       - 'assets/downloads/one-sheet-src.html'
       - 'assets/downloads/tech-rider-src.html'
+      - 'assets/downloads/performance-agreement-src.html'
       - '.github/workflows/generate-booking-pdfs.yml'
   workflow_dispatch:
 
@@ -39,6 +40,9 @@ jobs:
           "$CHROME" --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
             --print-to-pdf="${GITHUB_WORKSPACE}/assets/downloads/zemba-music-tech-rider.pdf" \
             "${ROOT}/assets/downloads/tech-rider-src.html"
+          "$CHROME" --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
+            --print-to-pdf="${GITHUB_WORKSPACE}/assets/downloads/zemba-music-performance-agreement.pdf" \
+            "${ROOT}/assets/downloads/performance-agreement-src.html"
 
       - name: Optimize PDFs for web delivery
         shell: bash
@@ -48,7 +52,8 @@ jobs:
           sudo apt-get install -y -qq ghostscript
           for PDF in \
             "${GITHUB_WORKSPACE}/assets/downloads/chris-zemba-one-sheet.pdf" \
-            "${GITHUB_WORKSPACE}/assets/downloads/zemba-music-tech-rider.pdf"; do
+            "${GITHUB_WORKSPACE}/assets/downloads/zemba-music-tech-rider.pdf" \
+            "${GITHUB_WORKSPACE}/assets/downloads/zemba-music-performance-agreement.pdf"; do
             TMP="${PDF%.pdf}.optimized.pdf"
             gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
               -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages=true \
@@ -62,7 +67,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/downloads/chris-zemba-one-sheet.pdf assets/downloads/zemba-music-tech-rider.pdf
+          git add assets/downloads/chris-zemba-one-sheet.pdf assets/downloads/zemba-music-tech-rider.pdf assets/downloads/zemba-music-performance-agreement.pdf
           if git diff --cached --quiet; then
             echo "PDFs already current"
             exit 0
