@@ -408,3 +408,34 @@ set up in Jotform (no merchant account; pays via Zelle, Venmo Business, PayPal, 
 - New `pay/index.html` (noindex, not in nav): Venmo QR + deep link, then Zelle/ACH/wire, PayPal, check,
   and card-fee rows that mirror the agreement. Added to the Tailwind globs and `epk.json` (`pay`).
 - Agreement (PDF source + Jotform Sign v2) now names Venmo @zembamusicco and points to /pay.
+
+## Stripe (Payments + Invoicing)
+
+Owner asked to start on Stripe. The Stripe plugin isn't in the local marketplace copy, but the Stripe
+MCP connector was available; `stripe_implementation_planner` (sandbox `acct_1USIDyC075fwaJCh`,
+guide `iguide_61VbgGOSEHCh8j1ki41C075fwaJCh`) chose: **Dashboard invoicing + rendering template,
+invoice branding, Stripe-hosted invoice page, Dashboard reconciliation (ACH)**. The site stays static;
+no Stripe keys or server code in this repo.
+
+### Sandbox walkthrough (all `metadata.source=epk-setup`)
+| Object | ID | Notes |
+|---|---|---|
+| Product | `prod_VTEnZsyd0eCZ9B` | Live Entertainment Performance (service) |
+| Customer | `cus_VTEnBBTCsoDuq8` | SANDBOX Test Client (Wedding) |
+| Retainer invoice | `in_1USIKHC075fwaJChE1FMnMY7` | $2,500, open, due in 7 days, card + ACH debit + US bank transfer |
+| Balance invoice | `in_1USIKvC075fwaJChQii635Yn` | $2,500 draft, auto-finalizes 2027-04-24, due 2027-05-08 (event 05-15) |
+
+### Compliance fix
+Stripe docs: US surcharging is **credit cards only, max 3%**, must be disclosed, and debit can't be
+surcharged; hosted invoices have no built-in surcharge. The agreement, Jotform doc, `/pay/`, the
+"Hold & contract" copy and the deposit FAQ were changed from "3% on credit or debit" to "credit cards
+up to 3% where permitted; no surcharge on debit, ACH, Zelle, wire, check".
+
+### Owner go-live checklist (Dashboard, account-gated)
+1. Activate the live account (business details, payout bank).
+2. Settings → Branding: logo, brand color #ee5a20, icon.
+3. Settings → Billing → Invoices: default payment methods = Card, ACH Direct Debit, Bank transfer;
+   "Include a link to a payment page" on; reminders on; footer text = the walkthrough footer.
+4. Create an invoice rendering template (memo/footer/custom fields: Event date, Venue, Agreement).
+5. Per gig: duplicate the two sandbox-style invoices (retainer now; balance scheduled 3 weeks out).
+6. Card fees: absorb them (simplest), or set up a compliant credit-only surcharge before charging one.
