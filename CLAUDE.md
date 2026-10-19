@@ -74,7 +74,8 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   14 days out; late fee 1.5%/month; cancel <14 days = 100% due; power 1×20A (solo–trio) / 2×20A
   (4-pc+). **`/pay/`** (hand-maintained, `noindex`, not in nav — linked from the agreement and
   invoices) shows the Venmo Business QR (`assets/photos/venmo-qr-zembamusicco.svg`, regenerated from
-  the owner's QR payload and decode-verified) + `venmo.com/u/zembamusicco`. Venmo handle is public by
+  the owner's QR payload and decode-verified; **owner phone-scan confirmed it opens the Zemba Music Co
+  Venmo profile, 2026-10-19**) + `venmo.com/u/zembamusicco`. Venmo handle is public by
   design; **never** publish bank/routing numbers or Zelle details — those stay on the invoice.
   PayPal handle not supplied yet; add it to `/pay/` when the owner provides it.
 - **Stripe (Payments + Invoicing):** Dashboard-driven, **no code / no keys in this repo** (static host
