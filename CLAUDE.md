@@ -71,7 +71,11 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   retainer; balance 7 days out (100% at signing if <14 days out); Zelle / Venmo Business / PayPal /
   ACH / wire / check (no merchant account — cards only via PayPal/Venmo, 3% fee); checks received
   14 days out; late fee 1.5%/month; cancel <14 days = 100% due; power 1×20A (solo–trio) / 2×20A
-  (4-pc+). Never publish payment handles/account numbers on the site — they go on the invoice.
+  (4-pc+). **`/pay/`** (hand-maintained, `noindex`, not in nav — linked from the agreement and
+  invoices) shows the Venmo Business QR (`assets/photos/venmo-qr-zembamusicco.svg`, regenerated from
+  the owner's QR payload and decode-verified) + `venmo.com/u/zembamusicco`. Venmo handle is public by
+  design; **never** publish bank/routing numbers or Zelle details — those stay on the invoice.
+  PayPal handle not supplied yet; add it to `/pay/` when the owner provides it.
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 

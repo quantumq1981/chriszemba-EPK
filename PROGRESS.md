@@ -400,3 +400,11 @@ set up in Jotform (no merchant account; pays via Zelle, Venmo Business, PayPal, 
   links the agreement; FAQ JSON-LD gains "What are your deposit and payment terms?"; Specs downloads
   card links the agreement; `epk.json` gains `downloads.performanceAgreement`.
 - Verified: build clean, tw.css smoke tokens ≥1, JSON-LD parses in all cuts, 390px render, 0 page errors.
+
+### Follow-up: `/pay/` page + Venmo
+- Owner supplied the Venmo Business QR + `venmo.com/u/zembamusicco`. QR payload decoded
+  (`paypal.com/qrcodes/venmocs/04f3fe37-…`), re-encoded as a crisp SVG, verified to decode identically,
+  including from a 390px screenshot of the live page.
+- New `pay/index.html` (noindex, not in nav): Venmo QR + deep link, then Zelle/ACH/wire, PayPal, check,
+  and card-fee rows that mirror the agreement. Added to the Tailwind globs and `epk.json` (`pay`).
+- Agreement (PDF source + Jotform Sign v2) now names Venmo @zembamusicco and points to /pay.
