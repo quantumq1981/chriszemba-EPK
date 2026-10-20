@@ -1,1 +1,4 @@
 node_modules/
+# Cloudflare Pages local secrets (wrangler pages dev). Never commit real keys.
+.dev.vars
+.env

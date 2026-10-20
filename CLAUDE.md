@@ -77,6 +77,7 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   the owner's QR payload and decode-verified; **owner phone-scan confirmed it opens the Zemba Music Co
   Venmo profile, 2026-10-19**) + `venmo.com/u/zembamusicco`. Venmo handle is public by
   design; **never** publish bank/routing numbers or Zelle details — those stay on the invoice.
+  **Zelle stays** (owner decision 2026-10-20: clients and vendors expect it) — don't propose removing it.
   PayPal: owner's managed PayPal QR (`paypal.com/qrcodes/managed/2fd0ca29-…`, payload decoded from
   their upload) re-encoded as `assets/photos/paypal-qr-zembamusicco.svg`, decode-verified; the
   "Open in PayPal" button uses the same URL. Owner phone-scan of the PayPal QR still pending.
@@ -88,6 +89,12 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   venue in `custom_fields`, installment + event date in `metadata`. Sandbox walkthrough objects carry
   `metadata.source=epk-setup`. Scheduled-send emails fire only in live mode. Payment plans (single
   invoice, deposit + balance) are private preview — don't build on them yet.
+- **Stripe Checkout (embedded form):** `functions/api/create-checkout-session.js` is a **Cloudflare
+  Pages Function** (the only server code in the repo; GitHub Pages ignores it) + `pay/checkout/`
+  (noindex, not linked). Inert until the Cloudflare cutover; the page falls back to `/pay/`. Checkout
+  Studio params (`ui_mode: "form"`, etc.) are fixed; `stripe@23.0.0` pins API `2026-09-30.endive`.
+  `STRIPE_SECRET_KEY` lives only in Cloudflare env / git-ignored `.dev.vars`. Placeholders (price ID,
+  publishable key) and go-live steps: **`STRIPE_INTEGRATION_TODO.md`** (single source of truth).
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
@@ -109,6 +116,11 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
    Owner's attorney should give the agreement a once-over before first use.
    Stripe go-live: activate the account, set branding + invoice defaults (see PROGRESS.md "Stripe"),
    and decide whether to absorb card fees or set up a compliant credit-only surcharge.
+   **Paused by owner (2026-10-20):** the Stripe Dashboard kept timing out and the owner is done with
+   it for now. The Claude Stripe connector still exposes only the sandbox (`acct_1USIDyC075fwaJCh`).
+   Don't push the owner back into Stripe setup; Venmo / PayPal / Zelle / check (on `/pay/`) cover
+   payments meanwhile. Resume only when the owner asks, ideally once the connector shows the live
+   account so Claude can do the configuration via API.
 4. One more **named** testimonial (entertainment director or banquet/catering manager — title +
    property). Supply real; never invent.
 
