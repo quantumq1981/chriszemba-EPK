@@ -439,3 +439,9 @@ up to 3% where permitted; no surcharge on debit, ACH, Zelle, wire, check".
 4. Create an invoice rendering template (memo/footer/custom fields: Event date, Venue, Agreement).
 5. Per gig: duplicate the two sandbox-style invoices (retainer now; balance scheduled 3 weeks out).
 6. Card fees: absorb them (simplest), or set up a compliant credit-only surcharge before charging one.
+
+### Follow-up: PayPal on `/pay/`
+- Owner supplied their PayPal business QR ("Zemba MusicCo"). Payload decoded
+  (`https://www.paypal.com/qrcodes/managed/2fd0ca29-b7b5-4de8-8bef-a2d692dce1b5?utm_source=consapp_download`),
+  re-encoded as a crisp SVG and verified to decode identically. `/pay/` gains a PayPal card matching
+  the Venmo card; the old "PayPal request sent with your invoice" row is gone.
