@@ -77,6 +77,7 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   the owner's QR payload and decode-verified; **owner phone-scan confirmed it opens the Zemba Music Co
   Venmo profile, 2026-10-19**) + `venmo.com/u/zembamusicco`. Venmo handle is public by
   design; **never** publish bank/routing numbers or Zelle details — those stay on the invoice.
+  **Zelle stays** (owner decision 2026-10-20: clients and vendors expect it) — don't propose removing it.
   PayPal: owner's managed PayPal QR (`paypal.com/qrcodes/managed/2fd0ca29-…`, payload decoded from
   their upload) re-encoded as `assets/photos/paypal-qr-zembamusicco.svg`, decode-verified; the
   "Open in PayPal" button uses the same URL. Owner phone-scan of the PayPal QR still pending.
