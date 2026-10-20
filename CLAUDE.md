@@ -115,6 +115,11 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
    Owner's attorney should give the agreement a once-over before first use.
    Stripe go-live: activate the account, set branding + invoice defaults (see PROGRESS.md "Stripe"),
    and decide whether to absorb card fees or set up a compliant credit-only surcharge.
+   **Paused by owner (2026-10-20):** the Stripe Dashboard kept timing out and the owner is done with
+   it for now. The Claude Stripe connector still exposes only the sandbox (`acct_1USIDyC075fwaJCh`).
+   Don't push the owner back into Stripe setup; Venmo / PayPal / Zelle / check (on `/pay/`) cover
+   payments meanwhile. Resume only when the owner asks, ideally once the connector shows the live
+   account so Claude can do the configuration via API.
 4. One more **named** testimonial (entertainment director or banquet/catering manager — title +
    property). Supply real; never invent.
 
