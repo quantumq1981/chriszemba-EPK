@@ -60,5 +60,8 @@ No Cloudflare is required for that. Subdomains are a nicety on top.
    `weddings.` lines as those cuts ship.) Alternatively add each subdomain as a
    Pages custom domain and point it at the matching path. Note: `_redirects` is a Cloudflare Pages
    feature — it is ignored by GitHub Pages, so only add it once you have cut over.
-5. **Optional** — switch the booking form to Cloudflare Pages Forms for free in-form photo uploads
+5. **Stripe Checkout** — the repo ships a Pages Function at `functions/api/create-checkout-session.js`
+   that only runs on Cloudflare. Add `STRIPE_SECRET_KEY` as a secret in Pages → Settings →
+   Variables and Secrets; remaining steps are in `STRIPE_INTEGRATION_TODO.md`.
+6. **Optional** — switch the booking form to Cloudflare Pages Forms for free in-form photo uploads
    (the current FormSubmit `/ajax` path does not carry file attachments).

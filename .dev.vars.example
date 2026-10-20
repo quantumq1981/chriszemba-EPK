@@ -1,0 +1,5 @@
+# Copy to .dev.vars for local testing with `npx wrangler pages dev .` (git-ignored).
+# Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
+# In production, set these in Cloudflare Pages -> Settings -> Variables and Secrets instead.
+# Get keys from https://dashboard.stripe.com/test/apikeys
+STRIPE_SECRET_KEY=sk_test_...

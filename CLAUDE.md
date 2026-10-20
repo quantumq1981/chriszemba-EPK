@@ -88,6 +88,12 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   venue in `custom_fields`, installment + event date in `metadata`. Sandbox walkthrough objects carry
   `metadata.source=epk-setup`. Scheduled-send emails fire only in live mode. Payment plans (single
   invoice, deposit + balance) are private preview — don't build on them yet.
+- **Stripe Checkout (embedded form):** `functions/api/create-checkout-session.js` is a **Cloudflare
+  Pages Function** (the only server code in the repo; GitHub Pages ignores it) + `pay/checkout/`
+  (noindex, not linked). Inert until the Cloudflare cutover; the page falls back to `/pay/`. Checkout
+  Studio params (`ui_mode: "form"`, etc.) are fixed; `stripe@23.0.0` pins API `2026-09-30.endive`.
+  `STRIPE_SECRET_KEY` lives only in Cloudflare env / git-ignored `.dev.vars`. Placeholders (price ID,
+  publishable key) and go-live steps: **`STRIPE_INTEGRATION_TODO.md`** (single source of truth).
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 

@@ -445,3 +445,15 @@ up to 3% where permitted; no surcharge on debit, ACH, Zelle, wire, check".
   (`https://www.paypal.com/qrcodes/managed/2fd0ca29-b7b5-4de8-8bef-a2d692dce1b5?utm_source=consapp_download`),
   re-encoded as a crisp SVG and verified to decode identically. `/pay/` gains a PayPal card matching
   the Venmo card; the old "PayPal request sent with your invoice" row is gone.
+
+### Stripe Checkout embedded form (Checkout Studio prompt, Scenario B)
+- No server and no existing Checkout Session call. The endpoint ships as a Cloudflare Pages Function
+  (`functions/api/create-checkout-session.js`), consistent with the HOSTING.md Cloudflare plan;
+  GitHub Pages ignores it. Client page `pay/checkout/` (noindex, unlinked) with Dahlia Stripe.js,
+  `initCheckoutFormSdk`, the configured appearance, and a fallback to `/pay/` when the endpoint is
+  unreachable.
+- Verified: the exact fixed_by_ui params created a real `ui_mode: "form"` session in the sandbox
+  with no `return_url`; the function bundled for Workers (esbuild `worker` condition) returns
+  `{client_secret}`, sends every configured param, pins `Stripe-Version: 2026-09-30.endive`, and
+  returns 503 with no key / 500 on Stripe errors. The page's fallback renders with 0 page errors.
+- Placeholders (price ID, publishable key, Cloudflare secret) are tracked in STRIPE_INTEGRATION_TODO.md.
