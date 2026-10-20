@@ -141,4 +141,24 @@ delete site._comment;
 writeFileSync(join(root, 'epk.json'), JSON.stringify({ ...site, updatedAt: new Date().toISOString() }, null, 2) + '\n');
 console.log('wrote epk.json (public sync manifest)');
 
+// Emit /sitemap.xml so search engines discover every indexable page, including each generated cut.
+// Utility pages that are noindex on purpose (/pay/, /pay/checkout/, /agents/) are left out. No
+// <lastmod>: it would change on every build and add diff noise without a real content signal.
+const SITE_ORIGIN = 'https://zembamusicco.com';
+const sitemapUrls = [
+  `${SITE_ORIGIN}/`,
+  ...variants.map((v) => v.canonical || `${SITE_ORIGIN}/${v.outDir}/`),
+  `${SITE_ORIGIN}/solo-duo/`,
+  `${SITE_ORIGIN}/songs.html`,
+];
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...sitemapUrls.map((u) => `  <url><loc>${u}</loc></url>`),
+  '</urlset>',
+  '',
+].join('\n');
+writeFileSync(join(root, 'sitemap.xml'), sitemap);
+console.log(`wrote sitemap.xml (${sitemapUrls.length} URLs)`);
+
 console.log(`\n${ok} variant(s) generated from index.html.`);

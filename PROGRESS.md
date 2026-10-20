@@ -457,3 +457,24 @@ up to 3% where permitted; no surcharge on debit, ACH, Zelle, wire, check".
   `{client_secret}`, sends every configured param, pins `Stripe-Version: 2026-09-30.endive`, and
   returns 503 with no key / 500 on Stripe errors. The page's fallback renders with 0 page errors.
 - Placeholders (price ID, publishable key, Cloudflare secret) are tracked in STRIPE_INTEGRATION_TODO.md.
+
+## SEO foundations (branch `claude/seo-foundations`)
+
+Owner connected Semrush, Ahrefs, Ubersuggest, OpenSEO, OpenRush and asked to maximize search traffic.
+
+### Findings (OpenRush, 2026-10-20)
+- **Zero indexed organic keywords** for zembamusicco.com, and **no sitemap / robots.txt** (the
+  audit fell back to a homepage link crawl).
+- On-page audit score **96/100**; only low-severity issues (long solo-duo title, songs.html without
+  JSON-LD, empty alt on images, which are video thumbnails labelled via aria-label, so left as-is).
+- Demand is small and directory-dominated: "wedding band las vegas" ~50/mo, "las vegas wedding
+  band" ~30/mo; that SERP is mostly **ring jewelers**. "corporate event band las vegas" page 1 =
+  agencies + directories (The Knot, PartySlate, GigSalad, Encore) + a **local pack** of bands.
+  ⇒ Biggest levers are off-site: Google Business Profile, directory listings, reviews.
+
+### Shipped
+- `build.mjs` now emits `sitemap.xml` (6 URLs); `robots.txt` added.
+- Buyer-intent titles ≤60 chars + descriptions ≤160 on home, venues, corporate, weddings, solo-duo.
+- `songs.html` WebPage JSON-LD linked to `#chris` / `#org`.
+- Verified: sitemap is valid XML; all JSON-LD parses; cuts changed only in title/description;
+  tw.css smoke tokens ≥1.
