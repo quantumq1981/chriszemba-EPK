@@ -103,6 +103,13 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   Video-thumbnail images keep `alt=""` on purpose (their play button carries the aria-label).
   SEO connectors (2026-10-20): OpenRush works (pay-per-call), OpenSEO 500 credits, Ubersuggest free
   (3 reports/day); Semrush needs paid API units; Ahrefs plan has no API access.
+- **Botpress webchat ("press agent" Q&A bot, owner-trained):** two deferred scripts just before
+  `</body>` in `index.html` (→ all generated cuts) and `solo-duo/index.html` — `inject.js` (webchat
+  v5.0 runtime) then the bot's config file on `files.bpcontent.cloud`. Order matters (runtime before
+  config); `defer` preserves it. Bot content/answers live in Botpress Studio, not this repo. If the
+  bot is re-published with a new embed, swap the config URL in both source pages and rebuild.
+  Deliberately **not** on `/pay/` or `/pay/checkout/` (keep payment pages distraction-free). Build
+  sandbox can't reach either host, so render is eyeball-on-deployed.
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
