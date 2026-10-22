@@ -109,7 +109,9 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   config); `defer` preserves it. Bot content/answers live in Botpress Studio, not this repo. If the
   bot is re-published with a new embed, swap the config URL in both source pages and rebuild.
   Deliberately **not** on `/pay/` or `/pay/checkout/` (keep payment pages distraction-free). Build
-  sandbox can't reach either host, so render is eyeball-on-deployed.
+  sandbox can't reach either host, so render is eyeball-on-deployed. **Owner-verified live
+  (2026-10-22):** long test conversation — the bot defers booking/specifics to the booking path and
+  tells visitors a person will follow up. Don't re-propose bot-behavior QA.
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
