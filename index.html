@@ -2063,5 +2063,14 @@
     })();
   </script>
 
+  <!-- Botpress webchat — the owner-trained "press agent" bot that answers visitor questions.
+       Both scripts are deferred so they never block first paint; deferred scripts run in document
+       order, so inject.js (the webchat runtime) always loads before the bot's config script.
+       The config file is generated in Botpress Studio — re-paste its URL here if the bot is
+       re-published with a new embed. The bot is a Q&A helper, not the booking path: bookings
+       still route to #book / booking@zembamusicco.com. -->
+  <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js" defer></script>
+  <script src="https://files.bpcontent.cloud/2026/10/19/12/20261019120658-BOYW5BF3.js" defer></script>
+
 </body>
 </html>
