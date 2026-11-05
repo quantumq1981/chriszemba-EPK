@@ -33,6 +33,12 @@ directors, club owners, festival buyers, and wedding clients**. Hosted on GitHub
   (azure theme). Not generated. Shares `assets/tw.css` (its classes are in the Tailwind globs).
 - **`src/site.json` → `epk.json`** (public, CORS-open manifest): booking contact + cut URLs +
   download links. The Setlist-Generator outreach app fetches it. Keep only already-public data here.
+- **`agents/index.html`** is a second **hand-maintained**, `noindex` page (agent / entertainment-director
+  pitch: the two full-band acts). It carries the same outreach-attribution script as the other pages
+  (`?act`/`?track`/utm → Plausible `EPK Visit` with `page: agents`); having no form, it appends a
+  `Ref: <token> (<act>)` line to its mailto booking links instead of hidden form fields. Listed in
+  `epk.json` as `agentsCut`; BandLeaderHQ links a venue here only when its "EPK page" is set to Agent
+  by hand (owner decision 2026-11-05: no automatic routing).
 
 ## Build & verify
 

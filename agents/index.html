@@ -21,6 +21,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script defer data-domain="zembamusicco.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
+  <!-- Outreach attribution (same contract as the main EPK and its cuts). The BandLeaderHQ outreach app
+       tags links ?act=<format>&track=<venue-token> plus utm_source/campaign. Capture them so (1) a
+       Plausible "EPK Visit" event names the pitched venue (page: agents), and (2) this page's mailto
+       booking links carry the tag in the email body — the agent page has no form, so the inquiry
+       email itself says which outreach produced it. -->
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var tag = {
+        venue:    q.get('track') || q.get('ref') || '',
+        act:      q.get('act') || '',
+        source:   q.get('utm_source') || '',
+        campaign: q.get('utm_campaign') || ''
+      };
+      try {
+        if (tag.venue) sessionStorage.setItem('epkTag', JSON.stringify(tag));
+        else { var s = sessionStorage.getItem('epkTag'); if (s) tag = JSON.parse(s); }
+      } catch (e) {}
+      window.__epkTag = tag;
+      if (window.plausible && tag.venue) {
+        plausible('EPK Visit', { props: {
+          venue: tag.venue, act: tag.act || 'na', source: tag.source || 'direct', page: 'agents'
+        } });
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!tag.venue) return;
+        var ref = 'Ref: ' + tag.venue + (tag.act ? ' (' + tag.act + ')' : '') + (tag.campaign ? ' / ' + tag.campaign : '');
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+          var href = a.getAttribute('href');
+          if (/[?&]body=/.test(href)) return;
+          a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + 'body=' + encodeURIComponent('\n\n—\n' + ref));
+        });
+      });
+    })();
+  </script>
   <style>
     :root{
       --bg:#070b11; --panel:#0d131c; --panel2:#101824; --text:#f8fafc; --muted:#a8b0bd;
