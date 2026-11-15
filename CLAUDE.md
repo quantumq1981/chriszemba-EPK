@@ -118,13 +118,16 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   sandbox can't reach either host, so render is eyeball-on-deployed. **Owner-verified live
   (2026-10-22):** long test conversation — the bot defers booking/specifics to the booking path and
   tells visitors a person will follow up. Don't re-propose bot-behavior QA.
-- **Encore Musicians verified badge** (owner-supplied embed, generated 2026-11-14): a card at the foot
-  of `#reviews` in `index.html` (`data-audience="all"` → full EPK + every cut). `href`, `img src` and
-  `alt` are kept exactly as Encore issued them; only `target="_blank" rel="noopener"`, intrinsic
-  100×100 size and lazy-load were adapted. Note: Encore's code links to its generic
-  `/hire/function-bands` category page, **not** Chris's profile — if the owner wants it to land on
-  the profile, they need the profile URL from Encore (don't guess one). Sandbox can't reach
-  `encoremusicians.com`, so the SVG render is eyeball-on-deployed. Not on `solo-duo/` (hand-maintained).
+- **Encore Musicians badge** (owner-supplied embed, generated 2026-11-14): a card at the foot of
+  `#reviews` in `index.html` (`data-audience="all"` → full EPK + every cut). The `<a>/<img>` is
+  Encore's snippet **pasted verbatim** — Encore verifies the badge by checking the live page, so never
+  reformat/re-quote it. The build's HTML serializer drops the `/` from `<img .../>` in the generated
+  cuts (harmless), so the **URL submitted to Encore is the home page `https://zembamusicco.com/`**,
+  where the snippet is byte-exact. **Status: awaiting Encore verification** — card copy is neutral
+  ("Book Chris Zemba on Encore Musicians"); switch it to "Verified on Encore" only once Encore
+  confirms. Encore's link goes to its generic `/hire/function-bands` page, not the profile (Encore's
+  call). Sandbox can't reach `encoremusicians.com` → SVG render is eyeball-on-deployed. Not on
+  `solo-duo/` (hand-maintained).
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
@@ -156,7 +159,9 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
    pack shows bands for both "wedding band" and "corporate event band" searches; list on The Knot,
    WeddingWire, GigSalad, PartySlate, Encore Musicians (they own page 1); ask clients for Google
    reviews.
-5. One more **named** testimonial (entertainment director or banquet/catering manager — title +
+5. **Encore Musicians:** after PR #68 deploys, submit `https://zembamusicco.com/` to Encore for badge
+   verification; once confirmed, tell Claude to flip the `#reviews` card copy to "Verified".
+6. One more **named** testimonial (entertainment director or banquet/catering manager — title +
    property). Supply real; never invent.
 
 **Done (no longer open):** Bandsintown calendar is populated (`id_14646019`, live dates render);

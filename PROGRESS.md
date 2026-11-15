@@ -493,3 +493,9 @@ Owner connected Semrush, Ahrefs, Ubersuggest, OpenSEO, OpenRush and asked to max
   scroll, 0 page errors. Badge SVG itself not loadable from the sandbox (egress blocks the host) →
   eyeball on deployed.
 - Owner note: Encore's badge links to the generic function-bands category, not the profile.
+- **Revised (owner):** the badge isn't "verified" until Encore checks the live site after the owner
+  submits the URL. So: (1) the snippet is now pasted **verbatim** (single quotes, raw `&`,
+  `target="_parent"`, inline style) so Encore's check matches; (2) card copy changed from
+  "Verified on Encore Musicians / a verified act" to the neutral "Book Chris Zemba on Encore
+  Musicians" (no unconfirmed proof claims). The build serializer drops `<img/>`'s `/` in cuts only, so
+  the URL to submit is the home page. Flip copy to "Verified" after Encore confirms.
