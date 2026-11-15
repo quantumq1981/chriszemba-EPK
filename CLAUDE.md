@@ -118,6 +118,13 @@ npm run build               # regenerate all cuts from index.html + rebuild asse
   sandbox can't reach either host, so render is eyeball-on-deployed. **Owner-verified live
   (2026-10-22):** long test conversation — the bot defers booking/specifics to the booking path and
   tells visitors a person will follow up. Don't re-propose bot-behavior QA.
+- **Encore Musicians verified badge** (owner-supplied embed, generated 2026-11-14): a card at the foot
+  of `#reviews` in `index.html` (`data-audience="all"` → full EPK + every cut). `href`, `img src` and
+  `alt` are kept exactly as Encore issued them; only `target="_blank" rel="noopener"`, intrinsic
+  100×100 size and lazy-load were adapted. Note: Encore's code links to its generic
+  `/hire/function-bands` category page, **not** Chris's profile — if the owner wants it to land on
+  the profile, they need the profile URL from Encore (don't guess one). Sandbox can't reach
+  `encoremusicians.com`, so the SVG render is eyeball-on-deployed. Not on `solo-duo/` (hand-maintained).
 - **Analytics:** Plausible (`file-downloads.outbound-links.tagged-events`); `Booking Inquiry`
   custom event fires from the form handler.
 
