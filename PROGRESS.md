@@ -478,3 +478,18 @@ Owner connected Semrush, Ahrefs, Ubersuggest, OpenSEO, OpenRush and asked to max
 - `songs.html` WebPage JSON-LD linked to `#chris` / `#org`.
 - Verified: sitemap is valid XML; all JSON-LD parses; cuts changed only in title/description;
   tw.css smoke tokens ≥1.
+
+## Encore Musicians verified badge (branch `claude/zen-thompson-wcck6h`, 2026-11-15)
+
+- Owner supplied Encore's verified-badge embed (green, medium; generated 2026-11-14). Placed as a
+  "Verified on Encore Musicians" card at the foot of `#reviews` — third-party proof, and `#reviews`
+  is `data-audience="all"`, so it ships on the full EPK and all three generated cuts. The trust bar
+  was ruled out: it is a single `<a>` to `#specs`, and links can't nest.
+- Embed kept verbatim where it matters (Encore's comment, `href` + UTM tags, `img src`, `alt`);
+  adapted `target="_parent"` → `_blank rel="noopener"` (site convention), inline style → `width`/
+  `height` attrs + `w-[100px] h-[100px]` (no CLS), `loading="lazy"`.
+- Verified: build clean; cuts differ only by the badge block; tw.css smoke tokens ≥1 plus the new
+  `w-[100px]`/`h-[100px]`; headless Chromium 390px + 1440px: slot reserved at 100×100, no horizontal
+  scroll, 0 page errors. Badge SVG itself not loadable from the sandbox (egress blocks the host) →
+  eyeball on deployed.
+- Owner note: Encore's badge links to the generic function-bands category, not the profile.
